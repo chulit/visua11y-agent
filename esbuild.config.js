@@ -15,7 +15,7 @@ const baseConfig = {
   minify: isMinify,
   sourcemap: true,
   alias: { '@': './src' },
-  loader: { '.html': 'text', '.svg': 'text' },
+  loader: { '.html': 'text', '.svg': 'text', '.png': 'dataurl' },
   plugins: [
     {
       name: "CSSMinifyPlugin",

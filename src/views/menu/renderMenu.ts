@@ -5,6 +5,7 @@ import FilterButtons from "./FilterButtons";
 import ContentButtons from "./ContentButtons";
 import ToolButtons from "../../enum/TOOL_PRESETS";
 import widgetSettingsIcon from "../../icons/widgetSettingsIcon.svg";
+import logoAsset from "../../icons/logo.png";
 
 import renderButtons from "./renderButtons";
 import adjustFontSize from "../../tools/adjustFontSize";
@@ -109,6 +110,11 @@ export default function renderMenu() {
     if (pluginConfig?.position?.includes("right")) {
         $menu.style.right = '0px';
         $menu.style.left = 'auto';
+    }
+
+    const $logo = $container.querySelector<HTMLImageElement>("[data-nextbility-logo]");
+    if ($logo) {
+        $logo.src = logoAsset;
     }
 
     $menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);

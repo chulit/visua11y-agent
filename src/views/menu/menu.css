@@ -566,8 +566,18 @@
     right: 0;
     background: #fff;
     padding: 15px 20px;
-    text-align: right;
     border-top: 2px solid #eff1f5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.nextbility-footer img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .nextbility-footer a {
