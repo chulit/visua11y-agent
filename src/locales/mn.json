@@ -14,6 +14,8 @@
     "High Saturation": "Өндөр ханалт",
     "Low Saturation": "Бага ханалт",
     "Monochrome": "Нэг өнгө",
+    "Contrast": "Контраст",
+    "Invert Colors": "Өнгийг урвуулах",
     "Tools": "Хэрэгслүүд",
     "Reading Guide": "Унших гарын авлага",
     "Stop Animations": "Анимацийг зогсоох",
@@ -25,6 +27,26 @@
     "Font Weight": "Фонтын жин",
     "Dyslexia Font": "Дислекси фонт",
     "Language": "Хэл",
-    "Open Accessibility Menu": "Хандалтын цэсийг нээх"
-  }
-  
+    "Open Accessibility Menu": "Хандалтын цэсийг нээх",
+    "Widget Settings": "Виджетийн тохиргоо",
+    "Widget Position": "Виджетийн байрлал",
+    "Top Left": "Дээд зүүн",
+    "Top Center": "Дээд төв",
+    "Top Right": "Дээд баруун",
+    "Center Left": "Төвийн зүүн",
+    "Center Right": "Төвийн баруун",
+    "Bottom Left": "Доод зүүн",
+    "Bottom Center": "Доод төв",
+    "Bottom Right": "Доод баруун",
+    "Screen Reader": "Дэлгэц уншигч",
+    "Voice Navigation": "Дуугаар удирдах",
+    "Custom Color": "Өөрийн өнгө",
+    "Change the site's colors": "Сайтын өнгийг өөрчлөх",
+    "Backgrounds": "Дэвсгэрүүд",
+    "Headings": "Гарчигууд",
+    "Contents": "Агуулга",
+    "Reset colors": "Өнгийг дахин тохируулах",
+    "Image Desaturation": "Зургийн өнгө бууруулах",
+    "Search languages": "Хэл хайх",
+    "No languages found": "Хэл олдсонгүй"
+}

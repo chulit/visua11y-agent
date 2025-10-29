@@ -14,6 +14,8 @@
     "High Saturation": "اشباع بالا",
     "Low Saturation": "اشباع پایین",
     "Monochrome": "تک‌رنگ",
+    "Contrast": "کنتراست",
+    "Invert Colors": "وارونه کردن رنگ‌ها",
     "Tools": "ابزارها",
     "Reading Guide": "راهنمای خواندن",
     "Stop Animations": "توقف انیمیشن‌ها",
@@ -25,6 +27,26 @@
     "Font Weight": "وزن فونت",
     "Dyslexia Font": "فونت دیسلکسیا",
     "Language": "زبان",
-    "Open Accessibility Menu": "بازکردن منوی دسترسی"
-  }
-  
+    "Open Accessibility Menu": "بازکردن منوی دسترسی",
+    "Widget Settings": "تنظیمات ویجت",
+    "Widget Position": "موقعیت ویجت",
+    "Top Left": "بالا چپ",
+    "Top Center": "بالا مرکز",
+    "Top Right": "بالا راست",
+    "Center Left": "مرکز چپ",
+    "Center Right": "مرکز راست",
+    "Bottom Left": "پایین چپ",
+    "Bottom Center": "پایین مرکز",
+    "Bottom Right": "پایین راست",
+    "Screen Reader": "صفحه‌خوان",
+    "Voice Navigation": "پیمایش صوتی",
+    "Custom Color": "رنگ سفارشی",
+    "Change the site's colors": "رنگ‌های سایت را تغییر دهید",
+    "Backgrounds": "پس‌زمینه‌ها",
+    "Headings": "سرفصل‌ها",
+    "Contents": "محتوا",
+    "Reset colors": "بازنشانی رنگ‌ها",
+    "Image Desaturation": "کاهش اشباع تصویر",
+    "Search languages": "جستجوی زبان‌ها",
+    "No languages found": "زبانی یافت نشد"
+}

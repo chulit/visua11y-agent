@@ -14,6 +14,8 @@
     "High Saturation": "Висока наситеност",
     "Low Saturation": "Ниска наситеност",
     "Monochrome": "Монохромен",
+    "Contrast": "Контраст",
+    "Invert Colors": "Обърни цветовете",
     "Tools": "Инструменти",
     "Reading Guide": "Ръководство за четене",
     "Stop Animations": "Спри анимациите",
@@ -25,6 +27,26 @@
     "Font Weight": "Дебелина на шрифта",
     "Dyslexia Font": "Шрифт за дислексия",
     "Language": "Език",
-    "Open Accessibility Menu": "Отвори меню за достъпност"
-  }
-  
+    "Open Accessibility Menu": "Отвори меню за достъпност",
+    "Widget Settings": "Настройки на уиджета",
+    "Widget Position": "Позиция на уиджета",
+    "Top Left": "Горе вляво",
+    "Top Center": "Горе в центъра",
+    "Top Right": "Горе вдясно",
+    "Center Left": "В центъра вляво",
+    "Center Right": "В центъра вдясно",
+    "Bottom Left": "Долу вляво",
+    "Bottom Center": "Долу в центъра",
+    "Bottom Right": "Долу вдясно",
+    "Screen Reader": "Четец на екрана",
+    "Voice Navigation": "Гласова навигация",
+    "Custom Color": "Персонален цвят",
+    "Change the site's colors": "Промени цветовете на сайта",
+    "Backgrounds": "Фонове",
+    "Headings": "Заглавия",
+    "Contents": "Съдържание",
+    "Reset colors": "Нулирай цветовете",
+    "Image Desaturation": "Десатурация на изображението",
+    "Search languages": "Търсене на езици",
+    "No languages found": "Няма намерени езици"
+}
