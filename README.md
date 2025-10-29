@@ -6,9 +6,9 @@
 
 <div align="center">
 
-[![GitHub release](https://img.shields.io/github/v/release/chulit/NextBility-Accessibility-Widget)](https://github.com/chulit/NextBility-Accessibility-Widget/releases)
-[![GitHub issues](https://img.shields.io/github/issues/chulit/NextBility-Accessibility-Widget)](https://github.com/chulit/NextBility-Accessibility-Widget/issues)
-[![GitHub license](https://img.shields.io/github/license/chulit/NextBility-Accessibility-Widget)](https://github.com/chulit/NextBility-Accessibility-Widget/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/chulit/NextBility)](https://github.com/chulit/NextBility/releases)
+[![GitHub issues](https://img.shields.io/github/issues/chulit/NextBility)](https://github.com/chulit/NextBility/issues)
+[![GitHub license](https://img.shields.io/github/license/chulit/NextBility)](https://github.com/chulit/NextBility/blob/master/LICENSE)
 
 Lightweight (< 30 KB) accessibility controls for any website, ready in minutes and available in 40+ languages.
 
