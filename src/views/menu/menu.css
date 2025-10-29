@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
-    height: 65px;
+    height: 95px;
     font-weight: 600 !important;
     background: #396afc;
     background: -webkit-linear-gradient(to left, #2948ff, #396afc);
@@ -44,6 +44,7 @@
 .nextbility-menu-title {
     font-size: 16px !important;
     color: #fff !important;
+    margin-bottom: 20px;
 }
 
 .nextbility-menu-header svg {
@@ -60,17 +61,155 @@
     display: flex;
 }
 
+.nextbility-menu-header-group {
+  margin-bottom: 20px;
+}
+
 .nextbility-menu-reset,
-.nextbility-menu-close {
+.nextbility-menu-close,
+.nextbility-menu-language {
     padding: 5px !important;
+    width: 30px !important;
+    height: 30px !important;
     margin: 0 !important;
-    background: white !important;
+    background: #396afc !important;
     cursor: pointer !important;
     border-radius: 50% !important;
     transition: opacity .3s ease !important;
     border: 0 !important;
     box-shadow: none !important;
     outline: none !important;
+}
+.nextbility-menu-reset svg,
+.nextbility-menu-close svg,
+.nextbility-menu-language svg {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    fill: #fff !important;
+}
+.nextbility-menu-reset svg path,
+.nextbility-menu-close svg path,
+.nextbility-menu-language svg path {
+    fill: #fff !important;
+}
+
+.nextbility-language-panel {
+    position: absolute;
+    top: calc(100% - 10px);
+    right: 20px;
+    width: 240px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 12px 30px #1b1f2f33;
+    padding: 16px;
+    z-index: 600000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nextbility-language-panel::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 40px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 10px #00000014;
+}
+
+.nextbility-language-panel-header {
+    position: relative;
+}
+
+.nextbility-language-search {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    background: #f4f6fb;
+    padding: 10px 14px;
+    font-size: 14px;
+    outline: none;
+}
+
+.nextbility-language-search:focus {
+    box-shadow: 0 0 0 3px rgba(57,106,252,0.2);
+}
+
+.nextbility-language-list {
+    max-height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #396afc transparent;
+}
+
+.nextbility-language-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nextbility-language-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nextbility-language-list::-webkit-scrollbar-thumb {
+    background-color: #396afc;
+    border-radius: 8px;
+}
+
+.nextbility-language-list::-webkit-scrollbar-thumb:hover {
+    background-color: #2a4ddd;
+}
+
+.nextbility-language-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background: #f4f6fb;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+    text-align: left;
+}
+
+.nextbility-language-option:hover,
+.nextbility-language-option:focus {
+    background: #396afc !important;
+    color: #fff !important;
+}
+
+.nextbility-language-option[data-selected="true"] {
+    background: #396afc;
+    color: #fff !important;
+}
+
+.nextbility-language-option span {
+    font-weight: 500;
+}
+
+.nextbility-language-option small {
+    font-size: 12px;
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+
+.nextbility-language-empty {
+    padding: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280 !important;
 }
 
 .nextbility-menu-reset-footer-btn {
@@ -81,12 +220,15 @@
     padding: 15px !important;
     background: #396afc !important;
     color: #fff !important;
+    height: auto !important;
 }
 
 .nextbility-menu-reset:hover,
 .nextbility-menu-close:hover,
+.nextbility-menu-language:hover,
 .nextbility-menu-reset:focus,
 .nextbility-menu-close:focus,
+.nextbility-menu-language:focus,
 .nextbility-menu-reset-footer-btn:hover,
 .nextbility-menu-reset-footer-btn:focus {
     outline: 3px solid hsla(0,0%,100%,.4) !important;
@@ -597,7 +739,26 @@
     flex: 1;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 30px 0 15px;
+    padding: 15px 15px;
+    background: #f4f6fb;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    margin-top: -24px;
+    scrollbar-width: thin;
+    scrollbar-color: #396afc transparent;
+}
+.nextbility-menu-content::-webkit-scrollbar {
+    width: 4px;
+}
+.nextbility-menu-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.nextbility-menu-content::-webkit-scrollbar-thumb {
+    background-color: #396afc;
+    border-radius: 8px;
+}
+.nextbility-menu-content::-webkit-scrollbar-thumb:hover {
+    background-color: #2a4ddd;
 }
 
 .nextbility-adjust-font {

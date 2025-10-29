@@ -1,7 +1,7 @@
 # NextBility: Accessibility Widget for Websites
 
 <p align="center">
-  <img src="banner.png" alt="NextBility banner" width="520">
+  <img src="/src/icons/logo.png" alt="NextBility banner" width="520">
 </p>
 
 <div align="center">
