@@ -572,7 +572,7 @@
     padding: 0 !important;
     cursor: pointer !important;
     font-size: 15px !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     color: #3b4254 !important;
     gap: 12px;
 }
@@ -642,7 +642,7 @@
 .nextbility-btn .nextbility-translate,
 .nextbility-adjust-font .nextbility-label div {
     font-size: 14px !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 }
 
 .nextbility-plus,
@@ -748,7 +748,7 @@
     flex: 1;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 15px 15px;
+    padding: 10px;
     background: #f4f6fb;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
