@@ -73,6 +73,19 @@ export default function reset() {
         $contrastCycleButton.querySelector('.nextbility-contrast-bars')?.classList.remove('is-visible');
     }
 
+    const $languagePanel = document.querySelector<HTMLElement>("#nextbility-language-panel");
+    const $languageToggle = document.querySelector<HTMLButtonElement>(".nextbility-menu-language");
+    const $languageSearch = document.querySelector<HTMLInputElement>(".nextbility-language-search");
+    if ($languagePanel) {
+        $languagePanel.hidden = true;
+    }
+    if ($languageToggle) {
+        $languageToggle.setAttribute("aria-expanded", "false");
+    }
+    if ($languageSearch) {
+        $languageSearch.value = "";
+    }
+
     runAccessibility();
     saveUserSettings();
     changeLanguage(pluginDefaults.lang);

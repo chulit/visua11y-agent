@@ -458,32 +458,208 @@ export default function renderMenu() {
     userSettings.lang = resolveLanguageCode(userSettings.lang || pluginConfig?.lang);
 
     const $lang = $menu.querySelector<HTMLSelectElement>("#nextbility-language");
+    const $languageWrapper = $menu.querySelector<HTMLElement>(".nextbility-language-wrapper");
+    const $languageToggle = $menu.querySelector<HTMLButtonElement>(".nextbility-menu-language");
+    const $languagePanel = $menu.querySelector<HTMLElement>("#nextbility-language-panel");
+    const $languageSearch = $menu.querySelector<HTMLInputElement>(".nextbility-language-search");
+    const $languageList = $menu.querySelector<HTMLDivElement>(".nextbility-language-list");
+    const $languageEmpty = $menu.querySelector<HTMLElement>(".nextbility-language-empty");
 
-    const populateLanguageOptions = () => {
-        if (!$lang) {
+    let languagePanelOpen = false;
+
+    const escapeHTML = (value: string = ""): string => value.replace(/[&<>"']/g, (match) => {
+        const map: Record<string, string> = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        };
+        return map[match] || match;
+    });
+
+    const setLanguageSearchText = () => {
+        if ($languageSearch) {
+            $languageSearch.placeholder = t("Search languages");
+        }
+        if ($languageEmpty) {
+            $languageEmpty.textContent = t("No languages found");
+        }
+    };
+
+    const getActiveLanguageCode = () => resolveLanguageCode(userSettings.lang || pluginConfig?.lang);
+
+    const updateLanguageToggleLabel = () => {
+        if (!$languageToggle) {
+            return;
+        }
+        const code = getActiveLanguageCode();
+        const lang = LANGUAGES.find((language) => language.code === code);
+        const translatedLabel = t("Language");
+        const label = `${translatedLabel}: ${lang?.label || code}`;
+        $languageToggle.setAttribute("title", translatedLabel);
+        $languageToggle.setAttribute("aria-label", label);
+    };
+
+    const renderLanguageList = (query: string = "") => {
+        if (!$languageList) {
             return;
         }
 
-        const langOptions = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
-        const previousValue = $lang.value;
-        $lang.innerHTML = langOptions;
+        setLanguageSearchText();
 
-        const desiredValue = LANGUAGES.some((lang) => lang.code === userSettings.lang)
-            ? userSettings.lang
-            : resolveLanguageCode(previousValue);
+        const normalized = query.trim().toLowerCase();
+        const selectedCode = getActiveLanguageCode();
 
-        if (LANGUAGES.some((lang) => lang.code === desiredValue)) {
-            $lang.value = desiredValue;
+        const items = LANGUAGES.filter((language) => {
+            if (!normalized) {
+                return true;
+            }
+
+            const label = language.label?.toLowerCase() || "";
+            const code = language.code.toLowerCase();
+            return label.includes(normalized) || code.includes(normalized);
+        });
+
+        if (!items.length) {
+            $languageList.innerHTML = "";
+            if ($languageEmpty) {
+                $languageEmpty.hidden = false;
+            }
+            return;
         }
+
+        if ($languageEmpty) {
+            $languageEmpty.hidden = true;
+        }
+
+        const html = items.map((language) => {
+            const isSelected = language.code === selectedCode;
+            const safeCode = escapeHTML(language.code);
+            const safeLabel = escapeHTML(language.label || language.code);
+            const safeCodeLabel = escapeHTML(language.code.toUpperCase());
+
+            return `<button type="button" class="nextbility-language-option" data-lang="${safeCode}" data-selected="${String(isSelected)}" role="option" aria-selected="${String(isSelected)}">
+                <span>${safeLabel}</span>
+                <small>${safeCodeLabel}</small>
+            </button>`;
+        }).join("");
+
+        $languageList.innerHTML = html;
+    };
+
+    const setLanguagePanelVisibility = (visible: boolean) => {
+        languagePanelOpen = visible;
+        if ($languageToggle) {
+            $languageToggle.setAttribute("aria-expanded", String(visible));
+        }
+        if ($languagePanel) {
+            $languagePanel.hidden = !visible;
+        }
+
+        if (visible) {
+            renderLanguageList($languageSearch?.value || "");
+            window.setTimeout(() => {
+                $languageSearch?.focus();
+            }, 0);
+        } else if ($languageSearch) {
+            $languageSearch.value = "";
+            renderLanguageList("");
+        }
+    };
+
+    const populateLanguageOptions = () => {
+        if ($lang) {
+            const langOptions = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
+            const previousValue = $lang.value;
+            $lang.innerHTML = langOptions;
+
+            const desiredValue = LANGUAGES.some((lang) => lang.code === userSettings.lang)
+                ? userSettings.lang
+                : resolveLanguageCode(previousValue);
+
+            if (LANGUAGES.some((lang) => lang.code === desiredValue)) {
+                $lang.value = desiredValue;
+            }
+        }
+
+        renderLanguageList($languageSearch?.value || "");
+        updateLanguageToggleLabel();
     };
 
     populateLanguageOptions();
 
-    $lang?.addEventListener("change", (event) => {
-        changeLanguage((event.target as HTMLSelectElement).value);
+    setLanguagePanelVisibility(false);
+
+    $languageToggle?.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setLanguagePanelVisibility(!languagePanelOpen);
     });
 
-    document.addEventListener("nextbility:languages:updated", populateLanguageOptions);
+    $languageSearch?.addEventListener("input", () => {
+        renderLanguageList($languageSearch.value);
+    });
+
+    $languageList?.addEventListener("click", (event) => {
+        const target = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(".nextbility-language-option");
+        if (!target) {
+            return;
+        }
+
+        const code = target.dataset.lang;
+        if (!code) {
+            return;
+        }
+
+        changeLanguage(code);
+        renderLanguageList($languageSearch?.value || "");
+        updateLanguageToggleLabel();
+        setLanguagePanelVisibility(false);
+        $languageToggle?.focus();
+    });
+
+    const handleLanguagePanelOutsideClick = (event: MouseEvent) => {
+        if (!languagePanelOpen) {
+            return;
+        }
+
+        const target = event.target as Node | null;
+        if ($languageWrapper && target && $languageWrapper.contains(target)) {
+            return;
+        }
+
+        setLanguagePanelVisibility(false);
+    };
+
+    const handleLanguagePanelKeydown = (event: KeyboardEvent) => {
+        if (event.key === "Escape" && languagePanelOpen) {
+            setLanguagePanelVisibility(false);
+            $languageToggle?.focus();
+        }
+    };
+
+    document.addEventListener("mousedown", handleLanguagePanelOutsideClick);
+    document.addEventListener("keydown", handleLanguagePanelKeydown);
+
+    $lang?.addEventListener("change", (event) => {
+        changeLanguage((event.target as HTMLSelectElement).value);
+        renderLanguageList($languageSearch?.value || "");
+        updateLanguageToggleLabel();
+        setLanguagePanelVisibility(false);
+    });
+
+    const handleLanguagesUpdated = () => {
+        populateLanguageOptions();
+    };
+
+    const handleLanguageChanged = () => {
+        renderLanguageList($languageSearch?.value || "");
+        updateLanguageToggleLabel();
+    };
+
+    document.addEventListener("nextbility:languages:updated", handleLanguagesUpdated);
+    document.addEventListener("nextbility:language:changed", handleLanguageChanged);
 
     // *** Utils ***
     $container.querySelectorAll('.nextbility-menu-close, .nextbility-overlay').forEach((el) =>

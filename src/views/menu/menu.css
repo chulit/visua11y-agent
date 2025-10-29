@@ -65,6 +65,11 @@
   margin-bottom: 20px;
 }
 
+.nextbility-language-wrapper {
+    position: relative;
+    display: inline-flex;
+}
+
 .nextbility-menu-reset,
 .nextbility-menu-close,
 .nextbility-menu-language {
@@ -97,10 +102,14 @@
     fill: #fff !important;
 }
 
+.nextbility-language-panel[hidden] {
+    display: none !important;
+}
+
 .nextbility-language-panel {
     position: absolute;
-    top: calc(100% - 10px);
-    right: 20px;
+    top: calc(100% + 12px);
+    right: 0;
     width: 240px;
     background: #fff;
     border-radius: 16px;
@@ -116,7 +125,7 @@
     content: "";
     position: absolute;
     top: -8px;
-    right: 40px;
+    right: 20px;
     width: 16px;
     height: 16px;
     background: #fff;

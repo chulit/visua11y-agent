@@ -24,4 +24,8 @@ export function changeLanguage(newLang) {
         translateWidget();
         saveUserSettings();
     }
+
+    if (typeof document !== "undefined" && typeof CustomEvent !== "undefined") {
+        document.dispatchEvent(new CustomEvent("nextbility:language:changed", { detail: { code: resolvedCode } }));
+    }
 }
