@@ -1,0 +1,159 @@
+<div class="nextbility-menu">
+    <div class="nextbility-menu-header">
+        <div class="nextbility-menu-title nextbility-translate">
+            Accessibility Menu
+        </div>
+        <div style="gap:15px;">
+            <button type="button" class="nextbility-menu-reset" title="Reset All Settings">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 4c2.1 0 4.1.8 5.6 2.3 3.1 3.1 3.1 8.2 0 11.3a7.78 7.78 0 0 1-6.7 2.3l.5-2c1.7.2 3.5-.4 4.8-1.7a6.1 6.1 0 0 0 0-8.5A6.07 6.07 0 0 0 12 6v4.6l-5-5 5-5V4M6.3 17.6C3.7 15 3.3 11 5.1 7.9l1.5 1.5c-1.1 2.2-.7 5 1.2 6.8.5.5 1.1.9 1.8 1.2l-.6 2a8 8 0 0 1-2.7-1.8Z"/>
+                </svg>
+            </button>
+            <button type="button" class="nextbility-menu-close" title="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="nextbility-menu-content">
+        <div class="nextbility-card">
+            <select id="nextbility-language" title="Language" class="nextbility-select"></select>
+        </div>
+
+        <div class="nextbility-card">
+            <div class="nextbility-card-title">
+                Content Adjustments
+            </div>
+            <div class="nextbility-adjust-font">
+                <div class="nextbility-label" style="margin:0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="margin-right:15px;">
+                        <path d="M2 4v3h5v12h3V7h5V4H2m19 5h-9v3h3v7h3v-7h3V9Z"/>
+                    </svg>
+                    <div class="nextbility-translate">
+                        Adjust Font Size
+                    </div>
+                </div>
+                <div>
+                    <div class="nextbility-minus" data-key="font-size" role="button" aria-pressed="false" title="Decrease Font Size" tabindex="0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 13H5v-2h14v2Z"/>
+                        </svg>
+                    </div>
+                    <div class="nextbility-amount" >
+                        100%
+                    </div>
+                    <div class="nextbility-plus" data-key="font-size" role="button" aria-pressed="false" title="Increase Font Size" tabindex="0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nextbility-items content">
+            </div>
+        </div>
+
+        <div class="nextbility-card">
+            <div class="nextbility-card-title">
+                Color Adjustments
+            </div>
+            <div class="nextbility-items contrast">
+            </div>
+            <div class="nextbility-custom-palette-card">
+              <div class="nextbility-custom-palette-header">
+                <span class="nextbility-custom-palette-icon" aria-hidden="true"></span>
+                <div>
+                  <div class="nextbility-custom-palette-title nextbility-translate" data-translate="Custom Color">Custom Color</div>
+                  <div class="nextbility-custom-palette-subtitle nextbility-translate" data-translate="Change the site's colors">Change the site's
+                    colors</div>
+                </div>
+              </div>
+              <div class="nextbility-custom-palette-tabs" role="tablist">
+                <button type="button" class="nextbility-custom-palette-tab" data-category="backgrounds" role="tab" aria-selected="true">
+                  <span class="nextbility-translate" data-translate="Backgrounds">Backgrounds</span>
+                </button>
+                <button type="button" class="nextbility-custom-palette-tab" data-category="headings" role="tab" aria-selected="false">
+                  <span class="nextbility-translate" data-translate="Headings">Headings</span>
+                </button>
+                <button type="button" class="nextbility-custom-palette-tab" data-category="contents" role="tab" aria-selected="false">
+                  <span class="nextbility-translate" data-translate="Contents">Contents</span>
+                </button>
+              </div>
+              <div class="nextbility-custom-palette-slider">
+                <input type="range" min="0" max="360" step="1" value="0" class="nextbility-custom-palette-range" aria-label="Color hue" />
+              </div>
+              <div class="nextbility-custom-palette-reset-row">
+                <button type="button" class="nextbility-custom-palette-reset nextbility-translate" data-translate="Reset colors">
+                  Reset colors
+                </button>
+              </div>
+            </div>
+        </div>
+
+        <div class="nextbility-card">
+            <div class="nextbility-card-title ">
+                Tools
+            </div>
+            <div class="nextbility-items tools">
+            </div>
+        </div>
+
+        <div class="nextbility-card nextbility-settings-card">
+            <button type="button" class="nextbility-settings-toggle" aria-expanded="false">
+                <span class="nextbility-settings-info">
+                    <span class="nextbility-settings-icon" aria-hidden="true"></span>
+                    <span class="nextbility-translate" data-translate="Widget Settings">Widget Settings</span>
+                </span>
+            </button>
+            <div class="nextbility-settings-panel">
+                <div class="nextbility-position-card">
+                    <button type="button" class="nextbility-card-title nextbility-position-toggle nextbility-translate" data-translate="Widget Position" aria-expanded="false">
+                        Widget Position
+                    </button>
+                    <div class="nextbility-position-grid">
+                        <button type="button" class="nextbility-position-btn" data-position="top-left">
+                            <span class="nextbility-translate" data-translate="Top Left">Top Left</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="top-center">
+                            <span class="nextbility-translate" data-translate="Top Center">Top Center</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="top-right">
+                            <span class="nextbility-translate" data-translate="Top Right">Top Right</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="center-left">
+                            <span class="nextbility-translate" data-translate="Center Left">Center Left</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="center-right">
+                            <span class="nextbility-translate" data-translate="Center Right">Center Right</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="bottom-left">
+                            <span class="nextbility-translate" data-translate="Bottom Left">Bottom Left</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="bottom-center">
+                            <span class="nextbility-translate" data-translate="Bottom Center">Bottom Center</span>
+                        </button>
+                        <button type="button" class="nextbility-position-btn" data-position="bottom-right">
+                            <span class="nextbility-translate" data-translate="Bottom Right">Bottom Right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nextbility-card">
+            <button type="button" class="nextbility-menu-reset nextbility-menu-reset-footer-btn nextbility-translate" title="Reset All Settings">
+                Reset All Settings
+            </button>
+        </div>
+    </div>
+    
+    <div class="nextbility-footer">
+        <a href="https://nextbility.biz.id" target="_blank">NextBility</a>
+        <div>Accessibility</div>
+    </div>
+</div>
+
+<div class="nextbility-overlay">
+</div>

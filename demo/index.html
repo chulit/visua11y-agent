@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>NextBility Accessibility Widget Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background: #f4f6fb;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 36px 24px 32px;
+            background: linear-gradient(135deg, #305dff 0%, #4c38ff 100%);
+            color: white;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 12px;
+            font-size: clamp(2rem, 6vw, 3rem);
+        }
+
+        header p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+            background: white;
+            border-radius: 18px 18px 0 0;
+            box-shadow: 0 32px 64px rgb(15 23 42 / 12%);
+            margin-top: -20px;
+        }
+
+        section + section {
+            margin-top: 48px;
+        }
+
+        .feature-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            margin-top: 24px;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+        }
+
+        .feature-card ul {
+            margin: 12px 0 0;
+            padding-left: 18px;
+        }
+
+        .feature-card li {
+            margin-bottom: 6px;
+        }
+
+        .helper-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            margin-top: 24px;
+        }
+
+        .helper-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .helper-card h3 {
+            margin: 0;
+        }
+
+        .helper-card p {
+            margin: 0;
+        }
+
+        .helper-card .hint {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        .helper-card .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .helper-card button,
+        .helper-card select {
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid #6366f1;
+            background: white;
+            color: #312e81;
+            cursor: pointer;
+        }
+
+        .helper-card select {
+            border-radius: 12px;
+            min-width: 180px;
+        }
+
+        .helper-card button:hover {
+            background: #eef2ff;
+        }
+
+        .helper-status {
+            margin-top: 24px;
+            color: #312e81;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .media-lab {
+            margin-top: 24px;
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .media-lab figure {
+            margin: 0;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: inset 0 0 0 1px rgb(99 102 241 / 10%);
+        }
+
+        .media-lab img,
+        .media-lab .swatch {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 16px 32px rgb(15 23 42 / 12%);
+        }
+
+        .media-lab figcaption {
+            margin-top: 12px;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            max-width: 960px;
+            margin: 32px auto;
+            padding: 24px;
+            text-align: center;
+            color: #4b5563;
+        }
+
+        @media (max-width: 720px) {
+            main {
+                margin: 0 12px;
+                padding: 24px 18px 52px;
+            }
+
+            footer {
+                margin: 24px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Testing NextBility Accessibility Widget</h1>
+        <p>
+            Use this page to manually verify accessibility tools, widget placement, screen reader,
+            and voice navigation behaviour. Build the project first with <code>npm run build</code>
+            so the script in <code>dist/</code> is up-to-date.
+        </p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Feature Playground</h2>
+            <p>
+                Use the widget controls to explore each accessibility feature. Each card below highlights
+                behaviours you can validate directly on this page.
+            </p>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Multilingual UI</h3>
+                    <ul>
+                        <li>Open the language picker in the widget and switch between bundled locales.</li>
+                        <li>Use the custom registration action below to add Bahasa Indonesia on the fly.</li>
+                    </ul>
+                </article>
+
+                <article class="feature-card">
+                    <h3>Content Adjustments</h3>
+                    <ul>
+                        <li>Adjust font size, letter spacing, and line height to test copy reflow.</li>
+                        <li>Toggle dyslexia-friendly text and highlight links for quick scanning.</li>
+                    </ul>
+                </article>
+
+                <article class="feature-card">
+                    <h3>Color &amp; Contrast</h3>
+                    <ul>
+                        <li>Compare high-contrast presets, monochrome, and custom palette selections.</li>
+                        <li>Verify headings, backgrounds, and body text remain legible after tweaks.</li>
+                    </ul>
+                </article>
+
+                <article class="feature-card">
+                    <h3>Reading &amp; Focus Tools</h3>
+                    <ul>
+                        <li>Enable the reading guide overlay while navigating this content.</li>
+                        <li>Trigger text-to-speech or screen reader helper on selected passages.</li>
+                    </ul>
+                </article>
+
+                <article class="feature-card">
+                    <h3>Motion &amp; Cursor</h3>
+                    <ul>
+                        <li>Stop animations to freeze the shimmering cards and calm the layout.</li>
+                        <li>Activate the oversized cursor to confirm pointer visibility.</li>
+                    </ul>
+                </article>
+
+                <article class="feature-card">
+                    <h3>Widget Customization</h3>
+                    <ul>
+                        <li>Move the launcher to every supported corner using the widget settings.</li>
+                        <li>Apply icon changes via the helper controls demonstrated below.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Image Desaturation Testbed</h2>
+            <p>
+                Scroll the widget to <strong>Motion &amp; Cursor</strong> and toggle <em>Image Desaturation</em>.
+                The colourful assets below should switch to grayscale instantly; turn the setting off to restore
+                the original hues.
+            </p>
+
+            <div class="media-lab">
+                <figure>
+                    <img src="../banner.png" alt="NextBility hero banner with gradient background and illustration" width="50px">
+                    <figcaption>
+                        Expect the banner illustration to lose its purple/blue gradient and appear black and white.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b6b'/%3E%3Cstop offset='50%25' stop-color='%23feca57'/%3E%3Cstop offset='100%25' stop-color='%2348dbfb'/%3E%3C/linearGradient%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='40' height='40'%3E%3Crect width='40' height='40' fill='url(%23g)'/%3E%3Ccircle cx='20' cy='20' r='12' fill='%23341f97' opacity='0.75'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23p)'/%3E%3C/svg%3E"
+                        alt="Vibrant gradient pattern sample"
+                    >
+                    <figcaption>
+                        This synthetic gradient highlights how saturation drops across complex colour blends.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section>
+            <h2>Developer Hooks &amp; APIs</h2>
+            <p>
+                After the bundle loads it exposes <code>window.NextBilityPlugin</code> so you can wire the widget
+                to your app. Try the helpers below or trigger them manually from the browser console.
+            </p>
+
+            <div class="helper-grid">
+                <article class="helper-card">
+                    <h3>Launcher Icon</h3>
+                    <p>Swap the floating button icon using <code>setIcon</code>.</p>
+                    <div class="controls">
+                        <button type="button" id="setEmojiIcon">Use Emoji Icon</button>
+                        <button type="button" id="setDefaultIcon">Reset Icon</button>
+                    </div>
+                </article>
+
+                <article class="helper-card">
+                    <h3>Language Switcher</h3>
+                    <p>Switch locales at runtime via <code>changeLanguage</code>.</p>
+                    <select id="languagePicker" aria-label="Select language">
+                        <option value="en" selected>English (en)</option>
+                        <option value="fr">Français (fr)</option>
+                        <option value="es">Español (es)</option>
+                        <option value="de">Deutsch (de)</option>
+                        <option value="id">Bahasa Indonesia (custom)</option>
+                    </select>
+                </article>
+
+                <article class="helper-card">
+                    <h3>Custom Translation</h3>
+                    <p>Register a bespoke locale with <code>registerLanguage</code>.</p>
+                    <button type="button" id="registerLanguage">Register Bahasa Indonesia</button>
+                    <p class="hint">
+                        The dictionary contains a small subset of labels—extend it from the console to experiment.
+                    </p>
+                </article>
+            </div>
+
+            <p id="helperStatus" class="helper-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section>
+            <h2>Manual Checklist</h2>
+            <ol>
+                <li>Open the widget and move the launcher to each supported corner.</li>
+                <li>Apply typography adjustments and verify the text wraps cleanly.</li>
+                <li>Test high-contrast, monochrome, and custom color palette modes.</li>
+                <li>Toggle Image Desaturation and confirm the banner and gradient art become grayscale.</li>
+                <li>Enable the reading guide, screen reader helper, and text-to-speech.</li>
+                <li>Activate voice navigation and issue commands like “Open menu”.</li>
+                <li>Use the helper controls to change the icon and switch languages.</li>
+                <li>Register the Bahasa Indonesia locale and confirm new labels appear.</li>
+                <li>Refresh the page to ensure your settings persist in local storage.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <strong>Tip:</strong> open the browser console if you want to call
+        <code>window.NextBilityPlugin</code> helpers directly.
+    </footer>
+
+    <script src="../dist/next-bility.umd.js"
+            data-nextbility-lang="en"
+            data-nextbility-position="bottom-right"
+            data-nextbility-offset="24,24"
+            defer></script>
+
+    <script>
+        (function () {
+            if (!("EventSource" in window)) {
+                return;
+            }
+
+            const source = new EventSource("/__hmr");
+            source.addEventListener("reload", event => {
+                try {
+                    const info = JSON.parse(event.data);
+                    console.debug("[NextBility] Reloading after change:", info.file);
+                } catch (err) {
+                    console.debug("[NextBility] Reloading after change.");
+                }
+                window.location.reload();
+            });
+            source.onerror = () => {
+                console.warn("[NextBility] Hot reload connection lost. Attempting to reconnect...");
+            };
+        })();
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const $setEmojiIcon = document.getElementById("setEmojiIcon");
+            const $setDefaultIcon = document.getElementById("setDefaultIcon");
+            const $registerLanguage = document.getElementById("registerLanguage");
+            const $languagePicker = document.getElementById("languagePicker");
+            const $helperStatus = document.getElementById("helperStatus");
+
+            const updateStatus = (message) => {
+                if ($helperStatus) {
+                    $helperStatus.textContent = message;
+                }
+            };
+
+            updateStatus("Use the controls above after the widget finishes loading.");
+
+            const waitForPlugin = () =>
+                new Promise(resolve => {
+                    if (window.NextBilityPlugin) {
+                        resolve(window.NextBilityPlugin);
+                        return;
+                    }
+                    const interval = window.setInterval(() => {
+                        if (window.NextBilityPlugin) {
+                            window.clearInterval(interval);
+                            resolve(window.NextBilityPlugin);
+                        }
+                    }, 50);
+                });
+
+            $setEmojiIcon?.addEventListener("click", async () => {
+                const plugin = await waitForPlugin();
+                plugin.setIcon("<span aria-hidden='true' style='font-size:1.5em;'>🌈</span>");
+                updateStatus("Launcher icon switched to the rainbow emoji.");
+            });
+
+            $setDefaultIcon?.addEventListener("click", async () => {
+                const plugin = await waitForPlugin();
+                plugin.setIcon();
+                updateStatus("Launcher icon reset to the default asset.");
+            });
+
+            $languagePicker?.addEventListener("change", async (event) => {
+                const plugin = await waitForPlugin();
+                const select = event.target;
+                if (!(select instanceof HTMLSelectElement)) {
+                    return;
+                }
+                const code = select.value;
+                plugin.changeLanguage(code);
+                const label = select.options[select.selectedIndex]?.textContent || code;
+                updateStatus(`Language changed to ${label}.`);
+            });
+
+            let indonesianRegistered = false;
+
+            $registerLanguage?.addEventListener("click", async () => {
+                const plugin = await waitForPlugin();
+                if (!indonesianRegistered) {
+                    plugin.registerLanguage({
+                        code: "id",
+                        label: "Bahasa Indonesia",
+                        dictionary: {
+                            "Accessibility Menu": "Menu Aksesibilitas",
+                            "Reset settings": "Atur Ulang Semua Pengaturan",
+                            "Content Adjustments": "Penyesuaian Konten",
+                            "Color Adjustments": "Penyesuaian Warna",
+                            "Tools": "Alat Bantu",
+                            "Widget Settings": "Pengaturan Widget",
+                            "Contrast": "Kontras",
+                            "Screen Reader": "Pembaca Layar",
+                            "Voice Navigation": "Navigasi Suara",
+                            "Custom Color": "Warna Kustom",
+                            "Change the site's colors": "Ubah warna situs",
+                            "Backgrounds": "Latar Belakang",
+                            "Headings": "Judul",
+                            "Contents": "Konten",
+                            "Reset colors": "Atur ulang warna",
+                            "Invert Colors": "Balik Warna",
+                            "Image Desaturation": "Reduksi Warna Gambar",
+                            "Widget Position": "Posisi Widget",
+                            "Open Accessibility Menu": "Buka Menu Aksesibilitas"
+                        }
+                    });
+                    indonesianRegistered = true;
+                }
+                plugin.changeLanguage("id");
+                if ($languagePicker instanceof HTMLSelectElement) {
+                    $languagePicker.value = "id";
+                }
+                updateStatus("Bahasa Indonesia registered and activated.");
+            });
+        });
+    </script>
+</body>
+</html>

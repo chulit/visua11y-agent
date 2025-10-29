@@ -1,0 +1,33 @@
+{
+  "name": "next-bility",
+  "version": "1.0.0",
+  "description": "NextBility: Accessibility Website Widget",
+  "main": "dist/next-bility.cjs.js",
+  "module": "dist/next-bility.esm.js",
+  "unpkg": "dist/next-bility.umd.js",
+  "scripts": {
+    "watch": "node esbuild.config.js --watch",
+    "build": "node esbuild.config.js --minify",
+    "lint": "eslint src --ext .ts,.js",
+    "demo": "npm run build && node scripts/demo-server.js",
+    "demo:serve": "node scripts/demo-hot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chulit/NextBility.git"
+  },
+  "author": "Chulit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chulit/NextBility/issues"
+  },
+  "homepage": "https://nextbility.biz.id/",
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "esbuild": "^0.21.5",
+    "eslint": "^9.38.0",
+    "html-minifier": "^4.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1"
+  }
+}
