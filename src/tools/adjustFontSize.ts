@@ -9,6 +9,9 @@ export default function adjustFontSize(multiply:number = 1) {
     document
         .querySelectorAll(FONT_SIZE_SELECTOR)
         .forEach((el: HTMLElement) => {
+            if (el.closest(".nextbility-container")) {
+                return;
+            }
             // Skip elements that contain any class in ICON_SELECTOR_SET
             if ([...el.classList].some(cls => ICON_SELECTOR_SET.has(cls))) {
                 return;

@@ -37,7 +37,7 @@ export const LANGUAGES: ILanguage[] = [
   { code: "pt", label: "Português (Portuguese)" },
   { code: "ro", label: "Română (Romanian)" },
   { code: "ru", label: "Русский (Russian)" },
-  { code: "si", label: "Slovenščina (Slovene)" },
+  { code: "si", label: "සිංහල (Sinhala)" },
   { code: "sk", label: "slovenčina (Slovak)" },
   { code: "sl", label: "slovenščina (Slovenian)" },
   { code: "sr", label: "Srpski (Serbian)" },

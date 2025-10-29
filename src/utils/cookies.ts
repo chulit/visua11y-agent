@@ -14,9 +14,11 @@ export function getCookie(cname:string) {
     return "";
 }
 
-export function setCookie(cname:string, cvalue:any, exdays?:number) {
+export function setCookie(cname:string, cvalue:any, exdays:number = 365) {
+    const days = Number.isFinite(exdays) ? Number(exdays) : 365;
+    const value = encodeURIComponent(String(cvalue));
     const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = `${cname}=${value};${expires};path=/;SameSite=Lax`;
 }

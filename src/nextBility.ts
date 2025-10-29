@@ -1,6 +1,7 @@
 import runAccessibility from "@/views/menu/runAccessibility";
 import translateWidget from "@/views/menu/translateWidget";
 import { renderWidget, applyButtonIcon } from "@/views/widget/widget";
+import reset from "@/views/menu/reset";
 
 import { 
     userSettings,
@@ -62,6 +63,9 @@ export default function nextBility({
     return {
         changeLanguage,
         setIcon,
-        registerLanguage: registerCustomLanguage
+        registerLanguage: registerCustomLanguage,
+        resetAll: () => {
+            reset();
+        }
     }
 }
