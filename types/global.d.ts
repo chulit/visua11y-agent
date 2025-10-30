@@ -2,8 +2,8 @@
 
 declare global {
   interface Window {
-    __nextbility__onScrollReadableGuide?: (event: Event) => void;
-    NextBilityPlugin?: ReturnType<typeof import("../src/nextBility").default>;
+    __visua11yAgent__onScrollReadableGuide?: (event: Event) => void;
+    Visua11yAgentPlugin?: ReturnType<typeof import("../src/visua11yAgent").default>;
   }
 }
 

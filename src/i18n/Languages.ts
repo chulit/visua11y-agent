@@ -109,7 +109,7 @@ export async function loadLanguages(): Promise<void> {
       const dictionary = (await import(`../locales/${code}.json`)).default;
       LANGUAGE_DICTIONARY[code] = dictionary;
     } catch (error) {
-      console.warn(`[NextBility] Missing locale file for "${code}"`, error);
+      console.warn(`[Visua11y Agent] Missing locale file for "${code}"`, error);
       LANGUAGE_DICTIONARY[code] = LANGUAGE_DICTIONARY[code] || {};
     }
   }
@@ -118,7 +118,7 @@ export async function loadLanguages(): Promise<void> {
 export function registerLanguage({ code, label, dictionary, merge }: IRegisterLanguageOptions): string | undefined {
   const resolvedCode = normalizeCode(code);
   if (!resolvedCode) {
-    console.warn("[NextBility] registerLanguage requires a non-empty language code.");
+    console.warn("[Visua11y Agent] registerLanguage requires a non-empty language code.");
     return undefined;
   }
 
@@ -137,7 +137,7 @@ export function registerLanguage({ code, label, dictionary, merge }: IRegisterLa
   LANGUAGE_DICTIONARY[resolvedCode] = merge ? { ...currentDictionary, ...safeDictionary } : { ...safeDictionary };
 
   if (typeof document !== "undefined" && typeof CustomEvent !== "undefined") {
-    document.dispatchEvent(new CustomEvent("nextbility:languages:updated", { detail: { code: resolvedCode } }));
+    document.dispatchEvent(new CustomEvent("visua11y-agent:languages:updated", { detail: { code: resolvedCode } }));
   }
 
   return resolvedCode;

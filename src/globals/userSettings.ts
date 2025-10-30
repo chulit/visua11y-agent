@@ -7,7 +7,7 @@ export const userSettings = {
   states: {}
 };
 
-export const STORAGE_KEY = "nextbility-user-settings";
+export const STORAGE_KEY = "visua11y-agent-user-settings";
 
 export function setUserStateSettings(state) {
     userSettings.states = {

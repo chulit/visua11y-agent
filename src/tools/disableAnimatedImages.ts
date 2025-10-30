@@ -20,12 +20,12 @@ export default function disableAnimatedImages(enable = false) {
                 const naturalWidth = img.naturalWidth;
                 const naturalHeight = img.naturalHeight;
 
-                img.dataset.nextbilityOrgSrc = img.src;
+                img.dataset.visua11yAgentOrgSrc = img.src;
                 img.src = staticImageBase64;
                 img.style.width = `${naturalWidth}px`;
                 img.style.height = `${naturalHeight}px`;
             } else {
-                img.src = img.dataset.nextbilityOrgSrc || src;  // Restore the original GIF
+                img.src = img.dataset.visua11yAgentOrgSrc || src;  // Restore the original GIF
                 img.alt = '';
                 img.setAttribute('aria-label', 'GIF animation enabled.');
             }

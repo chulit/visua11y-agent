@@ -65,7 +65,7 @@ export function injectToolCSS(config: IToolConfig) {
         enable=false
     } = config;
 
-    const toolId = `nextbility-${ id }`
+    const toolId = `visua11y-agent-${ id }`
 
     if(enable) {
         const css = generateCSSFromConfig(config);

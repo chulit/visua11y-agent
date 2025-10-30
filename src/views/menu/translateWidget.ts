@@ -12,7 +12,7 @@ function getTranslatedLabel(el: Element, defaultValue: string): string {
 }
 
 export default function translateWidget(): void {
-    $widget.querySelectorAll(".nextbility-card-title, .nextbility-translate").forEach((el) => {
+    $widget.querySelectorAll(".visua11y-agent-card-title, .visua11y-agent-translate").forEach((el) => {
         const text = el.textContent?.trim() || "";
         el.textContent = getTranslatedLabel(el, text);
     });

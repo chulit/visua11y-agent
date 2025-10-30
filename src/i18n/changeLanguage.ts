@@ -16,7 +16,7 @@ export function changeLanguage(newLang) {
     if (userSettings.lang !== resolvedCode) {
         userSettings.lang = resolvedCode;
 
-        const $lang = $menu?.querySelector<HTMLSelectElement>("#nextbility-language");
+        const $lang = $menu?.querySelector<HTMLSelectElement>("#visua11y-agent-language");
         if ($lang) {
             $lang.value = resolvedCode;
         }
@@ -26,6 +26,6 @@ export function changeLanguage(newLang) {
     }
 
     if (typeof document !== "undefined" && typeof CustomEvent !== "undefined") {
-        document.dispatchEvent(new CustomEvent("nextbility:language:changed", { detail: { code: resolvedCode } }));
+        document.dispatchEvent(new CustomEvent("visua11y-agent:language:changed", { detail: { code: resolvedCode } }));
     }
 }

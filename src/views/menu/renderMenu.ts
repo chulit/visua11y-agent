@@ -106,36 +106,36 @@ export default function renderMenu() {
     const $container: HTMLElement = document.createElement("div");
     $container.innerHTML = `<style>${css}</style>` + template;
 
-    const $menu = $container.querySelector(".nextbility-menu");
+    const $menu = $container.querySelector(".visua11y-agent-menu");
     if (pluginConfig?.position?.includes("right")) {
         $menu.style.right = '0px';
         $menu.style.left = 'auto';
     }
 
-    const $logo = $container.querySelector<HTMLImageElement>("[data-nextbility-logo]");
+    const $logo = $container.querySelector<HTMLImageElement>("[data-visua11y-agent-logo]");
     if ($logo) {
         $logo.src = logoAsset;
     }
 
     $menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
-    $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'nextbility-tools');
+    $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'visua11y-agent-tools');
 
     const $contrastGrid = $menu.querySelector(".contrast");
-    $contrastGrid.innerHTML = renderButtons(FilterButtons, 'nextbility-filter');
+    $contrastGrid.innerHTML = renderButtons(FilterButtons, 'visua11y-agent-filter');
 
-    const $contrastButtons = Array.from($menu.querySelectorAll<HTMLButtonElement>(".nextbility-contrast-option"));
+    const $contrastButtons = Array.from($menu.querySelectorAll<HTMLButtonElement>(".visua11y-agent-contrast-option"));
 
     // *** States UI Rendering ***
     const states = userSettings?.states;
-    const filterButtons = Array.from($menu.querySelectorAll<HTMLButtonElement>('.nextbility-filter'));
+    const filterButtons = Array.from($menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-filter'));
 
     const fontSize = Number(states?.fontSize) || 1;
     if (fontSize != 1) {
-        $menu.querySelector(".nextbility-amount").innerHTML = `${fontSize * 100}%`;
+        $menu.querySelector(".visua11y-agent-amount").innerHTML = `${fontSize * 100}%`;
     }
 
     if (states) {
-        const buttons = Array.from($menu.querySelectorAll('.nextbility-btn'));
+        const buttons = Array.from($menu.querySelectorAll('.visua11y-agent-btn'));
 
         Object.entries(states).forEach(([key, value]) => {
             if (!value || key === "fontSize") {
@@ -148,11 +148,11 @@ export default function renderMenu() {
 
             const selector = key === "contrast" ? states[key] : key;
             const btn = buttons.find(b => b.dataset.key === selector);
-            if (btn) btn.classList.add("nextbility-selected");
+            if (btn) btn.classList.add("visua11y-agent-selected");
             if (key === "contrast" && typeof selector === "string") {
                 filterButtons.forEach(b => {
                     if (b.dataset.key !== selector) {
-                        b.classList.remove("nextbility-selected");
+                        b.classList.remove("visua11y-agent-selected");
                     }
                 });
             }
@@ -166,8 +166,8 @@ export default function renderMenu() {
         "high-contrast": "High Contrast"
     };
 
-    const $contrastCycleButton = $menu.querySelector<HTMLButtonElement>('.nextbility-filter[data-key="contrast-cycle"]');
-    const $contrastCycleLabel = $contrastCycleButton?.querySelector<HTMLSpanElement>('.nextbility-translate');
+    const $contrastCycleButton = $menu.querySelector<HTMLButtonElement>('.visua11y-agent-filter[data-key="contrast-cycle"]');
+    const $contrastCycleLabel = $contrastCycleButton?.querySelector<HTMLSpanElement>('.visua11y-agent-translate');
 
     const updateContrastCycleButton = (value: string | false | "contrast") => {
         if (!$contrastCycleButton || !$contrastCycleLabel) {
@@ -177,13 +177,13 @@ export default function renderMenu() {
         const isActive = typeof value === "string" && value !== "contrast" && contrastCycleOrder.includes(value);
         const translationKey = isActive ? contrastLabelMap[value as keyof typeof contrastLabelMap] : "Contrast";
 
-        $contrastCycleButton.classList.toggle("nextbility-selected", isActive);
+        $contrastCycleButton.classList.toggle("visua11y-agent-selected", isActive);
         $contrastCycleButton.setAttribute("aria-pressed", String(isActive));
         $contrastCycleLabel.setAttribute("data-translate", translationKey);
         $contrastCycleLabel.textContent = t(translationKey);
 
-        const barsWrapper = $contrastCycleButton.querySelector<HTMLDivElement>(".nextbility-contrast-bars");
-        const barElements = Array.from($contrastCycleButton.querySelectorAll<HTMLSpanElement>(".nextbility-contrast-bar"));
+        const barsWrapper = $contrastCycleButton.querySelector<HTMLDivElement>(".visua11y-agent-contrast-bars");
+        const barElements = Array.from($contrastCycleButton.querySelectorAll<HTMLSpanElement>(".visua11y-agent-contrast-bar"));
 
         barElements.forEach((bar) => bar.classList.remove("is-active"));
 
@@ -208,16 +208,16 @@ export default function renderMenu() {
 
     // *** Widget Placement ***
     const currentPosition = userSettings.position || pluginConfig.position || "bottom-left";
-    const $positionToggle = $menu.querySelector<HTMLButtonElement>(".nextbility-position-toggle");
-    const $positionCard = $menu.querySelector<HTMLElement>(".nextbility-position-card");
-    const $settingsToggle = $menu.querySelector<HTMLButtonElement>(".nextbility-settings-toggle");
-    const $settingsCard = $menu.querySelector<HTMLElement>(".nextbility-settings-card");
-    const $settingsIcon = $menu.querySelector<HTMLElement>(".nextbility-settings-icon");
-    const $customPaletteCard = $menu.querySelector<HTMLElement>(".nextbility-custom-palette-card");
-    const $customPaletteIcon = $customPaletteCard?.querySelector<HTMLElement>(".nextbility-custom-palette-icon");
-    const $customPaletteTabs = Array.from($menu.querySelectorAll<HTMLButtonElement>(".nextbility-custom-palette-tab"));
-    const $customPaletteRange = $menu.querySelector<HTMLInputElement>(".nextbility-custom-palette-range");
-    const $customPaletteReset = $menu.querySelector<HTMLButtonElement>(".nextbility-custom-palette-reset");
+    const $positionToggle = $menu.querySelector<HTMLButtonElement>(".visua11y-agent-position-toggle");
+    const $positionCard = $menu.querySelector<HTMLElement>(".visua11y-agent-position-card");
+    const $settingsToggle = $menu.querySelector<HTMLButtonElement>(".visua11y-agent-settings-toggle");
+    const $settingsCard = $menu.querySelector<HTMLElement>(".visua11y-agent-settings-card");
+    const $settingsIcon = $menu.querySelector<HTMLElement>(".visua11y-agent-settings-icon");
+    const $customPaletteCard = $menu.querySelector<HTMLElement>(".visua11y-agent-custom-palette-card");
+    const $customPaletteIcon = $customPaletteCard?.querySelector<HTMLElement>(".visua11y-agent-custom-palette-icon");
+    const $customPaletteTabs = Array.from($menu.querySelectorAll<HTMLButtonElement>(".visua11y-agent-custom-palette-tab"));
+    const $customPaletteRange = $menu.querySelector<HTMLInputElement>(".visua11y-agent-custom-palette-range");
+    const $customPaletteReset = $menu.querySelector<HTMLButtonElement>(".visua11y-agent-custom-palette-reset");
 
     if ($settingsIcon) {
         $settingsIcon.innerHTML = widgetSettingsIcon;
@@ -229,7 +229,7 @@ export default function renderMenu() {
         }
 
         $settingsToggle.setAttribute("aria-expanded", String(expanded));
-        $settingsCard.classList.toggle("nextbility-settings-open", expanded);
+        $settingsCard.classList.toggle("visua11y-agent-settings-open", expanded);
     };
 
     if ($settingsToggle) {
@@ -317,12 +317,12 @@ export default function renderMenu() {
         const currentColor = paletteState.colors?.[category] ?? paletteDefaults[category];
 
         $customPaletteRange.value = String(hue);
-        $customPaletteRange.style.setProperty("--nextbility-palette-gradient", gradient);
-        $customPaletteRange.style.setProperty("--nextbility-palette-thumb", currentColor);
+        $customPaletteRange.style.setProperty("--visua11y-agent-palette-gradient", gradient);
+        $customPaletteRange.style.setProperty("--visua11y-agent-palette-thumb", currentColor);
 
-        const barsWrapper = $customPaletteCard?.querySelector<HTMLDivElement>(".nextbility-custom-palette-bars");
+        const barsWrapper = $customPaletteCard?.querySelector<HTMLDivElement>(".visua11y-agent-custom-palette-bars");
         if (barsWrapper) {
-            const bars = Array.from(barsWrapper.querySelectorAll<HTMLSpanElement>(".nextbility-custom-palette-bar"));
+            const bars = Array.from(barsWrapper.querySelectorAll<HTMLSpanElement>(".visua11y-agent-custom-palette-bar"));
             bars.forEach((bar) => {
                 const cat = (bar.dataset.category as CustomPaletteCategory) || "backgrounds";
                 const colorValue = paletteState.colors?.[cat] ?? paletteDefaults[cat];
@@ -408,7 +408,7 @@ export default function renderMenu() {
         }
 
         $positionToggle.setAttribute("aria-expanded", String(expanded));
-        $positionCard.classList.toggle("nextbility-position-open", expanded);
+        $positionCard.classList.toggle("visua11y-agent-position-open", expanded);
     };
 
     if ($positionToggle) {
@@ -422,10 +422,10 @@ export default function renderMenu() {
         });
     }
 
-    const positionButtons = Array.from($menu.querySelectorAll<HTMLButtonElement>(".nextbility-position-btn"));
+    const positionButtons = Array.from($menu.querySelectorAll<HTMLButtonElement>(".visua11y-agent-position-btn"));
 
     positionButtons.forEach((button) => {
-        button.classList.toggle("nextbility-selected", button.dataset.position === currentPosition);
+        button.classList.toggle("visua11y-agent-selected", button.dataset.position === currentPosition);
         button.addEventListener("click", () => {
             const selectedPosition = button.dataset.position;
             if (!selectedPosition) {
@@ -433,7 +433,7 @@ export default function renderMenu() {
             }
 
             positionButtons.forEach((btn) =>
-                btn.classList.toggle("nextbility-selected", btn === button)
+                btn.classList.toggle("visua11y-agent-selected", btn === button)
             );
 
             pluginConfig.position = selectedPosition;
@@ -457,13 +457,13 @@ export default function renderMenu() {
     // *** Translations ***
     userSettings.lang = resolveLanguageCode(userSettings.lang || pluginConfig?.lang);
 
-    const $lang = $menu.querySelector<HTMLSelectElement>("#nextbility-language");
-    const $languageWrapper = $menu.querySelector<HTMLElement>(".nextbility-language-wrapper");
-    const $languageToggle = $menu.querySelector<HTMLButtonElement>(".nextbility-menu-language");
-    const $languagePanel = $menu.querySelector<HTMLElement>("#nextbility-language-panel");
-    const $languageSearch = $menu.querySelector<HTMLInputElement>(".nextbility-language-search");
-    const $languageList = $menu.querySelector<HTMLDivElement>(".nextbility-language-list");
-    const $languageEmpty = $menu.querySelector<HTMLElement>(".nextbility-language-empty");
+    const $lang = $menu.querySelector<HTMLSelectElement>("#visua11y-agent-language");
+    const $languageWrapper = $menu.querySelector<HTMLElement>(".visua11y-agent-language-wrapper");
+    const $languageToggle = $menu.querySelector<HTMLButtonElement>(".visua11y-agent-menu-language");
+    const $languagePanel = $menu.querySelector<HTMLElement>("#visua11y-agent-language-panel");
+    const $languageSearch = $menu.querySelector<HTMLInputElement>(".visua11y-agent-language-search");
+    const $languageList = $menu.querySelector<HTMLDivElement>(".visua11y-agent-language-list");
+    const $languageEmpty = $menu.querySelector<HTMLElement>(".visua11y-agent-language-empty");
 
     let languagePanelOpen = false;
 
@@ -539,7 +539,7 @@ export default function renderMenu() {
             const safeLabel = escapeHTML(language.label || language.code);
             const safeCodeLabel = escapeHTML(language.code.toUpperCase());
 
-            return `<button type="button" class="nextbility-language-option" data-lang="${safeCode}" data-selected="${String(isSelected)}" role="option" aria-selected="${String(isSelected)}">
+            return `<button type="button" class="visua11y-agent-language-option" data-lang="${safeCode}" data-selected="${String(isSelected)}" role="option" aria-selected="${String(isSelected)}">
                 <span>${safeLabel}</span>
                 <small>${safeCodeLabel}</small>
             </button>`;
@@ -602,7 +602,7 @@ export default function renderMenu() {
     });
 
     $languageList?.addEventListener("click", (event) => {
-        const target = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(".nextbility-language-option");
+        const target = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(".visua11y-agent-language-option");
         if (!target) {
             return;
         }
@@ -658,25 +658,25 @@ export default function renderMenu() {
         updateLanguageToggleLabel();
     };
 
-    document.addEventListener("nextbility:languages:updated", handleLanguagesUpdated);
-    document.addEventListener("nextbility:language:changed", handleLanguageChanged);
+    document.addEventListener("visua11y-agent:languages:updated", handleLanguagesUpdated);
+    document.addEventListener("visua11y-agent:language:changed", handleLanguageChanged);
 
     // *** Utils ***
-    $container.querySelectorAll('.nextbility-menu-close, .nextbility-overlay').forEach((el) =>
+    $container.querySelectorAll('.visua11y-agent-menu-close, .visua11y-agent-overlay').forEach((el) =>
         el.addEventListener('click', toggleMenu)
     );
 
-    $container.querySelectorAll('.nextbility-menu-reset').forEach((el) =>
+    $container.querySelectorAll('.visua11y-agent-menu-reset').forEach((el) =>
         el.addEventListener('click', reset)
     );
 
     // *** Controls ***
-    $menu.querySelectorAll(".nextbility-plus, .nextbility-minus").forEach((el: HTMLElement) => {
+    $menu.querySelectorAll(".visua11y-agent-plus, .visua11y-agent-minus").forEach((el: HTMLElement) => {
         el.addEventListener("click", () => {
             const difference = 0.1;
 
             let fontSize = userSettings?.states?.fontSize || 1;
-            if (el.classList.contains('nextbility-minus')) {
+            if (el.classList.contains('visua11y-agent-minus')) {
                 fontSize -= difference;
             } else {
                 fontSize += difference;
@@ -686,7 +686,7 @@ export default function renderMenu() {
             fontSize = Math.min(fontSize, 2);
             fontSize = Number(fontSize.toFixed(2));
 
-            document.querySelector(".nextbility-amount").textContent = `${(fontSize * 100).toFixed(0)}%`;
+            document.querySelector(".visua11y-agent-amount").textContent = `${(fontSize * 100).toFixed(0)}%`;
 
             adjustFontSize(fontSize);
             userSettings.states.fontSize = fontSize;
@@ -695,16 +695,16 @@ export default function renderMenu() {
         });
     });
 
-    $menu.querySelectorAll(".nextbility-btn").forEach((el: HTMLElement) => {
+    $menu.querySelectorAll(".visua11y-agent-btn").forEach((el: HTMLElement) => {
         el.addEventListener("click", () => {
             const key = el.dataset.key;
-            const isSelected = !el.classList.contains("nextbility-selected");
+            const isSelected = !el.classList.contains("visua11y-agent-selected");
 
-            if (el.classList.contains("nextbility-filter")) {
+            if (el.classList.contains("visua11y-agent-filter")) {
                 if (key === "contrast-cycle") {
                     filterButtons.forEach(button => {
                         if (button !== el) {
-                            button.classList.remove("nextbility-selected");
+                            button.classList.remove("visua11y-agent-selected");
                         }
                     });
 
@@ -718,10 +718,10 @@ export default function renderMenu() {
                     return;
                 }
 
-                filterButtons.forEach((filterBtn) => filterBtn.classList.remove("nextbility-selected"));
+                filterButtons.forEach((filterBtn) => filterBtn.classList.remove("visua11y-agent-selected"));
 
                 if (isSelected) {
-                    el.classList.add("nextbility-selected");
+                    el.classList.add("visua11y-agent-selected");
                 }
 
                 userSettings.states.contrast = isSelected ? key : false;
@@ -731,7 +731,7 @@ export default function renderMenu() {
                 return;
             }
 
-            el.classList.toggle("nextbility-selected", isSelected);
+            el.classList.toggle("visua11y-agent-selected", isSelected);
             userSettings.states[key] = isSelected;
             renderTools();
             saveUserSettings();

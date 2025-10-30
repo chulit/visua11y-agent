@@ -1,5 +1,5 @@
-.nextbility-widget,
-.nextbility-menu {
+.visua11y-agent-widget,
+.visua11y-agent-menu {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -8,21 +8,21 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.nextbility-container {
-    --nextbility-widget-font: "Inter", Arial, Helvetica, sans-serif;
-    font-family: var(--nextbility-widget-font);
+.visua11y-agent-container {
+    --visua11y-agent-widget-font: "Inter", Arial, Helvetica, sans-serif;
+    font-family: var(--visua11y-agent-widget-font);
 }
 
-.nextbility-container * {
+.visua11y-agent-container * {
     font-family: inherit;
 }
 
-.nextbility-widget *,
-.nextbility-menu * {
+.visua11y-agent-widget *,
+.visua11y-agent-menu * {
     box-sizing: border-box !important;
 }
 
-.nextbility-menu-btn {
+.visua11y-agent-menu-btn {
     position: fixed;
     z-index: 500000;
     left: 30px;
@@ -32,9 +32,9 @@
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    width: var(--nextbility-button-size, 58px);
-    height: var(--nextbility-button-size, 58px);
-    --nextbility-icon-size: calc(var(--nextbility-button-size, 58px) * 0.62);
+    width: var(--visua11y-agent-button-size, 58px);
+    height: var(--visua11y-agent-button-size, 58px);
+    --visua11y-agent-icon-size: calc(var(--visua11y-agent-button-size, 58px) * 0.62);
     display: flex;
     cursor: pointer;
     border: 3px solid white !important;
@@ -44,7 +44,7 @@
     background: linear-gradient(96deg, rgba(50,108,255,1) 0%, rgba(0,72,255,1) 100%) !important;
 }
 
-.nextbility-menu-icon {
+.visua11y-agent-menu-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,22 +52,22 @@
     height: 100%;
 }
 
-.nextbility-menu-btn svg,
-.nextbility-menu-btn img {
-    width: var(--nextbility-icon-size, 36px);
-    height: var(--nextbility-icon-size, 36px);
-    min-height: var(--nextbility-icon-size, 36px);
-    min-width: var(--nextbility-icon-size, 36px);
-    max-width: var(--nextbility-icon-size, 36px);
-    max-height: var(--nextbility-icon-size, 36px);
+.visua11y-agent-menu-btn svg,
+.visua11y-agent-menu-btn img {
+    width: var(--visua11y-agent-icon-size, 36px);
+    height: var(--visua11y-agent-icon-size, 36px);
+    min-height: var(--visua11y-agent-icon-size, 36px);
+    min-width: var(--visua11y-agent-icon-size, 36px);
+    max-width: var(--visua11y-agent-icon-size, 36px);
+    max-height: var(--visua11y-agent-icon-size, 36px);
     background: transparent !important;
 }
 
-.nextbility-menu-btn:hover {
+.visua11y-agent-menu-btn:hover {
     transform: scale(1.05);
 }
 
-.nextbility-sr-only {
+.visua11y-agent-sr-only {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
@@ -80,8 +80,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .nextbility-menu-btn {
-        --nextbility-button-size: 42px;
-        --nextbility-icon-size: 26px;
+    .visua11y-agent-menu-btn {
+        --visua11y-agent-button-size: 42px;
+        --visua11y-agent-icon-size: 26px;
     }
 }

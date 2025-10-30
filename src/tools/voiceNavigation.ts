@@ -21,7 +21,7 @@ let recognition: SpeechRecognition | null = null;
 let enabled = false;
 
 function getToggleButton(): HTMLElement | null {
-    return document.querySelector<HTMLElement>('.nextbility-btn[data-key="voice-navigation"]');
+    return document.querySelector<HTMLElement>('.visua11y-agent-btn[data-key="voice-navigation"]');
 }
 
 const commands: Command[] = [
@@ -72,7 +72,7 @@ function adjustFontSizeByStep(step: number) {
     userSettings.states.fontSize = fontSize;
     saveUserSettings();
 
-    const $amount = document.querySelector<HTMLElement>(".nextbility-amount");
+    const $amount = document.querySelector<HTMLElement>(".visua11y-agent-amount");
     if ($amount) {
         $amount.textContent = `${(fontSize * 100).toFixed(0)}%`;
     }
@@ -87,8 +87,8 @@ function toggleScreenReader(shouldEnable: boolean) {
     saveUserSettings();
     screenReader(shouldEnable);
 
-    const button = document.querySelector<HTMLElement>(`.nextbility-btn[data-key="screen-reader"]`);
-    button?.classList.toggle("nextbility-selected", shouldEnable);
+    const button = document.querySelector<HTMLElement>(`.visua11y-agent-btn[data-key="screen-reader"]`);
+    button?.classList.toggle("visua11y-agent-selected", shouldEnable);
 }
 
 function handleResult(event: SpeechRecognitionEvent) {
@@ -162,7 +162,7 @@ function stopRecognition() {
 }
 
 function notifyUnsupported() {
-    console.warn("[NextBility] Voice Navigation is not supported in this browser.");
+    console.warn("[Visua11y Agent] Voice Navigation is not supported in this browser.");
 }
 
 export default function voiceNavigation(enable = false) {
@@ -172,12 +172,12 @@ export default function voiceNavigation(enable = false) {
             userSettings.states["voice-navigation"] = false;
             saveUserSettings();
         }
-        getToggleButton()?.classList.remove("nextbility-selected");
+        getToggleButton()?.classList.remove("visua11y-agent-selected");
         return;
     }
 
     enabled = enable;
-    document.documentElement.classList.toggle("nextbility-voice-navigation", enable);
+    document.documentElement.classList.toggle("visua11y-agent-voice-navigation", enable);
 
     if (enable) {
         if (!recognition) {

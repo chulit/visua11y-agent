@@ -11,7 +11,7 @@ let enabled = false;
 const speech = typeof window !== "undefined" ? window.speechSynthesis : null;
 
 function getToggleButton(): HTMLElement | null {
-    return document.querySelector<HTMLElement>('.nextbility-btn[data-key="screen-reader"]');
+    return document.querySelector<HTMLElement>('.visua11y-agent-btn[data-key="screen-reader"]');
 }
 
 function getCurrentLanguage(): string {
@@ -68,7 +68,7 @@ function handleClick(event: MouseEvent) {
     }
 
     const target = event.target as HTMLElement | null;
-    const isMenuElement = target?.closest(".nextbility-menu, .nextbility-container");
+    const isMenuElement = target?.closest(".visua11y-agent-menu, .visua11y-agent-container");
     if (isMenuElement) {
         return;
     }
@@ -82,7 +82,7 @@ function handleClick(event: MouseEvent) {
 }
 
 function notifyUnsupported() {
-    console.warn("[NextBility] Screen Reader is not supported in this browser.");
+    console.warn("[Visua11y Agent] Screen Reader is not supported in this browser.");
 }
 
 export default function screenReader(enable = false) {
@@ -93,12 +93,12 @@ export default function screenReader(enable = false) {
             userSettings.states["screen-reader"] = false;
             saveUserSettings();
         }
-        getToggleButton()?.classList.remove("nextbility-selected");
+        getToggleButton()?.classList.remove("visua11y-agent-selected");
         return;
     }
 
     enabled = enable;
-    document.documentElement.classList.toggle("nextbility-screen-reader", enable);
+    document.documentElement.classList.toggle("visua11y-agent-screen-reader", enable);
 
     if (enable) {
         if (!selectionListener) {

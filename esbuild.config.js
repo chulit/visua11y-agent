@@ -44,7 +44,7 @@ const baseConfig = {
   ],
   banner: {
     js: `/*!
- * NextBility Accessibility Widget v${packageJson.version}
+ * Visua11y Agent Accessibility Widget v${packageJson.version}
  * (c) ${new Date().getFullYear()} ${packageJson.author}
  * License: ${packageJson.license}
  * Home Page: ${packageJson.homepage}
@@ -55,9 +55,9 @@ const baseConfig = {
 
 // Build targets
 const targets = {
-  esm: { format: 'esm', outfile: 'dist/next-bility.esm.js' },
-  cjs: { format: 'cjs', outfile: 'dist/next-bility.cjs.js' },
-  umd: { format: 'iife', outfile: 'dist/next-bility.umd.js', globalName: 'NextBilityAccessibility' }
+  esm: { format: 'esm', outfile: 'dist/visua11y-agent.esm.js' },
+  cjs: { format: 'cjs', outfile: 'dist/visua11y-agent.cjs.js' },
+  umd: { format: 'iife', outfile: 'dist/visua11y-agent.umd.js', globalName: 'Visua11yAgent' }
 };
 
 const buildTarget = targets[targetFormat];

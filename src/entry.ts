@@ -1,4 +1,4 @@
-import nextBility from "./nextBility";
+import visua11yAgent from "./visua11yAgent";
 import { getDefaultLanguage } from "./i18n/getDefaultLanguage";
 import { getScriptDataAttribute } from "./utils/getScriptDataAttribute";
 import observeHTMLLang from "./utils/observeHTMLLang";
@@ -17,7 +17,7 @@ async function initialize() {
         };
         
         await loadLanguages();
-        window.NextBilityPlugin = nextBility({
+        window.Visua11yAgentPlugin = visua11yAgent({
             options
         });
 

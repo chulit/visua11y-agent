@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>NextBility Accessibility Widget Demo</title>
+    <title>Visua11y Agent Accessibility Widget Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -187,7 +187,7 @@
 </head>
 <body>
     <header>
-        <h1>Testing NextBility Accessibility Widget</h1>
+        <h1>Testing Visua11y Agent Accessibility Widget</h1>
         <p>
             Use this page to manually verify accessibility tools, widget placement, screen reader,
             and voice navigation behaviour. Build the project first with <code>npm run build</code>
@@ -264,7 +264,7 @@
 
             <div class="media-lab">
                 <figure>
-                    <img src="/src/icons/logo.png" alt="NextBility hero banner with gradient background and illustration" style="width: 240px;">
+                    <img src="/src/icons/logo.png" alt="Visua11y Agent hero banner with gradient background and illustration" style="width: 240px;">
                     <figcaption>
                         Expect the banner illustration to lose its purple/blue gradient and appear black and white.
                     </figcaption>
@@ -285,7 +285,7 @@
         <section>
             <h2>Developer Hooks &amp; APIs</h2>
             <p>
-                After the bundle loads it exposes <code>window.NextBilityPlugin</code> so you can wire the widget
+                After the bundle loads it exposes <code>window.Visua11yAgentPlugin</code> so you can wire the widget
                 to your app. Try the helpers below or trigger them manually from the browser console.
             </p>
 
@@ -342,13 +342,13 @@
 
     <footer>
         <strong>Tip:</strong> open the browser console if you want to call
-        <code>window.NextBilityPlugin</code> helpers directly.
+        <code>window.Visua11yAgentPlugin</code> helpers directly.
     </footer>
 
-    <script src="../dist/next-bility.umd.js"
-            data-nextbility-lang="en"
-            data-nextbility-position="bottom-right"
-            data-nextbility-offset="24,24"
+    <script src="../dist/visua11y-agent.umd.js"
+            data-visua11y-agent-lang="en"
+            data-visua11y-agent-position="bottom-right"
+            data-visua11y-agent-offset="24,24"
             defer></script>
 
     <script>
@@ -361,14 +361,14 @@
             source.addEventListener("reload", event => {
                 try {
                     const info = JSON.parse(event.data);
-                    console.debug("[NextBility] Reloading after change:", info.file);
+                    console.debug("[Visua11y Agent] Reloading after change:", info.file);
                 } catch (err) {
-                    console.debug("[NextBility] Reloading after change.");
+                    console.debug("[Visua11y Agent] Reloading after change.");
                 }
                 window.location.reload();
             });
             source.onerror = () => {
-                console.warn("[NextBility] Hot reload connection lost. Attempting to reconnect...");
+                console.warn("[Visua11y Agent] Hot reload connection lost. Attempting to reconnect...");
             };
         })();
 
@@ -389,14 +389,14 @@
 
             const waitForPlugin = () =>
                 new Promise(resolve => {
-                    if (window.NextBilityPlugin) {
-                        resolve(window.NextBilityPlugin);
+                    if (window.Visua11yAgentPlugin) {
+                        resolve(window.Visua11yAgentPlugin);
                         return;
                     }
                     const interval = window.setInterval(() => {
-                        if (window.NextBilityPlugin) {
+                        if (window.Visua11yAgentPlugin) {
                             window.clearInterval(interval);
-                            resolve(window.NextBilityPlugin);
+                            resolve(window.Visua11yAgentPlugin);
                         }
                     }, 50);
                 });

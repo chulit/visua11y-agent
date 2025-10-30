@@ -1,7 +1,7 @@
 import addStylesheet from "@/utils/addStylesheet";
 
-const STYLE_ID = "nextbility-custom-palette-style";
-const CONTENT_SCOPE = ":where(:not(.nextbility-container):not(.nextbility-container *))";
+const STYLE_ID = "visua11y-agent-custom-palette-style";
+const CONTENT_SCOPE = ":where(:not(.visua11y-agent-container):not(.visua11y-agent-container *))";
 
 export type CustomPaletteCategory = "backgrounds" | "headings" | "contents";
 
@@ -24,7 +24,7 @@ function sanitizeColor(color?: string, fallback = "#000000") {
 
 export function removeCustomPalette() {
     document.getElementById(STYLE_ID)?.remove();
-    document.documentElement.classList.remove("nextbility-custom-palette");
+    document.documentElement.classList.remove("visua11y-agent-custom-palette");
 }
 
 export default function customPalette(state?: ICustomPaletteState) {
@@ -38,20 +38,20 @@ export default function customPalette(state?: ICustomPaletteState) {
     const contents = sanitizeColor(state.colors?.contents, DEFAULT_COLORS.contents);
 
     const css = `
-        html.nextbility-custom-palette body {
+        html.visua11y-agent-custom-palette body {
             background-color: ${backgrounds} !important;
         }
 
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} {
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} {
             color: ${contents} !important;
         }
 
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} h1,
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} h2,
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} h3,
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} h4,
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} h5,
-        html.nextbility-custom-palette body ${CONTENT_SCOPE} h6 {
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} h1,
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} h2,
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} h3,
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} h4,
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} h5,
+        html.visua11y-agent-custom-palette body ${CONTENT_SCOPE} h6 {
             color: ${headings} !important;
         }
     `;
@@ -61,7 +61,7 @@ export default function customPalette(state?: ICustomPaletteState) {
         css
     });
 
-    document.documentElement.classList.add("nextbility-custom-palette");
+    document.documentElement.classList.add("visua11y-agent-custom-palette");
 }
 
 export const DEFAULT_CUSTOM_PALETTE_STATE: Required<ICustomPaletteState> = {

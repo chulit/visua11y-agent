@@ -15,7 +15,7 @@ import {
 import { changeLanguage } from "./i18n/changeLanguage";
 import { IRegisterLanguageOptions, registerLanguage, resolveLanguageCode } from "./i18n/Languages";
 
-export default function nextBility({
+export default function visua11yAgent({
     options
 }) {
     const savedSettings = getSavedUserSettings() || {};

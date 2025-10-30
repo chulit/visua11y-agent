@@ -1,7 +1,7 @@
 import { injectToolCSS } from "../utils/cssGenerator";
 import IToolConfig from "../types/IToolConfig";
 
-const FONT_SCOPE = 'body :where(:not(.nextbility-container):not(.nextbility-container *))';
+const FONT_SCOPE = 'body :where(:not(.visua11y-agent-container):not(.visua11y-agent-container *))';
 
 export const readableFontConfig: IToolConfig = {
     id: "readable-font",
