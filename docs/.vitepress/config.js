@@ -5,7 +5,8 @@ export default {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' }
+      { text: 'Guide', link: '/guide/' },
+      { text: 'Live Demo', link: '/demo/' }
     ],
     sidebar: [
       {

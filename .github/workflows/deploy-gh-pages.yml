@@ -33,8 +33,8 @@ jobs:
             echo "✅ Dependencies healed successfully."
           fi
 
-      - name: Build VitePress documentation
-        run: npm run docs:build
+      - name: Build docs and demo
+        run: npm run docs:publish
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
