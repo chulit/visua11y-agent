@@ -3,7 +3,7 @@ export const pluginConfig = {
   position: 'bottom-left',
   offset: [20, 20],
   size: 58,
-  icon: undefined as string | undefined
+  icon: undefined as string | undefined,
 };
 
 export const pluginDefaults = {
@@ -11,5 +11,5 @@ export const pluginDefaults = {
   position: pluginConfig.position,
   offset: [...pluginConfig.offset],
   size: pluginConfig.size,
-  icon: pluginConfig.icon
+  icon: pluginConfig.icon,
 };

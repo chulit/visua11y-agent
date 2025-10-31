@@ -1,18 +1,15 @@
 export interface IAddStylesheetArgs {
-    id: string,
-    css: string
+    id: string;
+    css: string;
 }
 
-export default function addStylesheet({
-    id,
-    css
-}: IAddStylesheetArgs) {
-    if(css) {
-        const style = document.getElementById(id || '') || document.createElement('style');
-        style.innerHTML = css;
-        if(!style.id) {
-            style.id = id;
-            document.head.appendChild(style);
-        }
+export default function addStylesheet({ id, css }: IAddStylesheetArgs) {
+  if (css) {
+    const style = document.getElementById(id || '') || document.createElement('style');
+    style.innerHTML = css;
+    if (!style.id) {
+      style.id = id;
+      document.head.appendChild(style);
     }
+  }
 }

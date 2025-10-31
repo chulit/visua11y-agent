@@ -2,8 +2,13 @@
 /**
  * Runs esbuild in watch mode alongside the demo server to simulate hot reload.
  */
-const { spawn } = require("child_process");
-const path = require("path");
+import { spawn } from "child_process";
+import * as path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const processes = [];
 

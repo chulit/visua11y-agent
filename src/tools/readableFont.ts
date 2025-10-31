@@ -1,21 +1,21 @@
-import { injectToolCSS } from "../utils/cssGenerator";
-import IToolConfig from "../types/IToolConfig";
+import { injectToolCSS } from '../utils/cssGenerator';
+import IToolConfig from '../types/IToolConfig';
 
 const FONT_SCOPE = 'body :where(:not(.visua11y-agent-container):not(.visua11y-agent-container *))';
 
 export const readableFontConfig: IToolConfig = {
-    id: "readable-font",
-    selector: `html`,
-    childrenSelector: [FONT_SCOPE],
-    styles: {
-        'font-family': 'OpenDyslexic3,Comic Sans MS,Arial,Helvetica,sans-serif'
-    },
-    css: `@font-face {font-family: OpenDyslexic3;src: url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.woff") format("woff"), url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.ttf") format("truetype");}`
-}
+  id: 'readable-font',
+  selector: `html`,
+  childrenSelector: [FONT_SCOPE],
+  styles: {
+    'font-family': 'OpenDyslexic3,Comic Sans MS,Arial,Helvetica,sans-serif',
+  },
+  css: `@font-face {font-family: OpenDyslexic3;src: url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.woff") format("woff"), url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.ttf") format("truetype");}`,
+};
 
-export default function readableFont(enable=false) {
-    injectToolCSS({
-        ...readableFontConfig,
-        enable
-    })
+export default function readableFont(enable = false) {
+  injectToolCSS({
+    ...readableFontConfig,
+    enable,
+  });
 }

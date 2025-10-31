@@ -1,131 +1,134 @@
-import { pluginConfig } from "@/globals/pluginConfig";
-import { userSettings, saveUserSettings } from "@/globals/userSettings";
+import { pluginConfig } from '@/config/pluginConfig';
+import { userSettings, saveUserSettings } from '@/config/userSettings';
 
 type SelectionHandler = () => void;
 
-let activeUtterance: SpeechSynthesisUtterance | null = null;
+let activeUtterance: SpeechSynthesisUtterance | null = null; // eslint-disable-line @typescript-eslint/no-unused-vars
 let selectionListener: SelectionHandler | null = null;
 let clickListener: ((event: MouseEvent) => void) | null = null;
 let enabled = false;
 
-const speech = typeof window !== "undefined" ? window.speechSynthesis : null;
+const speech = typeof window !== 'undefined' ? window.speechSynthesis : null;
 
 function getToggleButton(): HTMLElement | null {
-    return document.querySelector<HTMLElement>('.visua11y-agent-btn[data-key="screen-reader"]');
+  return document.querySelector<HTMLElement>('.visua11y-agent-btn[data-key="screen-reader"]');
 }
 
 function getCurrentLanguage(): string {
-    return userSettings.lang || pluginConfig.lang || "en";
+  return userSettings.lang || pluginConfig.lang || 'en';
 }
 
 function stopSpeaking() {
-    if (speech) {
-        speech.cancel();
-    }
-    activeUtterance = null;
+  if (speech) {
+    speech.cancel();
+  }
+  activeUtterance = null;
 }
 
 function speak(text: string) {
-    if (!speech || !text) {
-        return;
-    }
+  if (!speech || !text) {
+    return;
+  }
 
-    stopSpeaking();
+  stopSpeaking();
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = getCurrentLanguage();
-    activeUtterance = utterance;
-    speech.speak(utterance);
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = getCurrentLanguage();
+  activeUtterance = utterance;
+  speech.speak(utterance);
 }
 
 function readSelection() {
-    const selection = window.getSelection();
-    const text = selection?.toString().trim();
+  const selection = window.getSelection();
+  const text = selection?.toString().trim();
 
-    if (text) {
-        speak(text);
-        return true;
-    }
+  if (text) {
+    speak(text);
+    return true;
+  }
 
-    return false;
+  return false;
 }
 
 function handleSelectionChange() {
-    if (!enabled) {
-        return;
-    }
+  if (!enabled) {
+    return;
+  }
 
-    // prevent rapid fire when selecting text by dragging
-    window.clearTimeout((handleSelectionChange as unknown as { timeoutId?: number }).timeoutId);
-    (handleSelectionChange as unknown as { timeoutId?: number }).timeoutId = window.setTimeout(() => {
-        readSelection();
-    }, 200);
+  // prevent rapid fire when selecting text by dragging
+  window.clearTimeout((handleSelectionChange as unknown as { timeoutId?: number }).timeoutId);
+  (handleSelectionChange as unknown as { timeoutId?: number }).timeoutId = window.setTimeout(
+    () => {
+      readSelection();
+    },
+    200
+  );
 }
 
 function handleClick(event: MouseEvent) {
-    if (!enabled) {
-        return;
-    }
+  if (!enabled) {
+    return;
+  }
 
-    const target = event.target as HTMLElement | null;
-    const isMenuElement = target?.closest(".visua11y-agent-menu, .visua11y-agent-container");
-    if (isMenuElement) {
-        return;
-    }
+  const target = event.target as HTMLElement | null;
+  const isMenuElement = target?.closest('.visua11y-agent-menu, .visua11y-agent-container');
+  if (isMenuElement) {
+    return;
+  }
 
-    if (!readSelection()) {
-        const text = target?.innerText?.trim?.();
-        if (text) {
-            speak(text);
-        }
+  if (!readSelection()) {
+    const text = target?.innerText?.trim?.();
+    if (text) {
+      speak(text);
     }
+  }
 }
 
 function notifyUnsupported() {
-    console.warn("[Visua11y Agent] Screen Reader is not supported in this browser.");
+  console.warn('[Visua11y Agent] Screen Reader is not supported in this browser.');
 }
 
 export default function screenReader(enable = false) {
-    if (!speech) {
-        notifyUnsupported();
-        enabled = false;
-        if (userSettings.states["screen-reader"]) {
-            userSettings.states["screen-reader"] = false;
-            saveUserSettings();
-        }
-        getToggleButton()?.classList.remove("visua11y-agent-selected");
-        return;
+  if (!speech) {
+    notifyUnsupported();
+    enabled = false;
+    if (userSettings.states['screen-reader']) {
+      userSettings.states['screen-reader'] = false;
+      saveUserSettings();
+    }
+    getToggleButton()?.classList.remove('visua11y-agent-selected');
+    return;
+  }
+
+  enabled = enable;
+  document.documentElement.classList.toggle('visua11y-agent-screen-reader', enable);
+
+  if (enable) {
+    if (!selectionListener) {
+      selectionListener = handleSelectionChange;
+      document.addEventListener('selectionchange', selectionListener);
     }
 
-    enabled = enable;
-    document.documentElement.classList.toggle("visua11y-agent-screen-reader", enable);
-
-    if (enable) {
-        if (!selectionListener) {
-            selectionListener = handleSelectionChange;
-            document.addEventListener("selectionchange", selectionListener);
-        }
-
-        if (!clickListener) {
-            clickListener = handleClick;
-            document.addEventListener("mouseup", clickListener);
-            document.addEventListener("keyup", clickListener);
-        }
-
-        // initial read to give immediate feedback
-        if (!readSelection()) {
-            speak(document.body?.innerText?.slice(0, 600).trim() || "");
-        }
-    } else {
-        stopSpeaking();
-        if (selectionListener) {
-            document.removeEventListener("selectionchange", selectionListener);
-            selectionListener = null;
-        }
-        if (clickListener) {
-            document.removeEventListener("mouseup", clickListener);
-            document.removeEventListener("keyup", clickListener);
-            clickListener = null;
-        }
+    if (!clickListener) {
+      clickListener = handleClick;
+      document.addEventListener('mouseup', clickListener);
+      document.addEventListener('keyup', clickListener);
     }
+
+    // initial read to give immediate feedback
+    if (!readSelection()) {
+      speak(document.body?.innerText?.slice(0, 600).trim() || '');
+    }
+  } else {
+    stopSpeaking();
+    if (selectionListener) {
+      document.removeEventListener('selectionchange', selectionListener);
+      selectionListener = null;
+    }
+    if (clickListener) {
+      document.removeEventListener('mouseup', clickListener);
+      document.removeEventListener('keyup', clickListener);
+      clickListener = null;
+    }
+  }
 }

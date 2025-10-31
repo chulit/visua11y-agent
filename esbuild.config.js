@@ -1,6 +1,6 @@
-const esbuild = require('esbuild');
-const fs = require('fs');
-const minify = require('html-minifier').minify;
+import * as esbuild from 'esbuild';
+import * as fs from 'fs';
+import { minify } from 'html-minifier';
 
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const isWatch = process.argv.includes('--watch');
