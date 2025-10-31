@@ -2,7 +2,7 @@ import template from './menu.html';
 
 import FilterButtons from './FilterButtons';
 import ContentButtons from './ContentButtons';
-import ToolButtons from '@/enum/TOOL_PRESETS';
+import ToolButtons from '@/enum/ToolPresets';
 import widgetSettingsIcon from '@/icons/widgetSettingsIcon.svg';
 import logoAsset from '@/icons/logo.png';
 
