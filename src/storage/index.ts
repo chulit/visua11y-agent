@@ -21,6 +21,11 @@ export function getStorageData(key) {
     data = getCookie(key);
   }
 
+  // If no data found, return empty object
+  if (data === null) {
+    return {};
+  }
+
   try {
     return JSON.parse(data);
   } catch (e) {
