@@ -13,7 +13,8 @@
     "demo": "npm run build && node scripts/demo-server.js",
     "demo:serve": "node scripts/demo-hot.js",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -27,12 +28,17 @@
   "homepage": "https://visua11y-agent.biz.id/",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.6",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "@vitest/ui": "^4.0.5",
     "esbuild": "^0.21.5",
     "eslint": "^9.38.0",
     "html-minifier": "^4.0.0",
     "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
+    "semantic-release": "^24.2.9",
     "svgo": "^4.0.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
