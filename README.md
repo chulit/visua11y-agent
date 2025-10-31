@@ -1,4 +1,4 @@
-# Visua11y Agent: Accessibility Widget for Websites
+# Visua11y Agent: Accessibility Website Widget
 
 <p align="center">
   <img src="/src/icons/logo.png" alt="Visua11y Agent banner" width="520">
@@ -30,6 +30,22 @@ Lightweight (< 30 KB) accessibility controls for any website, ready in minutes a
 ## Overview
 
 Visua11y Agent adds a customizable accessibility toolbar to your site so visitors can adjust contrast, typography, and interaction aids on demand. Drop it into any stack, adjust the language, and you are good to go.
+
+## Project Structure
+
+The project is organized into several key directories under `src/`:
+
+-   **`components/`**: Contains UI components such as the accessibility menu and widget.
+-   **`config/`**: Holds configuration files for the plugin and user settings.
+-   **`core/`**: The core logic and entry point for the Visua11y Agent.
+-   **`enum/`**: Defines enumerations used throughout the project.
+-   **`i18n/`**: Internationalization (i18n) related files for language handling.
+-   **`icons/`**: Stores SVG icons used in the widget.
+-   **`locales/`**: JSON files containing translations for various languages.
+-   **`storage/`**: Handles local storage and persistence of user settings.
+-   **`tools/`**: Implements the various accessibility tools (e.g., font adjustments, contrast modes).
+-   **`types/`**: TypeScript type definitions.
+-   **`utils/`**: Utility functions used across the project.
 
 ## Live Demo
 
