@@ -33,16 +33,13 @@ jobs:
             echo "✅ Dependencies healed successfully."
           fi
 
-      - name: Build project
-        run: npm run build
-
-      - name: Prepare GitHub Pages bundle
-        run: node scripts/prepare-pages.js
+      - name: Build VitePress documentation
+        run: npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Assuming your build output is in the 'dist' directory
+          path: './docs/.vitepress/dist' # VitePress build output directory
 
   deploy:
     environment:

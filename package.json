@@ -14,7 +14,9 @@
     "demo:serve": "node scripts/demo-hot.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/chulit/visua11y-agent/issues"
   },
-  "homepage": "https://visua11y-agent.biz.id/",
+  "homepage": "https://chulit.github.io/visua11y-agent/",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
     "@semantic-release/commit-analyzer": "^13.0.1",
@@ -43,6 +45,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
     "vite-plugin-html": "^3.2.2",
+    "vitepress": "^1.6.4",
     "vitest": "^4.0.5"
   }
 }
