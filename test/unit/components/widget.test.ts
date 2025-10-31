@@ -27,7 +27,7 @@ vi.mock('../../../src/components/menu/translateWidget', () => ({
 vi.mock('./../../../src/components/widget/widget.html', () => ({
   default: `<div class="visua11y-agent-widget">
   <a
-    href="https://visua11y-agent.biz.id"
+    href="https://chulit.github.io/visua11y-agent"
     target="_blank"
     class="visua11y-agent-menu-btn"
     title="Open Accessibility Menu"

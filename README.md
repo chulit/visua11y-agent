@@ -49,7 +49,7 @@ The project is organized into several key directories under `src/`:
 
 ## Live Demo
 
-- Explore the widget in action: [visua11y-agent.biz.id](https://visua11y-agent.biz.id)
+- Explore the widget in action: [chulit.github.io/visua11y-agent](https://chulit.github.io/visua11y-agent)
 - Review the demo markup inside `demo/index.html`
 
 ## Installation
