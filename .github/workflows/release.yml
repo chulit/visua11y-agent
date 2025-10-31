@@ -12,6 +12,9 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -32,6 +35,14 @@ jobs:
           npm -v
           npm cache clean --force
 
+      - name: Check NPM token availability
+        run: |
+          if [ -z "${NPM_TOKEN}" ]; then
+            echo "❌ NPM_TOKEN is not defined. Please set the secret in GitHub."
+            exit 1
+          fi
+          echo "✅ NPM_TOKEN appears to be set (length ${#NPM_TOKEN})."
+
       # 🧩 Auto-heal step untuk menangani mismatch seperti picomatch@2 vs 4
       - name: Heal dependency tree if npm ci fails
         id: install
@@ -50,7 +61,4 @@ jobs:
 
       # 🚀 Release ke npm dan GitHub
       - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run release
