@@ -1,4 +1,5 @@
 export default {
+  base: '/visua11y-agent/',
   title: 'Visua11y Agent',
   description: 'Accessibility Widget for Websites',
   themeConfig: {
