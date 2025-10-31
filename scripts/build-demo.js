@@ -7,9 +7,8 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, "..");
 
 const demoSource = path.join(projectRoot, "demo", "index.html");
-const docsDir = path.join(projectRoot, "docs");
-const docsDemoDir = path.join(docsDir, "demo");
-const docsDemoHtml = path.join(docsDemoDir, "index.html");
+const docsPublicDir = path.join(projectRoot, "docs", "public", "demo");
+const docsPublicHtml = path.join(docsPublicDir, "index.html");
 const distDir = path.join(projectRoot, "dist");
 const bundlePath = path.join(distDir, "visua11y-agent.umd.js");
 
@@ -34,10 +33,10 @@ html = html.replace(
 // Ensure the script points to a relative bundle inside the demo folder.
 html = html.replace("../dist/visua11y-agent.umd.js", "./visua11y-agent.umd.js");
 
-fs.mkdirSync(docsDemoDir, { recursive: true });
-fs.writeFileSync(docsDemoHtml, html);
+fs.mkdirSync(docsPublicDir, { recursive: true });
+fs.writeFileSync(docsPublicHtml, html);
 
 // Copy the built UMD bundle next to the demo HTML so it can be served statically.
-fs.copyFileSync(bundlePath, path.join(docsDemoDir, "visua11y-agent.umd.js"));
+fs.copyFileSync(bundlePath, path.join(docsPublicDir, "visua11y-agent.umd.js"));
 
-console.log(`✅ Demo copied to ${docsDemoHtml}`);
+console.log(`✅ Demo copied to ${docsPublicHtml}`);

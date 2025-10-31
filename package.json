@@ -18,7 +18,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:build-demo": "node scripts/build-demo.js",
-    "docs:publish": "npm run build && npm run docs:build && npm run docs:build-demo"
+    "docs:publish": "npm run build && npm run docs:build-demo && npm run docs:build"
   },
   "repository": {
     "type": "git",
