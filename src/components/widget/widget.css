@@ -1,93 +1,89 @@
 .visua11y-agent-widget,
 .visua11y-agent-menu {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 .visua11y-agent-container {
-    --visua11y-agent-widget-font: 'Inter', Arial, Helvetica, sans-serif;
-    font-family: var(--visua11y-agent-widget-font);
+  --visua11y-agent-widget-font: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: var(--visua11y-agent-widget-font);
 }
 
 .visua11y-agent-container * {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 .visua11y-agent-widget *,
 .visua11y-agent-menu * {
-    box-sizing: border-box !important;
+  box-sizing: border-box !important;
 }
 
 .visua11y-agent-menu-btn {
-    position: fixed;
-    z-index: 500000;
-    left: 30px;
-    bottom: 30px;
-    box-shadow:
-        0 5px 15px 0 rgb(37 44 97 / 15%),
-        0 2px 4px 0 rgb(93 100 148 / 20%);
-    transition: transform 0.2s ease;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    width: var(--visua11y-agent-button-size, 58px);
-    height: var(--visua11y-agent-button-size, 58px);
-    --visua11y-agent-icon-size: calc(var(--visua11y-agent-button-size, 58px) * 0.62);
-    display: flex;
-    cursor: pointer;
-    border: 3px solid white !important;
-    outline: 5px solid #0048ff !important;
-    text-decoration: none !important;
-    background: rgb(50, 108, 255) !important;
-    background: linear-gradient(
-        96deg,
-        rgba(50, 108, 255, 1) 0%,
-        rgba(0, 72, 255, 1) 100%
-    ) !important;
+  position: fixed;
+  z-index: 500000;
+  left: 30px;
+  bottom: 30px;
+  box-shadow:
+    0 5px 15px 0 rgb(37 44 97 / 15%),
+    0 2px 4px 0 rgb(93 100 148 / 20%);
+  transition: transform 0.2s ease;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  width: var(--visua11y-agent-button-size, 58px);
+  height: var(--visua11y-agent-button-size, 58px);
+  --visua11y-agent-icon-size: calc(var(--visua11y-agent-button-size, 58px) * 0.62);
+  display: flex;
+  cursor: pointer;
+  border: 3px solid white !important;
+  outline: 5px solid #0048ff !important;
+  text-decoration: none !important;
+  background: rgb(50, 108, 255) !important;
+  background: linear-gradient(96deg, rgba(50, 108, 255, 1) 0%, rgba(0, 72, 255, 1) 100%) !important;
 }
 
 .visua11y-agent-menu-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .visua11y-agent-menu-btn svg,
 .visua11y-agent-menu-btn img {
-    width: var(--visua11y-agent-icon-size, 36px);
-    height: var(--visua11y-agent-icon-size, 36px);
-    min-height: var(--visua11y-agent-icon-size, 36px);
-    min-width: var(--visua11y-agent-icon-size, 36px);
-    max-width: var(--visua11y-agent-icon-size, 36px);
-    max-height: var(--visua11y-agent-icon-size, 36px);
-    background: transparent !important;
+  width: var(--visua11y-agent-icon-size, 36px);
+  height: var(--visua11y-agent-icon-size, 36px);
+  min-height: var(--visua11y-agent-icon-size, 36px);
+  min-width: var(--visua11y-agent-icon-size, 36px);
+  max-width: var(--visua11y-agent-icon-size, 36px);
+  max-height: var(--visua11y-agent-icon-size, 36px);
+  background: transparent !important;
 }
 
 .visua11y-agent-menu-btn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .visua11y-agent-sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 @media only screen and (max-width: 768px) {
-    .visua11y-agent-menu-btn {
-        --visua11y-agent-button-size: 42px;
-        --visua11y-agent-icon-size: 26px;
-    }
+  .visua11y-agent-menu-btn {
+    --visua11y-agent-button-size: 42px;
+    --visua11y-agent-icon-size: 26px;
+  }
 }

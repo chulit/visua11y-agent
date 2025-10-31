@@ -1,8 +1,8 @@
 interface Button {
-    key: string;
-    label: string;
-    icon: string;
-    steps?: string[];
+  key: string;
+  label: string;
+  icon: string;
+  steps?: string[];
 }
 
 export default function renderButtons(buttons: Button[], btnClass?: string) {
@@ -14,11 +14,10 @@ export default function renderButtons(buttons: Button[], btnClass?: string) {
 
     const stepsHtml = steps
       ? `<div class="visua11y-agent-contrast-bars">${steps
-        .map(
-          (_, index) =>
-            `<span class="visua11y-agent-contrast-bar" data-index="${index}"></span>`
-        )
-        .join('')}</div>`
+          .map(
+            (_, index) => `<span class="visua11y-agent-contrast-bar" data-index="${index}"></span>`
+          )
+          .join('')}</div>`
       : '';
 
     html += `<button class="visua11y-agent-btn ${btnClass || ''}" type="button" data-key="${button.key}" title="${button.label}">${button.icon}<span class="visua11y-agent-translate">${button.label}</span>${stepsHtml}</button>`;

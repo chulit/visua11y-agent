@@ -1,39 +1,37 @@
 // Local type declarations for SpeechRecognition and related interfaces
 interface SpeechRecognition extends EventTarget {
-    grammars: SpeechGrammarList;
-    lang: string;
-    continuous: boolean;
-    interimResults: boolean;
-    maxAlternatives: number;
-    serviceURI: string;
-    start(): void;
-    stop(): void;
-    abort(): void;
-    onaudiostart: ((this: SpeechRecognition, ev: Event) => void) | null;
-    onaudioend: ((this: SpeechRecognition, ev: Event) => void) | null;
-    onend: ((this: SpeechRecognition, ev: Event) => void) | null;
-    onerror: ((this: SpeechRecognition, ev: SpeechRecognitionErrorEvent) => void) | null;
-    onnomatch: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => void) | null;
-    onresult: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => void) | null;
-    onsoundstart: ((this: SpeechRecognition, ev: Event) => void) | null;
-    onsoundend: ((this: SpeechRecognition, ev: Event) => void) | null;
-    onspeechstart: ((this: SpeechRecognition, ev: Event) => void) | null;
-    onspeechend: ((this: SpeechRecognition, ev: Event) => void) | null;
+  grammars: SpeechGrammarList;
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  maxAlternatives: number;
+  serviceURI: string;
+  start(): void;
+  stop(): void;
+  abort(): void;
+  onaudiostart: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onaudioend: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onend: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onerror: ((this: SpeechRecognition, ev: SpeechRecognitionErrorEvent) => void) | null;
+  onnomatch: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => void) | null;
+  onresult: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => void) | null;
+  onsoundstart: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onsoundend: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onspeechstart: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onspeechend: ((this: SpeechRecognition, ev: Event) => void) | null;
 }
 
 interface SpeechRecognitionConstructor {
-    prototype: SpeechRecognition;
-    new (): SpeechRecognition;
+  prototype: SpeechRecognition;
+  new (): SpeechRecognition;
 }
 
 interface SpeechRecognitionEvent extends Event {
-    readonly resultIndex: number;
-    readonly results: SpeechRecognitionResultList;
+  readonly resultIndex: number;
+  readonly results: SpeechRecognitionResultList;
 
-    readonly emma: Document | null;
+  readonly emma: Document | null;
 }
-
-
 
 import { pluginConfig } from '@/config/pluginConfig';
 import { saveUserSettings, userSettings } from '@/config/userSettings';
@@ -44,14 +42,14 @@ import { $menu, openMenu } from '@/components/menu/menu';
 import toggleMenu from '@/components/menu/toggleMenu';
 
 type Command = {
-    phrases: RegExp[];
-    action: () => void;
+  phrases: RegExp[];
+  action: () => void;
 };
 
 const SpeechRecognitionConstructor: SpeechRecognitionConstructor | undefined =
-    typeof window !== 'undefined'
-      ? window.SpeechRecognition || window.webkitSpeechRecognition
-      : undefined;
+  typeof window !== 'undefined'
+    ? window.SpeechRecognition || window.webkitSpeechRecognition
+    : undefined;
 
 let recognition: SpeechRecognition | null = null;
 let enabled = false;
@@ -179,7 +177,9 @@ function restartRecognition() {
     if (enabled && recognition) {
       try {
         recognition.start();
-      } catch { /* Recognition can throw if already started; swallow. */ }
+      } catch {
+        /* Recognition can throw if already started; swallow. */
+      }
     }
   }, 300);
 }
@@ -191,7 +191,9 @@ function stopRecognition() {
       recognition.onend = null;
       recognition.onerror = null;
       recognition.stop();
-    } catch { /* noop */ }
+    } catch {
+      /* noop */
+    }
   }
 }
 
@@ -222,7 +224,9 @@ export default function voiceNavigation(enable = false) {
       recognition.lang = userSettings.lang || pluginConfig.lang || 'en';
       try {
         recognition.start();
-      } catch { /* Safari can throw "InvalidStateError" when start is called twice */ }
+      } catch {
+        /* Safari can throw "InvalidStateError" when start is called twice */
+      }
     }
   } else {
     stopRecognition();

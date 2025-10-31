@@ -20,9 +20,9 @@ export function generateCSS(styles: object): string {
 }
 
 export interface IWrapCSSToSelectorArgs {
-    selector: string;
-    childrenSelector: string[];
-    css: string;
+  selector: string;
+  childrenSelector: string[];
+  css: string;
 }
 
 export function wrapCSSToSelector({

@@ -55,15 +55,15 @@ export const LANGUAGES: ILanguage[] = [
 ];
 
 export interface ILanguage {
-    code: string;
-    label: string;
+  code: string;
+  label: string;
 }
 
 export interface IRegisterLanguageOptions {
-    code: string;
-    label?: string;
-    dictionary: Record<string, string>;
-    merge?: boolean;
+  code: string;
+  label?: string;
+  dictionary: Record<string, string>;
+  merge?: boolean;
 }
 
 export const LANGUAGE_DICTIONARY: Record<string, Record<string, string>> = {};

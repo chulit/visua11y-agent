@@ -6,9 +6,9 @@ const CONTENT_SCOPE = ':where(:not(.visua11y-agent-container):not(.visua11y-agen
 export type CustomPaletteCategory = 'backgrounds' | 'headings' | 'contents';
 
 export interface ICustomPaletteState {
-    enabled?: boolean;
-    activeCategory?: CustomPaletteCategory;
-    colors?: Partial<Record<CustomPaletteCategory, string>>;
+  enabled?: boolean;
+  activeCategory?: CustomPaletteCategory;
+  colors?: Partial<Record<CustomPaletteCategory, string>>;
 }
 
 const DEFAULT_COLORS: Record<CustomPaletteCategory, string> = {

@@ -29,10 +29,7 @@ export default function reset() {
     '.visua11y-agent-position-btn'
   );
   positionButtons.forEach((btn) =>
-    btn.classList.toggle(
-      'visua11y-agent-selected',
-      btn.dataset.position === pluginConfig.position
-    )
+    btn.classList.toggle('visua11y-agent-selected', btn.dataset.position === pluginConfig.position)
   );
 
   const $positionToggle = document.querySelector<HTMLButtonElement>(
@@ -87,9 +84,7 @@ export default function reset() {
   );
   if ($contrastCycleButton) {
     $contrastCycleButton.setAttribute('aria-pressed', 'false');
-    const label = $contrastCycleButton.querySelector<HTMLSpanElement>(
-      '.visua11y-agent-translate'
-    );
+    const label = $contrastCycleButton.querySelector<HTMLSpanElement>('.visua11y-agent-translate');
     if (label) {
       label.setAttribute('data-translate', 'Contrast');
       label.textContent = 'Contrast';

@@ -1,6 +1,6 @@
 export interface IAddStylesheetArgs {
-    id: string;
-    css: string;
+  id: string;
+  css: string;
 }
 
 export default function addStylesheet({ id, css }: IAddStylesheetArgs) {

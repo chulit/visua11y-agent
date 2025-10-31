@@ -57,12 +57,9 @@ function handleSelectionChange() {
 
   // prevent rapid fire when selecting text by dragging
   window.clearTimeout((handleSelectionChange as unknown as { timeoutId?: number }).timeoutId);
-  (handleSelectionChange as unknown as { timeoutId?: number }).timeoutId = window.setTimeout(
-    () => {
-      readSelection();
-    },
-    200
-  );
+  (handleSelectionChange as unknown as { timeoutId?: number }).timeoutId = window.setTimeout(() => {
+    readSelection();
+  }, 200);
 }
 
 function handleClick(event: MouseEvent) {

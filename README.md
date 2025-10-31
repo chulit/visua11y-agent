@@ -15,6 +15,7 @@ Lightweight (< 30 KB) accessibility controls for any website, ready in minutes a
 </div>
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Live Demo](#live-demo)
 - [Installation](#installation)
@@ -27,15 +28,18 @@ Lightweight (< 30 KB) accessibility controls for any website, ready in minutes a
 - [License](#license)
 
 ## Overview
+
 Visua11y Agent adds a customizable accessibility toolbar to your site so visitors can adjust contrast, typography, and interaction aids on demand. Drop it into any stack, adjust the language, and you are good to go.
 
 ## Live Demo
+
 - Explore the widget in action: [visua11y-agent.biz.id](https://visua11y-agent.biz.id)
 - Review the demo markup inside `demo/index.html`
 
 ## Installation
 
 ### Option A — npm
+
 ```bash
 npm install visua11y-agent
 ```
@@ -43,10 +47,11 @@ npm install visua11y-agent
 Then import the package in your bundler entry point. It bootstraps itself and attaches `window.Visua11yAgentPlugin` when the document is ready.
 
 ```js
-import "visua11y-agent";
+import 'visua11y-agent';
 ```
 
 ### Option B — CDN
+
 Use the prebuilt bundle in `dist/visua11y-agent.umd.js` or host it from your own CDN.
 
 ```html
@@ -54,6 +59,7 @@ Use the prebuilt bundle in `dist/visua11y-agent.umd.js` or host it from your own
 ```
 
 ## Quick Start
+
 ```html
 <script
   src="dist/visua11y-agent.umd.js"
@@ -65,28 +71,32 @@ Use the prebuilt bundle in `dist/visua11y-agent.umd.js` or host it from your own
 ```
 
 ## Configuration
+
 Control the widget through `data-visua11y-agent-*` attributes on the script tag or by calling helpers on `window.Visua11yAgentPlugin` after it loads.
 
 ### Script Attributes
-| Attribute | Description | Example |
-|-----------|-------------|---------|
-| `data-visua11y-agent-lang` | Set the default UI language. | `data-visua11y-agent-lang="en"` |
-| `data-visua11y-agent-position` | Choose where the launcher appears. | `data-visua11y-agent-position="bottom-right"` |
-| `data-visua11y-agent-offset` | Adjust launcher offset (`x,y`). | `data-visua11y-agent-offset="24,24"` |
-| `data-visua11y-agent-size` | Switch button size (`default`, `medium`, `small`). | `data-visua11y-agent-size="medium"` |
-| `data-visua11y-agent-icon` | Provide custom HTML for the launcher icon. | `data-visua11y-agent-icon="<span>♿️</span>"` |
+
+| Attribute                      | Description                                        | Example                                       |
+| ------------------------------ | -------------------------------------------------- | --------------------------------------------- |
+| `data-visua11y-agent-lang`     | Set the default UI language.                       | `data-visua11y-agent-lang="en"`               |
+| `data-visua11y-agent-position` | Choose where the launcher appears.                 | `data-visua11y-agent-position="bottom-right"` |
+| `data-visua11y-agent-offset`   | Adjust launcher offset (`x,y`).                    | `data-visua11y-agent-offset="24,24"`          |
+| `data-visua11y-agent-size`     | Switch button size (`default`, `medium`, `small`). | `data-visua11y-agent-size="medium"`           |
+| `data-visua11y-agent-icon`     | Provide custom HTML for the launcher icon.         | `data-visua11y-agent-icon="<span>♿️</span>"`  |
 
 ### JavaScript Helpers
-| Helper | Description | Example |
-|--------|-------------|---------|
-| `window.Visua11yAgentPlugin.setIcon(html)` | Swap the floating launcher icon. | `Visua11yAgentPlugin.setIcon("<span>🌈</span>")` |
-| `window.Visua11yAgentPlugin.changeLanguage(code)` | Switch the UI language at runtime. | `Visua11yAgentPlugin.changeLanguage("fr")` |
-| `window.Visua11yAgentPlugin.registerLanguage(options)` | Register new translations on the fly. | `Visua11yAgentPlugin.registerLanguage({ code: "id", label: "Bahasa Indonesia", dictionary: { "Accessibility Menu": "Menu Aksesibilitas" } })` |
-| `window.Visua11yAgentPlugin.resetAll()` | Restore widget defaults and clear saved settings. | `Visua11yAgentPlugin.resetAll()` |
+
+| Helper                                                 | Description                                       | Example                                                                                                                                       |
+| ------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `window.Visua11yAgentPlugin.setIcon(html)`             | Swap the floating launcher icon.                  | `Visua11yAgentPlugin.setIcon("<span>🌈</span>")`                                                                                              |
+| `window.Visua11yAgentPlugin.changeLanguage(code)`      | Switch the UI language at runtime.                | `Visua11yAgentPlugin.changeLanguage("fr")`                                                                                                    |
+| `window.Visua11yAgentPlugin.registerLanguage(options)` | Register new translations on the fly.             | `Visua11yAgentPlugin.registerLanguage({ code: "id", label: "Bahasa Indonesia", dictionary: { "Accessibility Menu": "Menu Aksesibilitas" } })` |
+| `window.Visua11yAgentPlugin.resetAll()`                | Restore widget defaults and clear saved settings. | `Visua11yAgentPlugin.resetAll()`                                                                                                              |
 
 See `demo/index.html` for practical examples.
 
 ## Features
+
 - **Multilingual UI** – 40+ ready-to-use locales with runtime translation hooks and language search.
 - **Content Adjustments** – Font size adjustments, font weight, letter spacing, line height, dyslexia-friendly typeface, and highlighting of titles and links.
 - **Color & Contrast Controls** – Multiple contrast modes (Dark, Light, High Contrast), invert colors, saturation controls (low/high), monochrome mode, image desaturation, and a custom color palette picker for granular customization.
@@ -97,6 +107,7 @@ See `demo/index.html` for practical examples.
 - **Developer Hooks** – Expose helpers like `plugin.setIcon`, `plugin.changeLanguage`, `plugin.registerLanguage`, and `plugin.resetAll` for deeper UI personalization.
 
 ## Menu Structure
+
 The accessibility menu is organized into the following sections:
 
 - **Content Adjustments** – Tools for modifying text properties including font size, weight, spacing, and special typography options.
@@ -105,6 +116,7 @@ The accessibility menu is organized into the following sections:
 - **Widget Settings** – Configuration options for the widget's appearance and position on the page.
 
 ## Local Development
+
 - Install dependencies: `npm install`
 - Build the bundle: `npm run build`
 - Serve the static demo: `npm run demo`
@@ -112,11 +124,14 @@ The accessibility menu is organized into the following sections:
 - Open `http://127.0.0.1:4173/` to test screen reader, voice navigation, positioning, and custom locales
 
 ## Roadmap
+
 - Accessibility profiles (save and load preset configurations)
 - Widget size presets (Default, Medium, Small)
 
 ## Contributing
+
 Improvements are welcome! Fork the repository and open a pull request with your changes. ❤️
 
 ## License
+
 Visua11y Agent is released under the [MIT License](LICENSE).

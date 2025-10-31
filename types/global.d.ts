@@ -5,7 +5,7 @@ declare global {
     __visua11yAgent__onScrollReadableGuide?: (event: Event) => void;
     SpeechRecognition?: SpeechRecognitionConstructor;
     webkitSpeechRecognition?: SpeechRecognitionConstructor;
-    Visua11yAgentPlugin?: ReturnType<typeof import("../src/core").default>;
+    Visua11yAgentPlugin?: ReturnType<typeof import('../src/core').default>;
   }
 }
 

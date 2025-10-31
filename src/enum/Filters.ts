@@ -2,7 +2,7 @@ import { TEXT_SELECTORS } from './Selectors';
 import IToolConfig from '../types/IToolConfig';
 
 export interface IFilters {
-    [key: string]: IToolConfig;
+  [key: string]: IToolConfig;
 }
 
 export const FILTERS: IFilters = {

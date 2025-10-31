@@ -29,10 +29,7 @@ export default function readingGuide(enable = false) {
     guide?.remove();
 
     if (window.__visua11yAgent__onScrollReadableGuide) {
-      document.removeEventListener(
-        'mousemove',
-        window.__visua11yAgent__onScrollReadableGuide
-      );
+      document.removeEventListener('mousemove', window.__visua11yAgent__onScrollReadableGuide);
       delete window.__visua11yAgent__onScrollReadableGuide;
     }
   }

@@ -11,7 +11,7 @@ export default [
       'no-unused-vars': 'off', // matikan versi JS
       '@typescript-eslint/no-unused-vars': ['warn'], // aktifkan versi TS
       '@typescript-eslint/explicit-function-return-type': 'off',
-      'no-constant-condition': 'off'
-    }
-  }
+      'no-constant-condition': 'off',
+    },
+  },
 ];

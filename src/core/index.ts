@@ -15,9 +15,7 @@ export default function visua11yAgent({ options }) {
   Object.assign(pluginConfig, options);
   pluginDefaults.lang = pluginConfig.lang;
   pluginDefaults.position = pluginConfig.position;
-  pluginDefaults.offset = Array.isArray(pluginConfig.offset)
-    ? [...pluginConfig.offset]
-    : [20, 20];
+  pluginDefaults.offset = Array.isArray(pluginConfig.offset) ? [...pluginConfig.offset] : [20, 20];
   pluginDefaults.size = pluginConfig.size;
   pluginDefaults.icon = pluginConfig.icon;
   Object.assign(userSettings, savedSettings);
