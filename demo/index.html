@@ -177,6 +177,131 @@
         color: #4b5563;
       }
 
+      .motion-lab {
+        margin-top: 24px;
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .motion-card {
+        position: relative;
+        border-radius: 18px;
+        padding: 24px;
+        min-height: 200px;
+        overflow: hidden;
+        box-shadow: 0 24px 48px rgb(15 23 42 / 16%);
+        border: 1px solid rgba(79, 70, 229, 0.18);
+        background: linear-gradient(
+          115deg,
+          rgba(79, 70, 229, 0.2) 0%,
+          rgba(59, 130, 246, 0.35) 45%,
+          rgba(129, 140, 248, 0.1) 100%
+        );
+        backdrop-filter: blur(3px);
+        color: #111827;
+      }
+
+      .motion-card--shimmer::before {
+        content: '';
+        position: absolute;
+        inset: -120% -40%;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.65) 45%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        animation: shimmer 2.6s linear infinite;
+      }
+
+      .motion-card--shimmer h3,
+      .motion-card--shimmer p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .motion-card--orbit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .motion-orbit {
+        position: relative;
+        width: 120px;
+        height: 120px;
+      }
+
+      .motion-orbit::before,
+      .motion-orbit::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        border: 2px dashed rgba(79, 70, 229, 0.4);
+        animation: pulse 3.6s ease-in-out infinite;
+      }
+
+      .motion-orbit::after {
+        animation-delay: 1.8s;
+      }
+
+      .motion-orbit-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 22px;
+        height: 22px;
+        margin: -11px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #fbcfe8 0%, #a855f7 100%);
+        box-shadow: 0 12px 24px rgba(168, 85, 247, 0.35);
+        animation: orbit 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .motion-note {
+        margin-top: 12px;
+        color: #475569;
+        font-size: 0.95rem;
+      }
+
+      @keyframes shimmer {
+        from {
+          transform: translateX(-20%);
+        }
+        to {
+          transform: translateX(120%);
+        }
+      }
+
+      @keyframes orbit {
+        0% {
+          transform: rotate(0deg) translateX(52px) rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg) translateX(52px) rotate(-180deg);
+        }
+        100% {
+          transform: rotate(360deg) translateX(52px) rotate(-360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.35;
+        }
+        50% {
+          transform: scale(1.08);
+          opacity: 0.7;
+        }
+      }
+
       @media (max-width: 720px) {
         main {
           margin: 0 12px;
@@ -254,6 +379,37 @@
               <li>Move the launcher to every supported corner using the widget settings.</li>
               <li>Apply icon changes via the helper controls demonstrated below.</li>
             </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="motionLabHeading">
+        <h2 id="motionLabHeading">Motion Stress Test</h2>
+        <p>
+          The cards below intentionally animate so you can confirm the widget's
+          <strong>Stop Animations</strong> control halts motion on this page. Toggle the tool on and
+          both experiences should immediately freeze.
+        </p>
+
+        <div class="motion-lab">
+          <article class="motion-card motion-card--shimmer" aria-describedby="shimmerNote">
+            <h3>Shimmering Spotlight</h3>
+            <p>
+              This card uses a sweeping highlight animation. When Stop Animations is active, the glow
+              should pause instead of sliding endlessly.
+            </p>
+            <p id="shimmerNote" class="motion-note">CSS animation: linear gradient shimmer.</p>
+          </article>
+
+          <article class="motion-card motion-card--orbit" aria-describedby="orbitNote">
+            <div class="motion-orbit" role="presentation" aria-hidden="true">
+              <span class="motion-orbit-dot"></span>
+            </div>
+            <p>
+              A decorative orb orbits the dashed track while pulsing. Enabling Stop Animations should
+              freeze the dot and calm the orbit effect.
+            </p>
+            <p id="orbitNote" class="motion-note">CSS animations: orbiting dot and dashed pulse.</p>
           </article>
         </div>
       </section>
