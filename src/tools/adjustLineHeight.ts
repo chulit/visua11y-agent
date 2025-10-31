@@ -5,7 +5,7 @@ import IToolConfig from '../types/IToolConfig';
 export const adjustLineHeightConfig: IToolConfig = {
   id: 'line-height',
   selector: `html`,
-  childrenSelector: ALL_ELEMENT_SELECTORS,
+  childrenSelector: ALL_ELEMENT_SELECTORS.map(s => `${s}:not(.visua11y-agent-container *)`),
   styles: {
     'line-height': '3',
   },

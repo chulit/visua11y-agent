@@ -5,7 +5,7 @@ import IToolConfig from '../types/IToolConfig';
 export const adjustLetterSpacingConfig: IToolConfig = {
   id: 'letter-spacing',
   selector: `html`,
-  childrenSelector: ALL_ELEMENT_SELECTORS,
+  childrenSelector: ALL_ELEMENT_SELECTORS.map(s => `${s}:not(.visua11y-agent-container *)`),
   styles: {
     'letter-spacing': '2px',
   },
