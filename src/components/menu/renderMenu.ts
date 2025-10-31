@@ -83,9 +83,9 @@ function hexToHue(hex: string, fallback: number): number {
   const normalize =
     sanitized.length === 3
       ? sanitized
-          .split('')
-          .map((char) => char + char)
-          .join('')
+        .split('')
+        .map((char) => char + char)
+        .join('')
       : sanitized;
 
   const bigint = parseInt(normalize, 16);
