@@ -72,7 +72,10 @@ Every release is published to npm, so any npm-backed CDN can serve the compiled 
 
 - **jsDelivr (UMD)** — `https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js`
 - **unpkg (UMD)** — `https://unpkg.com/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js`
-- **esm.sh / Skypack (native ESM)** — `https://esm.sh/visua11y-agent` / `https://cdn.skypack.dev/visua11y-agent`
+- **esm.sh (native ESM)** — `https://esm.sh/visua11y-agent`
+- **Skypack (native ESM)** — `https://cdn.skypack.dev/visua11y-agent`
+- **esm.run (native ESM)** — `https://esm.run/visua11y-agent`
+- **JSPM Generator (dual)** — `https://ga.jspm.io/npm:visua11y-agent/dist/visua11y-agent.esm.js`
 
 Stick to pinned versions for stability (`@1.2.0`) and switch to `@latest` if you want automatic upgrades.
 
