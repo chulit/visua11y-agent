@@ -6,6 +6,13 @@
   "main": "dist/visua11y-agent.cjs.js",
   "module": "dist/visua11y-agent.esm.js",
   "unpkg": "dist/visua11y-agent.umd.js",
+  "jsdelivr": "dist/visua11y-agent.umd.js",
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "watch": "node esbuild.config.js --watch",
     "build": "node esbuild.config.js --minify",

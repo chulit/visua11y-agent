@@ -68,17 +68,26 @@ import 'visua11y-agent';
 
 ### Option B — CDN
 
-Use the prebuilt bundle in `dist/visua11y-agent.umd.js` or host it from your own CDN.
+Every release is published to npm, so any npm-backed CDN can serve the compiled bundle immediately.
+
+- **jsDelivr (UMD)** — `https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js`
+- **unpkg (UMD)** — `https://unpkg.com/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js`
+- **esm.sh / Skypack (native ESM)** — `https://esm.sh/visua11y-agent` / `https://cdn.skypack.dev/visua11y-agent`
+
+Stick to pinned versions for stability (`@1.2.0`) and switch to `@latest` if you want automatic upgrades.
 
 ```html
-<script src="dist/visua11y-agent.umd.js" defer></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js"
+  defer
+></script>
 ```
 
 ## Quick Start
 
 ```html
 <script
-  src="dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js"
   data-visua11y-agent-lang="en"
   data-visua11y-agent-position="bottom-right"
   data-visua11y-agent-offset="24,24"
