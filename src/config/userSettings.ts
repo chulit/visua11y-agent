@@ -5,6 +5,7 @@ export const userSettings: ISettings = {
   lang: undefined,
   position: undefined,
   offset: undefined,
+  widgetSize: undefined,
   states: {},
 };
 

@@ -12,7 +12,7 @@
   z-index: 500000;
   overflow: hidden;
   background: #eff1f5;
-  width: 500px;
+  width: var(--visua11y-agent-panel-width, 500px);
   line-height: 1;
   font-size: 16px;
   height: 100%;
@@ -312,6 +312,23 @@
   transform: translateY(0);
   pointer-events: auto;
   max-height: 500px;
+}
+
+.visua11y-agent-size-card {
+  margin-top: 16px;
+  border-top: 1px solid #eef1ff;
+  padding-top: 16px;
+}
+
+.visua11y-agent-size-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.visua11y-agent-size-btn {
+  width: 100% !important;
 }
 
 .visua11y-agent-position-card.visua11y-agent-position-open .visua11y-agent-position-toggle {

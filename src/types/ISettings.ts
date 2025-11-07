@@ -1,4 +1,5 @@
 import { ICustomPaletteState } from '@/tools/customPalette';
+import { WidgetSizePreset } from '@/config/widgetSize';
 
 export interface ISettingsStates {
   fontSize?: number;
@@ -11,6 +12,7 @@ export interface ISettings {
   lang?: string;
   position?: string;
   offset?: number[];
+  widgetSize?: WidgetSizePreset | number;
   states?: ISettingsStates;
   updatedAt?: Date;
 }

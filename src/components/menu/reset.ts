@@ -13,6 +13,7 @@ export default function reset() {
   userSettings.position = undefined;
   userSettings.offset = undefined;
   userSettings.lang = undefined;
+  userSettings.widgetSize = undefined;
 
   pluginConfig.lang = pluginDefaults.lang;
   pluginConfig.position = pluginDefaults.position;
@@ -20,10 +21,21 @@ export default function reset() {
     ? [...pluginDefaults.offset]
     : [20, 20];
   pluginConfig.size = pluginDefaults.size;
+  pluginConfig.sizePreset = pluginDefaults.sizePreset;
+  pluginConfig.panelWidth = pluginDefaults.panelWidth;
   pluginConfig.icon = pluginDefaults.icon;
 
   applyButtonPosition();
   applyButtonIcon();
+
+  const $menuRoot = document.querySelector<HTMLElement>('.visua11y-agent-menu');
+  if ($menuRoot) {
+    if (pluginDefaults.panelWidth) {
+      $menuRoot.style.setProperty('--visua11y-agent-panel-width', `${pluginDefaults.panelWidth}px`);
+    } else {
+      $menuRoot.style.removeProperty('--visua11y-agent-panel-width');
+    }
+  }
 
   const positionButtons = document.querySelectorAll<HTMLButtonElement>(
     '.visua11y-agent-position-btn'
@@ -31,6 +43,14 @@ export default function reset() {
   positionButtons.forEach((btn) =>
     btn.classList.toggle('visua11y-agent-selected', btn.dataset.position === pluginConfig.position)
   );
+
+  const sizeButtons = document.querySelectorAll<HTMLButtonElement>('.visua11y-agent-size-btn');
+  sizeButtons.forEach((btn) => {
+    const isSelected =
+      Boolean(pluginDefaults.sizePreset) && btn.dataset.size === pluginDefaults.sizePreset;
+    btn.classList.toggle('visua11y-agent-selected', isSelected);
+    btn.setAttribute('aria-pressed', String(isSelected));
+  });
 
   const $positionToggle = document.querySelector<HTMLButtonElement>(
     '.visua11y-agent-position-toggle'

@@ -55,6 +55,7 @@ import { userSettings, getSavedUserSettings } from '@/config/userSettings';
 import { pluginConfig, pluginDefaults } from '@/config/pluginConfig';
 import { changeLanguage } from '@/i18n/changeLanguage';
 import { registerLanguage, resolveLanguageCode } from '@/i18n/Languages';
+import { WIDGET_SIZE_PRESETS, WIDGET_PANEL_WIDTHS } from '@/config/widgetSize';
 
 describe('visua11yAgent', () => {
   beforeEach(() => {
@@ -94,7 +95,9 @@ describe('visua11yAgent', () => {
     expect(pluginConfig.lang).toBe('fr');
     expect(pluginConfig.position).toBe('top-left');
     expect(pluginConfig.offset).toEqual([10, 10]);
-    expect(pluginConfig.size).toBe('medium');
+    expect(pluginConfig.size).toBe(WIDGET_SIZE_PRESETS.medium);
+    expect(pluginConfig.panelWidth).toBe(WIDGET_PANEL_WIDTHS.medium);
+    expect(pluginConfig.sizePreset).toBe('medium');
     expect(pluginConfig.icon).toBe('<svg>test</svg>');
   });
 
@@ -114,7 +117,9 @@ describe('visua11yAgent', () => {
     expect(pluginDefaults.lang).toBe('es');
     expect(pluginDefaults.position).toBe('bottom-right');
     expect(pluginDefaults.offset).toEqual([30, 30]);
-    expect(pluginDefaults.size).toBe('small');
+    expect(pluginDefaults.size).toBe(WIDGET_SIZE_PRESETS.small);
+    expect(pluginDefaults.panelWidth).toBe(WIDGET_PANEL_WIDTHS.small);
+    expect(pluginDefaults.sizePreset).toBe('small');
     expect(pluginDefaults.icon).toBe('<span>icon</span>');
   });
 

@@ -101,6 +101,8 @@ describe('configuration and initialization', () => {
         position: 'bottom-left',
         offset: [20, 20],
         size: 58,
+        sizePreset: 'default',
+        panelWidth: 500,
         icon: undefined,
       });
     });
@@ -113,6 +115,8 @@ describe('configuration and initialization', () => {
         position: pluginConfig.position,
         offset: [...pluginConfig.offset],
         size: pluginConfig.size,
+        sizePreset: pluginConfig.sizePreset,
+        panelWidth: pluginConfig.panelWidth,
         icon: pluginConfig.icon,
       });
     });

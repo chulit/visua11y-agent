@@ -27,6 +27,7 @@ import {
 } from '@/tools/customPalette';
 import { t } from '@/i18n/translate';
 import customPaletteIcon from '@/icons/customPaletteIcon.svg';
+import { resolveWidgetSize, WidgetSizePreset } from '@/config/widgetSize';
 
 function hslToHex(h: number, s: number, l: number): string {
   const saturation = Math.max(0, Math.min(100, s)) / 100;
@@ -128,9 +129,22 @@ export default function renderMenu() {
   $container.innerHTML = `<style>${css}</style>` + template;
 
   const $menu = $container.querySelector<HTMLElement>('.visua11y-agent-menu');
-  if (pluginConfig?.position?.includes('right')) {
-    $menu.style.right = '0px';
-    $menu.style.left = 'auto';
+  const setMenuAnchor = (position: string) => {
+    if (!$menu) {
+      return;
+    }
+    const isRight = position?.includes('right');
+    if (isRight) {
+      $menu.style.right = '0px';
+      $menu.style.left = 'auto';
+    } else {
+      $menu.style.left = '0px';
+      $menu.style.right = 'auto';
+    }
+  };
+
+  if ($menu) {
+    setMenuAnchor(pluginConfig?.position || 'bottom-left');
   }
 
   const $logo = $container.querySelector<HTMLImageElement>('[data-visua11y-agent-logo]');
@@ -263,6 +277,9 @@ export default function renderMenu() {
   const $customPaletteReset = $menu.querySelector<HTMLButtonElement>(
     '.visua11y-agent-custom-palette-reset'
   );
+  const $sizeButtons = Array.from(
+    $menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-size-btn')
+  );
 
   if ($settingsIcon) {
     $settingsIcon.innerHTML = widgetSettingsIcon;
@@ -284,6 +301,44 @@ export default function renderMenu() {
       setSettingsVisibility(expanded);
     });
   }
+
+  const setPanelWidth = (width: number) => {
+    if ($menu && Number.isFinite(width)) {
+      $menu.style.setProperty('--visua11y-agent-panel-width', `${Math.round(width)}px`);
+    }
+  };
+
+  const setSizePresetSelection = (preset: WidgetSizePreset | null) => {
+    $sizeButtons.forEach((button) => {
+      const isSelected = Boolean(preset) && button.dataset.size === preset;
+      button.classList.toggle('visua11y-agent-selected', isSelected);
+      button.setAttribute('aria-pressed', String(isSelected));
+    });
+  };
+
+  const initialSizeSource =
+    typeof userSettings.widgetSize !== 'undefined'
+      ? userSettings.widgetSize
+      : pluginConfig.sizePreset || pluginConfig.size;
+  const initialSize = resolveWidgetSize(initialSizeSource);
+  setSizePresetSelection(initialSize.preset);
+  setPanelWidth(initialSize.panelWidth);
+  pluginConfig.panelWidth = initialSize.panelWidth;
+
+  $sizeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const presetValue = (button.dataset.size as WidgetSizePreset) || 'default';
+      const resolved = resolveWidgetSize(presetValue);
+      pluginConfig.size = resolved.size;
+      pluginConfig.sizePreset = resolved.preset;
+      pluginConfig.panelWidth = resolved.panelWidth;
+      userSettings.widgetSize = resolved.preset ?? resolved.size;
+      setSizePresetSelection(resolved.preset);
+      setPanelWidth(resolved.panelWidth);
+      saveUserSettings();
+      applyButtonPosition();
+    });
+  });
 
   if ($customPaletteIcon) {
     $customPaletteIcon.innerHTML = customPaletteIcon;
@@ -504,13 +559,7 @@ export default function renderMenu() {
 
       pluginConfig.position = selectedPosition;
       userSettings.position = selectedPosition;
-      if (selectedPosition.includes('right')) {
-        ($menu as HTMLElement).style.right = '0px';
-        ($menu as HTMLElement).style.left = 'auto';
-      } else {
-        ($menu as HTMLElement).style.left = '0px';
-        ($menu as HTMLElement).style.right = 'auto';
-      }
+      setMenuAnchor(selectedPosition);
       saveUserSettings();
       applyButtonPosition();
       setSettingsVisibility(true);

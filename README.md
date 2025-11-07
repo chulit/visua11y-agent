@@ -130,7 +130,7 @@ See `demo/index.html` for practical examples.
 - **Color & Contrast Controls** – Multiple contrast modes (Dark, Light, High Contrast), invert colors, saturation controls (low/high), monochrome mode, image desaturation, and a custom color palette picker for granular customization.
 - **Reading & Focus Tools** – Reading guide overlay, screen reader helper, voice navigation, and text-to-speech shortcuts.
 - **Motion & Cursor Utilities** – Stop animations, disable animated images, enlarge cursor for low-vision users.
-- **Widget Settings** – Position controls allowing placement in 8 different locations (top-left, top-center, top-right, center-left, center-right, bottom-left, bottom-center, bottom-right).
+- **Widget Settings** – Position controls allowing placement in 8 locations (top-left through bottom-right) plus button + panel size presets (Default, Medium, Small).
 - **Reset Functionality** – One-click reset to restore all accessibility settings to default values.
 - **Developer Hooks** – Expose helpers like `plugin.setIcon`, `plugin.changeLanguage`, `plugin.registerLanguage`, and `plugin.resetAll` for deeper UI personalization.
 
@@ -154,7 +154,6 @@ The accessibility menu is organized into the following sections:
 ## Roadmap
 
 - Accessibility profiles (save and load preset configurations)
-- Widget size presets (Default, Medium, Small)
 
 ## Contributing
 

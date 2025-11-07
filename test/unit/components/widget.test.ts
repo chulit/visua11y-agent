@@ -8,6 +8,8 @@ vi.mock('../../../src/config/pluginConfig', () => {
     position: 'bottom-left',
     offset: [20, 20],
     size: 58,
+    sizePreset: 'default',
+    panelWidth: 500,
     icon: undefined as string | undefined,
   };
   
@@ -77,6 +79,8 @@ describe('widget', () => {
       position: 'bottom-left',
       offset: [20, 20],
       size: 58,
+      sizePreset: 'default',
+      panelWidth: 500,
       icon: undefined,
     });
 
