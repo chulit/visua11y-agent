@@ -168,8 +168,15 @@ export default function renderMenu() {
   const $profilesCard = $menu.querySelector<HTMLElement>('.visua11y-agent-profiles-card');
 
   if ($profilesGrid) {
-    $profilesGrid.innerHTML = ACCESSIBILITY_PROFILES.map(
-      (profile) => `
+    $profilesGrid.innerHTML = ACCESSIBILITY_PROFILES.map((profile) => {
+      const translatedLabel = t(profile.label);
+      const translatedDescription = t(profile.description);
+
+      const pillContent = profile.icon
+        ? `<span class="visua11y-agent-profile-icon" aria-hidden="true">${profile.icon}</span>`
+        : translatedLabel.slice(0, 2);
+
+      return `
         <button
           type="button"
           class="visua11y-agent-profile-btn"
@@ -181,21 +188,21 @@ export default function renderMenu() {
               class="visua11y-agent-profile-label visua11y-agent-translate"
               data-translate="${profile.label}"
             >
-              ${profile.label}
+              ${translatedLabel}
             </span>
             <span class="visua11y-agent-profile-pill" aria-hidden="true">
-              ${profile.icon ? `<span class="visua11y-agent-profile-icon" aria-hidden="true">${profile.icon}</span>` : profile.label.slice(0, 2)}
+              ${pillContent}
             </span>
           </span>
           <span
             class="visua11y-agent-profile-desc visua11y-agent-translate"
             data-translate="${profile.description}"
           >
-            ${profile.description}
+            ${translatedDescription}
           </span>
         </button>
-      `
-    ).join('');
+      `;
+    }).join('');
   }
   const profileButtons = Array.from(
     $menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-profile-btn')
