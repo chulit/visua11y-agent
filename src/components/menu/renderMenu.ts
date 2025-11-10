@@ -15,7 +15,7 @@ import { ILanguage, LANGUAGES, resolveLanguageCode } from '@/i18n/Languages';
 
 import css from './menu.css';
 import enableContrast from '@/tools/enableContrast';
-import { pluginConfig } from '@/config/pluginConfig';
+import { pluginConfig, pluginDefaults } from '@/config/pluginConfig';
 import { userSettings, saveUserSettings } from '@/config/userSettings';
 import { changeLanguage } from '@/i18n/changeLanguage';
 import toggleMenu from './toggleMenu';
@@ -28,6 +28,8 @@ import {
 import { t } from '@/i18n/translate';
 import customPaletteIcon from '@/icons/customPaletteIcon.svg';
 import { resolveWidgetSize, WidgetSizePreset } from '@/config/widgetSize';
+import { ACCESSIBILITY_PROFILES } from '@/config/accessibilityProfiles';
+import { ISettings, ISettingsStates } from '@/types/ISettings';
 
 function hslToHex(h: number, s: number, l: number): string {
   const saturation = Math.max(0, Math.min(100, s)) / 100;
@@ -160,42 +162,67 @@ export default function renderMenu() {
 
   const $contrastGrid = $menu.querySelector('.contrast') as HTMLElement;
   $contrastGrid.innerHTML = renderButtons(FilterButtons, 'visua11y-agent-filter');
+  const $profilesGrid = $menu.querySelector<HTMLElement>('.visua11y-agent-profile-grid');
+
+  const $profilesToggle = $menu.querySelector<HTMLButtonElement>('.visua11y-agent-profile-toggle');
+  const $profilesCard = $menu.querySelector<HTMLElement>('.visua11y-agent-profiles-card');
+
+  if ($profilesGrid) {
+    $profilesGrid.innerHTML = ACCESSIBILITY_PROFILES.map(
+      (profile) => `
+        <button
+          type="button"
+          class="visua11y-agent-profile-btn"
+          data-profile="${profile.id}"
+          aria-pressed="false"
+        >
+          <span class="visua11y-agent-profile-head">
+            <span
+              class="visua11y-agent-profile-label visua11y-agent-translate"
+              data-translate="${profile.label}"
+            >
+              ${profile.label}
+            </span>
+            <span class="visua11y-agent-profile-pill" aria-hidden="true">
+              ${profile.icon ? `<span class="visua11y-agent-profile-icon" aria-hidden="true">${profile.icon}</span>` : profile.label.slice(0, 2)}
+            </span>
+          </span>
+          <span
+            class="visua11y-agent-profile-desc visua11y-agent-translate"
+            data-translate="${profile.description}"
+          >
+            ${profile.description}
+          </span>
+        </button>
+      `
+    ).join('');
+  }
+  const profileButtons = Array.from(
+    $menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-profile-btn')
+  );
+
+  const setProfilesVisibility = (expanded: boolean) => {
+    if (!$profilesGrid || !$profilesCard || !$profilesToggle) {
+      return;
+    }
+    $profilesToggle.setAttribute('aria-expanded', String(expanded));
+    $profilesCard.classList.toggle('is-collapsed', !expanded);
+    $profilesGrid.classList.toggle('is-collapsed', !expanded);
+  };
+
+  if ($profilesToggle) {
+    setProfilesVisibility(true);
+    $profilesToggle.addEventListener('click', () => {
+      const expanded = $profilesToggle.getAttribute('aria-expanded') !== 'true';
+      setProfilesVisibility(expanded);
+    });
+  }
 
   // *** States UI Rendering ***
-  const states = userSettings?.states;
   const filterButtons = Array.from(
     $menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-filter')
   );
-
-  const fontSize = Number(states?.fontSize) || 1;
-  if (fontSize != 1) {
-    $menu.querySelector('.visua11y-agent-amount').innerHTML = `${fontSize * 100}%`;
-  }
-
-  if (states) {
-    const buttons = Array.from($menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-btn'));
-
-    Object.entries(states).forEach(([key, value]) => {
-      if (!value || key === 'fontSize') {
-        return;
-      }
-
-      if (typeof value === 'object' && key !== 'contrast') {
-        return;
-      }
-
-      const selector = key === 'contrast' ? states[key] : key;
-      const btn = buttons.find((b) => b.dataset.key === selector);
-      if (btn) btn.classList.add('visua11y-agent-selected');
-      if (key === 'contrast' && typeof selector === 'string') {
-        filterButtons.forEach((b) => {
-          if (b.dataset.key !== selector) {
-            b.classList.remove('visua11y-agent-selected');
-          }
-        });
-      }
-    });
-  }
+  const $fontSizeAmount = $menu.querySelector<HTMLElement>('.visua11y-agent-amount');
 
   const contrastCycleOrder = ['contrast', 'dark-contrast', 'light-contrast', 'high-contrast'];
   const contrastLabelMap: Record<string, string> = {
@@ -253,10 +280,42 @@ export default function renderMenu() {
     return contrastCycleOrder[nextIndex];
   };
 
-  updateContrastCycleButton(typeof states?.contrast === 'string' ? states.contrast : false);
+  const syncStateSelections = () => {
+    const states = userSettings?.states || {};
+    const fontSizeValue = Number(states.fontSize) || 1;
+    if ($fontSizeAmount) {
+      $fontSizeAmount.textContent = `${Math.round(fontSizeValue * 100)}%`;
+    }
+
+    const buttons = Array.from($menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-btn'));
+    buttons.forEach((btn) => {
+      const key = btn.dataset.key;
+      if (!key || btn.classList.contains('visua11y-agent-filter')) {
+        return;
+      }
+
+      const isActive = Boolean(states[key]);
+      btn.classList.toggle('visua11y-agent-selected', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+
+    filterButtons.forEach((btn) => {
+      const key = btn.dataset.key;
+      if (!key || key === 'contrast-cycle') {
+        return;
+      }
+      const isActive = typeof states.contrast === 'string' && states.contrast === key;
+      btn.classList.toggle('visua11y-agent-selected', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+
+    updateContrastCycleButton(states.contrast || 'contrast');
+  };
+
+  syncStateSelections();
 
   // *** Widget Placement ***
-  const currentPosition = userSettings.position || pluginConfig.position || 'bottom-left';
+  pluginConfig.position = userSettings.position || pluginConfig.position || 'bottom-left';
   const $positionToggle = $menu.querySelector<HTMLButtonElement>('.visua11y-agent-position-toggle');
   const $positionCard = $menu.querySelector<HTMLElement>('.visua11y-agent-position-card');
   const $settingsToggle = $menu.querySelector<HTMLButtonElement>('.visua11y-agent-settings-toggle');
@@ -302,11 +361,27 @@ export default function renderMenu() {
     });
   }
 
-  const setPanelWidth = (width: number) => {
-    if ($menu && Number.isFinite(width)) {
-      $menu.style.setProperty('--visua11y-agent-panel-width', `${Math.round(width)}px`);
+  const setPanelWidth = () => {
+    if (!$menu) {
+      return;
     }
+    const width = pluginDefaults.panelWidth || 500;
+    pluginConfig.panelWidth = width;
+    $menu.style.setProperty('--visua11y-agent-panel-width', `${Math.round(width)}px`);
   };
+
+  let previousProfileSnapshot: {
+    states: ISettingsStates;
+    widgetSize?: ISettings['widgetSize'];
+    sizeValue: number;
+    panelWidth?: number;
+    sizePreset?: WidgetSizePreset | null;
+    position?: string;
+    offset?: number[];
+  } | null = null;
+
+  const cloneStates = (states?: ISettingsStates): ISettingsStates =>
+    JSON.parse(JSON.stringify(states || {}));
 
   const setSizePresetSelection = (preset: WidgetSizePreset | null) => {
     $sizeButtons.forEach((button) => {
@@ -316,14 +391,162 @@ export default function renderMenu() {
     });
   };
 
+  const setActiveProfileButton = (profileId: string | null | undefined) => {
+    profileButtons.forEach((button) => {
+      const isSelected = Boolean(profileId) && button.dataset.profile === profileId;
+      button.classList.toggle('visua11y-agent-selected', isSelected);
+      button.setAttribute('aria-pressed', String(isSelected));
+    });
+  };
+
+  const clearActiveProfileSelection = () => {
+    if (userSettings.activeProfile) {
+      userSettings.activeProfile = undefined;
+    }
+    setActiveProfileButton(null);
+    previousProfileSnapshot = null;
+  };
+
+  const disableActiveProfile = () => {
+    if (!userSettings.activeProfile) {
+      return;
+    }
+
+    const snapshot = previousProfileSnapshot;
+    userSettings.activeProfile = undefined;
+    setActiveProfileButton(null);
+
+    if (snapshot) {
+      userSettings.states = cloneStates(snapshot.states);
+      userSettings.widgetSize = snapshot.widgetSize;
+      userSettings.position = snapshot.position;
+      userSettings.offset = snapshot.offset ? [...snapshot.offset] : undefined;
+
+      if (typeof snapshot.widgetSize !== 'undefined') {
+        const resolved = resolveWidgetSize(snapshot.widgetSize);
+        pluginConfig.size = resolved.size;
+        pluginConfig.sizePreset = resolved.preset;
+        pluginConfig.panelWidth = pluginDefaults.panelWidth;
+        userSettings.widgetSize = snapshot.widgetSize;
+        setSizePresetSelection(resolved.preset);
+        setPanelWidth();
+      } else {
+        pluginConfig.size = snapshot.sizeValue;
+        pluginConfig.sizePreset = snapshot.sizePreset || null;
+        pluginConfig.panelWidth = snapshot.panelWidth ?? pluginConfig.panelWidth;
+        userSettings.widgetSize = undefined;
+        setSizePresetSelection(snapshot.sizePreset || null);
+        setPanelWidth();
+      }
+      applyButtonPosition();
+
+      if (snapshot.position) {
+        pluginConfig.position = snapshot.position;
+        setMenuAnchor(snapshot.position);
+        syncPositionButtons();
+      }
+
+      if (snapshot.offset) {
+        pluginConfig.offset = [...snapshot.offset];
+      }
+    } else {
+      userSettings.states = {};
+      userSettings.widgetSize = undefined;
+      pluginConfig.sizePreset = null;
+      pluginConfig.panelWidth = pluginDefaults.panelWidth;
+      setSizePresetSelection(null);
+      setPanelWidth();
+    }
+
+    previousProfileSnapshot = null;
+    syncStateSelections();
+    adjustFontSize(userSettings.states.fontSize || 1);
+    renderTools();
+    enableContrast(userSettings.states.contrast);
+    saveUserSettings();
+  };
+
+  const applyProfilePreset = (profileId: string) => {
+    const profile = ACCESSIBILITY_PROFILES.find((item) => item.id === profileId);
+    if (!profile) {
+      return;
+    }
+
+    previousProfileSnapshot = {
+      states: cloneStates(userSettings.states),
+      widgetSize: userSettings.widgetSize,
+      sizeValue: pluginConfig.size,
+      panelWidth: pluginConfig.panelWidth,
+      sizePreset: pluginConfig.sizePreset,
+      position: userSettings.position ?? pluginConfig.position,
+      offset: Array.isArray(userSettings.offset)
+        ? [...userSettings.offset]
+        : Array.isArray(pluginConfig.offset)
+          ? [...pluginConfig.offset]
+          : undefined,
+    };
+
+    userSettings.activeProfile = profileId;
+    userSettings.states = { ...(profile.states || {}) };
+
+    if (profile.position) {
+      pluginConfig.position = profile.position;
+      userSettings.position = profile.position;
+      setMenuAnchor(profile.position);
+      syncPositionButtons();
+    }
+
+    if (Array.isArray(profile.offset)) {
+      pluginConfig.offset = [...profile.offset];
+      userSettings.offset = [...profile.offset];
+    }
+
+    if (typeof profile.widgetSize !== 'undefined') {
+      const resolved = resolveWidgetSize(profile.widgetSize);
+      pluginConfig.size = resolved.size;
+      pluginConfig.sizePreset = resolved.preset;
+      pluginConfig.panelWidth = pluginDefaults.panelWidth;
+      userSettings.widgetSize = profile.widgetSize;
+      setSizePresetSelection(resolved.preset);
+      setPanelWidth();
+    } else {
+      setPanelWidth();
+    }
+
+    applyButtonPosition();
+    syncStateSelections();
+    setActiveProfileButton(profileId);
+
+    adjustFontSize(userSettings.states.fontSize || 1);
+    renderTools();
+    enableContrast(userSettings.states.contrast);
+
+    saveUserSettings();
+  };
+
+  profileButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const profileId = button.dataset.profile;
+      if (!profileId) {
+        return;
+      }
+      if (userSettings.activeProfile === profileId) {
+        disableActiveProfile();
+      } else {
+        applyProfilePreset(profileId);
+      }
+    });
+  });
+
   const initialSizeSource =
     typeof userSettings.widgetSize !== 'undefined'
       ? userSettings.widgetSize
       : pluginConfig.sizePreset || pluginConfig.size;
   const initialSize = resolveWidgetSize(initialSizeSource);
   setSizePresetSelection(initialSize.preset);
-  setPanelWidth(initialSize.panelWidth);
-  pluginConfig.panelWidth = initialSize.panelWidth;
+  pluginConfig.panelWidth = pluginDefaults.panelWidth;
+  setPanelWidth();
+  setActiveProfileButton(userSettings.activeProfile);
 
   $sizeButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -331,10 +554,11 @@ export default function renderMenu() {
       const resolved = resolveWidgetSize(presetValue);
       pluginConfig.size = resolved.size;
       pluginConfig.sizePreset = resolved.preset;
-      pluginConfig.panelWidth = resolved.panelWidth;
+      pluginConfig.panelWidth = pluginDefaults.panelWidth;
       userSettings.widgetSize = resolved.preset ?? resolved.size;
       setSizePresetSelection(resolved.preset);
-      setPanelWidth(resolved.panelWidth);
+      setPanelWidth();
+      clearActiveProfileSelection();
       saveUserSettings();
       applyButtonPosition();
     });
@@ -358,8 +582,8 @@ export default function renderMenu() {
   };
 
   const savedPalette =
-    states && typeof states['custom-palette'] === 'object'
-      ? (states['custom-palette'] as ICustomPaletteState)
+    userSettings.states && typeof userSettings.states['custom-palette'] === 'object'
+      ? (userSettings.states['custom-palette'] as ICustomPaletteState)
       : undefined;
 
   let paletteState: ICustomPaletteState = {
@@ -450,6 +674,7 @@ export default function renderMenu() {
   };
 
   const persistPaletteState = (apply = true) => {
+    clearActiveProfileSelection();
     const matchesDefaults = colorsMatchDefaults();
     paletteState.enabled = !matchesDefaults;
 
@@ -544,9 +769,15 @@ export default function renderMenu() {
   const positionButtons = Array.from(
     $menu.querySelectorAll<HTMLButtonElement>('.visua11y-agent-position-btn')
   );
+  const syncPositionButtons = () => {
+    positionButtons.forEach((button) =>
+      button.classList.toggle('visua11y-agent-selected', button.dataset.position === pluginConfig.position)
+    );
+  };
+
+  syncPositionButtons();
 
   positionButtons.forEach((button) => {
-    button.classList.toggle('visua11y-agent-selected', button.dataset.position === currentPosition);
     button.addEventListener('click', () => {
       const selectedPosition = button.dataset.position;
       if (!selectedPosition) {
@@ -559,9 +790,11 @@ export default function renderMenu() {
 
       pluginConfig.position = selectedPosition;
       userSettings.position = selectedPosition;
+      clearActiveProfileSelection();
       setMenuAnchor(selectedPosition);
       saveUserSettings();
       applyButtonPosition();
+      syncPositionButtons();
       setSettingsVisibility(true);
       setPositionGridVisibility(true);
     });
@@ -816,6 +1049,7 @@ export default function renderMenu() {
 
         adjustFontSize(fontSize);
         userSettings.states.fontSize = fontSize;
+        clearActiveProfileSelection();
 
         saveUserSettings();
       });
@@ -825,6 +1059,7 @@ export default function renderMenu() {
     el.addEventListener('click', () => {
       const key = el.dataset.key;
       const isSelected = !el.classList.contains('visua11y-agent-selected');
+      clearActiveProfileSelection();
 
       if (el.classList.contains('visua11y-agent-filter')) {
         if (key === 'contrast-cycle') {

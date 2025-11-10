@@ -13,6 +13,7 @@ export interface ISettings {
   position?: string;
   offset?: number[];
   widgetSize?: WidgetSizePreset | number;
+  activeProfile?: string;
   states?: ISettingsStates;
   updatedAt?: Date;
 }

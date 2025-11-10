@@ -14,6 +14,7 @@ export default function reset() {
   userSettings.offset = undefined;
   userSettings.lang = undefined;
   userSettings.widgetSize = undefined;
+  userSettings.activeProfile = undefined;
 
   pluginConfig.lang = pluginDefaults.lang;
   pluginConfig.position = pluginDefaults.position;
@@ -50,6 +51,11 @@ export default function reset() {
       Boolean(pluginDefaults.sizePreset) && btn.dataset.size === pluginDefaults.sizePreset;
     btn.classList.toggle('visua11y-agent-selected', isSelected);
     btn.setAttribute('aria-pressed', String(isSelected));
+  });
+  const profileButtons = document.querySelectorAll<HTMLButtonElement>('.visua11y-agent-profile-btn');
+  profileButtons.forEach((btn) => {
+    btn.classList.remove('visua11y-agent-selected');
+    btn.setAttribute('aria-pressed', 'false');
   });
 
   const $positionToggle = document.querySelector<HTMLButtonElement>(

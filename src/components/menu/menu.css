@@ -331,6 +331,229 @@
   width: 100% !important;
 }
 
+.visua11y-agent-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+  transition:
+    opacity 0.2s ease,
+    max-height 0.25s ease,
+    transform 0.2s ease;
+  max-height: 1000px;
+}
+
+.visua11y-agent-profile-grid.is-collapsed {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  max-height: 0;
+}
+
+@media (max-width: 460px) {
+  .visua11y-agent-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visua11y-agent-profile-btn {
+  border-radius: 16px !important;
+  padding: 14px 16px !important;
+  background: #ffffff !important;
+  border: 2px solid transparent !important;
+  text-align: left !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px;
+  cursor: pointer !important;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.visua11y-agent-profile-btn:hover {
+  border-color: #396afc !important;
+  box-shadow: 0 8px 20px rgba(17, 37, 107, 0.12);
+  transform: translateY(-1px);
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected {
+  background: #396afc !important;
+  border-color: #396afc !important;
+  box-shadow: 0 8px 24px rgba(8, 72, 202, 0.18);
+  color: #fff !important;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-head {
+  color: #fff !important;
+}
+
+.visua11y-agent-profile-label {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #000 !important;
+}
+
+.visua11y-agent-profile-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.visua11y-agent-profile-desc {
+  color: #000 !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-desc {
+  color: #e3e9ff !important;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-label {
+  color: #fff !important;
+}
+
+.visua11y-agent-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.visua11y-agent-card-title,
+.visua11y-agent-card-title-row .visua11y-agent-card-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+ .visua11y-agent-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #eef2ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visua11y-agent-card-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: #31407d !important;
+}
+
+.visua11y-agent-profile-pill {
+  width: 34px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  border-radius: 50%;
+  background: #ebefff;
+  color: #1b264f !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  font-weight: 600;
+  font-size: 12px !important;
+  overflow: hidden;
+}
+
+.visua11y-agent-profile-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-pill {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon {
+  color: #fff !important;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon svg,
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon path,
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon circle,
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon rect,
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon line,
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon polyline,
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-icon polygon {
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+.visua11y-agent-profile-btn.visua11y-agent-selected .visua11y-agent-profile-desc {
+  color: #f5f7ff !important;
+}
+
+html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-agent-selected {
+  background: #396afc !important;
+  border-color: #396afc !important;
+}
+
+.visua11y-agent-profile-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.visua11y-agent-profile-toggle {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+.visua11y-agent-profile-toggle-arrow {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+
+.visua11y-agent-profiles-card {
+  border-radius: 18px !important;
+  background: #f6f8ff !important;
+}
+
+.visua11y-agent-profiles-card.is-collapsed {
+  margin-bottom: 0 !important;
+}
+
+.visua11y-agent-profiles-card .visua11y-agent-card-title {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 0 !important;
+  gap: 14px;
+}
+.visua11y-agent-profiles-card.is-collapsed .visua11y-agent-profile-toggle-arrow {
+  transform: rotate(-135deg);
+}
+
 .visua11y-agent-position-card.visua11y-agent-position-open .visua11y-agent-position-toggle {
   color: #396afc !important;
 }

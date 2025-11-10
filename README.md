@@ -1,7 +1,7 @@
 # Visua11y Agent: Accessibility Website Widget
 
 <p align="center">
-  <img src="/src/icons/logo.png" alt="Visua11y Agent banner" width="520">
+  <img src="/src/icons/logo.png" alt="Visua11y Agent banner" width="180">
 </p>
 
 <div align="center">
@@ -9,9 +9,6 @@
 [![GitHub release](https://img.shields.io/github/v/release/chulit/visua11y-agent)](https://github.com/chulit/visua11y-agent/releases)
 [![GitHub issues](https://img.shields.io/github/issues/chulit/visua11y-agent)](https://github.com/chulit/visua11y-agent/issues)
 [![GitHub license](https://img.shields.io/github/license/chulit/visua11y-agent)](https://github.com/chulit/visua11y-agent/blob/master/LICENSE)
-
-Lightweight (< 30 KB) accessibility controls for any website, ready in minutes and available in 40+ languages.
-
 </div>
 
 ## Table of Contents
@@ -112,6 +109,23 @@ Control the widget through `data-visua11y-agent-*` attributes on the script tag 
 | `data-visua11y-agent-size`     | Switch button size (`default`, `medium`, `small`). | `data-visua11y-agent-size="medium"`           |
 | `data-visua11y-agent-icon`     | Provide custom HTML for the launcher icon.         | `data-visua11y-agent-icon="<span>♿️</span>"`  |
 
+### Preset Profiles
+
+Inside the widget you will now find four saved profiles backed by `localStorage`. When a visitor chooses one, we persist the associated combination of tools (font size, contrast, cursor, etc.) so it auto-loads on their next visit.
+
+| Profile              | What it toggles                                                                 |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `Motor Impaired`     | Big cursor, voice navigation, animations off, +10% font.                        |
+| `Blind`              | High contrast, screen reader & voice helpers, +15% font.                        |
+| `Color Blind`        | High-contrast palette, desaturated media, highlighted links.                    |
+| `Dyslexia`           | Dyslexia-friendly font, extra spacing, bolder weights.                          |
+| `Low vision`         | 130% font, dark contrast, readable font, big cursor.                            |
+| `Cognitive & Learning` | Highlights titles/links, reading guide, voice navigation.                    |
+| `Seizure & Epileptic` | Stops animations, low saturation, grayscale imagery.                          |
+| `ADHD`               | Reading guide, highlighted content, calming contrast.                           |
+
+Selecting any profile also adjusts the widget button/panel size to match the preset, while manual tweaks instantly break away from the preset so users stay in control.
+
 ### JavaScript Helpers
 
 | Helper                                                 | Description                                       | Example                                                                                                                                       |
@@ -131,6 +145,7 @@ See `demo/index.html` for practical examples.
 - **Reading & Focus Tools** – Reading guide overlay, screen reader helper, voice navigation, and text-to-speech shortcuts.
 - **Motion & Cursor Utilities** – Stop animations, disable animated images, enlarge cursor for low-vision users.
 - **Widget Settings** – Position controls allowing placement in 8 locations (top-left through bottom-right) plus button + panel size presets (Default, Medium, Small).
+- **Preset Profiles** – One-tap "Mode Lansia", "Mode Disleksia", "Mode Low Vision", and "Mode Fokus" presets stored in localStorage so visitors can recall their favorite configuration instantly.
 - **Reset Functionality** – One-click reset to restore all accessibility settings to default values.
 - **Developer Hooks** – Expose helpers like `plugin.setIcon`, `plugin.changeLanguage`, `plugin.registerLanguage`, and `plugin.resetAll` for deeper UI personalization.
 

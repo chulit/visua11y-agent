@@ -34,8 +34,9 @@ export const TEXT_SELECTORS = [
   'i',
   'svg',
   'a',
-  'button:not(.visua11y-agent-btn)',
+  'button:not(.visua11y-agent-btn):not(.visua11y-agent-profile-btn):not(.visua11y-agent-settings-toggle):not(.visua11y-agent-position-btn):not(.visua11y-agent-size-btn)',
   'label',
   'li',
   'ol',
+  '.visua11y-agent-language-panel *',
 ];

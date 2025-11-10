@@ -48,5 +48,22 @@
   "Reset colors": "Reset colors",
   "Image Desaturation": "Image Desaturation",
   "Search languages": "Search languages",
-  "No languages found": "No languages found"
+  "No languages found": "No languages found",
+  "Accessibility Profiles": "Accessibility Profiles",
+  "Motor Impaired": "Motor Impaired",
+  "Big cursor, voice navigation, and no animations.": "Big cursor, voice navigation, and no animations.",
+  "Blind": "Blind",
+  "Screen reader helpers with higher contrast.": "Screen reader helpers with higher contrast.",
+  "Color Blind": "Color Blind",
+  "High contrast palette with desaturated media.": "High contrast palette with desaturated media.",
+  "Dyslexia": "Dyslexia",
+  "Friendly font, extra spacing, stronger weight.": "Friendly font, extra spacing, stronger weight.",
+  "Low vision": "Low vision",
+  "Dark contrast and 130% magnification.": "Dark contrast and 130% magnification.",
+  "Cognitive & Learning": "Cognitive & Learning",
+  "Highlights key sections and enables voice help.": "Highlights key sections and enables voice help.",
+  "Seizure & Epileptic": "Seizure & Epileptic",
+  "Stops animations and desaturates imagery.": "Stops animations and desaturates imagery.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Reading guide, highlighted links, calmer palette."
 }
