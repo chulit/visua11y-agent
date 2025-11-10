@@ -139,24 +139,25 @@ See `demo/index.html` for practical examples.
 
 ## Features
 
-- **Multilingual UI** – 40+ ready-to-use locales with runtime translation hooks and language search.
-- **Content Adjustments** – Font size adjustments, font weight, letter spacing, line height, dyslexia-friendly typeface, and highlighting of titles and links.
-- **Color & Contrast Controls** – Multiple contrast modes (Dark, Light, High Contrast), invert colors, saturation controls (low/high), monochrome mode, image desaturation, and a custom color palette picker for granular customization.
-- **Reading & Focus Tools** – Reading guide overlay, screen reader helper, voice navigation, and text-to-speech shortcuts.
-- **Motion & Cursor Utilities** – Stop animations, disable animated images, enlarge cursor for low-vision users.
-- **Widget Settings** – Position controls allowing placement in 8 locations (top-left through bottom-right) plus button + panel size presets (Default, Medium, Small).
-- **Preset Profiles** – One-tap "Mode Lansia", "Mode Disleksia", "Mode Low Vision", and "Mode Fokus" presets stored in localStorage so visitors can recall their favorite configuration instantly.
-- **Reset Functionality** – One-click reset to restore all accessibility settings to default values.
-- **Developer Hooks** – Expose helpers like `plugin.setIcon`, `plugin.changeLanguage`, `plugin.registerLanguage`, and `plugin.resetAll` for deeper UI personalization.
+- **Multilingual UI** – 40+ locales bundled out of the box, live language switching, searchable dropdown, and runtime registration for custom dictionaries.
+- **Accessibility Profiles** – Curated presets (Motor, Blind, Color Blind, Dyslexia, Low Vision, Cognitive, Seizure, ADHD) that toggle tools, widget size, position, and offsets while keeping previous states in case users exit the preset.
+- **Content Adjustments** – Font scaling, weight, letter spacing, line height, dyslexia-friendly font, plus highlight toggles for links and headings.
+- **Color & Contrast Controls** – Dark/Light/High contrast, invert colors, saturation controls, monochrome, image desaturation, and a custom palette generator covering headings, body, and backgrounds.
+- **Focus, Reading & Assistive Tools** – Reading guide overlay, screen reader helper, voice navigation, text emphasis counters, and selectable accessibility tool grid.
+- **Motion & Cursor Utilities** – Stop animations, disable animated GIFs, enlarge cursor, and calm color palettes for sensory comfort.
+- **Widget Customization** – Position picker (8 anchors + offsets), button size presets or custom pixel values, adjustable panel width, and icon overrides.
+- **Persistence & Recovery** – Every change syncs to `localStorage` with cookie fallback, profiles remember the prior state, and a single reset clears everything.
+- **Developer Hooks** – `setIcon`, `changeLanguage`, `registerLanguage`, `resetAll`, and other helpers exposed on `window.Visua11yAgentPlugin` for scripts and CMS integrations.
 
 ## Menu Structure
 
-The accessibility menu is organized into the following sections:
+The widget stacks multiple cards so visitors can quickly find the control they need:
 
-- **Content Adjustments** – Tools for modifying text properties including font size, weight, spacing, and special typography options.
-- **Color Adjustments** – Contrast presets, color inversion options, saturation controls, and custom palette tools.
-- **Tools** – Advanced accessibility tools including screen reader support, voice navigation, cursor enlargement, animation controls, and reading guides.
-- **Widget Settings** – Configuration options for the widget's appearance and position on the page.
+- **Accessibility Profiles** – Curated scenario presets with collapsible grid UI, profile badges, and live previews so users can jump straight to the best combination.
+- **Content Adjustments** – Font-size slider with keyboard-friendly steppers plus quick buttons for weight, spacing, line height, dyslexia font, title/link highlights, and more.
+- **Color Adjustments** – Contrast palette grid, invert/mono/saturation options, and the custom palette card for backgrounds, headings, and content hues complete with hue sliders and hex inputs.
+- **Tools** – Reading guide, screen reader helper, voice navigation, cursor, animation, and other assistive toggles grouped into a searchable grid.
+- **Widget Settings** – Button/panel size selector, position picker, offset inputs, language switcher, and quick actions (reset, open language drawer).
 
 ## Local Development
 
@@ -168,7 +169,7 @@ The accessibility menu is organized into the following sections:
 
 ## Roadmap
 
-- Accessibility profiles (save and load preset configurations)
+Semua item dalam roadmap awal (termasuk Accessibility Profiles) telah dirilis. Ajukan fitur atau peningkatan baru melalui issue GitHub agar kami bisa menyusun roadmap selanjutnya bersama komunitas.
 
 ## Contributing
 
