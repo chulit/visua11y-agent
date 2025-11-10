@@ -48,5 +48,22 @@
   "Reset colors": "Өнгийг дахин тохируулах",
   "Image Desaturation": "Зургийн өнгө бууруулах",
   "Search languages": "Хэл хайх",
-  "No languages found": "Хэл олдсонгүй"
+  "No languages found": "Хэл олдсонгүй",
+  "Accessibility Profiles": "Хүртээмжийн профайл",
+  "Motor Impaired": "Хөдөлгөөний бэрхшээлтэй",
+  "Big cursor, voice navigation, and no animations.": "Том курсор, дуу хоолойгоор удирдах ба хөдөлгөөнт зураггүй.",
+  "Blind": "Хараагүй",
+  "Screen reader helpers with higher contrast.": "Өндөр контрасттай дэлгэц уншигчийн туслахууд.",
+  "Color Blind": "Өнгө ялгах бэрхшээл",
+  "High contrast palette with desaturated media.": "Өндөр контрасттай палитр ба өнгө багасгасан медиа.",
+  "Dyslexia": "Дислекси",
+  "Friendly font, extra spacing, stronger weight.": "Уншихад хялбар фонт, илүү зай завсар, бүдүүн шрифт.",
+  "Low vision": "Бага хараа",
+  "Dark contrast and 130% magnification.": "Хар бараан контраст ба 130% томруулалт.",
+  "Cognitive & Learning": "Танин мэдэхүй ба суралцах",
+  "Highlights key sections and enables voice help.": "Гол хэсгүүдийг тодруулж, дуу хоолойн тусламжийг идэвхжүүлнэ.",
+  "Seizure & Epileptic": "Таталт ба эпилепси",
+  "Stops animations and desaturates imagery.": "Хөдөлгөөнт зургуудыг зогсоож, өнгийг нь бууруулна.",
+  "ADHD": "СААНХ",
+  "Reading guide, highlighted links, calmer palette.": "Унших гарын авлага, тодруулсан холбоос, тайван өнгө."
 }

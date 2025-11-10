@@ -48,5 +48,22 @@
   "Reset colors": "Rejesha rangi",
   "Image Desaturation": "Punguza rangi ya picha",
   "Search languages": "Tafuta lugha",
-  "No languages found": "Hakuna lugha zimepatikana"
+  "No languages found": "Hakuna lugha zimepatikana",
+  "Accessibility Profiles": "Profaili za ufikivu",
+  "Motor Impaired": "Ulemavu wa mwendo",
+  "Big cursor, voice navigation, and no animations.": "Kisurufa kikubwa, uelekezaji wa sauti na bila uhuishaji.",
+  "Blind": "Asiyeona",
+  "Screen reader helpers with higher contrast.": "Vifaa vya msomaji wa skrini vyenye utofautishaji wa juu.",
+  "Color Blind": "Upofu wa rangi",
+  "High contrast palette with desaturated media.": "Paleti yenye utofautishaji wa juu na rangi zilizopunguzwa.",
+  "Dyslexia": "Dyslexia",
+  "Friendly font, extra spacing, stronger weight.": "Fonti rahisi kusoma, nafasi zaidi na maneno mazito.",
+  "Low vision": "Uoni hafifu",
+  "Dark contrast and 130% magnification.": "Utofautishaji wa giza na kukuza kwa 130%.",
+  "Cognitive & Learning": "Utambuzi na ujifunzaji",
+  "Highlights key sections and enables voice help.": "Huwasha sehemu muhimu na kuwezesha msaada wa sauti.",
+  "Seizure & Epileptic": "Kifafa na mshtuko",
+  "Stops animations and desaturates imagery.": "Husimamisha uhuishaji na kupunguza rangi kwenye picha.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Mwongozo wa kusoma, viungo vilivyoangaziwa na rangi tulivu."
 }

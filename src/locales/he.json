@@ -48,5 +48,22 @@
   "Reset colors": "איפוס צבעים",
   "Image Desaturation": "הפחתת צבע בתמונה",
   "Search languages": "חפש שפות",
-  "No languages found": "לא נמצאו שפות"
+  "No languages found": "לא נמצאו שפות",
+  "Accessibility Profiles": "פרופילי נגישות",
+  "Motor Impaired": "מוגבלות מוטורית",
+  "Big cursor, voice navigation, and no animations.": "סמן גדול, ניווט קולי וללא אנימציות.",
+  "Blind": "עיוור",
+  "Screen reader helpers with higher contrast.": "מסייעי קורא מסך עם ניגודיות גבוהה יותר.",
+  "Color Blind": "עיוורון צבעים",
+  "High contrast palette with desaturated media.": "פלטה בעלת ניגודיות גבוהה עם מדיה דהויה.",
+  "Dyslexia": "דיסלקסיה",
+  "Friendly font, extra spacing, stronger weight.": "גופן קריא, ריווח נוסף ועובי מודגש.",
+  "Low vision": "ירידה בראייה",
+  "Dark contrast and 130% magnification.": "ניגודיות כהה והגדלה של ‎130%‎.",
+  "Cognitive & Learning": "קוגניטיבי ולמידה",
+  "Highlights key sections and enables voice help.": "מדגיש קטעים חשובים ומפעיל עזרה קולית.",
+  "Seizure & Epileptic": "התקפים ואפילפסיה",
+  "Stops animations and desaturates imagery.": "עוצר אנימציות ומפחית רוויית צבע.",
+  "ADHD": "הפרעת קשב (ADHD)",
+  "Reading guide, highlighted links, calmer palette.": "מדריך קריאה, קישורים מודגשים ופלטה רגועה יותר."
 }

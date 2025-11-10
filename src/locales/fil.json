@@ -48,5 +48,22 @@
   "Reset colors": "I-reset ang mga kulay",
   "Image Desaturation": "Pagbawas ng kulay ng larawan",
   "Search languages": "Maghanap ng mga wika",
-  "No languages found": "Walang nahanap na wika"
+  "No languages found": "Walang nahanap na wika",
+  "Accessibility Profiles": "Mga profile ng accessibility",
+  "Motor Impaired": "May kapansanan sa paggalaw",
+  "Big cursor, voice navigation, and no animations.": "Malaking cursor, voice navigation at walang animasyon.",
+  "Blind": "Bulag",
+  "Screen reader helpers with higher contrast.": "Mga tulong sa screen reader na may mas mataas na contrast.",
+  "Color Blind": "Color blind",
+  "High contrast palette with desaturated media.": "Palette na may mataas na contrast at bahagyang kulay.",
+  "Dyslexia": "Dislexia",
+  "Friendly font, extra spacing, stronger weight.": "Madaling basahin na font, dagdag na pagitan at mas makapal na bigat.",
+  "Low vision": "Mahinang paningin",
+  "Dark contrast and 130% magnification.": "Madilim na contrast at 130% na pagpapalaki.",
+  "Cognitive & Learning": "Kognitibo at pagkatuto",
+  "Highlights key sections and enables voice help.": "Inililinaw ang mahahalagang seksyon at pinapagana ang voice help.",
+  "Seizure & Epileptic": "Pangingisay at epilepsy",
+  "Stops animations and desaturates imagery.": "Humihinto ng mga animasyon at binabawasan ang kulay ng imahe.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Gabay sa pagbabasa, naka-highlight na mga link at mas kalmadong palette."
 }

@@ -48,5 +48,22 @@
   "Reset colors": "Renkleri sıfırla",
   "Image Desaturation": "Görüntü doygunluğunu azalt",
   "Search languages": "Dilleri ara",
-  "No languages found": "Dil bulunamadı"
+  "No languages found": "Dil bulunamadı",
+  "Accessibility Profiles": "Erişilebilirlik profilleri",
+  "Motor Impaired": "Motor engeli",
+  "Big cursor, voice navigation, and no animations.": "Büyük imleç, sesli gezinme ve animasyonsuz.",
+  "Blind": "Görme engelli",
+  "Screen reader helpers with higher contrast.": "Daha yüksek kontrastlı ekran okuyucu yardımcıları.",
+  "Color Blind": "Renk körü",
+  "High contrast palette with desaturated media.": "Desature medya ile yüksek kontrastlı palet.",
+  "Dyslexia": "Disleksi",
+  "Friendly font, extra spacing, stronger weight.": "Okunaklı yazı tipi, ekstra boşluk ve daha kalın ağırlık.",
+  "Low vision": "Az gören",
+  "Dark contrast and 130% magnification.": "Koyu kontrast ve %130 büyütme.",
+  "Cognitive & Learning": "Bilişsel ve öğrenme",
+  "Highlights key sections and enables voice help.": "Önemli bölümleri vurgular ve sesli yardımı etkinleştirir.",
+  "Seizure & Epileptic": "Nöbet ve epilepsi",
+  "Stops animations and desaturates imagery.": "Animasyonları durdurur ve görselleri soluklaştırır.",
+  "ADHD": "DEHB",
+  "Reading guide, highlighted links, calmer palette.": "Okuma rehberi, vurgulanan bağlantılar ve daha sakin palet."
 }

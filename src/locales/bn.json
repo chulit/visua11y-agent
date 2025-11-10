@@ -48,5 +48,22 @@
   "Reset colors": "রং পুনরায় নির্ধারণ করুন",
   "Image Desaturation": "ছবির রং কমানো",
   "Search languages": "ভাষা অনুসন্ধান করুন",
-  "No languages found": "কোনো ভাষা পাওয়া যায়নি"
+  "No languages found": "কোনো ভাষা পাওয়া যায়নি",
+  "Accessibility Profiles": "অ্যাক্সেসিবিলিটি প্রোফাইল",
+  "Motor Impaired": "মোটর প্রতিবন্ধকতা",
+  "Big cursor, voice navigation, and no animations.": "বড় কার্সর, ভয়েস নেভিগেশন এবং কোন অ্যানিমেশন নেই।",
+  "Blind": "দৃষ্টিহীন",
+  "Screen reader helpers with higher contrast.": "উচ্চ কনট্রাস্ট সহ স্ক্রিন রিডার সহায়ক।",
+  "Color Blind": "বর্ণান্ধ",
+  "High contrast palette with desaturated media.": "উচ্চ কনট্রাস্ট প্যালেট এবং কম স্যাচুরেটেড মিডিয়া।",
+  "Dyslexia": "ডিসলেক্সিয়া",
+  "Friendly font, extra spacing, stronger weight.": "সহজ পাঠ্য ফন্ট, অতিরিক্ত ব্যবধান এবং আরও বোল্ড।",
+  "Low vision": "দুর্বল দৃষ্টি",
+  "Dark contrast and 130% magnification.": "গাঢ় কনট্রাস্ট এবং ১৩০% বড়করণ।",
+  "Cognitive & Learning": "জ্ঞানীয় ও শেখা",
+  "Highlights key sections and enables voice help.": "গুরুত্বপূর্ণ অংশগুলি হাইলাইট করে এবং ভয়েস সহায়তা সক্ষম করে।",
+  "Seizure & Epileptic": "খিঁচুনি ও মৃগী",
+  "Stops animations and desaturates imagery.": "অ্যানিমেশন থামায় এবং চিত্রের স্যাচুরেশন কমায়।",
+  "ADHD": "এডিএইচডি",
+  "Reading guide, highlighted links, calmer palette.": "পাঠ নির্দেশিকা, হাইলাইট করা লিংক এবং শান্ত রঙের প্যালেট।"
 }

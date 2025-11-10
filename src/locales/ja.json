@@ -48,5 +48,22 @@
   "Reset colors": "色をリセット",
   "Image Desaturation": "画像の彩度を下げる",
   "Search languages": "言語を検索",
-  "No languages found": "言語が見つかりませんでした"
+  "No languages found": "言語が見つかりませんでした",
+  "Accessibility Profiles": "アクセシビリティプロファイル",
+  "Motor Impaired": "運動機能サポート",
+  "Big cursor, voice navigation, and no animations.": "大きなカーソル、音声ナビ、アニメーションなし。",
+  "Blind": "視覚障害",
+  "Screen reader helpers with higher contrast.": "コントラストを高めたスクリーンリーダー補助。",
+  "Color Blind": "色覚サポート",
+  "High contrast palette with desaturated media.": "高コントラストのパレットと彩度を抑えたメディア。",
+  "Dyslexia": "ディスレクシア",
+  "Friendly font, extra spacing, stronger weight.": "読みやすいフォント、広い行間、太めの文字。",
+  "Low vision": "弱視",
+  "Dark contrast and 130% magnification.": "ダークコントラストと130%ズーム。",
+  "Cognitive & Learning": "認知・学習サポート",
+  "Highlights key sections and enables voice help.": "重要なセクションを強調し、音声サポートを有効化。",
+  "Seizure & Epileptic": "発作・てんかん",
+  "Stops animations and desaturates imagery.": "アニメーションを停止し、画像の彩度を下げます。",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "読み上げガイド、強調リンク、穏やかな配色。"
 }

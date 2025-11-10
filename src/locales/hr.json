@@ -48,5 +48,22 @@
   "Reset colors": "Resetiraj boje",
   "Image Desaturation": "Desaturacija slike",
   "Search languages": "Pretraži jezike",
-  "No languages found": "Nema pronađenih jezika"
+  "No languages found": "Nema pronađenih jezika",
+  "Accessibility Profiles": "Profili pristupačnosti",
+  "Motor Impaired": "Motoričko oštećenje",
+  "Big cursor, voice navigation, and no animations.": "Veliki kursor, glasovna navigacija i bez animacija.",
+  "Blind": "Slijepi",
+  "Screen reader helpers with higher contrast.": "Pomagala čitača ekrana s većim kontrastom.",
+  "Color Blind": "Slabovidnost boja",
+  "High contrast palette with desaturated media.": "Paleta visokog kontrasta s manje zasićenim medijima.",
+  "Dyslexia": "Disleksija",
+  "Friendly font, extra spacing, stronger weight.": "Prilagođen font, veći razmak i jače podebljanje.",
+  "Low vision": "Slab vid",
+  "Dark contrast and 130% magnification.": "Taman kontrast i povećanje 130 %.",
+  "Cognitive & Learning": "Kognitivno i učenje",
+  "Highlights key sections and enables voice help.": "Ističe ključne sekcije i uključuje glasovnu pomoć.",
+  "Seizure & Epileptic": "Napadaji i epilepsija",
+  "Stops animations and desaturates imagery.": "Zaustavlja animacije i smanjuje zasićenost slika.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Vodič za čitanje, istaknute poveznice i smirenija paleta."
 }

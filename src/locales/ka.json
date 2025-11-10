@@ -48,5 +48,22 @@
   "Reset colors": "ფერების განულება",
   "Image Desaturation": "სურათის გაუფერულება",
   "Search languages": "ენების ძიება",
-  "No languages found": "ენები ვერ მოიძებნა"
+  "No languages found": "ენები ვერ მოიძებნა",
+  "Accessibility Profiles": "ხელმისაწვდომობის პროფილები",
+  "Motor Impaired": "მოძრაობის შეზღუდვა",
+  "Big cursor, voice navigation, and no animations.": "დიდი კურსორი, ხმოვანი ნავიგაცია და ანიმაციების გარეშე.",
+  "Blind": "უსინათლო",
+  "Screen reader helpers with higher contrast.": "ეკრანის მკითხველის დამხმარეები მაღალი კონტრასტით.",
+  "Color Blind": "ფერთა სიბრმავე",
+  "High contrast palette with desaturated media.": "მაღალი კონტრასტის პალიტრა და ნაკლებად გაჯერებული მედია.",
+  "Dyslexia": "დიზლექსია",
+  "Friendly font, extra spacing, stronger weight.": "კომფორტული შრიფტი, დამატებითი ინტერვალი და გამკვრივებული ხაზები.",
+  "Low vision": "სუსტი მხედველობა",
+  "Dark contrast and 130% magnification.": "მუქი კონტრასტი და 130%-იანი გადიდება.",
+  "Cognitive & Learning": "კოგნიტური და სწავლა",
+  "Highlights key sections and enables voice help.": "გამოკვეთს მთავარ ნაწილებს და აძლიერებს ხმოვან დახმარებას.",
+  "Seizure & Epileptic": "კრუნჩხვები და ეპილეფსია",
+  "Stops animations and desaturates imagery.": "წყვეტს ანიმაციებს და აკლებს ფერს გამოსახულებებს.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "კითვის გზამკვლევი, გამოკვეთილი ბმულები და მშვიდი ფერები."
 }

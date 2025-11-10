@@ -48,5 +48,22 @@
   "Reset colors": "Επαναφορά χρωμάτων",
   "Image Desaturation": "Αποκορεσμός εικόνας",
   "Search languages": "Αναζήτηση γλωσσών",
-  "No languages found": "Δεν βρέθηκαν γλώσσες"
+  "No languages found": "Δεν βρέθηκαν γλώσσες",
+  "Accessibility Profiles": "Προφίλ προσβασιμότητας",
+  "Motor Impaired": "Κινητική αναπηρία",
+  "Big cursor, voice navigation, and no animations.": "Μεγάλος δρομέας, φωνητική πλοήγηση και χωρίς κινούμενα.",
+  "Blind": "Τυφλός",
+  "Screen reader helpers with higher contrast.": "Βοηθήματα αναγνώστη οθόνης με υψηλότερη αντίθεση.",
+  "Color Blind": "Αχρωματοψία",
+  "High contrast palette with desaturated media.": "Παλέτα υψηλής αντίθεσης με αποκορεσμένα μέσα.",
+  "Dyslexia": "Δυσλεξία",
+  "Friendly font, extra spacing, stronger weight.": "Φιλική γραμματοσειρά, επιπλέον διάστιχο και πιο έντονο πάχος.",
+  "Low vision": "Χαμηλή όραση",
+  "Dark contrast and 130% magnification.": "Σκούρα αντίθεση και μεγέθυνση 130%.",
+  "Cognitive & Learning": "Γνωστικό & μάθηση",
+  "Highlights key sections and enables voice help.": "Τονίζει βασικές ενότητες και ενεργοποιεί φωνητική βοήθεια.",
+  "Seizure & Epileptic": "Κρίσεις & επιληψία",
+  "Stops animations and desaturates imagery.": "Σταματά κινούμενα και αποχρωματίζει εικόνες.",
+  "ADHD": "ΔΕΠΥ",
+  "Reading guide, highlighted links, calmer palette.": "Οδηγός ανάγνωσης, τονισμένοι σύνδεσμοι και πιο ήρεμη παλέτα."
 }

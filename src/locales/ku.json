@@ -48,5 +48,22 @@
   "Reset colors": "Rengên vegerîne",
   "Image Desaturation": "Nermkirina renga wêneyê",
   "Search languages": "Zimanên bigere",
-  "No languages found": "Tu ziman nehat dîtin"
+  "No languages found": "Tu ziman nehat dîtin",
+  "Accessibility Profiles": "پرۆفایلەکانی دەستگەیشتن",
+  "Motor Impaired": "کێشەی هەنگاو",
+  "Big cursor, voice navigation, and no animations.": "کرسرێکی گەورە، ڕێنیشاندانی دەنگ و بێ ئانیمەیشن.",
+  "Blind": "کوێر",
+  "Screen reader helpers with higher contrast.": "یارمەتی خوێنەری شاشە بە کونتراستی بەرز.",
+  "Color Blind": "کێشەی ڕەنگ",
+  "High contrast palette with desaturated media.": "پالێتی کونتراستی بەرز بە میدیا کەمدەڕەوشاو.",
+  "Dyslexia": "دیسلەکسیا",
+  "Friendly font, extra spacing, stronger weight.": "فۆنتی هاوبەش، بۆشایی زیاتر و قەڵەوی بەرزتر.",
+  "Low vision": "بینینی لاواز",
+  "Dark contrast and 130% magnification.": "کۆنترستی تاریک و گەورەکردنی ١٣٠٪‏.",
+  "Cognitive & Learning": "ئەستێرەی هەستکردن و فێربوون",
+  "Highlights key sections and enables voice help.": "بەشە گرنگەکان پیشان دەدات و یارمەتی دەنگی چالاک دەکات.",
+  "Seizure & Epileptic": "دەستپێکردن و ئەپیلەپسی",
+  "Stops animations and desaturates imagery.": "ئانیمەیشن وێنەکانی وەستێنێت و ڕەنگیان کەم دەکات.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "ڕێبەری خوێندن، بەستەرە دیاربکراوەکان و پالێتی ئارام."
 }

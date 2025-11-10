@@ -48,5 +48,22 @@
   "Reset colors": "رنگ دوبارہ سیٹ کریں",
   "Image Desaturation": "تصویر کا رنگ کم کریں",
   "Search languages": "زبانیں تلاش کریں",
-  "No languages found": "کوئی زبان نہیں ملی"
+  "No languages found": "کوئی زبان نہیں ملی",
+  "Accessibility Profiles": "رسائی کے پروفائل",
+  "Motor Impaired": "حرکتی معذوری",
+  "Big cursor, voice navigation, and no animations.": "بڑا کرسر، آواز کے ذریعے نیویگیشن اور کوئی اینیمیشن نہیں۔",
+  "Blind": "نابینا",
+  "Screen reader helpers with higher contrast.": "زیادہ کنٹراسٹ والے اسکرین ریڈر مددگار۔",
+  "Color Blind": "رنگوں کی کمزوری",
+  "High contrast palette with desaturated media.": "زیادہ کنٹراسٹ والی پیلیٹ اور مدھم میڈیا۔",
+  "Dyslexia": "ڈسلیکسیا",
+  "Friendly font, extra spacing, stronger weight.": "آسان فونٹ، اضافی فاصلہ اور زیادہ موٹائی۔",
+  "Low vision": "کمزور بینائی",
+  "Dark contrast and 130% magnification.": "گہرے کنٹراسٹ اور 130٪ بڑا کرنا۔",
+  "Cognitive & Learning": "ادراکی اور تعلیم",
+  "Highlights key sections and enables voice help.": "اہم حصوں کو نمایاں کرتا ہے اور آواز کی مدد کو فعال کرتا ہے۔",
+  "Seizure & Epileptic": "دورہ اور مرگی",
+  "Stops animations and desaturates imagery.": "اینیمیشنز روکتا ہے اور تصاویر کی رنگت کم کرتا ہے۔",
+  "ADHD": "اے ڈی ایچ ڈی",
+  "Reading guide, highlighted links, calmer palette.": "مطالعہ رہنمائی، نمایاں روابط اور پُرسکون رنگ۔"
 }

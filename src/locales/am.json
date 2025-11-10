@@ -48,5 +48,22 @@
   "Reset colors": "ቀለሞችን ዳግም አስጀምር",
   "Image Desaturation": "የምስል ቀለም መቀነስ",
   "Search languages": "ቋንቋዎችን ፈልግ",
-  "No languages found": "ምንም ቋንቋ አልተገኘም"
+  "No languages found": "ምንም ቋንቋ አልተገኘም",
+  "Accessibility Profiles": "የተደራሽነት መገለጫዎች",
+  "Motor Impaired": "የእንቅስቃሴ እጥረት",
+  "Big cursor, voice navigation, and no animations.": "ትልቅ መጠቆሚያ፣ የድምጽ አሰሳ እና እንቅስቃሴ የለም።",
+  "Blind": "ታዳሽ",
+  "Screen reader helpers with higher contrast.": "ከፍተኛ ግራጫ ያላቸው የስክሪን አንባቢ እርዳታዎች።",
+  "Color Blind": "የቀለም ችግር",
+  "High contrast palette with desaturated media.": "ከፍተኛ ግራጫ ያለው ፓሌት እና የተቀነሰ ቀለም ሚዲያ።",
+  "Dyslexia": "ዲስሌክሲያ",
+  "Friendly font, extra spacing, stronger weight.": "ተስማሚ ፊደል፣ ተጨማሪ ክፍተት እና ጠንካራ ውፍረት።",
+  "Low vision": "ዝቅተኛ እይታ",
+  "Dark contrast and 130% magnification.": "ጥቁር ግራጫ እና 130% ማታበር።",
+  "Cognitive & Learning": "አእምሮአዊ እና መማር",
+  "Highlights key sections and enables voice help.": "ዋና ክፍሎችን ያበራ እና የድምጽ እርዳታን ያንቃል።",
+  "Seizure & Epileptic": "የእብጠት ችግር",
+  "Stops animations and desaturates imagery.": "እንቅስቃሴዎችን ያቆማል እና ምስሎችን ያቀናል።",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "የንባብ መሪ፣ የተቀረጹ አገናኞች እና ተዛማጅ ቀለም ፓሌት።"
 }

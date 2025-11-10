@@ -48,5 +48,22 @@
   "Reset colors": "रंग रीसेट करें",
   "Image Desaturation": "छवि रंग कम करें",
   "Search languages": "भाषाएँ खोजें",
-  "No languages found": "कोई भाषा नहीं मिली"
+  "No languages found": "कोई भाषा नहीं मिली",
+  "Accessibility Profiles": "सुलभता प्रोफ़ाइल",
+  "Motor Impaired": "गतिशीलता विकलांग",
+  "Big cursor, voice navigation, and no animations.": "बड़ा कर्सर, वॉइस नेविगेशन और कोई एनीमेशन नहीं।",
+  "Blind": "नेत्रहीन",
+  "Screen reader helpers with higher contrast.": "अधिक कंट्रास्ट वाले स्क्रीन रीडर सहायक।",
+  "Color Blind": "रंगांध",
+  "High contrast palette with desaturated media.": "उच्च कंट्रास्ट पैलेट और मद्धिम मीडिया।",
+  "Dyslexia": "डिस्लेक्सिया",
+  "Friendly font, extra spacing, stronger weight.": "अनुकूल फ़ॉन्ट, अतिरिक्त अंतर और अधिक बोल्ड।",
+  "Low vision": "कमज़ोर दृष्टि",
+  "Dark contrast and 130% magnification.": "गहरा कंट्रास्ट और 130% ज़ूम।",
+  "Cognitive & Learning": "संज्ञानात्मक और अधिगम",
+  "Highlights key sections and enables voice help.": "मुख्य अनुभागों को हाइलाइट करता है और वॉइस सहायता सक्षम करता है।",
+  "Seizure & Epileptic": "दौरे और मिर्गी",
+  "Stops animations and desaturates imagery.": "एनीमेशन रोकता है और चित्रों को मद्धिम करता है।",
+  "ADHD": "एडीएचडी",
+  "Reading guide, highlighted links, calmer palette.": "पठन मार्गदर्शिका, हाइलाइट किए हुए लिंक और शांत पैलेट।"
 }

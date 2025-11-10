@@ -48,5 +48,22 @@
   "Reset colors": "ಬಣ್ಣಗಳನ್ನು ಮರುಹೊಂದಿಸಿ",
   "Image Desaturation": "ಚಿತ್ರದ ಬಣ್ಣ ಕಡಿಮೆ ಮಾಡುವುದು",
   "Search languages": "ಭಾಷೆಗಳನ್ನು ಹುಡುಕಿ",
-  "No languages found": "ಯಾವುದೇ ಭಾಷೆಗಳು ಕಂಡುಬರಲಿಲ್ಲ"
+  "No languages found": "ಯಾವುದೇ ಭಾಷೆಗಳು ಕಂಡುಬರಲಿಲ್ಲ",
+  "Accessibility Profiles": "ಅಂಗೀಕಾರ ಪ್ರೊಫೈಲ್‌ಗಳು",
+  "Motor Impaired": "ಚಲನಾ ಅಸಮರ್ಥ",
+  "Big cursor, voice navigation, and no animations.": "ದೊಡ್ಡ ಕರ್ಸರ್, ಧ್ವನಿ ನಾವಿಗೇಶನ್ ಮತ್ತು ಯಾವುದೇ ಅನಿಮೇಶನ್ ಇಲ್ಲ.",
+  "Blind": "ಕುರೂಡು",
+  "Screen reader helpers with higher contrast.": "ಹೆಚ್ಚಿನ ಕಾಂಟ್ರಾಸ್ಟ್ ಇರುವ ಸ್ಕ್ರೀನ್ ರೀಡರ್ ನೆರವು.",
+  "Color Blind": "ಬಣ್ಣಾಂಧ",
+  "High contrast palette with desaturated media.": "ಹೆಚ್ಚಿನ ಕಾಂಟ್ರಾಸ್ಟ್ ಪ್ಯಾಲೆಟ್ ಮತ್ತು ಕಡಿಮೆ ಸ್ಯಾಚುरेशन ಮೀಡಿಯಾ.",
+  "Dyslexia": "ಡಿಸ್ಲೆಕ್ಸಿಯಾ",
+  "Friendly font, extra spacing, stronger weight.": "ಸುಲಭ ಓದಬಹುದಾದ ಫಾಂಟ್, ಹೆಚ್ಚುವರಿ ಅಂತರ ಮತ್ತು ಗಟ್ಟಿದಷ್ಟು ದಪ್ಪ.",
+  "Low vision": "ಕಡಿಮೆ ದೃಷ್ಟಿ",
+  "Dark contrast and 130% magnification.": "ಗಾಢ ಕಾಂಟ್ರಾಸ್ಟ್ ಮತ್ತು 130% ಹಿಗ್ಗು.",
+  "Cognitive & Learning": "ಜ್ಞಾನಾತ್ಮಕ ಮತ್ತು ಕಲಿಕೆ",
+  "Highlights key sections and enables voice help.": "ಮುಖ್ಯ ವಿಭಾಗಗಳನ್ನು ಹೊಳೆಯಿಸಿ ಮತ್ತು ಧ್ವನಿ ಸಹಾಯವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ.",
+  "Seizure & Epileptic": "ಅಪಸ್ಮಾರ ಮತ್ತು ಎಪಿಲೆಪ್ಸಿ",
+  "Stops animations and desaturates imagery.": "ಅನಿಮೇಶನ್‌ಗಳನ್ನು ನಿಲ್ಲಿಸಿ ಚಿತ್ರಗಳ ಸ್ಯಾಚುರೇಶನ್ ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.",
+  "ADHD": "ಎಡಿಎಚ್ಡಿ",
+  "Reading guide, highlighted links, calmer palette.": "ಓದುವ ಮಾರ್ಗದರ್ಶಿ, ಹೈಲೈಟ್ ಮಾಡಿದ ಲಿಂಕುಗಳು ಮತ್ತು ಶಾಂತ ಪ್ಯಾಲೆಟ್."
 }

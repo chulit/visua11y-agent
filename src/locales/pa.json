@@ -48,5 +48,22 @@
   "Reset colors": "ਰੰਗ ਰੀਸੈਟ ਕਰੋ",
   "Image Desaturation": "ਚਿੱਤਰ ਰੰਗ ਘਟਾਓ",
   "Search languages": "ਭਾਸ਼ਾਵਾਂ ਖੋਜੋ",
-  "No languages found": "ਕੋਈ ਭਾਸ਼ਾਵਾਂ ਨਹੀਂ ਮਿਲੀਆਂ"
+  "No languages found": "ਕੋਈ ਭਾਸ਼ਾਵਾਂ ਨਹੀਂ ਮਿਲੀਆਂ",
+  "Accessibility Profiles": "ਪਹੁੰਚ ਪ੍ਰੋਫਾਈਲ",
+  "Motor Impaired": "ਚਲਣ ਵਿੱਚ ਰੁਕਾਵਟ",
+  "Big cursor, voice navigation, and no animations.": "ਵੱਡਾ ਕਰਸਰ, ਆਵਾਜ਼ ਨਾਲ ਨੈਵੀਗੇਸ਼ਨ ਅਤੇ ਕੋਈ ਐਨੀਮੇਸ਼ਨ ਨਹੀਂ।",
+  "Blind": "ਅੰਨ੍ਹਾ",
+  "Screen reader helpers with higher contrast.": "ਵੱਧ ਕਾਂਟ੍ਰਾਸਟ ਵਾਲੇ ਸਕ੍ਰੀਨ ਰੀਡਰ ਸਹਾਇਕ।",
+  "Color Blind": "ਰੰਗ ਅੰਨ੍ਹਾ",
+  "High contrast palette with desaturated media.": "ਉੱਚ ਕਾਂਟ੍ਰਾਸਟ ਪੈਲੇਟ ਅਤੇ ਘੱਟ ਰੰਗਾਂ ਵਾਲਾ ਮੀਡੀਆ।",
+  "Dyslexia": "ਡਿਸਲੇਕਸੀਆ",
+  "Friendly font, extra spacing, stronger weight.": "ਸਪਸ਼ਟ ਫੌਂਟ, ਵੱਧ ਖਾਲੀ ਜਗ੍ਹਾ ਅਤੇ ਮੋਟੀ ਲਿਖਤ।",
+  "Low vision": "ਕਮਜ਼ੋਰ ਨਜ਼ਰ",
+  "Dark contrast and 130% magnification.": "ਗੂੜ੍ਹਾ ਕਾਂਟ੍ਰਾਸਟ ਅਤੇ 130% ਵਧੋਤਰੀ।",
+  "Cognitive & Learning": "ਸੰਜ਼੍ਹਾਣੀ ਅਤੇ ਸਿੱਖਣ",
+  "Highlights key sections and enables voice help.": "ਮੁੱਖ ਹਿੱਸਿਆਂ ਨੂੰ ਹਾਈਲਾਈਟ ਕਰਦਾ ਹੈ ਅਤੇ ਆਵਾਜ਼ ਸਹਾਇਤਾ ਚਾਲੂ ਕਰਦਾ ਹੈ।",
+  "Seizure & Epileptic": "ਦੌਰੇ ਅਤੇ ਮਿਰਗੀ",
+  "Stops animations and desaturates imagery.": "ਐਨੀਮੇਸ਼ਨ ਰੋਕਦਾ ਹੈ ਅਤੇ ਚਿੱਤਰਾਂ ਦੀ ਰੰਗਤ ਘਟਾਉਂਦਾ ਹੈ।",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "ਪੜ੍ਹਨ ਦੀ ਗਾਈਡ, ਹਾਈਲਾਈਟ ਕੀਤੇ ਲਿੰਕ ਅਤੇ ਸ਼ਾਂਤ ਰੰਗ।"
 }

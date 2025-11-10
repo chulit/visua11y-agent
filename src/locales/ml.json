@@ -48,5 +48,22 @@
   "Reset colors": "നിറങ്ങൾ പുനഃസജ്ജമാക്കുക",
   "Image Desaturation": "ചിത്രത്തിലെ നിറം കുറയ്ക്കുക",
   "Search languages": "ഭാഷകൾ തിരയുക",
-  "No languages found": "ഭാഷകൾ ഒന്നും കണ്ടെത്തിയില്ല"
+  "No languages found": "ഭാഷകൾ ഒന്നും കണ്ടെത്തിയില്ല",
+  "Accessibility Profiles": "ആക്‌സസിബിലിറ്റി പ്രൊഫൈലുകൾ",
+  "Motor Impaired": "ചലന വൈകല്യം",
+  "Big cursor, voice navigation, and no animations.": "വലിയ കഴ്സർ, വോയ്സ് നാവിഗേഷൻ, അനിമേഷൻ ഒന്നുമില്ല.",
+  "Blind": "കാണാനാവാത്തവർ",
+  "Screen reader helpers with higher contrast.": "കൂടുതൽ കോൺട്രാസ്റ്റുള്ള സ്ക്രീൻ റീഡർ സഹായങ്ങൾ.",
+  "Color Blind": "വർണ്ണാന്ധ്യം",
+  "High contrast palette with desaturated media.": "ഉയർന്ന കോൺട്രാസ്റ്റ് പ്യാലറ്റ്, കുറഞ്ഞ നിറമുള്ള മീഡിയ.",
+  "Dyslexia": "ഡിസ്ലെക്സിയ",
+  "Friendly font, extra spacing, stronger weight.": "വായിക്കാൻ എളുപ്പമുള്ള ഫോണ്ട്, കൂടുതൽ സ്പേസിംഗ്, കട്ടിയുള്ള എഴുത്ത്.",
+  "Low vision": "കുറഞ്ഞ കാഴ്ച",
+  "Dark contrast and 130% magnification.": "ഇരുണ്ട കോൺട്രാസ്റ്റും 130% സൂം.",
+  "Cognitive & Learning": "ബൗദ്ധികവും പഠനസഹായവും",
+  "Highlights key sections and enables voice help.": "പ്രധാന ഭാഗങ്ങളെ ഹൈലൈറ്റ് ചെയ്യുകയും വോയ്സ് സഹായം സജീവമാക്കുകയും ചെയ്യുന്നു.",
+  "Seizure & Epileptic": "ഫിറ്റ്സ് & എപ്പിലപ്സി",
+  "Stops animations and desaturates imagery.": "അനിമേഷൻ നിര്‍ത്തുകയും ചിത്രങ്ങളുടെ നിറം കുറയ്ക്കുകയും ചെയ്യുന്നു.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "വായനാ ഗൈഡ്, ഹൈലൈറ്റ് ചെയ്‌ത ലിങ്കുകൾ, ശാന്തമായ നിറങ്ങൾ."
 }

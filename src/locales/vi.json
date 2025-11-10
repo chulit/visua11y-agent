@@ -48,5 +48,22 @@
   "Reset colors": "Đặt lại màu",
   "Image Desaturation": "Giảm độ bão hòa ảnh",
   "Search languages": "Tìm kiếm ngôn ngữ",
-  "No languages found": "Không tìm thấy ngôn ngữ nào"
+  "No languages found": "Không tìm thấy ngôn ngữ nào",
+  "Accessibility Profiles": "Hồ sơ trợ năng",
+  "Motor Impaired": "Hỗ trợ vận động",
+  "Big cursor, voice navigation, and no animations.": "Con trỏ lớn, điều hướng giọng nói và không hoạt ảnh.",
+  "Blind": "Khiếm thị",
+  "Screen reader helpers with higher contrast.": "Trợ lý trình đọc màn hình với độ tương phản cao hơn.",
+  "Color Blind": "Mù màu",
+  "High contrast palette with desaturated media.": "Bảng màu tương phản cao với phương tiện giảm bão hòa.",
+  "Dyslexia": "Chứng khó đọc",
+  "Friendly font, extra spacing, stronger weight.": "Phông chữ dễ đọc, khoảng cách rộng và nét chữ đậm hơn.",
+  "Low vision": "Thị lực kém",
+  "Dark contrast and 130% magnification.": "Độ tương phản tối và phóng to 130%.",
+  "Cognitive & Learning": "Nhận thức & học tập",
+  "Highlights key sections and enables voice help.": "Làm nổi bật phần quan trọng và bật trợ lý giọng nói.",
+  "Seizure & Epileptic": "Co giật & động kinh",
+  "Stops animations and desaturates imagery.": "Dừng hoạt ảnh và giảm bão hòa hình ảnh.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Hướng dẫn đọc, liên kết nổi bật và bảng màu dịu hơn."
 }

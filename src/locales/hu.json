@@ -48,5 +48,22 @@
   "Reset colors": "Színek visszaállítása",
   "Image Desaturation": "Kép színtelenítése",
   "Search languages": "Nyelvek keresése",
-  "No languages found": "Nem találhatók nyelvek"
+  "No languages found": "Nem találhatók nyelvek",
+  "Accessibility Profiles": "Akadálymentesítési profilok",
+  "Motor Impaired": "Mozgáskorlátozott",
+  "Big cursor, voice navigation, and no animations.": "Nagy kurzor, hangnavigáció és nincs animáció.",
+  "Blind": "Vak",
+  "Screen reader helpers with higher contrast.": "Képernyőolvasó segédletek erősebb kontraszttal.",
+  "Color Blind": "Színtévesztés",
+  "High contrast palette with desaturated media.": "Nagy kontrasztú paletta csökkentett telítettségű médiával.",
+  "Dyslexia": "Diszlexia",
+  "Friendly font, extra spacing, stronger weight.": "Olvasható betűtípus, nagyobb térköz és erősebb vastagság.",
+  "Low vision": "Gyengénlátás",
+  "Dark contrast and 130% magnification.": "Sötét kontraszt és 130 %-os nagyítás.",
+  "Cognitive & Learning": "Kognitív és tanulási",
+  "Highlights key sections and enables voice help.": "Kiemeli a fontos részeket és engedélyezi a hangos segítséget.",
+  "Seizure & Epileptic": "Rohamok és epilepszia",
+  "Stops animations and desaturates imagery.": "Leállítja az animációkat és csökkenti a képek telítettségét.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Olvasási útmutató, kiemelt hivatkozások és nyugodtabb paletta."
 }

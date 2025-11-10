@@ -48,5 +48,22 @@
   "Reset colors": "වර්ණ නැවත සකසන්න",
   "Image Desaturation": "පිංතූරයේ වර්ණය අඩු කිරීම",
   "Search languages": "භාෂා සොයන්න",
-  "No languages found": "භාෂා කිසිවක් හමු නොවුණි"
+  "No languages found": "භාෂා කිසිවක් හමු නොවුණි",
+  "Accessibility Profiles": "ප්‍රවේශය සඳහා පැතිකඩ",
+  "Motor Impaired": "මෝටර් අසමත්",
+  "Big cursor, voice navigation, and no animations.": "විශාල දර්ශකය, හඬ නාවිකත්වය සහ අනිමේෂන් නැත.",
+  "Blind": "කුරුළු",
+  "Screen reader helpers with higher contrast.": "ඉහළ විරුද්ධතාවයකින් යුත් තිර කියවීම් උදව්කරුවෝ.",
+  "Color Blind": "වර්ණ අන්ධතාව",
+  "High contrast palette with desaturated media.": "ඉහළ විරෝධී පේලට් සහ අඩු සන්තුලිත මාධ්‍ය.",
+  "Dyslexia": "ඩිස්ලෙක්සියා",
+  "Friendly font, extra spacing, stronger weight.": "කියවීමට පහසු අක්‌ෂර, අමතර ඉඩ හා තදකම.",
+  "Low vision": "අව කാഴ്ച",
+  "Dark contrast and 130% magnification.": "අඳුරු විරෝධය සහ 130% විශාල කිරීම.",
+  "Cognitive & Learning": "ඥානීය හා ඉගෙනීම",
+  "Highlights key sections and enables voice help.": "ප්‍රධාන කොටස් හිරුපැහැ කර හඬ සහාය සක්‍රීය කරයි.",
+  "Seizure & Epileptic": "අච්චු සහ මිනරන්",
+  "Stops animations and desaturates imagery.": "ජීවීකරු නවත්වමින් පින්තූරයේ පෙලසුම් අඩු කරයි.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "කියවීමේ මාර්ගෝපදේශය, ඉස්මතු කරන ලද සබැඳි සහ සමනයිත පාලට්."
 }

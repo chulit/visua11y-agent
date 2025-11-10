@@ -48,5 +48,22 @@
   "Reset colors": "重設顏色",
   "Image Desaturation": "降低圖片飽和度",
   "Search languages": "搜尋語言",
-  "No languages found": "找不到語言"
+  "No languages found": "找不到語言",
+  "Accessibility Profiles": "無障礙設定檔",
+  "Motor Impaired": "動作輔助",
+  "Big cursor, voice navigation, and no animations.": "大型游標、語音導覽並停用動畫。",
+  "Blind": "視障模式",
+  "Screen reader helpers with higher contrast.": "高對比的螢幕閱讀輔助。",
+  "Color Blind": "色盲模式",
+  "High contrast palette with desaturated media.": "高對比調色盤與降低飽和媒體。",
+  "Dyslexia": "閱讀障礙",
+  "Friendly font, extra spacing, stronger weight.": "易讀字體、額外間距與較粗字重。",
+  "Low vision": "低視力",
+  "Dark contrast and 130% magnification.": "深色對比與 130% 放大。",
+  "Cognitive & Learning": "認知與學習",
+  "Highlights key sections and enables voice help.": "強調重點區塊並啟用語音協助。",
+  "Seizure & Epileptic": "防癲癇模式",
+  "Stops animations and desaturates imagery.": "停止動畫並降低影像飽和度。",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "閱讀指引、醒目連結與柔和色板."
 }

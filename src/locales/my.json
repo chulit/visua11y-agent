@@ -48,5 +48,22 @@
   "Reset colors": "အရောင်များ ပြန်ချိန်ပါ",
   "Image Desaturation": "ပုံအရောင် လျော့ချခြင်း",
   "Search languages": "ဘာသာစကားများ ရှာဖွေပါ",
-  "No languages found": "ဘာသာစကား မတွေ့ပါ"
+  "No languages found": "ဘာသာစကား မတွေ့ပါ",
+  "Accessibility Profiles": "ဝင်ရောက်ရလွယ်သောပရိုဖိုင်များ",
+  "Motor Impaired": "လှုပ်ရှားရေးအကန့်အသတ်",
+  "Big cursor, voice navigation, and no animations.": "ကြီးတဲ့ ကာဆာ၊ အသံဖြင့် ခရီးညွှန်ခြင်း၊ အန်နီမေးရှင်း မရှိ။",
+  "Blind": "မြင်သာမှုတားဆီး",
+  "Screen reader helpers with higher contrast.": "ထင်ရှားတဲ့ ကွန်ထရပ်ဖြင့် စကရင်ဖတ်သူ ကူညီမှုများ။",
+  "Color Blind": "အရောင်မြင်ကွဲခြား",
+  "High contrast palette with desaturated media.": "ထင်ရှားတဲ့ ကွန်ထရပ် ပဲလက်နှင့် အရောင်ချည်း ကူးထားသော မီဒီယာ။",
+  "Dyslexia": "စာဖတ်ရှုပ်ထွေးခြင်း",
+  "Friendly font, extra spacing, stronger weight.": "ဖတ်ရလွယ်သော ဖောင့်၊ ထပ်ဆောင်း ကွာဟချက်နှင့် အထူပို။",
+  "Low vision": "အမြင်နည်းခြင်း",
+  "Dark contrast and 130% magnification.": "မှောင်မိုက်သော ကွန်ထရပ်နှင့် ၁၃၀% ထပ်တိုးကြည့်ရှု။",
+  "Cognitive & Learning": "ထင်ရှားမြင်သာ & ပညာသင်ယူ",
+  "Highlights key sections and enables voice help.": "အဓိကအပိုင်းများကို အလင်းပေးပြီး အသံအကူအညီကို ဖွင့်ပေးပါသည်။",
+  "Seizure & Epileptic": "Fits & မျိုးရိုးစားရောဂါ",
+  "Stops animations and desaturates imagery.": "အန်နီမေးရှင်းကို ရပ်တန့်ပြီး ပုံရိပ်အရောင်ညှိသည်။",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "ဖတ်ရှုမှုလမ်းညွှန်၊ အရောင်ထိမ်းလင်းထားသော လင့်များနှင့် သက်သာသော အရောင်။"
 }

@@ -48,5 +48,22 @@
   "Reset colors": "Obnovit barvy",
   "Image Desaturation": "Desaturace obrázku",
   "Search languages": "Hledat jazyky",
-  "No languages found": "Nebyly nalezeny žádné jazyky"
+  "No languages found": "Nebyly nalezeny žádné jazyky",
+  "Accessibility Profiles": "Profily přístupnosti",
+  "Motor Impaired": "Motorické postižení",
+  "Big cursor, voice navigation, and no animations.": "Velký kurzor, hlasová navigace a žádné animace.",
+  "Blind": "Nevidomý",
+  "Screen reader helpers with higher contrast.": "Pomůcky pro čtečky obrazovky s vyšším kontrastem.",
+  "Color Blind": "Barvoslepost",
+  "High contrast palette with desaturated media.": "Paleta s vysokým kontrastem a odbarvenými médii.",
+  "Dyslexia": "Dyslexie",
+  "Friendly font, extra spacing, stronger weight.": "Čitelný font, větší rozestupy a silnější písmo.",
+  "Low vision": "Slabozrakost",
+  "Dark contrast and 130% magnification.": "Tmavý kontrast a zvětšení o 130 %.",
+  "Cognitive & Learning": "Kognitivní a učení",
+  "Highlights key sections and enables voice help.": "Zvýrazní klíčové sekce a povolí hlasovou pomoc.",
+  "Seizure & Epileptic": "Záchvaty a epilepsie",
+  "Stops animations and desaturates imagery.": "Zastaví animace a odbarví obrázky.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Průvodce čtením, zvýrazněné odkazy a klidnější paleta."
 }

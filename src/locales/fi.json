@@ -48,5 +48,22 @@
   "Reset colors": "Nollaa värit",
   "Image Desaturation": "Kuvan värittömyys",
   "Search languages": "Hae kieliä",
-  "No languages found": "Kieliä ei löytynyt"
+  "No languages found": "Kieliä ei löytynyt",
+  "Accessibility Profiles": "Esteettömyysprofiilit",
+  "Motor Impaired": "Motorinen rajoite",
+  "Big cursor, voice navigation, and no animations.": "Iso kohdistin, ääniohjaus eikä animaatioita.",
+  "Blind": "Sokea",
+  "Screen reader helpers with higher contrast.": "Ruudunlukuavustimet korkeammalla kontrastilla.",
+  "Color Blind": "Värisokeus",
+  "High contrast palette with desaturated media.": "Korkeakontrastinen paletti ja kyllästymättömät mediat.",
+  "Dyslexia": "Lukihäiriö",
+  "Friendly font, extra spacing, stronger weight.": "Helppolukuinen fontti, enemmän väliä ja vahvempi paino.",
+  "Low vision": "Heikko näkö",
+  "Dark contrast and 130% magnification.": "Tumma kontrasti ja 130 % suurennus.",
+  "Cognitive & Learning": "Kognitiivinen ja oppiminen",
+  "Highlights key sections and enables voice help.": "Korostaa tärkeät osiot ja ottaa ääniavun käyttöön.",
+  "Seizure & Epileptic": "Kohtaukset ja epilepsia",
+  "Stops animations and desaturates imagery.": "Pysäyttää animaatiot ja vähentää kuvien kylläisyyttä.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Lukuopas, korostetut linkit ja rauhallisempi paletti."
 }

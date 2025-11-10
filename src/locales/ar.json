@@ -48,5 +48,22 @@
   "Reset colors": "إعادة تعيين الألوان",
   "Image Desaturation": "إزالة تشبع الصور",
   "Search languages": "ابحث عن اللغات",
-  "No languages found": "لم يتم العثور على لغات"
+  "No languages found": "لم يتم العثور على لغات",
+  "Accessibility Profiles": "ملفات إمكانية الوصول",
+  "Motor Impaired": "إعاقة حركية",
+  "Big cursor, voice navigation, and no animations.": "مؤشر كبير، تنقل صوتي وبدون حركات.",
+  "Blind": "كفيف",
+  "Screen reader helpers with higher contrast.": "مساعدات قارئ الشاشة مع تباين أعلى.",
+  "Color Blind": "عمى الألوان",
+  "High contrast palette with desaturated media.": "لوحة عالية التباين مع وسائط منخفضة التشبع.",
+  "Dyslexia": "عسر القراءة",
+  "Friendly font, extra spacing, stronger weight.": "خط مريح، مسافات إضافية وسمك أكبر.",
+  "Low vision": "ضعف البصر",
+  "Dark contrast and 130% magnification.": "تباين داكن وتكبير بنسبة 130٪.",
+  "Cognitive & Learning": "إدراكي وتعلمي",
+  "Highlights key sections and enables voice help.": "يبرز الأقسام المهمة ويفعل المساعدة الصوتية.",
+  "Seizure & Epileptic": "نوبات صرع",
+  "Stops animations and desaturates imagery.": "يوقف الحركات ويقلل تشبع الصور.",
+  "ADHD": "اضطراب فرط الحركة ونقص الانتباه",
+  "Reading guide, highlighted links, calmer palette.": "دليل قراءة، روابط مميزة ولوحة ألوان أكثر هدوءًا."
 }

@@ -48,5 +48,22 @@
   "Reset colors": "Resetează culorile",
   "Image Desaturation": "Desaturarea imaginii",
   "Search languages": "Caută limbi",
-  "No languages found": "Nu s-au găsit limbi"
+  "No languages found": "Nu s-au găsit limbi",
+  "Accessibility Profiles": "Profiluri de accesibilitate",
+  "Motor Impaired": "Dificultăți motorii",
+  "Big cursor, voice navigation, and no animations.": "Cursor mare, navigare vocală și fără animații.",
+  "Blind": "Nevăzător",
+  "Screen reader helpers with higher contrast.": "Asistenți pentru cititorul de ecran cu contrast ridicat.",
+  "Color Blind": "Daltonism",
+  "High contrast palette with desaturated media.": "Paletă cu contrast înalt și media desaturată.",
+  "Dyslexia": "Dislexie",
+  "Friendly font, extra spacing, stronger weight.": "Font ușor de citit, spațiere suplimentară și grosime mai mare.",
+  "Low vision": "Vedere slabă",
+  "Dark contrast and 130% magnification.": "Contrast întunecat și mărire de 130%.",
+  "Cognitive & Learning": "Cognitiv și învățare",
+  "Highlights key sections and enables voice help.": "Evidențiază secțiunile cheie și activează ajutorul vocal.",
+  "Seizure & Epileptic": "Convulsii și epilepsie",
+  "Stops animations and desaturates imagery.": "Oprește animațiile și estompează imaginile.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Ghid de citire, link-uri evidențiate și paletă mai calmă."
 }

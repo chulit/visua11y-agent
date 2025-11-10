@@ -48,5 +48,22 @@
   "Reset colors": "Нулирай цветовете",
   "Image Desaturation": "Десатурация на изображението",
   "Search languages": "Търсене на езици",
-  "No languages found": "Няма намерени езици"
+  "No languages found": "Няма намерени езици",
+  "Accessibility Profiles": "Профили за достъпност",
+  "Motor Impaired": "Двигателни затруднения",
+  "Big cursor, voice navigation, and no animations.": "Голям курсор, гласова навигация и без анимации.",
+  "Blind": "Сляпо",
+  "Screen reader helpers with higher contrast.": "Помощници за екранен четец с по-висок контраст.",
+  "Color Blind": "Далтонизъм",
+  "High contrast palette with desaturated media.": "Палитра с висок контраст и десатурирани медии.",
+  "Dyslexia": "Дислексия",
+  "Friendly font, extra spacing, stronger weight.": "Удобен шрифт, допълнително разстояние и по-силен акцент.",
+  "Low vision": "Слабо зрение",
+  "Dark contrast and 130% magnification.": "Тъмен контраст и увеличение 130%.",
+  "Cognitive & Learning": "Когнитивно и обучително",
+  "Highlights key sections and enables voice help.": "Акцентира важните секции и активира гласова помощ.",
+  "Seizure & Epileptic": "Припадъци и епилепсия",
+  "Stops animations and desaturates imagery.": "Спира анимациите и десатурира изображенията.",
+  "ADHD": "СДВХ",
+  "Reading guide, highlighted links, calmer palette.": "Водач за четене, подчертани връзки и по-спокойна палитра."
 }

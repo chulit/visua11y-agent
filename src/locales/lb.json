@@ -48,5 +48,22 @@
   "Reset colors": "Faarwen zerécksetzen",
   "Image Desaturation": "Bilddesaturatioun",
   "Search languages": "Sproochen sichen",
-  "No languages found": "Keng Sproochen fonnt"
+  "No languages found": "Keng Sproochen fonnt",
+  "Accessibility Profiles": "Accessibilitéitsprofiler",
+  "Motor Impaired": "Motorschen Handicap",
+  "Big cursor, voice navigation, and no animations.": "Grousse Cursor, Stëmmnavigatioun an keng Animatiounen.",
+  "Blind": "Blann",
+  "Screen reader helpers with higher contrast.": "Screenreader-Hëllefen mat méi héijem Kontrast.",
+  "Color Blind": "Faarweblann",
+  "High contrast palette with desaturated media.": "Palette mat héijem Kontrast an ofgeblenkte Medien.",
+  "Dyslexia": "Dyslexie",
+  "Friendly font, extra spacing, stronger weight.": "Liicht liesbar Schrëft, méi Ofstand an déckere Schrëft.",
+  "Low vision": "Schwaach Siicht",
+  "Dark contrast and 130% magnification.": "Donkelen Kontrast an 130% Vergréisserung.",
+  "Cognitive & Learning": "Kognitiv & Léieren",
+  "Highlights key sections and enables voice help.": "Héicht wichteg Sektiounen eraus a schalt Stëmmhëllef fräi.",
+  "Seizure & Epileptic": "Krampf & Epilepsie",
+  "Stops animations and desaturates imagery.": "Stoppt Animatiounen a féiert manner Faarf bäi.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Liesguide, markéiert Linken a méi roueg Palette."
 }

@@ -48,5 +48,22 @@
   "Reset colors": "Сбросить цвета",
   "Image Desaturation": "Обесцвечивание изображения",
   "Search languages": "Поиск языков",
-  "No languages found": "Языки не найдены"
+  "No languages found": "Языки не найдены",
+  "Accessibility Profiles": "Профили доступности",
+  "Motor Impaired": "Нарушение моторики",
+  "Big cursor, voice navigation, and no animations.": "Крупный курсор, голосовая навигация и без анимации.",
+  "Blind": "Незрячие",
+  "Screen reader helpers with higher contrast.": "Помощники экранного диктора с повышенным контрастом.",
+  "Color Blind": "Дальтонизм",
+  "High contrast palette with desaturated media.": "Палитра с высоким контрастом и приглушёнными цветами.",
+  "Dyslexia": "Дислексия",
+  "Friendly font, extra spacing, stronger weight.": "Удобный шрифт, больше интервала и более жирное начертание.",
+  "Low vision": "Слабовидящие",
+  "Dark contrast and 130% magnification.": "Тёмный контраст и увеличение 130 %.",
+  "Cognitive & Learning": "Когнитивное и обучение",
+  "Highlights key sections and enables voice help.": "Выделяет важные разделы и включает голосовую помощь.",
+  "Seizure & Epileptic": "Припадки и эпилепсия",
+  "Stops animations and desaturates imagery.": "Останавливает анимации и снижает насыщенность изображений.",
+  "ADHD": "СДВГ",
+  "Reading guide, highlighted links, calmer palette.": "Путеводитель для чтения, выделенные ссылки и спокойная палитра."
 }

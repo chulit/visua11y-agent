@@ -48,5 +48,22 @@
   "Reset colors": "Redefinir cores",
   "Image Desaturation": "Dessaturação de imagem",
   "Search languages": "Pesquisar idiomas",
-  "No languages found": "Nenhum idioma encontrado"
+  "No languages found": "Nenhum idioma encontrado",
+  "Accessibility Profiles": "Perfis de acessibilidade",
+  "Motor Impaired": "Deficiência motora",
+  "Big cursor, voice navigation, and no animations.": "Cursor grande, navegação por voz e sem animações.",
+  "Blind": "Cegueira",
+  "Screen reader helpers with higher contrast.": "Auxiliares de leitor de tela com contraste maior.",
+  "Color Blind": "Daltonismo",
+  "High contrast palette with desaturated media.": "Paleta de alto contraste com mídias dessaturadas.",
+  "Dyslexia": "Dislexia",
+  "Friendly font, extra spacing, stronger weight.": "Fonte amigável, espaçamento extra e maior espessura.",
+  "Low vision": "Baixa visão",
+  "Dark contrast and 130% magnification.": "Contraste escuro e ampliação de 130 %.",
+  "Cognitive & Learning": "Cognitivo e aprendizado",
+  "Highlights key sections and enables voice help.": "Destaca seções-chave e ativa o auxílio por voz.",
+  "Seizure & Epileptic": "Convulsões e epilepsia",
+  "Stops animations and desaturates imagery.": "Interrompe animações e dessatura imagens.",
+  "ADHD": "TDAH",
+  "Reading guide, highlighted links, calmer palette.": "Guia de leitura, links destacados e paleta mais calma."
 }

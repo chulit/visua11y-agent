@@ -48,5 +48,22 @@
   "Reset colors": "بازنشانی رنگ‌ها",
   "Image Desaturation": "کاهش اشباع تصویر",
   "Search languages": "جستجوی زبان‌ها",
-  "No languages found": "زبانی یافت نشد"
+  "No languages found": "زبانی یافت نشد",
+  "Accessibility Profiles": "نمایه‌های دسترس‌پذیری",
+  "Motor Impaired": "ناتوانی حرکتی",
+  "Big cursor, voice navigation, and no animations.": "نشانگر بزرگ، ناوبری صوتی و بدون انیمیشن.",
+  "Blind": "نابینا",
+  "Screen reader helpers with higher contrast.": "کمک‌های صفحه‌خوان با کنتراست بیشتر.",
+  "Color Blind": "کوررنگی",
+  "High contrast palette with desaturated media.": "پالت با کنتراست بالا و رسانه‌های کم‌رنگ.",
+  "Dyslexia": "دیسلکسی",
+  "Friendly font, extra spacing, stronger weight.": "فونت خوانا، فاصله بیشتر و ضخامت قوی‌تر.",
+  "Low vision": "کم‌بینا",
+  "Dark contrast and 130% magnification.": "کنتراست تیره و بزرگ‌نمایی ۱۳۰٪.",
+  "Cognitive & Learning": "شناختی و یادگیری",
+  "Highlights key sections and enables voice help.": "بخش‌های کلیدی را برجسته می‌کند و کمک صوتی فعال می‌شود.",
+  "Seizure & Epileptic": "تشنج و صرع",
+  "Stops animations and desaturates imagery.": "انیمیشن‌ها را متوقف و تصاویر را کم‌رنگ می‌کند.",
+  "ADHD": "بیش‌فعالی",
+  "Reading guide, highlighted links, calmer palette.": "راهنمای مطالعه، لینک‌های هایلایت‌شده و پالت آرام‌تر."
 }

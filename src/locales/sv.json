@@ -48,5 +48,22 @@
   "Reset colors": "Återställ färger",
   "Image Desaturation": "Avmättnad av bild",
   "Search languages": "Sök språk",
-  "No languages found": "Inga språk hittades"
+  "No languages found": "Inga språk hittades",
+  "Accessibility Profiles": "Tillgänglighetsprofiler",
+  "Motor Impaired": "Motorisk begränsning",
+  "Big cursor, voice navigation, and no animations.": "Stor markör, röstnavigering och inga animationer.",
+  "Blind": "Blind",
+  "Screen reader helpers with higher contrast.": "Skärmläsarhjälpmedel med högre kontrast.",
+  "Color Blind": "Färgblind",
+  "High contrast palette with desaturated media.": "Palett med hög kontrast och dämpade medier.",
+  "Dyslexia": "Dyslexi",
+  "Friendly font, extra spacing, stronger weight.": "Lättläst typsnitt, extra avstånd och tydligare vikt.",
+  "Low vision": "Nedsatt syn",
+  "Dark contrast and 130% magnification.": "Mörk kontrast och 130 % förstoring.",
+  "Cognitive & Learning": "Kognitivt och lärande",
+  "Highlights key sections and enables voice help.": "Markerar viktiga avsnitt och aktiverar röststöd.",
+  "Seizure & Epileptic": "Anfall och epilepsi",
+  "Stops animations and desaturates imagery.": "Stoppar animationer och tonar ned bilder.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Läsguide, markerade länkar och lugnare färger."
 }

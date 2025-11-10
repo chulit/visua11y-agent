@@ -48,5 +48,22 @@
   "Reset colors": "색상 초기화",
   "Image Desaturation": "이미지 채도 줄이기",
   "Search languages": "언어 검색",
-  "No languages found": "언어를 찾을 수 없습니다"
+  "No languages found": "언어를 찾을 수 없습니다",
+  "Accessibility Profiles": "접근성 프로필",
+  "Motor Impaired": "운동 기능 지원",
+  "Big cursor, voice navigation, and no animations.": "큰 커서, 음성 내비게이션, 애니메이션 없음.",
+  "Blind": "시각 장애",
+  "Screen reader helpers with higher contrast.": "높은 대비의 화면 낭독기 보조 기능.",
+  "Color Blind": "색각 보정",
+  "High contrast palette with desaturated media.": "고대비 팔레트와 탈채도 미디어.",
+  "Dyslexia": "난독증",
+  "Friendly font, extra spacing, stronger weight.": "읽기 쉬운 폰트, 넉넉한 간격, 더 굵은 글씨.",
+  "Low vision": "저시력",
+  "Dark contrast and 130% magnification.": "짙은 대비와 130% 확대.",
+  "Cognitive & Learning": "인지 및 학습",
+  "Highlights key sections and enables voice help.": "핵심 구역을 강조하고 음성 도움을 활성화합니다.",
+  "Seizure & Epileptic": "발작 및 간질",
+  "Stops animations and desaturates imagery.": "애니메이션을 중지하고 이미지를 탈채도합니다.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "읽기 가이드, 강조된 링크, 차분한 팔레트."
 }

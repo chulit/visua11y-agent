@@ -48,5 +48,22 @@
   "Reset colors": "நிறங்களை மீட்டமை",
   "Image Desaturation": "பட நிறம் குறைத்தல்",
   "Search languages": "மொழிகளைத் தேடு",
-  "No languages found": "எந்த மொழியும் கிடைக்கவில்லை"
+  "No languages found": "எந்த மொழியும் கிடைக்கவில்லை",
+  "Accessibility Profiles": "அணுகல் சுயவிவரங்கள்",
+  "Motor Impaired": "இயக்கக் குறைபாடு",
+  "Big cursor, voice navigation, and no animations.": "பெரிய கர்சர், குரல் வழிசெலுத்தல் மற்றும் அனிமேஷன் இல்லை.",
+  "Blind": "காணாமல் இருப்பவர்",
+  "Screen reader helpers with higher contrast.": "அதிக எதிரொலியுள்ள திரை வாசிப்பான் உதவிகள்.",
+  "Color Blind": "நிறக்குறை",
+  "High contrast palette with desaturated media.": "அதிக எதிரொலியுடன் நிறம் குறைக்கப்பட்ட ஊடகம்.",
+  "Dyslexia": "டிஸ்லெக்சியா",
+  "Friendly font, extra spacing, stronger weight.": "எளிதில் படிக்க கூடிய எழுத்து, கூடுதல் இடைவெளி மற்றும் தடிமனான எழுத்து.",
+  "Low vision": "குறைந்த பார்வை",
+  "Dark contrast and 130% magnification.": "இருண்ட எதிரொலி மற்றும் 130% பெரிதாக்கம்.",
+  "Cognitive & Learning": "அறிவு & கற்றல்",
+  "Highlights key sections and enables voice help.": "முக்கிய பகுதிகளை விளக்கி குரல் உதவியை இயக்குகிறது.",
+  "Seizure & Epileptic": "Fits & மயக்கம்",
+  "Stops animations and desaturates imagery.": "அனிமேஷன்களை நிறுத்தி படங்களுக்கு நிறத்தை குறைக்கிறது.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "வாசிப்பு வழிகாட்டி, சிறப்பிக்கப்பட்ட இணைப்புகள் மற்றும் அமைதியான வண்ணத் தொகுப்பு."
 }

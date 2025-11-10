@@ -48,5 +48,22 @@
   "Reset colors": "重置颜色",
   "Image Desaturation": "降低图像饱和度",
   "Search languages": "搜索语言",
-  "No languages found": "未找到任何语言"
+  "No languages found": "未找到任何语言",
+  "Accessibility Profiles": "无障碍配置",
+  "Motor Impaired": "运动障碍",
+  "Big cursor, voice navigation, and no animations.": "大光标、语音导航并禁用动画。",
+  "Blind": "视障用户",
+  "Screen reader helpers with higher contrast.": "更高对比度的读屏辅助。",
+  "Color Blind": "色盲模式",
+  "High contrast palette with desaturated media.": "高对比度调色板与去饱和媒体。",
+  "Dyslexia": "阅读障碍",
+  "Friendly font, extra spacing, stronger weight.": "友好字体、额外行距与更粗字重。",
+  "Low vision": "低视力",
+  "Dark contrast and 130% magnification.": "深色对比与 130% 放大。",
+  "Cognitive & Learning": "认知与学习",
+  "Highlights key sections and enables voice help.": "突出关键区域并启用语音辅助。",
+  "Seizure & Epileptic": "防癫痫模式",
+  "Stops animations and desaturates imagery.": "停止动画并降低图像饱和度。",
+  "ADHD": "多动症",
+  "Reading guide, highlighted links, calmer palette.": "阅读引导、突出链接与柔和配色。"
 }

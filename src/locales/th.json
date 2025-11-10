@@ -48,5 +48,22 @@
   "Reset colors": "รีเซ็ตสี",
   "Image Desaturation": "ลดความอิ่มตัวของภาพ",
   "Search languages": "ค้นหาภาษา",
-  "No languages found": "ไม่พบภาษา"
+  "No languages found": "ไม่พบภาษา",
+  "Accessibility Profiles": "โปรไฟล์การช่วยการเข้าถึง",
+  "Motor Impaired": "ผู้มีข้อจำกัดการเคลื่อนไหว",
+  "Big cursor, voice navigation, and no animations.": "เคอร์เซอร์ขนาดใหญ่ นำทางด้วยเสียง และไม่มีแอนิเมชัน",
+  "Blind": "ผู้พิการทางสายตา",
+  "Screen reader helpers with higher contrast.": "ผู้ช่วยโปรแกรมอ่านหน้าจอที่มีคอนทราสต์สูงขึ้น",
+  "Color Blind": "ตาบอดสี",
+  "High contrast palette with desaturated media.": "พาเล็ตคอนทราสต์สูงพร้อมสื่อที่ลดความอิ่มสี",
+  "Dyslexia": "ดิสเล็กเซีย",
+  "Friendly font, extra spacing, stronger weight.": "ฟอนต์อ่านง่าย ระยะห่างเพิ่ม และน้ำหนักตัวอักษรหนา",
+  "Low vision": "สายตาพิการ",
+  "Dark contrast and 130% magnification.": "คอนทราสต์มืดและขยาย 130%",
+  "Cognitive & Learning": "การรับรู้และการเรียนรู้",
+  "Highlights key sections and enables voice help.": "ไฮไลต์ส่วนสำคัญและเปิดใช้งานผู้ช่วยเสียง",
+  "Seizure & Epileptic": "อาการชักและลมชัก",
+  "Stops animations and desaturates imagery.": "หยุดแอนิเมชันและลดสีของภาพ",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "คู่มือการอ่าน ลิงก์ที่ไฮไลต์ และโทนสีที่สงบกว่า"
 }

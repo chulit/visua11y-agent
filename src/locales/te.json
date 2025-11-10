@@ -48,5 +48,22 @@
   "Reset colors": "రంగులను రీసెట్ చేయండి",
   "Image Desaturation": "చిత్ర రంగు తగ్గింపు",
   "Search languages": "భాషలను శోధించండి",
-  "No languages found": "ఏ భాషలు కనబడలేదు"
+  "No languages found": "ఏ భాషలు కనబడలేదు",
+  "Accessibility Profiles": "అందుబాటు ప్రొఫైళ్లు",
+  "Motor Impaired": "మోటార్ లోపం",
+  "Big cursor, voice navigation, and no animations.": "పెద్ద కర్సర్, వాయిస్ నావిగేషన్ మరియు యానిమేషన్ లేదు.",
+  "Blind": "దృష్టి లోపం",
+  "Screen reader helpers with higher contrast.": "అధిక కాంట్రాస్ట్‌తో స్క్రీన్ రీడర్ సహాయకులు.",
+  "Color Blind": "రంగు చీమటేమి",
+  "High contrast palette with desaturated media.": "అధిక వ్యత్యాస ప్యాలెట్ మరియు తక్కువ రంగు మీడియా.",
+  "Dyslexia": "డిస్లెక్సియా",
+  "Friendly font, extra spacing, stronger weight.": "సులభంగా చదవగల అక్షరరూపం, అదనపు స్పేసింగ్ మరియు మందమైన అక్షరాలు.",
+  "Low vision": "తక్కువ చూపు",
+  "Dark contrast and 130% magnification.": "గాఢమైన వ్యత్యాసం మరియు 130% పెంపు.",
+  "Cognitive & Learning": "జ్ఞాన మరియు అభ్యాసం",
+  "Highlights key sections and enables voice help.": "కీలక విభాగాలను హైలైట్ చేసి వాయిస్ సహాయాన్ని ప్రారంభిస్తుంది.",
+  "Seizure & Epileptic": "నవ్వు మరియు ఎపిలెప్సి",
+  "Stops animations and desaturates imagery.": "అనిమేషన్‌లను ఆపి చిత్రాలలో రంగును తగ్గిస్తుంది.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "చదవడానికి మార్గదర్శి, హైలైట్ చేసిన లింకులు మరియు శాంతమైన రంగుల సెట్."
 }

@@ -48,5 +48,22 @@
   "Reset colors": "Setel ulang warna",
   "Image Desaturation": "Pengurangan saturasi gambar",
   "Search languages": "Cari bahasa",
-  "No languages found": "Tidak ada bahasa ditemukan"
+  "No languages found": "Tidak ada bahasa ditemukan",
+  "Accessibility Profiles": "Profil aksesibilitas",
+  "Motor Impaired": "Gangguan motorik",
+  "Big cursor, voice navigation, and no animations.": "Kursor besar, navigasi suara, dan tanpa animasi.",
+  "Blind": "Tunanetra",
+  "Screen reader helpers with higher contrast.": "Bantuan pembaca layar dengan kontras lebih tinggi.",
+  "Color Blind": "Buta warna",
+  "High contrast palette with desaturated media.": "Palet kontras tinggi dengan media desaturasi.",
+  "Dyslexia": "Disleksia",
+  "Friendly font, extra spacing, stronger weight.": "Font mudah dibaca, jarak ekstra, dan bobot lebih tebal.",
+  "Low vision": "Penglihatan rendah",
+  "Dark contrast and 130% magnification.": "Kontras gelap dan pembesaran 130%.",
+  "Cognitive & Learning": "Kognitif & pembelajaran",
+  "Highlights key sections and enables voice help.": "Menyoroti bagian penting dan mengaktifkan bantuan suara.",
+  "Seizure & Epileptic": "Kejang & epilepsi",
+  "Stops animations and desaturates imagery.": "Menghentikan animasi dan mengurangi saturasi gambar.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Panduan membaca, tautan disorot, dan palet yang lebih tenang."
 }

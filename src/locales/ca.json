@@ -48,5 +48,22 @@
   "Reset colors": "Restableix els colors",
   "Image Desaturation": "Dessaturació d’imatges",
   "Search languages": "Cerca idiomes",
-  "No languages found": "No s'han trobat idiomes"
+  "No languages found": "No s'han trobat idiomes",
+  "Accessibility Profiles": "Perfils d'accessibilitat",
+  "Motor Impaired": "Discapacitat motriu",
+  "Big cursor, voice navigation, and no animations.": "Cursor gran, navegació per veu i sense animacions.",
+  "Blind": "Ceguesa",
+  "Screen reader helpers with higher contrast.": "Ajuts per a lectors de pantalla amb més contrast.",
+  "Color Blind": "Daltonisme",
+  "High contrast palette with desaturated media.": "Paleta d'alt contrast amb mèdia dessaturada.",
+  "Dyslexia": "Dislèxia",
+  "Friendly font, extra spacing, stronger weight.": "Tipus de lletra amigable, més espaiat i major gruix.",
+  "Low vision": "Baixa visió",
+  "Dark contrast and 130% magnification.": "Contrast fosc i ampliació del 130 %.",
+  "Cognitive & Learning": "Cognitiu i aprenentatge",
+  "Highlights key sections and enables voice help.": "Destaca les seccions clau i activa l'ajuda per veu.",
+  "Seizure & Epileptic": "Convulsions i epilèpsia",
+  "Stops animations and desaturates imagery.": "Atura animacions i dessatura les imatges.",
+  "ADHD": "TDAH",
+  "Reading guide, highlighted links, calmer palette.": "Guia de lectura, enllaços ressaltats i paleta més calmada."
 }

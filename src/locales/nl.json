@@ -48,5 +48,22 @@
   "Reset colors": "Kleuren resetten",
   "Image Desaturation": "Beelddesaturatie",
   "Search languages": "Talen zoeken",
-  "No languages found": "Geen talen gevonden"
+  "No languages found": "Geen talen gevonden",
+  "Accessibility Profiles": "Toegankelijkheidsprofielen",
+  "Motor Impaired": "Motorische beperking",
+  "Big cursor, voice navigation, and no animations.": "Grote cursor, spraaknavigatie en geen animaties.",
+  "Blind": "Blind",
+  "Screen reader helpers with higher contrast.": "Schermlezer-hulpmiddelen met hoger contrast.",
+  "Color Blind": "Kleurenblind",
+  "High contrast palette with desaturated media.": "Palet met hoog contrast en minder verzadigde media.",
+  "Dyslexia": "Dyslexie",
+  "Friendly font, extra spacing, stronger weight.": "Vriendelijke letter, extra ruimte en dikkere stijl.",
+  "Low vision": "Slechtziend",
+  "Dark contrast and 130% magnification.": "Donker contrast en 130% vergroting.",
+  "Cognitive & Learning": "Cognitief en leren",
+  "Highlights key sections and enables voice help.": "Markeert belangrijke secties en schakelt spraakondersteuning in.",
+  "Seizure & Epileptic": "Aanvallen en epilepsie",
+  "Stops animations and desaturates imagery.": "Stopt animaties en verlaagt verzadiging van beelden.",
+  "ADHD": "ADHD",
+  "Reading guide, highlighted links, calmer palette.": "Leesgids, gemarkeerde links en rustiger kleuren."
 }
