@@ -218,7 +218,7 @@ export default function renderMenu() {
   };
 
   if ($profilesToggle) {
-    setProfilesVisibility(true);
+    setProfilesVisibility(false);
     $profilesToggle.addEventListener('click', () => {
       const expanded = $profilesToggle.getAttribute('aria-expanded') !== 'true';
       setProfilesVisibility(expanded);
