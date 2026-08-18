@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry,
         name: 'Visua11yAgent',
-        formats: ['es', 'cjs', 'umd'],
+        formats: ['es', 'cjs', 'iife'],
         fileName: (format) => {
           const prefix = isSlim ? 'visua11y-agent.slim' : 'visua11y-agent';
           if (format === 'es') return `${prefix}.esm.js`;
@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
       },
       rollupOptions: {
         output: {
-          exports: 'named',
+          exports: 'auto',
         },
       },
     },
