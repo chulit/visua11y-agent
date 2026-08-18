@@ -53,10 +53,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --mode slim && node scripts/copy-locales.js",
+    "preview": "vite preview",
     "lint": "eslint src --ext .ts,.js",
-    "demo": "npm run build && node scripts/demo-server.js",
-    "demo:serve": "node scripts/demo-hot.js",
-    "test": "vitest",
+    "test": "vitest run --pool=threads",
+    "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "release": "semantic-release",
     "docs:dev": "vitepress dev docs",
