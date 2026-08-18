@@ -1,3 +1,5 @@
+import enLocale from '../locales/en.json';
+
 export const LANGUAGES: ILanguage[] = [
   { code: 'am', label: 'አማርኛ (Amharic)' },
   { code: 'ar', label: 'العربية (Arabic)' },
@@ -66,9 +68,9 @@ export interface IRegisterLanguageOptions {
   merge?: boolean;
 }
 
-import { ALL_LOCALES } from './locales';
-
-export const LANGUAGE_DICTIONARY: Record<string, Record<string, string>> = {};
+export const LANGUAGE_DICTIONARY: Record<string, Record<string, string>> = {
+  en: enLocale,
+};
 
 function normalizeCode(code: string): string {
   return String(code || '').trim();
@@ -107,17 +109,25 @@ export async function loadLanguage(code: string): Promise<Record<string, string>
     return LANGUAGE_DICTIONARY[resolvedCode];
   }
 
-  if (ALL_LOCALES[resolvedCode]) {
-    LANGUAGE_DICTIONARY[resolvedCode] = ALL_LOCALES[resolvedCode];
-    return LANGUAGE_DICTIONARY[resolvedCode];
-  }
-
+  // 1. Dynamic import untuk bundler
   try {
     const dictionary = (await import(`../locales/${resolvedCode}.json`)).default;
     LANGUAGE_DICTIONARY[resolvedCode] = dictionary;
     return dictionary;
-  } catch (error) {
-    console.warn(`[Visua11y Agent] Missing locale file for "${resolvedCode}"`, error);
+  } catch {
+    // 2. Fallback fetch via CDN jika dijalankan dari script tag di browser
+    if (typeof fetch !== 'undefined') {
+      try {
+        const res = await fetch(`https://cdn.jsdelivr.net/npm/visua11y-agent@1.7.3/dist/locales/${resolvedCode}.json`);
+        if (res.ok) {
+          const data = await res.json();
+          LANGUAGE_DICTIONARY[resolvedCode] = data;
+          return data;
+        }
+      } catch (fetchError) {
+        console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN`, fetchError);
+      }
+    }
     LANGUAGE_DICTIONARY[resolvedCode] = LANGUAGE_DICTIONARY[resolvedCode] || {};
     return LANGUAGE_DICTIONARY[resolvedCode];
   }

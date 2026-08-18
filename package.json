@@ -52,7 +52,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode slim",
+    "build": "vite build && vite build --mode slim && node scripts/copy-locales.js",
     "lint": "eslint src --ext .ts,.js",
     "demo": "npm run build && node scripts/demo-server.js",
     "demo:serve": "node scripts/demo-hot.js",
