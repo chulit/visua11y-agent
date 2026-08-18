@@ -14,7 +14,7 @@ const baseConfig = {
   minify: isMinify,
   sourcemap: true,
   alias: { '@': './src' },
-  loader: { '.html': 'text', '.svg': 'text', '.png': 'dataurl' },
+  loader: { '.html': 'text', '.svg': 'text', '.png': 'dataurl', '.webp': 'dataurl' },
   plugins: [
     {
       name: 'CSSMinifyPlugin',
@@ -60,6 +60,14 @@ const targets = {
     format: 'iife',
     outfile: 'dist/visua11y-agent.umd.js',
     entryPoints: ['./src/entry.ts'],
+    globalName: 'Visua11yAgent',
+  },
+  slimEsm: { format: 'esm', outfile: 'dist/visua11y-agent.slim.esm.js', entryPoints: ['./src/slim.ts'] },
+  slimCjs: { format: 'cjs', outfile: 'dist/visua11y-agent.slim.cjs.js', entryPoints: ['./src/slim.ts'] },
+  slimUmd: {
+    format: 'iife',
+    outfile: 'dist/visua11y-agent.slim.umd.js',
+    entryPoints: ['./src/slim.ts'],
     globalName: 'Visua11yAgent',
   },
 };
