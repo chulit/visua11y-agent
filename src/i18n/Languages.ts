@@ -66,6 +66,8 @@ export interface IRegisterLanguageOptions {
   merge?: boolean;
 }
 
+import { ALL_LOCALES } from './locales';
+
 export const LANGUAGE_DICTIONARY: Record<string, Record<string, string>> = {};
 
 function normalizeCode(code: string): string {
@@ -99,18 +101,38 @@ export function resolveLanguageCode(code?: string | null): string {
   return 'en';
 }
 
-export async function loadLanguages(): Promise<void> {
-  for (const { code } of LANGUAGES) {
-    if (LANGUAGE_DICTIONARY[code]) {
-      continue;
-    }
+export async function loadLanguage(code: string): Promise<Record<string, string>> {
+  const resolvedCode = resolveLanguageCode(code);
+  if (LANGUAGE_DICTIONARY[resolvedCode] && Object.keys(LANGUAGE_DICTIONARY[resolvedCode]).length > 0) {
+    return LANGUAGE_DICTIONARY[resolvedCode];
+  }
 
-    try {
-      const dictionary = (await import(`../locales/${code}.json`)).default;
-      LANGUAGE_DICTIONARY[code] = dictionary;
-    } catch (error) {
-      console.warn(`[Visua11y Agent] Missing locale file for "${code}"`, error);
-      LANGUAGE_DICTIONARY[code] = LANGUAGE_DICTIONARY[code] || {};
+  if (ALL_LOCALES[resolvedCode]) {
+    LANGUAGE_DICTIONARY[resolvedCode] = ALL_LOCALES[resolvedCode];
+    return LANGUAGE_DICTIONARY[resolvedCode];
+  }
+
+  try {
+    const dictionary = (await import(`../locales/${resolvedCode}.json`)).default;
+    LANGUAGE_DICTIONARY[resolvedCode] = dictionary;
+    return dictionary;
+  } catch (error) {
+    console.warn(`[Visua11y Agent] Missing locale file for "${resolvedCode}"`, error);
+    LANGUAGE_DICTIONARY[resolvedCode] = LANGUAGE_DICTIONARY[resolvedCode] || {};
+    return LANGUAGE_DICTIONARY[resolvedCode];
+  }
+}
+
+export async function loadLanguages(targetLang?: string): Promise<void> {
+  if (targetLang) {
+    const target = resolveLanguageCode(targetLang);
+    await loadLanguage('en');
+    if (target !== 'en') {
+      await loadLanguage(target);
+    }
+  } else {
+    for (const { code } of LANGUAGES) {
+      await loadLanguage(code);
     }
   }
 }

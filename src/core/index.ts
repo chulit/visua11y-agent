@@ -67,7 +67,7 @@ export default function visua11yAgent({ options }) {
 
   runAccessibility();
   renderWidget();
-  loadLanguages().then(() => {
+  loadLanguages(initialLanguage).then(() => {
     translateWidget();
   });
 
