@@ -26,5 +26,5 @@ export function saveUserSettings() {
 }
 
 export function getSavedUserSettings(): ISettings | null {
-  return getStorageData(STORAGE_KEY);
+  return getStorageData<ISettings>(STORAGE_KEY);
 }

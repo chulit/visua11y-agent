@@ -1,6 +1,6 @@
 import { getCookie, setCookie } from '@/utils/cookies';
 
-export function saveStorageData(key, value) {
+export function saveStorageData(key: string, value: unknown): void {
   const jsonValue = JSON.stringify(value);
 
   try {
@@ -11,7 +11,7 @@ export function saveStorageData(key, value) {
   }
 }
 
-export function getStorageData(key) {
+export function getStorageData<T = Record<string, unknown>>(key: string): T {
   let data;
 
   try {
@@ -23,13 +23,13 @@ export function getStorageData(key) {
 
   // If no data found, return empty object
   if (data === null) {
-    return {};
+    return {} as T;
   }
 
   try {
-    return JSON.parse(data);
+    return JSON.parse(data) as T;
   } catch (e) {
     console.error(e);
-    return {};
+    return {} as T;
   }
 }
