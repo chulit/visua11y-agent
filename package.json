@@ -2,7 +2,25 @@
   "name": "visua11y-agent",
   "type": "module",
   "version": "1.7.3",
-  "description": "Visua11y Agent: Accessibility Website Widget",
+  "description": "Zero-dependency universal accessibility (a11y) website widget and toolbar for WCAG 2.1 & ADA compliance, high contrast, dyslexia fonts, screen reader, and voice navigation.",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "accessibility-widget",
+    "accessibility-toolbar",
+    "wcag",
+    "wcag21",
+    "ada-compliance",
+    "screen-reader",
+    "voice-navigation",
+    "dyslexia-font",
+    "high-contrast",
+    "web-accessibility",
+    "a11y-agent",
+    "reading-guide",
+    "zero-dependency",
+    "userway-alternative"
+  ],
   "main": "dist/visua11y-agent.cjs.js",
   "module": "dist/visua11y-agent.esm.js",
   "unpkg": "dist/visua11y-agent.umd.js",
@@ -25,11 +43,16 @@
       "import": "./dist/visua11y-agent.esm.js",
       "require": "./dist/visua11y-agent.cjs.js"
     },
+    "./slim": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/visua11y-agent.slim.esm.js",
+      "require": "./dist/visua11y-agent.slim.cjs.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
-    "watch": "node esbuild.config.js --watch",
-    "build": "node esbuild.config.js --minify",
+    "dev": "vite",
+    "build": "vite build && vite build --mode slim",
     "lint": "eslint src --ext .ts,.js",
     "demo": "npm run build && node scripts/demo-server.js",
     "demo:serve": "node scripts/demo-hot.js",
@@ -64,10 +87,9 @@
     "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
     "semantic-release": "^24.2.9",
-    "svgo": "^4.0.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
-    "vite-plugin-html": "^3.2.2",
+    "vite": "^8.2.1",
     "vitepress": "^1.6.4",
     "vitest": "^4.0.5"
   }
