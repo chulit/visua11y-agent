@@ -18,6 +18,7 @@
 
 import visua11yAgent from './core';
 import type { ISettings } from './types/ISettings';
+import type { IRegisterLanguageOptions } from './i18n/Languages';
 
 export interface Visua11yAgentOptions {
   lang?: string;
@@ -40,7 +41,7 @@ export interface Visua11yAgentPlugin {
   getSettings: () => ISettings;
   hideFooter: (hide: boolean) => void;
   setFooterSize: (size: 'small' | 'medium' | 'large') => void;
-  registerLanguage: (options: any) => string;
+  registerLanguage: (options: IRegisterLanguageOptions) => string;
   resetAll: () => void;
 }
 

@@ -128,4 +128,12 @@ describe('adjustFontSize', () => {
     
     document.body.removeChild(newElement);
   });
+
+  it('should set --visua11y-font-scale custom property on documentElement', () => {
+    adjustFontSize(1.3);
+    expect(document.documentElement.style.getPropertyValue('--visua11y-font-scale')).toBe('1.3');
+
+    adjustFontSize(1);
+    expect(document.documentElement.style.getPropertyValue('--visua11y-font-scale')).toBe('1');
+  });
 });

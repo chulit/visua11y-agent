@@ -516,22 +516,25 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  gap: 12px !important;
   border: 0 !important;
   background: transparent !important;
-  padding: 0 !important;
+  padding: 8px 0 !important;
   cursor: pointer !important;
+  text-align: left !important;
 }
 
 .visua11y-agent-profile-toggle-arrow {
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
   transform: rotate(45deg);
-  transition: transform 0.2s ease;
-  margin-left: auto;
+  transition: transform 0.25s ease;
+  opacity: 0.6;
+  margin-right: 2px;
 }
-
 
 .visua11y-agent-profiles-card {
   border-radius: 18px !important;
@@ -543,13 +546,14 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 }
 
 .visua11y-agent-profiles-card .visua11y-agent-card-title {
-  width: 100% !important;
-  display: flex !important;
+  display: inline-flex !important;
+  flex: 1 !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  padding: 10px 0 !important;
-  gap: 14px;
+  justify-content: flex-start !important;
+  padding: 2px 0 !important;
+  gap: 10px !important;
 }
+
 .visua11y-agent-profiles-card.is-collapsed .visua11y-agent-profile-toggle-arrow {
   transform: rotate(-135deg);
 }
@@ -994,7 +998,8 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 }
 
 .visua11y-agent-footer img {
-  width: 42px;
+  width: auto;
+  max-width: 52px;
   height: 42px;
   object-fit: contain;
   flex-shrink: 0;
@@ -1022,7 +1027,8 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 }
 
 .visua11y-agent-footer-small img {
-  width: 32px !important;
+  width: auto !important;
+  max-width: 40px !important;
   height: 32px !important;
 }
 
@@ -1039,7 +1045,8 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 }
 
 .visua11y-agent-footer-large img {
-  width: 52px !important;
+  width: auto !important;
+  max-width: 64px !important;
   height: 52px !important;
 }
 

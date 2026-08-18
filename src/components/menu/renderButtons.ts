@@ -20,7 +20,7 @@ export default function renderButtons(buttons: Button[], btnClass?: string) {
         .join('')}</div>`
       : '';
 
-    html += `<button class="visua11y-agent-btn ${btnClass || ''}" type="button" data-key="${button.key}" title="${button.label}">${button.icon}<span class="visua11y-agent-translate">${button.label}</span>${stepsHtml}</button>`;
+    html += `<button class="visua11y-agent-btn ${btnClass || ''}" type="button" data-key="${button.key}" title="${button.label}">${button.icon}<span class="visua11y-agent-translate" data-translate="${button.label}">${button.label}</span>${stepsHtml}</button>`;
   }
 
   return html;

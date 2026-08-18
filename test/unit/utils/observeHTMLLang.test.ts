@@ -6,6 +6,7 @@ import { getDefaultLanguage } from '../../../src/i18n/getDefaultLanguage';
 // Mock the imported functions
 vi.mock('../../../src/i18n/changeLanguage', () => ({
   changeLanguage: vi.fn(),
+  _suppressHTMLLangObserver: false,
 }));
 
 vi.mock('../../../src/i18n/getDefaultLanguage', () => ({

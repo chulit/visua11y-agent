@@ -4,7 +4,7 @@ import FilterButtons from './FilterButtons';
 import ContentButtons from './ContentButtons';
 import ToolButtons from '@/enum/ToolPresets';
 import widgetSettingsIcon from '@/icons/widgetSettingsIcon.svg';
-import logoAsset from '@/icons/logo.png';
+import logoAsset from '@/icons/logo.webp';
 
 import renderButtons from './renderButtons';
 import adjustFontSize from '@/tools/adjustFontSize';
@@ -513,7 +513,7 @@ export default function renderMenu() {
       pluginConfig.size = resolved.size;
       pluginConfig.sizePreset = resolved.preset;
       pluginConfig.panelWidth = pluginDefaults.panelWidth;
-      userSettings.widgetSize = profile.widgetSize;
+      userSettings.widgetSize = resolved.preset ?? resolved.size;
       setSizePresetSelection(resolved.preset);
       setPanelWidth();
     } else {
@@ -962,7 +962,7 @@ export default function renderMenu() {
     renderLanguageList($languageSearch.value);
   });
 
-  $languageList?.addEventListener('click', (event) => {
+  $languageList?.addEventListener('click', async (event) => {
     const target = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(
       '.visua11y-agent-language-option'
     );
@@ -975,7 +975,7 @@ export default function renderMenu() {
       return;
     }
 
-    changeLanguage(code);
+    await changeLanguage(code);
     renderLanguageList($languageSearch?.value || '');
     updateLanguageToggleLabel();
     setLanguagePanelVisibility(false);
@@ -1005,8 +1005,8 @@ export default function renderMenu() {
   document.addEventListener('mousedown', handleLanguagePanelOutsideClick);
   document.addEventListener('keydown', handleLanguagePanelKeydown);
 
-  $lang?.addEventListener('change', (event) => {
-    changeLanguage((event.target as HTMLSelectElement).value);
+  $lang?.addEventListener('change', async (event) => {
+    await changeLanguage((event.target as HTMLSelectElement).value);
     renderLanguageList($languageSearch?.value || '');
     updateLanguageToggleLabel();
     setLanguagePanelVisibility(false);
@@ -1027,7 +1027,7 @@ export default function renderMenu() {
   // *** Utils ***
   $container
     .querySelectorAll('.visua11y-agent-menu-close, .visua11y-agent-overlay')
-    .forEach((el) => el.addEventListener('click', toggleMenu));
+    .forEach((el) => el.addEventListener('click', () => toggleMenu()));
 
   $container
     .querySelectorAll('.visua11y-agent-menu-reset')

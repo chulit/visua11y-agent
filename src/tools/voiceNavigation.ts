@@ -1,6 +1,11 @@
 // Local type declarations for SpeechRecognition and related interfaces
+interface SpeechRecognitionEvent extends Event {
+  readonly resultIndex: number;
+  readonly results: Array<{ 0: { transcript: string }; isFinal: boolean; length: number }>;
+}
+
 interface SpeechRecognition extends EventTarget {
-  grammars: SpeechGrammarList;
+  grammars: unknown;
   lang: string;
   continuous: boolean;
   interimResults: boolean;
@@ -12,8 +17,8 @@ interface SpeechRecognition extends EventTarget {
   onaudiostart: ((this: SpeechRecognition, ev: Event) => void) | null;
   onaudioend: ((this: SpeechRecognition, ev: Event) => void) | null;
   onend: ((this: SpeechRecognition, ev: Event) => void) | null;
-  onerror: ((this: SpeechRecognition, ev: SpeechRecognitionErrorEvent) => void) | null;
-  onnomatch: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => void) | null;
+  onerror: ((this: SpeechRecognition, ev: Event) => void) | null;
+  onnomatch: ((this: SpeechRecognition, ev: Event) => void) | null;
   onresult: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => void) | null;
   onsoundstart: ((this: SpeechRecognition, ev: Event) => void) | null;
   onsoundend: ((this: SpeechRecognition, ev: Event) => void) | null;
@@ -24,13 +29,6 @@ interface SpeechRecognition extends EventTarget {
 interface SpeechRecognitionConstructor {
   prototype: SpeechRecognition;
   new (): SpeechRecognition;
-}
-
-interface SpeechRecognitionEvent extends Event {
-  readonly resultIndex: number;
-  readonly results: SpeechRecognitionResultList;
-
-  readonly emma: Document | null;
 }
 
 import { pluginConfig } from '@/config/pluginConfig';

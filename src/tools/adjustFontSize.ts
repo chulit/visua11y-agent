@@ -6,6 +6,14 @@ const FONT_SIZE_SELECTOR =
 const ICON_SELECTOR_SET = new Set(ICON_SELECTOR);
 
 export default function adjustFontSize(multiply: number = 1) {
+  if (typeof document === 'undefined' || !document.documentElement) {
+    return;
+  }
+
+  // 1. Instant root CSS custom property scaling
+  document.documentElement.style.setProperty('--visua11y-font-scale', String(multiply));
+
+  // 2. Hybrid fallback: traverse and resize elements with computed styles
   document.querySelectorAll(FONT_SIZE_SELECTOR).forEach((el: HTMLElement) => {
     if (el.closest('.visua11y-agent-container')) {
       return;
