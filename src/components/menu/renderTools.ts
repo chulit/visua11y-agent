@@ -12,6 +12,7 @@ import adjustFontWeight from '@/tools/adjustFontWeight';
 import screenReader from '@/tools/screenReader';
 import voiceNavigation from '@/tools/voiceNavigation';
 import customPalette from '@/tools/customPalette';
+import { applyColorBlindness, removeColorBlindness } from '@/tools/colorBlindness';
 
 export default function renderTools() {
   const states = userSettings?.states || {};
@@ -32,4 +33,11 @@ export default function renderTools() {
   screenReader(Boolean(states['screen-reader']));
   voiceNavigation(Boolean(states['voice-navigation']));
   customPalette(states['custom-palette']);
+
+  const colorBlindness = states['color-blindness-cycle'];
+  if (colorBlindness && typeof colorBlindness === 'string' && colorBlindness !== 'color-blindness') {
+    applyColorBlindness(colorBlindness);
+  } else {
+    removeColorBlindness();
+  }
 }

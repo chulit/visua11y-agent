@@ -245,6 +245,27 @@ export default function renderMenu() {
     '.visua11y-agent-translate'
   );
 
+  const colorBlindnessCycleOrder = [
+    'color-blindness',
+    'protanopia',
+    'deuteranopia',
+    'tritanopia',
+    'achromatopsia',
+  ];
+  const colorBlindnessLabelMap: Record<string, string> = {
+    protanopia: 'Protanopia',
+    deuteranopia: 'Deuteranopia',
+    tritanopia: 'Tritanopia',
+    achromatopsia: 'Achromatopsia',
+  };
+
+  const $colorBlindnessCycleButton = $menu.querySelector<HTMLButtonElement>(
+    '.visua11y-agent-filter[data-key="color-blindness-cycle"]'
+  );
+  const $colorBlindnessCycleLabel = $colorBlindnessCycleButton?.querySelector<HTMLSpanElement>(
+    '.visua11y-agent-translate'
+  );
+
   const updateContrastCycleButton = (value: string | false | 'contrast') => {
     if (!$contrastCycleButton || !$contrastCycleLabel) {
       return;
@@ -281,10 +302,35 @@ export default function renderMenu() {
     }
   };
 
+  const updateColorBlindnessCycleButton = (value: string | false | 'color-blindness') => {
+    if (!$colorBlindnessCycleButton || !$colorBlindnessCycleLabel) {
+      return;
+    }
+
+    const isActive =
+      typeof value === 'string' &&
+      value !== 'color-blindness' &&
+      colorBlindnessCycleOrder.includes(value);
+    const translationKey = isActive
+      ? colorBlindnessLabelMap[value as keyof typeof colorBlindnessLabelMap]
+      : 'Color Blindness';
+
+    $colorBlindnessCycleButton.classList.toggle('visua11y-agent-selected', isActive);
+    $colorBlindnessCycleButton.setAttribute('aria-pressed', String(isActive));
+    $colorBlindnessCycleLabel.setAttribute('data-translate', translationKey);
+    $colorBlindnessCycleLabel.textContent = t(translationKey);
+  };
+
   const getNextContrastValue = (current?: string | null) => {
     const index = current ? contrastCycleOrder.indexOf(current) : -1;
     const nextIndex = (index + 1) % contrastCycleOrder.length;
     return contrastCycleOrder[nextIndex];
+  };
+
+  const getNextColorBlindnessValue = (current?: string | null) => {
+    const index = current ? colorBlindnessCycleOrder.indexOf(current) : -1;
+    const nextIndex = (index + 1) % colorBlindnessCycleOrder.length;
+    return colorBlindnessCycleOrder[nextIndex];
   };
 
   const syncStateSelections = () => {
@@ -308,7 +354,7 @@ export default function renderMenu() {
 
     filterButtons.forEach((btn) => {
       const key = btn.dataset.key;
-      if (!key || key === 'contrast-cycle') {
+      if (!key || key === 'contrast-cycle' || key === 'color-blindness-cycle') {
         return;
       }
       const isActive = typeof states.contrast === 'string' && states.contrast === key;
@@ -317,6 +363,7 @@ export default function renderMenu() {
     });
 
     updateContrastCycleButton(states.contrast || 'contrast');
+    updateColorBlindnessCycleButton(states['color-blindness-cycle'] || 'color-blindness');
   };
 
   syncStateSelections();
@@ -1084,7 +1131,7 @@ export default function renderMenu() {
       if (el.classList.contains('visua11y-agent-filter')) {
         if (key === 'contrast-cycle') {
           filterButtons.forEach((button) => {
-            if (button !== el) {
+            if (button !== el && button.dataset.key !== 'color-blindness-cycle') {
               button.classList.remove('visua11y-agent-selected');
             }
           });
@@ -1098,6 +1145,23 @@ export default function renderMenu() {
           userSettings.states.contrast = nextValue === 'contrast' ? false : nextValue;
           updateContrastCycleButton(userSettings.states.contrast || 'contrast');
           enableContrast(userSettings.states.contrast);
+          saveUserSettings();
+          return;
+        }
+
+        if (key === 'color-blindness-cycle') {
+          const current =
+            typeof userSettings.states['color-blindness-cycle'] === 'string'
+              ? userSettings.states['color-blindness-cycle']
+              : 'color-blindness';
+          const nextValue = getNextColorBlindnessValue(current);
+
+          userSettings.states['color-blindness-cycle'] =
+            nextValue === 'color-blindness' ? false : nextValue;
+          updateColorBlindnessCycleButton(
+            userSettings.states['color-blindness-cycle'] || 'color-blindness'
+          );
+          renderTools();
           saveUserSettings();
           return;
         }

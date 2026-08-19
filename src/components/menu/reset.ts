@@ -130,6 +130,21 @@ export default function reset() {
       ?.classList.remove('is-visible');
   }
 
+  const $colorBlindnessCycleButton = document.querySelector<HTMLButtonElement>(
+    '.visua11y-agent-filter[data-key="color-blindness-cycle"]'
+  );
+  if ($colorBlindnessCycleButton) {
+    $colorBlindnessCycleButton.setAttribute('aria-pressed', 'false');
+    $colorBlindnessCycleButton.classList.remove('visua11y-agent-selected');
+    const label = $colorBlindnessCycleButton.querySelector<HTMLSpanElement>(
+      '.visua11y-agent-translate'
+    );
+    if (label) {
+      label.setAttribute('data-translate', 'Color Blindness');
+      label.textContent = 'Color Blindness';
+    }
+  }
+
   const $languagePanel = document.querySelector<HTMLElement>('#visua11y-agent-language-panel');
   const $languageToggle = document.querySelector<HTMLButtonElement>(
     '.visua11y-agent-menu-language'

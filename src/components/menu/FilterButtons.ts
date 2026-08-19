@@ -4,6 +4,7 @@ import highSaturationIcon from '../../icons/highSaturationIcon.svg';
 import highContrastIcon from '../../icons/highContrastIcon.svg';
 import invertColorsIcon from '../../icons/invertColorsIcon.svg';
 import imageDesaturationIcon from '../../icons/imageDesaturationIcon.svg';
+import colorBlindnessIcon from '../../icons/colorBlindnessIcon.svg';
 
 export default [
   {
@@ -11,6 +12,12 @@ export default [
     key: 'contrast-cycle',
     icon: highContrastIcon,
     steps: ['Dark Contrast', 'Light Contrast', 'High Contrast'],
+  },
+  {
+    label: 'Color Blindness',
+    key: 'color-blindness-cycle',
+    icon: colorBlindnessIcon,
+    steps: ['Protanopia', 'Deuteranopia', 'Tritanopia', 'Achromatopsia'],
   },
   {
     label: 'Invert Colors',
