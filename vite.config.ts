@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
       outDir: 'dist',
       emptyOutDir: !isSlim,
       sourcemap: true,
-      minify: 'esbuild',
+      minify: true,
       lib: {
         entry,
         name: 'Visua11yAgent',

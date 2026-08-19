@@ -151,10 +151,14 @@ export async function loadLanguage(code: string): Promise<Record<string, string>
           const data = await res.json();
           LANGUAGE_DICTIONARY[resolvedCode] = data;
           return data;
+        } else {
+          console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN (Status: ${res.status})`);
         }
       } catch (fetchError) {
         console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN`, fetchError);
       }
+    } else {
+      console.warn(`[Visua11y Agent] Missing locale file for "${resolvedCode}" and fetch is not available.`);
     }
     LANGUAGE_DICTIONARY[resolvedCode] = LANGUAGE_DICTIONARY[resolvedCode] || {};
     return LANGUAGE_DICTIONARY[resolvedCode];
