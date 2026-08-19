@@ -65,5 +65,11 @@
   "Seizure & Epileptic": "Kejang & epilepsi",
   "Stops animations and desaturates imagery.": "Menghentikan animasi dan mengurangi saturasi gambar.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Panduan membaca, tautan disorot, dan palet yang lebih tenang."
+  "Reading guide, highlighted links, calmer palette.": "Panduan membaca, tautan disorot, dan palet yang lebih tenang.",
+  "Color Blindness": "Buta Warna",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Akromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulasi dan alat bantu bagi pengguna dengan defisiensi penglihatan warna."
 }

@@ -50,13 +50,13 @@ export const ACCESSIBILITY_PROFILES: IAccessibilityProfile[] = [
   {
     id: 'color-blind',
     label: 'Color Blind',
-    description: 'High contrast palette with desaturated media.',
+    description: 'Simulates and assists users with color vision deficiencies.',
     icon: profileColorBlind,
     widgetSize: 'default',
     states: {
-      contrast: 'high-contrast',
-      'image-desaturation': true,
+      'color-blindness-cycle': 'protanopia',
       'highlight-links': true,
+      'readable-font': true,
     },
   },
   {

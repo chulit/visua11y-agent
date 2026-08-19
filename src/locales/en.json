@@ -65,5 +65,11 @@
   "Seizure & Epileptic": "Seizure & Epileptic",
   "Stops animations and desaturates imagery.": "Stops animations and desaturates imagery.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Reading guide, highlighted links, calmer palette."
+  "Reading guide, highlighted links, calmer palette.": "Reading guide, highlighted links, calmer palette.",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }
