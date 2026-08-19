@@ -584,11 +584,16 @@
         </article>
 
         <article class="helper-card">
-          <h3>Custom Translation</h3>
-          <p>Register a bespoke locale with <code>registerLanguage</code>.</p>
-          <button type="button" id="registerLanguage">Register Bahasa Indonesia</button>
+          <h3>Custom Languages &amp; Dictionaries</h3>
+          <p>Register custom locales, dialects, or enterprise overrides with <code>registerLanguage</code>.</p>
+          <div class="controls" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <button type="button" id="registerJavanese">Register Basa Jawa (jv)</button>
+            <button type="button" id="registerSundanese">Register Basa Sunda (su)</button>
+            <button type="button" id="registerPirate">Register Pirate English 🏴‍☠️</button>
+            <button type="button" id="overrideEnglish">Corporate Terms (en)</button>
+          </div>
           <p class="hint">
-            The dictionary contains a localized subset of labels.
+            Custom locales are added to the live language list and automatically translated in the widget.
           </p>
         </article>
 
@@ -764,43 +769,139 @@
         updateStatus(`Language changed to ${label}.`);
       });
 
-      let indonesianRegistered = false;
+      const $registerJavanese = document.getElementById('registerJavanese');
+      const $registerSundanese = document.getElementById('registerSundanese');
+      const $registerPirate = document.getElementById('registerPirate');
+      const $overrideEnglish = document.getElementById('overrideEnglish');
 
-      $registerLanguage?.addEventListener('click', async () => {
-        const plugin = await waitForPlugin();
-        if (!indonesianRegistered) {
-          plugin.registerLanguage({
-            code: 'id',
-            label: 'Bahasa Indonesia',
-            dictionary: {
-              'Accessibility Menu': 'Menu Aksesibilitas',
-              'Reset settings': 'Atur Ulang Semua Pengaturan',
-              'Content Adjustments': 'Penyesuaian Konten',
-              'Color Adjustments': 'Penyesuaian Warna',
-              Tools: 'Alat Bantu',
-              'Widget Settings': 'Pengaturan Widget',
-              Contrast: 'Kontras',
-              'Screen Reader': 'Pembaca Layar',
-              'Voice Navigation': 'Navigasi Suara',
-              'Custom Color': 'Warna Kustom',
-              "Change the site's colors": 'Ubah warna situs',
-              Backgrounds: 'Latar Belakang',
-              Headings: 'Judul',
-              Contents: 'Konten',
-              'Reset colors': 'Atur ulang warna',
-              'Invert Colors': 'Balik Warna',
-              'Image Desaturation': 'Reduksi Warna Gambar',
-              'Widget Position': 'Posisi Widget',
-              'Open Accessibility Menu': 'Buka Menu Aksesibilitas',
-            },
-          });
-          indonesianRegistered = true;
-        }
-        plugin.changeLanguage('id');
+      const addOptionToPicker = (code, label) => {
         if ($languagePicker instanceof HTMLSelectElement) {
-          $languagePicker.value = 'id';
+          if (!Array.from($languagePicker.options).some((opt) => opt.value === code)) {
+            const opt = document.createElement('option');
+            opt.value = code;
+            opt.textContent = label;
+            $languagePicker.appendChild(opt);
+          }
+          $languagePicker.value = code;
         }
-        updateStatus('Bahasa Indonesia registered and activated.');
+      };
+
+      $registerJavanese?.addEventListener('click', async () => {
+        const plugin = await waitForPlugin();
+        plugin.registerLanguage({
+          code: 'jv',
+          label: 'Basa Jawa (Javanese)',
+          dictionary: {
+            'Accessibility Menu': 'Menu Aksesibilitas',
+            'Reset settings': 'Wangsulaken Sedaya Setelan',
+            'Content Adjustments': 'Pangaturan Konten',
+            'Color Adjustments': 'Pangaturan Werna',
+            Tools: 'Piranti Bantu',
+            'Widget Settings': 'Setelan Widget',
+            Contrast: 'Kontras',
+            'Screen Reader': 'Pamaos Layar',
+            'Voice Navigation': 'Navigasi Swara',
+            'Custom Color': 'Werna Kustom',
+            "Change the site's colors": 'Gantos werna situs',
+            Backgrounds: 'Latar Wuri',
+            Headings: 'Irah-irahan',
+            Contents: 'Isi Konten',
+            'Reset colors': 'Wangsulaken werna',
+            'Invert Colors': 'Walik Werna',
+            'Image Desaturation': 'Pudaraken Werna Gambar',
+            'Widget Position': 'Papan Widget',
+            Language: 'Basa',
+            'Search languages': 'Padosi basa...',
+            'Open Accessibility Menu': 'Bukak Menu Aksesibilitas',
+            'Close Accessibility Menu': 'Tutup Menu Aksesibilitas',
+          },
+        });
+        addOptionToPicker('jv', 'Basa Jawa (jv)');
+        plugin.changeLanguage('jv');
+        plugin.openMenu();
+        updateStatus('Registered and activated Basa Jawa (jv).');
+      });
+
+      $registerSundanese?.addEventListener('click', async () => {
+        const plugin = await waitForPlugin();
+        plugin.registerLanguage({
+          code: 'su',
+          label: 'Basa Sunda (Sundanese)',
+          dictionary: {
+            'Accessibility Menu': 'Menu Aksesibilitas',
+            'Reset settings': 'Beresihan Sadaya Setelan',
+            'Content Adjustments': 'Setelan Eusi Konten',
+            'Color Adjustments': 'Setelan Warna',
+            Tools: 'Parabot Bantosan',
+            'Widget Settings': 'Setelan Widget',
+            Contrast: 'Kontras',
+            'Screen Reader': 'Maca Layar',
+            'Voice Navigation': 'Navigasi Sora',
+            'Custom Color': 'Warna Husus',
+            "Change the site's colors": 'Robih warna ramatloka',
+            Backgrounds: 'Kasang Tukang',
+            Headings: 'Judul',
+            Contents: 'Eusi',
+            'Reset colors': 'Balikkeun warna',
+            'Invert Colors': 'Balikkeun Warna',
+            'Image Desaturation': 'Pudarkeun Warna Gambar',
+            'Widget Position': 'Posisi Widget',
+            Language: 'Basa',
+            'Search languages': 'Milari basa...',
+            'Open Accessibility Menu': 'Buka Menu Aksesibilitas',
+            'Close Accessibility Menu': 'Tutup Menu Aksesibilitas',
+          },
+        });
+        addOptionToPicker('su', 'Basa Sunda (su)');
+        plugin.changeLanguage('su');
+        plugin.openMenu();
+        updateStatus('Registered and activated Basa Sunda (su).');
+      });
+
+      $registerPirate?.addEventListener('click', async () => {
+        const plugin = await waitForPlugin();
+        plugin.registerLanguage({
+          code: 'pirate',
+          label: 'Pirate English 🏴‍☠️',
+          dictionary: {
+            'Accessibility Menu': 'Ship Steering Wheel ⚓',
+            'Reset settings': 'Walk the Plank / Reset',
+            'Content Adjustments': 'Scroll & Parchment Tuning',
+            'Color Adjustments': 'Treasure Colors',
+            Tools: 'Pirate Tools & Spyglasses',
+            'Widget Settings': 'Cabin Controls',
+            Contrast: 'Cannon Smoke Contrast',
+            'Screen Reader': 'First Mate Shouter (TTS)',
+            'Voice Navigation': 'Parrot Voice Commands',
+            'Custom Color': 'Paint the Ship',
+            Language: 'Tongue / Lingo',
+            'Search languages': 'Scout languages...',
+            'Open Accessibility Menu': 'Ahoy! Open Menu',
+            'Close Accessibility Menu': 'Batten Down the Hatches',
+          },
+        });
+        addOptionToPicker('pirate', 'Pirate English (pirate)');
+        plugin.changeLanguage('pirate');
+        plugin.openMenu();
+        updateStatus('Ahoy! Registered and activated Pirate English 🏴‍☠️.');
+      });
+
+      $overrideEnglish?.addEventListener('click', async () => {
+        const plugin = await waitForPlugin();
+        plugin.registerLanguage({
+          code: 'en',
+          label: 'English (Corporate Override)',
+          merge: true,
+          dictionary: {
+            'Accessibility Menu': 'Enterprise Inclusion Hub',
+            'Reset settings': 'Restore Default Experience',
+            'Screen Reader': 'AI Audio Assist',
+            'Voice Navigation': 'Speech Command Navigator',
+          },
+        });
+        plugin.changeLanguage('en');
+        plugin.openMenu();
+        updateStatus('Updated English dictionary with custom enterprise terminology.');
       });
 
       // Widget Size
