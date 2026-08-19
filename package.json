@@ -84,11 +84,21 @@
     "eslint": "^9.38.0",
     "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
-    "semantic-release": "^24.2.9",
+    "semantic-release": "^25.0.9",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
     "vite": "^8.2.1",
     "vitepress": "^1.6.4",
     "vitest": "^4.0.5"
+  },
+  "overrides": {
+    "esbuild": "^0.25.0",
+    "tar": "^7.5.3",
+    "undici": "^6.27.1",
+    "ip-address": "^10.3.1",
+    "brace-expansion": "^2.1.4",
+    "vitepress": {
+      "vite": "$vite"
+    }
   }
 }
