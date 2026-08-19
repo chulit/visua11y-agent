@@ -103,6 +103,34 @@ export function resolveLanguageCode(code?: string | null): string {
   return 'en';
 }
 
+export function resolveAllowedLanguages(input?: string[] | string | null): string[] | undefined {
+  if (!input) {
+    return undefined;
+  }
+  const rawList = Array.isArray(input) ? input : String(input).split(',');
+  const normalized = rawList
+    .map((code) => normalizeCode(code).toLowerCase())
+    .filter((code) => Boolean(code) && Boolean(findLanguage(code)));
+
+  return normalized.length > 0 ? normalized : undefined;
+}
+
+export function getAvailableLanguages(allowedCodes?: string[]): ILanguage[] {
+  if (!allowedCodes || allowedCodes.length === 0) {
+    return LANGUAGES;
+  }
+  const allowedSet = new Set(allowedCodes.map((c) => c.toLowerCase()));
+  return LANGUAGES.filter((lang) => allowedSet.has(lang.code.toLowerCase()));
+}
+
+export function isLanguageAllowed(code: string, allowedCodes?: string[]): boolean {
+  if (!allowedCodes || allowedCodes.length === 0) {
+    return true;
+  }
+  const resolved = resolveLanguageCode(code).toLowerCase();
+  return allowedCodes.some((c) => c.toLowerCase() === resolved);
+}
+
 export async function loadLanguage(code: string): Promise<Record<string, string>> {
   const resolvedCode = resolveLanguageCode(code);
   if (LANGUAGE_DICTIONARY[resolvedCode] && Object.keys(LANGUAGE_DICTIONARY[resolvedCode]).length > 0) {

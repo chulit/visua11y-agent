@@ -22,6 +22,7 @@ import type { IRegisterLanguageOptions } from './i18n/Languages';
 
 export interface Visua11yAgentOptions {
   lang?: string;
+  languages?: string[] | string;
   position?: string;
   offset?: number[] | string;
   size?: string;

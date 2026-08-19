@@ -4,6 +4,7 @@ const defaultSize = resolveWidgetSize('default');
 
 export const pluginConfig = {
   lang: 'en',
+  languages: undefined as string[] | undefined,
   position: 'bottom-left',
   offset: [20, 20],
   size: defaultSize.size,
@@ -16,6 +17,7 @@ export const pluginConfig = {
 
 export const pluginDefaults = {
   lang: pluginConfig.lang,
+  languages: pluginConfig.languages,
   position: pluginConfig.position,
   offset: [...pluginConfig.offset],
   size: pluginConfig.size,
