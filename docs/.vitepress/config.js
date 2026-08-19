@@ -15,17 +15,17 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: `${BASE}logo.png` }],
+    ['link', { rel: 'icon', type: 'image/webp', href: `${BASE}logo.webp` }],
     ['meta', { name: 'keywords', content: 'accessibility, a11y, web accessibility widget, WCAG 2.1, ADA compliance, screen reader, dyslexia font, high contrast, accessibility toolbar, open source' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'Visua11y Agent — Universal Web Accessibility Widget' }],
     ['meta', { property: 'og:description', content: 'Zero-dependency universal accessibility widget & toolbar supporting 53 languages, screen reader, dyslexia fonts, and WCAG compliance.' }],
-    ['meta', { property: 'og:image', content: `https://chulit.github.io${BASE}logo.png` }],
+    ['meta', { property: 'og:image', content: `https://chulit.github.io${BASE}logo.webp` }],
     ['meta', { property: 'og:url', content: 'https://chulit.github.io/visua11y-agent/' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     ['meta', { name: 'twitter:title', content: 'Visua11y Agent — Universal Accessibility Widget' }],
     ['meta', { name: 'twitter:description', content: 'Zero-dependency universal accessibility widget & toolbar supporting 53 languages, screen reader, and WCAG compliance.' }],
-    ['meta', { name: 'twitter:image', content: `https://chulit.github.io${BASE}logo.png` }]
+    ['meta', { name: 'twitter:image', content: `https://chulit.github.io${BASE}logo.webp` }]
   ],
 
   locales: {
@@ -36,6 +36,7 @@ export default defineConfig({
         nav: [
           { text: 'Home', link: '/' },
           { text: 'Guide', link: '/guide/' },
+          { text: 'Features', link: '/guide/features' },
           { text: 'Live Demo', link: demoLink, target: '_self', rel: '' }
         ],
         sidebar: [
@@ -43,6 +44,7 @@ export default defineConfig({
             text: 'Guide',
             items: [
               { text: 'Introduction', link: '/guide/' },
+              { text: 'Features', link: '/guide/features' },
               { text: 'Installation', link: '/guide/installation' },
               { text: 'Configuration', link: '/guide/configuration' },
               { text: 'Universal Usage', link: '/guide/universal-usage' }
@@ -59,6 +61,7 @@ export default defineConfig({
         nav: [
           { text: 'Beranda', link: '/id/' },
           { text: 'Panduan', link: '/id/guide/' },
+          { text: 'Fitur', link: '/id/guide/features' },
           { text: 'Demo Langsung', link: demoLink, target: '_self', rel: '' }
         ],
         sidebar: [
@@ -66,6 +69,7 @@ export default defineConfig({
             text: 'Panduan',
             items: [
               { text: 'Pengenalan', link: '/id/guide/' },
+              { text: 'Fitur', link: '/id/guide/features' },
               { text: 'Instalasi', link: '/id/guide/installation' },
               { text: 'Konfigurasi', link: '/id/guide/configuration' },
               { text: 'Penggunaan Universal', link: '/id/guide/universal-usage' }

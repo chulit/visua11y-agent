@@ -6,7 +6,7 @@ hero:
   text: Universal Accessibility Website Widget
   tagline: Lightweight, zero-dependency, open-source toolbar for WCAG 2.1 & ADA web accessibility compliance.
   image:
-    src: /logo.png
+    src: /logo.webp
     alt: Visua11y Agent Banner
   actions:
     - theme: brand

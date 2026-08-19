@@ -1,23 +1,51 @@
 # Installation
 
-Visua11y Agent can be installed in a few ways:
+Visua11y Agent can be installed via package managers or script tags:
 
-## Option A — npm
+## Option A — npm / yarn / pnpm
 
 ```bash
 npm install visua11y-agent
 ```
 
-Then import the package in your bundler entry point. It bootstraps itself and attaches `window.Visua11yAgentPlugin` when the document is ready.
-
-```js
+### Full Bundle (All 53 languages bundled)
+```javascript
 import 'visua11y-agent';
 ```
 
-## Option B — CDN
+### Slim Bundle (Languages loaded on-demand)
+```javascript
+import 'visua11y-agent/slim';
+```
 
-Use the prebuilt bundle in `dist/visua11y-agent.umd.js` or host it from your own CDN.
+Or import the programmatic factory function:
+```typescript
+import { createVisua11yAgent } from 'visua11y-agent';
+
+const plugin = createVisua11yAgent({
+  lang: 'en',
+  position: 'bottom-right'
+});
+```
+
+## Option B — CDN (Script Tag)
+
+Use official CDN distributions with version pinning for production stability:
 
 ```html
-<script src="https://unpkg.com/visua11y-agent" defer></script>
+<!-- Full UMD Bundle -->
+<script
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  data-visua11y-agent-lang="en"
+  data-visua11y-agent-position="bottom-right"
+  defer
+></script>
+```
+
+Or via unpkg:
+```html
+<script
+  src="https://unpkg.com/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  defer
+></script>
 ```

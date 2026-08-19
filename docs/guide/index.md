@@ -6,20 +6,22 @@ Visua11y Agent adds a customizable accessibility toolbar to your site so visitor
 
 ## Features
 
--   **Multilingual UI** – 40+ ready-to-use locales with runtime translation hooks and language search.
--   **Content Adjustments** – Font size adjustments, font weight, letter spacing, line height, dyslexia-friendly typeface, and highlighting of titles and links.
--   **Color & Contrast Controls** – Multiple contrast modes (Dark, Light, High Contrast), invert colors, saturation controls (low/high), monochrome mode, image desaturation, and a custom color palette picker for granular customization.
--   **Reading & Focus Tools** – Reading guide overlay, screen reader helper, voice navigation, and text-to-speech shortcuts.
--   **Motion & Cursor Utilities** – Stop animations, disable animated images, enlarge cursor for low-vision users.
--   **Widget Settings** – Position controls allowing placement in 8 different locations (top-left, top-center, top-right, center-left, center-right, bottom-left, bottom-center, bottom-right).
--   **Reset Functionality** – One-click reset to restore all accessibility settings to default values.
--   **Developer Hooks** – Expose helpers like `plugin.setIcon`, `plugin.changeLanguage`, `plugin.registerLanguage`, `plugin.setWidgetSize`, `plugin.setPosition`, `plugin.setOffset`, `plugin.openMenu`, `plugin.closeMenu`, `plugin.toggleTool`, `plugin.setProfile`, `plugin.getSettings`, `plugin.hideFooter`, `plugin.setFooterSize`, and `plugin.resetAll` for deeper UI personalization.
+-   **Multilingual UI** – 53 ready-to-use global locales with automated HTML lang detection, RTL support, and runtime custom dictionary API.
+-   **Accessibility Profiles** – 8 curated WCAG/ADA preset scenarios (Motor Impaired, Blind, Color Blind, Dyslexia, Low Vision, Cognitive & Learning, Seizure & Epileptic, ADHD) with smart state memory.
+-   **Color Blindness Simulation** – Real mathematical SVG `feColorMatrix` optical filters for Protanopia, Deuteranopia, Tritanopia, and Achromatopsia.
+-   **Content Adjustments** – Font size scaling (up to 200%), font weight, letter spacing, line height, OpenDyslexic typeface, and title/link highlights.
+-   **Color & Contrast Controls** – Dark, Light, High Contrast, color inversion, saturation controls (low/high), monochrome mode, image desaturation, and custom color palette generator.
+-   **Reading & Focus Tools** – Reading guide focus overlay, screen reader helper (Text-to-Speech), voice navigation commands, and text emphasis.
+-   **Motion & Cursor Utilities** – Stop animations, freeze animated GIFs, and enlarge cursor for low-vision users.
+-   **Root DOM Isolation** – Mounted directly to `document.documentElement` to guarantee fixed positioning without interference from page filters or containers.
+-   **Developer Hooks & API** – Rich programmatic API on `createVisua11yAgent()` and `window.Visua11yAgentPlugin` for scripts, frameworks, and CMS integrations.
 
 ## Menu Structure
 
 The accessibility menu is organized into the following sections:
 
--   **Content Adjustments** – Tools for modifying text properties including font size, weight, spacing, and special typography options.
--   **Color Adjustments** – Contrast presets, color inversion options, saturation controls, and custom palette tools.
--   **Tools** – Advanced accessibility tools including screen reader support, voice navigation, cursor enlargement, animation controls, and reading guides.
--   **Widget Settings** – Configuration options for the widget's appearance and position on the page.
+-   **Accessibility Profiles** – Quick scenario presets with one-click activation.
+-   **Content Adjustments** – Tools for modifying typography including font size, weight, spacing, line height, dyslexia font, and element highlights.
+-   **Color Adjustments** – Contrast modes, color blindness simulations, color inversion, saturation, and custom palette tools.
+-   **Tools** – Assistive utilities including screen reader support, voice navigation, oversized cursor, animation pausing, and reading guide.
+-   **Widget Settings** – Configuration options for widget button size, screen position, offset coordinates, and language selection.

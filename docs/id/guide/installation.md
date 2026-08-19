@@ -1,23 +1,51 @@
 # Instalasi
 
-Visua11y Agent dapat diinstal dengan beberapa cara:
+Visua11y Agent dapat diinstal melalui package manager atau script tag:
 
-## Opsi A — npm
+## Opsi A — npm / yarn / pnpm
 
 ```bash
 npm install visua11y-agent
 ```
 
-Kemudian import package di entry point bundler Anda. Package akan bootstrap sendiri dan melampirkan `window.Visua11yAgentPlugin` ketika dokumen siap.
-
-```js
+### Full Bundle (Seluruh 53 bahasa ter-bundle)
+```javascript
 import 'visua11y-agent';
 ```
 
-## Opsi B — CDN
+### Slim Bundle (Bahasa dimuat sesuai kebutuhan/on-demand)
+```javascript
+import 'visua11y-agent/slim';
+```
 
-Gunakan bundle yang sudah dibuat di `dist/visua11y-agent.umd.js` atau host dari CDN Anda sendiri.
+Atau gunakan fungsi factory modular:
+```typescript
+import { createVisua11yAgent } from 'visua11y-agent';
+
+const plugin = createVisua11yAgent({
+  lang: 'id',
+  position: 'bottom-right'
+});
+```
+
+## Opsi B — CDN (Script Tag)
+
+Gunakan distribusi CDN resmi dengan pinning versi untuk stabilitas aplikasi produksi:
 
 ```html
-<script src="https://unpkg.com/visua11y-agent" defer></script>
+<!-- Full UMD Bundle -->
+<script
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  data-visua11y-agent-lang="id"
+  data-visua11y-agent-position="bottom-right"
+  defer
+></script>
+```
+
+Atau via unpkg:
+```html
+<script
+  src="https://unpkg.com/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  defer
+></script>
 ```

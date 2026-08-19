@@ -6,20 +6,22 @@ Visua11y Agent menambahkan toolbar aksesibilitas yang dapat disesuaikan ke situs
 
 ## Fitur
 
--   **UI Multibahasa** – 40+ locale siap pakai dengan hook terjemahan runtime dan pencarian bahasa.
--   **Penyesuaian Konten** – Penyesuaian ukuran font, ketebalan font, spasi huruf, tinggi baris, tipografi ramah disleksia, dan penyorotan judul dan tautan.
--   **Kontrol Warna & Kontras** – Berbagai mode kontras (Gelap, Terang, Kontras Tinggi), inversi warna, kontrol saturasi (rendah/tinggi), mode monokrom, desaturasi gambar, dan pemilih palet warna kustom untuk kustomisasi granular.
--   **Alat Membaca & Fokus** – Overlay panduan membaca, pembantu pembaca layar, navigasi suara, dan pintasan text-to-speech.
--   **Utilitas Gerakan & Kursor** – Hentikan animasi, nonaktifkan gambar animasi, perbesar kursor untuk pengguna dengan penglihatan rendah.
--   **Pengaturan Widget** – Kontrol posisi yang memungkinkan penempatan di 8 lokasi berbeda (kiri-atas, tengah-atas, kanan-atas, kiri-tengah, kanan-tengah, kiri-bawah, tengah-bawah, kanan-bawah).
--   **Fungsi Reset** – Reset satu klik untuk mengembalikan semua pengaturan aksesibilitas ke nilai default.
--   **Hook Developer** – Ekspos helper seperti `plugin.setIcon`, `plugin.changeLanguage`, `plugin.registerLanguage`, `plugin.setWidgetSize`, `plugin.setPosition`, `plugin.setOffset`, `plugin.openMenu`, `plugin.closeMenu`, `plugin.toggleTool`, `plugin.setProfile`, `plugin.getSettings`, `plugin.hideFooter`, `plugin.setFooterSize`, dan `plugin.resetAll` untuk personalisasi UI yang lebih dalam.
+-   **UI Multibahasa** – 53 locale bawaan siap pakai dengan deteksi otomatis atribut HTML lang, dukungan RTL, dan API registrasi kamus kustom.
+-   **Profil Aksesibilitas** – 8 skenario preset standar WCAG/ADA (Hambatan Motorik, Tunanetra, Buta Warna, Disleksia, Low Vision, Kognitif & Belajar, Epilepsi & Kejang, ADHD) dengan memori status pintar.
+-   **Simulasi Buta Warna** – Filter optik matematis SVG `feColorMatrix` presisi untuk Protanopia, Deuteranopia, Tritanopia, dan Achromatopsia.
+-   **Penyesuaian Konten** – Penskalaan ukuran font (hingga 200%), ketebalan font, spasi huruf, tinggi baris, font OpenDyslexic, dan penyorotan judul serta tautan.
+-   **Kontrol Warna & Kontras** – Mode kontras Gelap, Terang, Kontras Tinggi, inversi warna, saturasi (rendah/tinggi), mode monokrom, desaturasi gambar, dan generator palet warna kustom.
+-   **Alat Membaca & Fokus** – Overlay panduan membaca, pembaca layar (Text-to-Speech), navigasi perintah suara, dan penekanan teks.
+-   **Utilitas Gerakan & Kursor** – Hentikan semua animasi CSS/GIF dan perbesar kursor layar.
+-   **Isolasi DOM Tingkat Root** – Dimount langsung ke `document.documentElement` untuk menjamin posisi fixed tanpa terpengaruh filter CSS atau scroll kontainer halaman.
+-   **API & Hook Pengembang** – API komprehensif pada `createVisua11yAgent()` dan `window.Visua11yAgentPlugin` untuk integrasi skrip, framework, dan CMS.
 
 ## Struktur Menu
 
 Menu aksesibilitas diatur ke dalam bagian-bagian berikut:
 
--   **Penyesuaian Konten** – Alat untuk memodifikasi properti teks termasuk ukuran font, ketebalan, spasi, dan opsi tipografi khusus.
--   **Penyesuaian Warna** – Preset kontras, opsi inversi warna, kontrol saturasi, dan alat palet kustom.
--   **Alat** – Alat aksesibilitas lanjutan termasuk dukungan pembaca layar, navigasi suara, pembesaran kursor, kontrol animasi, dan panduan membaca.
--   **Pengaturan Widget** – Opsi konfigurasi untuk tampilan dan posisi widget di halaman.
+-   **Profil Aksesibilitas** – Preset skenario cepat dengan aktivasi satu klik.
+-   **Penyesuaian Konten** – Alat tipografi termasuk ukuran font, ketebalan, spasi, tinggi baris, font disleksia, dan penyorotan elemen.
+-   **Penyesuaian Warna** – Mode kontras, simulasi buta warna, inversi warna, saturasi, dan generator palet warna kustom.
+-   **Alat Bantu** – Utilitas aksesibilitas termasuk pembaca layar, navigasi suara, kursor besar, penghenti animasi, dan panduan membaca.
+-   **Pengaturan Widget** – Opsi konfigurasi ukuran tombol widget, posisi di layar, koordinat offset, dan pemilihan bahasa.

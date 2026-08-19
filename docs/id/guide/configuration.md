@@ -25,7 +25,7 @@ Kontrol widget melalui atribut `data-visua11y-agent-*` pada tag script atau deng
 | `data-visua11y-agent-size`     | Ubah ukuran tombol (`default`, `medium`, `small`).                                                                 | `data-visua11y-agent-size="medium"`               |
 | `data-visua11y-agent-icon`     | Berikan HTML kustom untuk ikon launcher.                                                                           | `data-visua11y-agent-icon="<span>♿️</span>"`      |
 
-## Whitelist Bahasa & Auto-hide Bahasa Tunggal
+## Whitelist Bahasa & Sembunyikan Otomatis Bahasa Tunggal
 
 Anda dapat membatasi daftar bahasa yang tersedia di dalam widget menggunakan whitelist:
 
@@ -43,6 +43,21 @@ createVisua11yAgent({
   languages: ['id'],
 });
 ```
+
+## Profil Aksesibilitas
+
+Visua11y Agent menyediakan 8 profil preset standar WCAG/ADA yang tersimpan otomatis di `localStorage`:
+
+| Profil | Deskripsi & Penyesuaian Alat |
+| :--- | :--- |
+| `Motor Impaired` | Kursor besar, navigasi suara, hentikan animasi, ukuran font +10%. |
+| `Blind` | Kontras tinggi, pembaca layar, navigasi suara, ukuran font +15%. |
+| `Color Blind` | Filter optik matriks Protanopia, font disleksia, penyorotan tautan. |
+| `Dyslexia` | Font OpenDyslexic, spasi huruf ekstra, tinggi baris bertambah, teks tebal. |
+| `Low Vision` | Penskalaan font 130%, kontras gelap, font mudah dibaca, kursor besar. |
+| `Cognitive & Learning` | Penyorotan judul & tautan, panduan membaca, navigasi suara. |
+| `Seizure & Epileptic` | Hentikan semua animasi CSS/GIF, saturasi rendah, desaturasi gambar. |
+| `ADHD` | Overlay fokus panduan membaca, penyorotan konten, kontras menenangkan. |
 
 ## Helper JavaScript
 

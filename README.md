@@ -1,7 +1,7 @@
 # Visua11y Agent: Universal Accessibility Website Widget
 
 <p align="center">
-  <img src="./src/icons/logo.png" alt="Visua11y Agent - Web Accessibility Widget Logo" width="180">
+  <img src="./src/icons/logo.webp" alt="Visua11y Agent - Web Accessibility Widget Logo" width="180">
 </p>
 
 <p align="center">
@@ -22,10 +22,13 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Live Demo](#live-demo)
+- [Project Structure](#project-structure)
+- [Live Demo & Documentation](#live-demo--documentation)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
+- [Universal Usage](#universal-usage)
 - [Configuration](#configuration)
+- [Accessibility Profiles](#preset-profiles)
 - [Features](#features)
 - [Local Development](#local-development)
 - [Roadmap](#roadmap)
@@ -34,59 +37,62 @@
 
 ## Overview
 
-Visua11y Agent adds a customizable accessibility toolbar to your site so visitors can adjust contrast, typography, and interaction aids on demand. Drop it into any stack, adjust the language, and you are good to go.
+Visua11y Agent adds an enterprise-grade, customizable accessibility toolbar to any website. Visitors can adjust contrast, typography, color blindness simulation, audio screen reader, and voice navigation on demand. Built with zero runtime dependencies, full TypeScript types, and root-level DOM isolation.
 
 ## Project Structure
 
-The project is organized into several key directories under `src/`:
+The project is organized under `src/`:
 
--   **`components/`**: Contains UI components such as the accessibility menu and widget.
--   **`config/`**: Holds configuration files for the plugin and user settings.
--   **`core/`**: The core logic and entry point for the Visua11y Agent.
--   **`enum/`**: Defines enumerations used throughout the project.
--   **`i18n/`**: Internationalization (i18n) related files for language handling.
--   **`icons/`**: Stores SVG icons used in the widget.
--   **`locales/`**: JSON files containing translations for various languages.
--   **`storage/`**: Handles local storage and persistence of user settings.
--   **`tools/`**: Implements the various accessibility tools (e.g., font adjustments, contrast modes).
--   **`types/`**: TypeScript type definitions.
--   **`utils/`**: Utility functions used across the project.
+- **`components/`**: UI components for the floating trigger widget, accessibility menu panel, and language drawers.
+- **`config/`**: Configuration definitions for the plugin, user presets, and accessibility profiles.
+- **`core/`**: Core orchestrator and bootstrapping engine.
+- **`enum/`**: Enumerations for positions, sizes, color blindness types, and filters.
+- **`i18n/`**: Internationalization engine with auto-detection of `html[lang]` and dynamic locale loader.
+- **`icons/`**: Optimized SVG and WebP vector iconography.
+- **`locales/`**: 53 JSON translation files covering global languages.
+- **`storage/`**: State management with `localStorage` and cookie persistence fallbacks.
+- **`tools/`**: Accessibility tool implementations (font scaling, line height, letter spacing, dyslexia fonts, SVG color blindness matrices, contrast modes, reading guide, speech synthesizers).
+- **`types/`**: TypeScript type definitions and interfaces.
+- **`utils/`**: Utilities for focus trapping, DOM styling, stylesheet injection, and script attribute parsing.
 
-## Live Demo
+## Live Demo & Documentation
 
-- Explore the widget in action: [chulit.github.io/visua11y-agent](https://chulit.github.io/visua11y-agent)
-- Review the demo markup inside `demo/index.html`
+- **Documentation & Guides**: [chulit.github.io/visua11y-agent](https://chulit.github.io/visua11y-agent)
+- **Live Interactive Demo**: [chulit.github.io/visua11y-agent/demo/](https://chulit.github.io/visua11y-agent/demo/)
+- **Demo Source**: Review the demo markup inside `demo/index.html`
 
 ## Installation
 
-### Option A — npm
+### Option A — npm / yarn / pnpm
 
 ```bash
 npm install visua11y-agent
 ```
 
-Then import the package in your bundler entry point. It bootstraps itself and attaches `window.Visua11yAgentPlugin` when the document is ready.
+Import the standard full bundle or the ultra-lightweight slim bundle (with on-demand locale fetching):
 
 ```js
+// Full bundle (all 53 locales pre-bundled)
 import 'visua11y-agent';
+
+// OR Slim bundle (locales fetched on-demand)
+import 'visua11y-agent/slim';
 ```
 
-### Option B — CDN
+### Option B — CDN (Script Tag)
 
-Every release is published to npm, so any npm-backed CDN can serve the compiled bundle immediately.
+Every release is published to npm, accessible via major global CDNs:
 
-- **jsDelivr (UMD)** — `https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js`
-- **unpkg (UMD)** — `https://unpkg.com/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js`
-- **esm.sh (native ESM)** — `https://esm.sh/visua11y-agent`
-- **Skypack (native ESM)** — `https://cdn.skypack.dev/visua11y-agent`
-- **esm.run (native ESM)** — `https://esm.run/visua11y-agent`
-- **JSPM Generator (dual)** — `https://ga.jspm.io/npm:visua11y-agent/dist/visua11y-agent.esm.js`
-
-Stick to pinned versions for stability (`@1.2.0`) and switch to `@latest` if you want automatic upgrades.
+- **jsDelivr (UMD)** — `https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js`
+- **unpkg (UMD)** — `https://unpkg.com/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js`
+- **esm.sh (ESM)** — `https://esm.sh/visua11y-agent`
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  data-visua11y-agent-lang="en"
+  data-visua11y-agent-position="bottom-right"
+  data-visua11y-agent-offset="24,24"
   defer
 ></script>
 ```
@@ -95,17 +101,18 @@ Stick to pinned versions for stability (`@1.2.0`) and switch to `@latest` if you
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.2.0/dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
   data-visua11y-agent-lang="en"
   data-visua11y-agent-position="bottom-right"
   data-visua11y-agent-offset="24,24"
+  data-visua11y-agent-languages="en,id,es,fr,de"
   defer
 ></script>
 ```
 
 ## Universal Usage
 
-Visua11y Agent supports **multiple usage patterns** for maximum flexibility:
+Visua11y Agent supports modern module APIs and direct programmatic control:
 
 ### Modern ES Module (Recommended)
 
@@ -115,161 +122,129 @@ import { createVisua11yAgent } from 'visua11y-agent';
 const plugin = createVisua11yAgent({
   lang: 'en',
   position: 'bottom-right',
-  size: 'medium',        // overall widget (button + panel)
-  buttonSize: 52,        // override trigger button size only (px)
-  iconSize: 28           // override icon size only (px)
+  offset: [24, 24],
+  languages: ['en', 'id', 'es', 'fr', 'ja'], // Whitelist allowed languages
+  size: 'medium',                            // Overall widget size ('small' | 'medium' | 'default')
+  buttonSize: 52,                            // Custom trigger button diameter (px)
+  iconSize: 28                               // Custom icon size (px)
 });
 
-// Use the API
-plugin.setWidgetSize('small');
-plugin.setButtonSize(48);
-plugin.setIconSize(26);
+// Programmatic control
 plugin.openMenu();
+plugin.setProfile('color-blind');
+plugin.changeLanguage('id');
 ```
 
-### Vue 3 / React
+### Vue 3 / React / Next.js / Nuxt
 
 ```js
-// Vue Composable or React Hook
+import { onMounted } from 'vue';
 import { createVisua11yAgent } from 'visua11y-agent';
 
-const plugin = createVisua11yAgent({ lang: 'id' });
-plugin.setWidgetSize('small');
+onMounted(() => {
+  const agent = createVisua11yAgent({
+    lang: 'en',
+    position: 'bottom-right'
+  });
+});
 ```
 
-See [Universal Usage Guide](./docs/guide/universal-usage.md) for complete examples including Vue composables, React hooks, Pinia stores, and React Context patterns.
+See the [Documentation Guides](https://chulit.github.io/visua11y-agent/guide/universal-usage) for React Hooks, Vue Composables, Pinia stores, and Next.js SSR-safe integration patterns.
 
 ## Configuration
 
-Control the widget through `data-visua11y-agent-*` attributes on the script tag or by calling helpers on `window.Visua11yAgentPlugin` after it loads.
+Control the widget via `data-visua11y-agent-*` script attributes or programmatically via the `createVisua11yAgent()` options object.
 
 ### Script Attributes
 
-| Attribute                      | Description                                        | Example                                       |
-| ------------------------------ | -------------------------------------------------- | --------------------------------------------- |
-| `data-visua11y-agent-lang`     | Set the default UI language.                       | `data-visua11y-agent-lang="en"`               |
-| `data-visua11y-agent-position` | Choose where the launcher appears.                 | `data-visua11y-agent-position="bottom-right"` |
-| `data-visua11y-agent-offset`   | Adjust launcher offset (`x,y`).                    | `data-visua11y-agent-offset="24,24"`          |
-| `data-visua11y-agent-size`     | Switch overall widget size (`default`, `medium`, `small`). | `data-visua11y-agent-size="medium"`   |
-| `data-visua11y-agent-icon`     | Provide custom HTML for the launcher icon.         | `data-visua11y-agent-icon="<span>♿️</span>"`  |
+| Attribute | Description | Example |
+| :--- | :--- | :--- |
+| `data-visua11y-agent-lang` | Default UI language code (53 supported). | `data-visua11y-agent-lang="en"` |
+| `data-visua11y-agent-languages` | Whitelist allowed languages (comma-separated). Auto-hides language picker if single language. | `data-visua11y-agent-languages="en,id,es"` |
+| `data-visua11y-agent-position` | Widget trigger position (`bottom-right`, `bottom-left`, `top-right`, `top-left`, etc.). | `data-visua11y-agent-position="bottom-right"` |
+| `data-visua11y-agent-offset` | Trigger offset coordinates `x,y` (px). | `data-visua11y-agent-offset="24,24"` |
+| `data-visua11y-agent-size` | Overall widget size (`small`, `medium`, `default`). | `data-visua11y-agent-size="medium"` |
+| `data-visua11y-agent-icon` | Custom HTML markup for the launcher icon. | `data-visua11y-agent-icon="<span>♿️</span>"` |
 
 ### Preset Profiles
 
-Inside the widget you will now find four saved profiles backed by `localStorage`. When a visitor chooses one, we persist the associated combination of tools (font size, contrast, cursor, etc.) so it auto-loads on their next visit.
+Eight WCAG/ADA accessibility presets stored in `localStorage` for instant activation:
 
-| Profile              | What it toggles                                                                 |
-| -------------------- | ------------------------------------------------------------------------------- |
-| `Motor Impaired`     | Big cursor, voice navigation, animations off, +10% font.                        |
-| `Blind`              | High contrast, screen reader & voice helpers, +15% font.                        |
-| `Color Blind`        | High-contrast palette, desaturated media, highlighted links.                    |
-| `Dyslexia`           | Dyslexia-friendly font, extra spacing, bolder weights.                          |
-| `Low vision`         | 130% font, dark contrast, readable font, big cursor.                            |
-| `Cognitive & Learning` | Highlights titles/links, reading guide, voice navigation.                    |
-| `Seizure & Epileptic` | Stops animations, low saturation, grayscale imagery.                          |
-| `ADHD`               | Reading guide, highlighted content, calming contrast.                           |
+| Profile | Key Adjustments |
+| :--- | :--- |
+| `Motor Impaired` | Big cursor, voice navigation, stop animations, +10% font size. |
+| `Blind` | High contrast, screen reader helper, voice navigation, +15% font size. |
+| `Color Blind` | True Protanopia optical filter matrix, dyslexia font, highlight links. |
+| `Dyslexia` | OpenDyslexic typeface, extra letter spacing, increased line height, bolder weights. |
+| `Low Vision` | 130% font scale, dark contrast, readable font, oversized cursor. |
+| `Cognitive & Learning` | Highlight titles & links, reading guide overlay, voice navigation. |
+| `Seizure & Epileptic` | Stops all CSS/GIF animations, low saturation, desaturated media. |
+| `ADHD` | Reading guide focus overlay, highlight titles/links, calming contrast. |
 
-Selecting any profile also adjusts the widget button/panel size to match the preset, while manual tweaks instantly break away from the preset so users stay in control.
+### JavaScript Helpers & API
 
-### JavaScript Helpers
+| Method | Description | Example |
+| :--- | :--- | :--- |
+| `plugin.openMenu()` | Open accessibility menu panel. | `plugin.openMenu()` |
+| `plugin.closeMenu()` | Close accessibility menu panel. | `plugin.closeMenu()` |
+| `plugin.toggleMenu()` | Toggle menu panel visibility. | `plugin.toggleMenu()` |
+| `plugin.changeLanguage(code)` | Switch UI language at runtime. | `plugin.changeLanguage("id")` |
+| `plugin.registerLanguage(opts)` | Register dynamic translations on the fly. | `plugin.registerLanguage({ code: "id", label: "Bahasa Indonesia", dictionary: { ... } })` |
+| `plugin.setProfile(profileId)` | Activate an accessibility preset profile. | `plugin.setProfile("color-blind")` |
+| `plugin.toggleTool(key, enable)` | Toggle individual accessibility tools. | `plugin.toggleTool("high-contrast", true)` |
+| `plugin.getSettings()` | Retrieve active settings & tools state. | `console.log(plugin.getSettings())` |
+| `plugin.setPosition(position)` | Move widget position on screen. | `plugin.setPosition("top-left")` |
+| `plugin.setOffset(offset)` | Update launcher offset coordinates. | `plugin.setOffset("30,30")` |
+| `plugin.setWidgetSize(size)` | Set widget size (`small`, `medium`, `default`). | `plugin.setWidgetSize("small")` |
+| `plugin.hideFooter(hide)` | Show or hide the menu footer. | `plugin.hideFooter(true)` |
+| `plugin.setFooterSize(size)` | Set footer sizing (`small`, `medium`, `large`). | `plugin.setFooterSize("small")` |
+| `plugin.resetAll()` | Reset all accessibility tools to defaults. | `plugin.resetAll()` |
 
-| Helper                                                 | Description                                       | Example                                                                                                                                       |
-| ------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `window.Visua11yAgentPlugin.setIcon(html)`             | Swap the floating launcher icon.                  | `Visua11yAgentPlugin.setIcon("<span>🌈</span>")`                                                                                              |
-| `window.Visua11yAgentPlugin.changeLanguage(code)`      | Switch the UI language at runtime.                | `Visua11yAgentPlugin.changeLanguage("fr")`                                                                                                    |
-| `window.Visua11yAgentPlugin.registerLanguage(options)` | Register new translations on the fly.             | `Visua11yAgentPlugin.registerLanguage({ code: "id", label: "Bahasa Indonesia", dictionary: { "Accessibility Menu": "Menu Aksesibilitas" } })` |
-| `window.Visua11yAgentPlugin.setWidgetSize(size)`     | Change the widget button size.                    | `Visua11yAgentPlugin.setWidgetSize("small")`                                                                                                  |
-| `window.Visua11yAgentPlugin.setPosition(position)`     | Move the widget to a new position.                | `Visua11yAgentPlugin.setPosition("top-left")`                                                                                                 |
-| `window.Visua11yAgentPlugin.setOffset(offset)`         | Adjust the widget offset.                         | `Visua11yAgentPlugin.setOffset("50,50")`                                                                                                      |
-| `window.Visua11yAgentPlugin.openMenu()`                | Open the accessibility menu.                      | `Visua11yAgentPlugin.openMenu()`                                                                                                              |
-| `window.Visua11yAgentPlugin.closeMenu()`               | Close the accessibility menu.                     | `Visua11yAgentPlugin.closeMenu()`                                                                                                             |
-| `window.Visua11yAgentPlugin.toggleTool(key, enable)`   | Toggle a specific tool on or off.                 | `Visua11yAgentPlugin.toggleTool("high-contrast", true)`                                                                                       |
-| `window.Visua11yAgentPlugin.setProfile(profileId)`     | Set the active accessibility profile.             | `Visua11yAgentPlugin.setProfile("blind")`                                                                                                     |
-| `window.Visua11yAgentPlugin.getSettings()`             | Get the current user settings object.             | `console.log(Visua11yAgentPlugin.getSettings())`                                                                                              |
-| `window.Visua11yAgentPlugin.hideFooter(hide)`          | Hide or show the menu footer.                     | `Visua11yAgentPlugin.hideFooter(true)`                                                                                                        |
-| `window.Visua11yAgentPlugin.setFooterSize(size)`       | Set the menu footer size.                         | `Visua11yAgentPlugin.setFooterSize("small")`                                                                                                  |
-| `window.Visua11yAgentPlugin.resetAll()`                | Restore widget defaults and clear saved settings. | `Visua11yAgentPlugin.resetAll()`                                                                                                              |
-
-See `demo/index.html` for practical examples.
+All methods are also exposed globally on `window.Visua11yAgentPlugin` when loaded via `<script>` tag.
 
 ## Features
 
-- **Multilingual UI** – 40+ locales bundled out of the box, live language switching, searchable dropdown, and runtime registration for custom dictionaries.
-- **Accessibility Profiles** – Curated presets (Motor, Blind, Color Blind, Dyslexia, Low Vision, Cognitive, Seizure, ADHD) that toggle tools, widget size, position, and offsets while keeping previous states in case users exit the preset.
-- **Content Adjustments** – Font scaling, weight, letter spacing, line height, dyslexia-friendly font, plus highlight toggles for links and headings.
-- **Color & Contrast Controls** – Dark/Light/High contrast, invert colors, saturation controls, monochrome, image desaturation, and a custom palette generator covering headings, body, and backgrounds.
-- **Focus, Reading & Assistive Tools** – Reading guide overlay, screen reader helper, voice navigation, text emphasis counters, and selectable accessibility tool grid.
-- **Motion & Cursor Utilities** – Stop animations, disable animated GIFs, enlarge cursor, and calm color palettes for sensory comfort.
-- **Widget Customization** – Position picker (8 anchors + offsets), button size presets or custom pixel values, adjustable panel width, and icon overrides.
-- **Persistence & Recovery** – Every change syncs to `localStorage` with cookie fallback, profiles remember the prior state, and a single reset clears everything.
-- **Developer Hooks** – `setIcon`, `changeLanguage`, `registerLanguage`, `resetAll`, and other helpers exposed on `window.Visua11yAgentPlugin` for scripts and CMS integrations.
+For a comprehensive breakdown of all capabilities, see the [Features Guide](https://chulit.github.io/visua11y-agent/guide/features).
 
-## Menu Structure
-
-The widget stacks multiple cards so visitors can quickly find the control they need:
-
-- **Accessibility Profiles** – Curated scenario presets with collapsible grid UI, profile badges, and live previews so users can jump straight to the best combination.
-- **Content Adjustments** – Font-size slider with keyboard-friendly steppers plus quick buttons for weight, spacing, line height, dyslexia font, title/link highlights, and more.
-- **Color Adjustments** – Contrast palette grid, invert/mono/saturation options, and the custom palette card for backgrounds, headings, and content hues complete with hue sliders and hex inputs.
-- **Tools** – Reading guide, screen reader helper, voice navigation, cursor, animation, and other assistive toggles grouped into a searchable grid.
-- **Widget Settings** – Button/panel size selector, position picker, offset inputs, language switcher, and quick actions (reset, open language drawer).
+- **53 Global Languages**: Complete internationalization, automated `html[lang]` observation, RTL direction support, and dynamic dictionary registration.
+- **True Color Blindness Simulation**: Mathematical SVG `feColorMatrix` optical filters for **Protanopia** (Red-blind), **Deuteranopia** (Green-blind), **Tritanopia** (Blue-blind), and **Achromatopsia** (Monochrome).
+- **Typography & Layout Controls**: Stepped font scaling (up to 200%), line height, letter spacing, font weight, OpenDyslexic font, and link/title highlighters.
+- **Contrast & Color Modes**: Light contrast, dark contrast, high contrast, inverted colors, saturation controls, monochrome, image desaturation, and custom color palette generator.
+- **Reading & Assistive Utilities**: Screen reader helper (Text-to-Speech), Voice navigation commands, Reading guide focus overlay, and oversized high-visibility cursor.
+- **Motion & Sensory Comfort**: Stop animations and freeze animated GIFs.
+- **Root DOM Isolation**: Mounted to `document.documentElement` to remain completely immune to page CSS filters, transforms, and overflow scrolling glitches.
+- **Persistent State**: Automatic syncing to `localStorage` with cookie fallback.
 
 ## Local Development
 
-- Install dependencies: `npm install`
-- Build the bundle: `npm run build`
-- Serve the static demo: `npm run demo`
-- Live reload during development: `npm run demo:serve` (esbuild watch + SSE reload)
-- Open `http://127.0.0.1:4173/` to test screen reader, voice navigation, positioning, and custom locales
+```bash
+# Install dependencies
+npm install
 
-## Roadmap
+# Start Vite development server
+npm run dev
 
-Semua item dalam roadmap awal (termasuk Accessibility Profiles) telah dirilis. Ajukan fitur atau peningkatan baru melalui issue GitHub agar kami bisa menyusun roadmap selanjutnya bersama komunitas.
+# Run unit tests
+npm test
+
+# Run linter & typecheck
+npm run lint
+npx tsc --noEmit
+
+# Build library bundles & docs demo
+npm run build
+npm run docs:publish
+```
 
 ## Contributing
 
-We welcome contributions from the community! Whether you're fixing bugs, adding features, improving documentation, or translating to new languages, your help is appreciated. ❤️
+We welcome contributions! Whether fixing bugs, adding new language translations, improving documentation, or creating new features:
 
-### How to Contribute
-
-1. **Fork the repository** and create your feature branch
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-
-2. **Make your changes** following our code style
-   - Write clear, descriptive commit messages
-   - Add tests for new features
-   - Update documentation as needed
-
-3. **Test your changes**
-   ```bash
-   npm test
-   npm run build
-   npm run demo
-   ```
-
-4. **Submit a pull request** with a clear description of your changes
-
-### Ways to Contribute
-
-- 🐛 **Report bugs** - Open an issue with reproduction steps
-- ✨ **Suggest features** - Share your ideas for improvements
-- 🌍 **Add translations** - Help make Visua11y accessible in more languages
-- 📝 **Improve docs** - Fix typos, add examples, clarify explanations
-- 🧪 **Write tests** - Increase code coverage and reliability
-- 💻 **Submit code** - Fix bugs or implement new features
-
-### Development Setup
-
-```bash
-git clone https://github.com/chulit/visua11y-agent.git
-cd visua11y-agent
-npm install
-npm run demo:serve  # Start development server with hot reload
-```
-
-For questions or discussions, feel free to open an issue or reach out to the maintainers.
+1. Fork the repository & create your feature branch: `git checkout -b feature/my-feature`
+2. Ensure tests and linter pass: `npm test && npm run lint`
+3. Commit changes and submit a Pull Request.
 
 ## License
 
-Visua11y Agent is released under the [MIT License](LICENSE).
+Visua11y Agent is open-source software licensed under the [MIT License](LICENSE).
+

@@ -6,7 +6,7 @@ hero:
   text: Widget Aksesibilitas Web Universal
   tagline: Toolbar aksesibilitas open-source yang ringan dan tanpa dependensi untuk kepatuhan standar WCAG 2.1 & ADA.
   image:
-    src: /logo.png
+    src: /logo.webp
     alt: Banner Visua11y Agent
   actions:
     - theme: brand

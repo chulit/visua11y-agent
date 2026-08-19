@@ -44,6 +44,21 @@ createVisua11yAgent({
 });
 ```
 
+## Preset Profiles
+
+Visua11y Agent includes 8 curated WCAG/ADA accessibility presets stored in `localStorage`:
+
+| Profile | Description & Tool Actions |
+| :--- | :--- |
+| `Motor Impaired` | Big cursor, voice navigation, stop animations, +10% font size. |
+| `Blind` | High contrast, screen reader helper, voice navigation, +15% font size. |
+| `Color Blind` | True Protanopia optical filter matrix, dyslexia font, highlight links. |
+| `Dyslexia` | OpenDyslexic typeface, extra letter spacing, increased line height, bolder weights. |
+| `Low Vision` | 130% font scale, dark contrast, readable font, oversized cursor. |
+| `Cognitive & Learning` | Highlight titles & links, reading guide overlay, voice navigation. |
+| `Seizure & Epileptic` | Stops all CSS/GIF animations, low saturation, desaturated media. |
+| `ADHD` | Reading guide focus overlay, highlight titles/links, calming contrast. |
+
 ## JavaScript Helpers
 
 | Helper                                                 | Description                                       | Example                                                                                                                                       |
