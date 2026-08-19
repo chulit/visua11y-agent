@@ -55,6 +55,9 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+    esbuild: {
+      legalComments: 'none',
+    },
     server: {
       port: 5173,
       open: '/demo/',
@@ -75,7 +78,24 @@ export default defineConfig(({ mode }) => {
           if (id.startsWith('\0virtual-raw:')) {
             const cleanPath = id.replace('\0virtual-raw:', '').replace(/\.js$/, '');
             this.addWatchFile(cleanPath);
-            const content = fs.readFileSync(cleanPath, 'utf-8');
+            let content = fs.readFileSync(cleanPath, 'utf-8');
+
+            // Minify raw templates
+            if (cleanPath.endsWith('.css')) {
+              content = content
+                .replace(/\/\*[\s\S]*?\*\//g, '')
+                .replace(/\s+/g, ' ')
+                .replace(/\s*([\{\}\:\;\,])\s*/g, '$1')
+                .replace(/\;(?=\})/g, '')
+                .trim();
+            } else if (cleanPath.endsWith('.html') || cleanPath.endsWith('.svg')) {
+              content = content
+                .replace(/<!--[\s\S]*?-->/g, '')
+                .replace(/>\s+</g, '><')
+                .replace(/\s+/g, ' ')
+                .trim();
+            }
+
             return `export default ${JSON.stringify(content)};
 if (import.meta.hot) {
   import.meta.hot.accept((newModule) => {
