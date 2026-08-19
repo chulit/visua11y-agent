@@ -19,6 +19,10 @@ import {
   isLanguageAllowed
 } from '@/i18n/Languages';
 import { resolveWidgetSize } from '@/config/widgetSize';
+import { ACCESSIBILITY_PROFILES } from '@/config/accessibilityProfiles';
+import enableContrast from '@/tools/enableContrast';
+import adjustFontSize from '@/tools/adjustFontSize';
+import { FILTERS } from '@/enum/Filters';
 
 export default function visua11yAgent({ options }) {
   const savedSettings = getSavedUserSettings() || {};
@@ -100,23 +104,20 @@ export default function visua11yAgent({ options }) {
     if (code && userSettings.lang === code) {
       translateWidget();
     }
-
     return code;
   }
 
-  function setWidgetSize(size: string) {
+  function setWidgetSize(size: string | number) {
     const resolved = resolveWidgetSize(size);
     pluginConfig.size = resolved.size;
     pluginConfig.sizePreset = resolved.preset;
-    pluginConfig.panelWidth = resolved.panelWidth;
-
     userSettings.widgetSize = resolved.preset ?? resolved.size;
     saveUserSettings();
     applyButtonPosition();
   }
 
   function setButtonSize(size: number) {
-    if (typeof size !== 'number' || Number.isNaN(size) || size <= 0) {
+    if (typeof size !== 'number' || size <= 0) {
       console.warn('[Visua11y Agent] setButtonSize expects a positive number (px).');
       return;
     }
@@ -149,21 +150,46 @@ export default function visua11yAgent({ options }) {
     const currentState = Boolean(userSettings.states[key]);
     const newState = typeof enable === 'boolean' ? enable : !currentState;
     userSettings.states[key] = newState;
+
+    if (FILTERS[key] || key === 'contrast') {
+      const newContrast = newState ? (key === 'contrast' ? 'high-contrast' : key) : undefined;
+      userSettings.states.contrast = newContrast;
+      enableContrast(newContrast);
+    }
+
     renderTools();
     saveUserSettings();
   }
 
   function setProfile(profileId: string) {
-    // This is a simplified version. Ideally, we should reuse applyProfilePreset from renderMenu.
-    // For now, we will just set the profile and reload the page or warn the user.
-    // Or better, we can try to trigger a re-render if we can access the menu logic.
-    // Given the constraints, let's just update the settings and apply tools.
-    // The menu UI might be out of sync until reopened if we don't fully re-render it.
     userSettings.activeProfile = profileId;
+    const profile = ACCESSIBILITY_PROFILES.find((item) => item.id === profileId);
+    if (profile) {
+      userSettings.states = { ...(profile.states || {}) };
+
+      if (profile.position) {
+        pluginConfig.position = profile.position;
+        userSettings.position = profile.position;
+      }
+
+      if (Array.isArray(profile.offset)) {
+        pluginConfig.offset = [...profile.offset];
+        userSettings.offset = [...profile.offset];
+      }
+
+      if (typeof profile.widgetSize !== 'undefined') {
+        const resolved = resolveWidgetSize(profile.widgetSize);
+        pluginConfig.size = resolved.size;
+        pluginConfig.sizePreset = resolved.preset;
+        userSettings.widgetSize = resolved.preset ?? resolved.size;
+      }
+
+      applyButtonPosition();
+      adjustFontSize(userSettings.states.fontSize || 1);
+      renderTools();
+      enableContrast(userSettings.states.contrast);
+    }
     saveUserSettings();
-    // We need to reload to fully apply profile presets including size/position if we don't duplicate logic.
-    // But let's try to apply what we can.
-    console.warn('setProfile: Full profile application requires a page reload or menu re-open in this version.');
   }
 
   function getSettings() {
