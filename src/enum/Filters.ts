@@ -23,11 +23,13 @@ export const FILTERS: IFilters = {
     childrenSelector: TEXT_SELECTORS,
   },
   'high-contrast': {
+    childrenSelector: [' body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu)'],
     styles: {
       filter: 'contrast(125%)',
     },
   },
   'invert-colors': {
+    childrenSelector: [' body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu)'],
     styles: {
       filter: 'invert(100%)',
     },
@@ -40,16 +42,19 @@ export const FILTERS: IFilters = {
     },
   },
   'high-saturation': {
+    childrenSelector: [' body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu)'],
     styles: {
       filter: 'saturate(200%)',
     },
   },
   'low-saturation': {
+    childrenSelector: [' body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu)'],
     styles: {
       filter: 'saturate(50%)',
     },
   },
   monochrome: {
+    childrenSelector: [' body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu)'],
     styles: {
       filter: 'grayscale(100%)',
     },

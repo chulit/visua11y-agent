@@ -866,7 +866,7 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 .visua11y-agent-btn {
   aspect-ratio: 6 / 5;
   border-radius: 12px;
-  padding: 0 15px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -915,7 +915,7 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 
 .visua11y-agent-btn .visua11y-agent-translate,
 .visua11y-agent-adjust-font .visua11y-agent-label div {
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
 }
 
