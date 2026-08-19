@@ -302,7 +302,7 @@ export default function renderMenu() {
     }
   };
 
-  const updateColorBlindnessCycleButton = (value: string | false | 'color-blindness') => {
+  const updateColorBlindnessCycleButton = (value?: unknown) => {
     if (!$colorBlindnessCycleButton || !$colorBlindnessCycleLabel) {
       return;
     }
