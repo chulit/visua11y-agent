@@ -7,6 +7,9 @@ on:
 
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
 
 jobs:
   release:
@@ -26,15 +29,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24.9.0"  # sama dengan di lokal
+          node-version: "24.9.0"
           registry-url: "https://registry.npmjs.org"
 
-      # 🧹 Bersihkan cache & periksa versi environment
       - name: Verify Node and npm versions
         run: |
           node -v
           npm -v
-          npm cache clean --force
 
       - name: Check NPM token availability
         run: |
@@ -44,22 +45,11 @@ jobs:
           fi
           echo "✅ NPM_TOKEN appears to be set (length ${#NPM_TOKEN})."
 
-      # 🧩 Auto-heal step untuk menangani mismatch seperti picomatch@2 vs 4
-      - name: Heal dependency tree if npm ci fails
-        id: install
-        run: |
-          echo "🧩 Attempting npm ci..."
-          if ! npm ci; then
-            echo "⚠️ npm ci failed. Running recovery steps..."
-            npm install --legacy-peer-deps
-            npm dedupe
-            echo "✅ Dependencies healed successfully."
-          fi
+      - name: Install dependencies
+        run: npm ci
 
-      # 🏗️ Build project
       - name: Build project
         run: npm run build
 
-      # 🚀 Release ke npm dan GitHub
       - name: Release
-        run: npm run release
+        run: npx --no-install semantic-release
