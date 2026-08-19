@@ -50,6 +50,9 @@
     },
     "./package.json": "./package.json"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --mode slim && node scripts/copy-locales.js",
