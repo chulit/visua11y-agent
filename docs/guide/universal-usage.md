@@ -9,6 +9,7 @@ import { createVisua11yAgent } from 'visua11y-agent';
 
 const plugin = createVisua11yAgent({
   lang: 'en',
+  languages: ['en', 'id', 'ru'], // optional whitelist (auto-hides button if only 1 language)
   position: 'bottom-right',
   size: 'medium',        // overall widget (button + panel)
   buttonSize: 52,        // override trigger button only (px)
@@ -24,6 +25,8 @@ plugin.changeLanguage('en');
 
 ### Key Options
 
+- `lang`: initial active language code (`'en'`, `'id'`, etc.).
+- `languages`: optional array or comma-separated string of allowed languages (e.g. `['en', 'id']` or `'en,id'`). If only 1 language is specified, the language picker button is automatically hidden.
 - `size`: overall widget preset (`default`, `small`, `medium`, `large`) or numeric px.
 - `buttonSize`: override trigger button size only (px).
 - `iconSize`: override trigger icon size only (px).

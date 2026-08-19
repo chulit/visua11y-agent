@@ -16,13 +16,33 @@ Kontrol widget melalui atribut `data-visua11y-agent-*` pada tag script atau deng
 
 ## Atribut Script
 
-| Atribut                        | Deskripsi                                          | Contoh                                            |
-| ------------------------------ | -------------------------------------------------- | ------------------------------------------------- |
-| `data-visua11y-agent-lang`     | Atur bahasa UI default.                            | `data-visua11y-agent-lang="id"`                   |
-| `data-visua11y-agent-position` | Pilih di mana launcher muncul.                     | `data-visua11y-agent-position="bottom-right"`     |
-| `data-visua11y-agent-offset`   | Sesuaikan offset launcher (`x,y`).                 | `data-visua11y-agent-offset="24,24"`              |
-| `data-visua11y-agent-size`     | Ubah ukuran tombol (`default`, `medium`, `small`). | `data-visua11y-agent-size="medium"`               |
-| `data-visua11y-agent-icon`     | Berikan HTML kustom untuk ikon launcher.           | `data-visua11y-agent-icon="<span>♿️</span>"`      |
+| Atribut                        | Deskripsi                                                                                                          | Contoh                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| `data-visua11y-agent-lang`     | Atur bahasa UI default.                                                                                            | `data-visua11y-agent-lang="id"`                   |
+| `data-visua11y-agent-languages`| Batasi bahasa yang tersedia (dipisah koma). Jika hanya 1 bahasa, tombol bahasa di header otomatis disembunyikan.    | `data-visua11y-agent-languages="id,en,ru"`        |
+| `data-visua11y-agent-position` | Pilih di mana launcher muncul.                                                                                     | `data-visua11y-agent-position="bottom-right"`     |
+| `data-visua11y-agent-offset`   | Sesuaikan offset launcher (`x,y`).                                                                                 | `data-visua11y-agent-offset="24,24"`              |
+| `data-visua11y-agent-size`     | Ubah ukuran tombol (`default`, `medium`, `small`).                                                                 | `data-visua11y-agent-size="medium"`               |
+| `data-visua11y-agent-icon`     | Berikan HTML kustom untuk ikon launcher.                                                                           | `data-visua11y-agent-icon="<span>♿️</span>"`      |
+
+## Whitelist Bahasa & Auto-hide Bahasa Tunggal
+
+Anda dapat membatasi daftar bahasa yang tersedia di dalam widget menggunakan whitelist:
+
+```javascript
+import { createVisua11yAgent } from 'visua11y-agent';
+
+// Whitelist beberapa bahasa pilihan
+createVisua11yAgent({
+  languages: ['id', 'en', 'ru'], // atau format string 'id, en, ru'
+  lang: 'id',
+});
+
+// Bahasa tunggal: Tombol ikon bahasa di header modal otomatis disembunyikan
+createVisua11yAgent({
+  languages: ['id'],
+});
+```
 
 ## Helper JavaScript
 

@@ -16,13 +16,33 @@ Control the widget through `data-visua11y-agent-*` attributes on the script tag 
 
 ## Script Attributes
 
-| Attribute                      | Description                                        | Example                                       |
-| ------------------------------ | -------------------------------------------------- | --------------------------------------------- |
-| `data-visua11y-agent-lang`     | Set the default UI language.                       | `data-visua11y-agent-lang="en"`               |
-| `data-visua11y-agent-position` | Choose where the launcher appears.                 | `data-visua11y-agent-position="bottom-right"` |
-| `data-visua11y-agent-offset`   | Adjust launcher offset (`x,y`).                    | `data-visua11y-agent-offset="24,24"`          |
-| `data-visua11y-agent-size`     | Switch button size (`default`, `medium`, `small`). | `data-visua11y-agent-size="medium"`           |
-| `data-visua11y-agent-icon`     | Provide custom HTML for the launcher icon.         | `data-visua11y-agent-icon="<span>♿️</span>"`  |
+| Attribute                      | Description                                                                                                   | Example                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `data-visua11y-agent-lang`     | Set the default UI language.                                                                                  | `data-visua11y-agent-lang="en"`               |
+| `data-visua11y-agent-languages`| Restrict available languages (comma-separated). When only 1 language is specified, the language button is hidden. | `data-visua11y-agent-languages="en,id,ru"`   |
+| `data-visua11y-agent-position` | Choose where the launcher appears.                                                                            | `data-visua11y-agent-position="bottom-right"` |
+| `data-visua11y-agent-offset`   | Adjust launcher offset (`x,y`).                                                                               | `data-visua11y-agent-offset="24,24"`          |
+| `data-visua11y-agent-size`     | Switch button size (`default`, `medium`, `small`).                                                            | `data-visua11y-agent-size="medium"`           |
+| `data-visua11y-agent-icon`     | Provide custom HTML for the launcher icon.                                                                    | `data-visua11y-agent-icon="<span>♿️</span>"`  |
+
+## Language Whitelist & Single Language Auto-hide
+
+You can limit which languages are available in the accessibility widget by providing a whitelist:
+
+```javascript
+import { createVisua11yAgent } from 'visua11y-agent';
+
+// Whitelist specific languages
+createVisua11yAgent({
+  languages: ['en', 'id', 'ru'], // Or string 'en, id, ru'
+  lang: 'id',
+});
+
+// Single language: The language selector button in the menu header is automatically hidden
+createVisua11yAgent({
+  languages: ['id'],
+});
+```
 
 ## JavaScript Helpers
 

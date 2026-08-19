@@ -9,6 +9,7 @@ import { createVisua11yAgent } from 'visua11y-agent';
 
 const plugin = createVisua11yAgent({
   lang: 'id',
+  languages: ['id', 'en', 'ru'], // opsional whitelist (otomatis sembunyikan tombol jika hanya 1 bahasa)
   position: 'bottom-right',
   size: 'medium'
 });
