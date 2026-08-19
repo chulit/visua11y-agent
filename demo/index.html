@@ -319,7 +319,7 @@
 
 <body>
   <header>
-    <h1>Testing Visua11y Agent Accessibility Widget</h1>
+    <h1>Demo Visua11y Agent Accessibility Widget</h1>
     <p>
       Use this page to manually verify accessibility tools, widget placement, screen reader, and
       voice navigation behaviour. Build the project first with <code>npm run build</code> so the
@@ -427,7 +427,7 @@
 
       <div class="media-lab">
         <figure>
-          <img src="/src/icons/logo.png" alt="Visua11y Agent hero banner with gradient background and illustration"
+          <img src="/src/icons/logo.webp" alt="Visua11y Agent hero banner with gradient background and illustration"
             style="width: 240px" />
           <figcaption>
             Expect the banner illustration to lose its purple/blue gradient and appear black and
@@ -602,8 +602,8 @@
     <code>window.Visua11yAgentPlugin</code> helpers directly.
   </footer>
 
-  <script src="../dist/visua11y-agent.umd.js" data-visua11y-agent-lang="en" data-visua11y-agent-position="bottom-right"
-    data-visua11y-agent-offset="24,24" defer></script>
+  <script type="module" src="/src/entry.ts" data-visua11y-agent-lang="en" data-visua11y-agent-position="bottom-right"
+    data-visua11y-agent-offset="24,24"></script>
 
   <script>
     (function () {
