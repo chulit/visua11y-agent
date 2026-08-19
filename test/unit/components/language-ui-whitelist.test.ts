@@ -15,6 +15,7 @@ import { createVisua11yAgent } from '../../../src/index';
 describe('Language Selector UI Whitelist & Single Language Auto-hide', () => {
   beforeEach(() => {
     document.body.innerHTML = '';
+    document.querySelectorAll('.visua11y-agent-container, .visua11y-agent-menu').forEach((el) => el.remove());
   });
 
   it('should show language button when multiple languages are allowed (default)', () => {

@@ -46,7 +46,8 @@ function ensureSvgFilters(): void {
   });
 
   svg.appendChild(defs);
-  document.body.appendChild(svg);
+  const mountTarget = document.documentElement || document.body;
+  mountTarget.appendChild(svg);
 }
 
 function ensureStyleSheet(): void {
@@ -61,16 +62,16 @@ function ensureStyleSheet(): void {
   const style = document.createElement('style');
   style.id = STYLE_TAG_ID;
   style.textContent = `
-    html[data-visua11y-color-blindness="protanopia"] body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu):not(#visua11y-color-blindness-svg):not(#visua11y-color-blindness-style) {
+    html[data-visua11y-color-blindness="protanopia"] body {
       filter: url('#visua11y-filter-protanopia') !important;
     }
-    html[data-visua11y-color-blindness="deuteranopia"] body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu):not(#visua11y-color-blindness-svg):not(#visua11y-color-blindness-style) {
+    html[data-visua11y-color-blindness="deuteranopia"] body {
       filter: url('#visua11y-filter-deuteranopia') !important;
     }
-    html[data-visua11y-color-blindness="tritanopia"] body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu):not(#visua11y-color-blindness-svg):not(#visua11y-color-blindness-style) {
+    html[data-visua11y-color-blindness="tritanopia"] body {
       filter: url('#visua11y-filter-tritanopia') !important;
     }
-    html[data-visua11y-color-blindness="achromatopsia"] body > *:not(.visua11y-agent-container):not(.visua11y-agent-menu):not(#visua11y-color-blindness-svg):not(#visua11y-color-blindness-style) {
+    html[data-visua11y-color-blindness="achromatopsia"] body {
       filter: url('#visua11y-filter-achromatopsia') !important;
     }
     .visua11y-agent-container,

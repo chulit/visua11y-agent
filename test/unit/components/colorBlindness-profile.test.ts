@@ -21,6 +21,7 @@ describe('Color Blindness Accessibility Profile', () => {
     userSettings.states = {};
     removeColorBlindness();
     document.body.innerHTML = '';
+    document.querySelectorAll('.visua11y-agent-container, .visua11y-agent-menu').forEach((el) => el.remove());
   });
 
   it('should activate protanopia and helper tools when Color Blind profile is clicked', () => {

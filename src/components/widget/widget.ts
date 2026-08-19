@@ -98,7 +98,8 @@ export function renderWidget() {
 
   translateWidget();
 
-  document.body.appendChild($widget);
+  const mountTarget = document.documentElement || document.body;
+  mountTarget.appendChild($widget);
 
   return $widget;
 }

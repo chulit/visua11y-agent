@@ -16,6 +16,7 @@ import reset from '../../../src/components/menu/reset';
 describe('Color Blindness UI Button & Cycle', () => {
   beforeEach(() => {
     document.body.innerHTML = '';
+    document.querySelectorAll('.visua11y-agent-container, .visua11y-agent-menu').forEach((el) => el.remove());
   });
 
   it('should render color blindness cycle button in menu', () => {
