@@ -55,7 +55,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode slim && node scripts/copy-locales.js",
+    "build": "vite build && vite build --mode umd && vite build --mode slim && node scripts/copy-locales.js",
     "preview": "vite preview",
     "lint": "eslint src --ext .ts,.js",
     "test": "vitest run --pool=threads",

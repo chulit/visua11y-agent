@@ -24,4 +24,10 @@ describe('Core Languages Option Handling', () => {
     visua11yAgent({ options: { languages: 'en, id, ja' } });
     expect(pluginConfig.languages).toEqual(['en', 'id', 'ja']);
   });
+
+  it('should support direct flat options object without options wrapper', () => {
+    visua11yAgent({ languages: ['id', 'en'], lang: 'id' });
+    expect(pluginConfig.languages).toEqual(['id', 'en']);
+    expect(userSettings.lang).toBe('id');
+  });
 });

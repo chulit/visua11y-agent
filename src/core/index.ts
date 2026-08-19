@@ -24,10 +24,10 @@ import enableContrast from '@/tools/enableContrast';
 import adjustFontSize from '@/tools/adjustFontSize';
 import { FILTERS } from '@/enum/Filters';
 
-export default function visua11yAgent({ options }) {
+export default function visua11yAgent(config: any = {}) {
   const savedSettings = getSavedUserSettings() || {};
 
-  const providedOptions = options || {};
+  const providedOptions = config?.options ?? config ?? {};
   const { size: incomingSize, buttonSize, languages: incomingLanguages, ...restOptions } = providedOptions;
 
   Object.assign(pluginConfig, restOptions);

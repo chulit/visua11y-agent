@@ -4,7 +4,22 @@ import fs from 'fs';
 
 export default defineConfig(({ mode }) => {
   const isSlim = mode === 'slim';
-  const entry = resolve(import.meta.dirname, isSlim ? 'src/slim.ts' : 'src/entry.ts');
+  const isUmd = mode === 'umd';
+
+  let entry: string;
+  let formats: ('es' | 'cjs' | 'iife')[];
+
+  if (isSlim) {
+    entry = resolve(import.meta.dirname, 'src/slim.ts');
+    formats = ['es', 'cjs', 'iife'];
+  } else if (isUmd) {
+    entry = resolve(import.meta.dirname, 'src/entry.ts');
+    formats = ['iife'];
+  } else {
+    // Default NPM library build for bundler consumers (Vue, React, Next.js, etc.)
+    entry = resolve(import.meta.dirname, 'src/index.ts');
+    formats = ['es', 'cjs'];
+  }
 
   return {
     resolve: {
@@ -14,18 +29,24 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: 'dist',
-      emptyOutDir: !isSlim,
+      emptyOutDir: !isSlim && !isUmd,
       sourcemap: true,
       minify: true,
       lib: {
         entry,
         name: 'Visua11yAgent',
-        formats: ['es', 'cjs', 'iife'],
+        formats,
         fileName: (format) => {
-          const prefix = isSlim ? 'visua11y-agent.slim' : 'visua11y-agent';
-          if (format === 'es') return `${prefix}.esm.js`;
-          if (format === 'cjs') return `${prefix}.cjs.js`;
-          return `${prefix}.umd.js`;
+          if (isSlim) {
+            if (format === 'es') return 'visua11y-agent.slim.esm.js';
+            if (format === 'cjs') return 'visua11y-agent.slim.cjs.js';
+            return 'visua11y-agent.slim.umd.js';
+          }
+          if (isUmd) {
+            return 'visua11y-agent.umd.js';
+          }
+          if (format === 'es') return 'visua11y-agent.esm.js';
+          return 'visua11y-agent.cjs.js';
         },
       },
       rollupOptions: {
