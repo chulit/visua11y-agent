@@ -10,6 +10,7 @@ async function initialize() {
 
     const options = {
       lang: getDefaultLanguage(),
+      languages: getScriptDataAttribute('languages'),
       position: getScriptDataAttribute('position'),
       offset: getScriptDataAttribute('offset')?.split(',').map(Number),
       size: getScriptDataAttribute('size'),

@@ -9,18 +9,30 @@ import { userSettings, getSavedUserSettings, saveUserSettings } from '@/config/u
 
 import { pluginConfig, pluginDefaults } from '@/config/pluginConfig';
 import { changeLanguage } from '@/i18n/changeLanguage';
-import { IRegisterLanguageOptions, registerLanguage, resolveLanguageCode, loadLanguages } from '@/i18n/Languages';
+import { 
+  IRegisterLanguageOptions, 
+  registerLanguage, 
+  resolveLanguageCode, 
+  loadLanguages,
+  resolveAllowedLanguages,
+  getAvailableLanguages,
+  isLanguageAllowed
+} from '@/i18n/Languages';
 import { resolveWidgetSize } from '@/config/widgetSize';
 
 export default function visua11yAgent({ options }) {
   const savedSettings = getSavedUserSettings() || {};
 
   const providedOptions = options || {};
-  const { size: incomingSize, buttonSize, ...restOptions } = providedOptions;
+  const { size: incomingSize, buttonSize, languages: incomingLanguages, ...restOptions } = providedOptions;
 
   Object.assign(pluginConfig, restOptions);
   if (typeof buttonSize === 'number') {
     pluginConfig.buttonSize = buttonSize;
+  }
+
+  if (incomingLanguages) {
+    pluginConfig.languages = resolveAllowedLanguages(incomingLanguages);
   }
 
   const resolvedOptionSize = resolveWidgetSize(
@@ -31,6 +43,7 @@ export default function visua11yAgent({ options }) {
   pluginConfig.panelWidth = resolvedOptionSize.panelWidth;
 
   pluginDefaults.lang = pluginConfig.lang;
+  pluginDefaults.languages = pluginConfig.languages;
   pluginDefaults.position = pluginConfig.position;
   pluginDefaults.offset = Array.isArray(pluginConfig.offset) ? [...pluginConfig.offset] : [20, 20];
   pluginDefaults.size = pluginConfig.size;
@@ -50,11 +63,17 @@ export default function visua11yAgent({ options }) {
     pluginConfig.panelWidth = resolvedUserSize.panelWidth;
   }
 
-  const initialLanguage = resolveLanguageCode(userSettings.lang || pluginConfig.lang);
-  userSettings.lang = initialLanguage;
-  pluginConfig.lang = initialLanguage;
+  const availableLanguages = getAvailableLanguages(pluginConfig.languages);
+  let resolvedLang = resolveLanguageCode(userSettings.lang || pluginConfig.lang);
+
+  if (pluginConfig.languages && !isLanguageAllowed(resolvedLang, pluginConfig.languages)) {
+    resolvedLang = availableLanguages[0]?.code || 'en';
+  }
+
+  userSettings.lang = resolvedLang;
+  pluginConfig.lang = resolvedLang;
   if (typeof document !== 'undefined' && document.documentElement) {
-    document.documentElement.lang = initialLanguage;
+    document.documentElement.lang = resolvedLang;
   }
 
   if (userSettings.position) {
@@ -67,7 +86,7 @@ export default function visua11yAgent({ options }) {
 
   runAccessibility();
   renderWidget();
-  loadLanguages(initialLanguage).then(() => {
+  loadLanguages(resolvedLang).then(() => {
     translateWidget();
   });
 
