@@ -8,7 +8,9 @@
   <link rel="icon" type="image/webp" href="/src/icons/logo.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 
   <style>
     :root {
@@ -56,7 +58,7 @@
 
     header h1 {
       margin: 0 0 12px;
-      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
       font-weight: 800;
       letter-spacing: -0.02em;
     }
@@ -64,7 +66,7 @@
     header p {
       max-width: 680px;
       margin: 0 auto;
-      font-size: 1.05rem;
+      font-size: 0.9rem;
       color: #e0e7ff;
       font-weight: 400;
       line-height: 1.6;
@@ -223,19 +225,41 @@
     }
 
     @keyframes shimmer {
-      from { transform: translateX(-20%); }
-      to { transform: translateX(120%); }
+      from {
+        transform: translateX(-20%);
+      }
+
+      to {
+        transform: translateX(120%);
+      }
     }
 
     @keyframes orbit {
-      0% { transform: rotate(0deg) translateX(48px) rotate(0deg); }
-      50% { transform: rotate(180deg) translateX(48px) rotate(-180deg); }
-      100% { transform: rotate(360deg) translateX(48px) rotate(-360deg); }
+      0% {
+        transform: rotate(0deg) translateX(48px) rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(180deg) translateX(48px) rotate(-180deg);
+      }
+
+      100% {
+        transform: rotate(360deg) translateX(48px) rotate(-360deg);
+      }
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.35; }
-      50% { transform: scale(1.08); opacity: 0.7; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.35;
+      }
+
+      50% {
+        transform: scale(1.08);
+        opacity: 0.7;
+      }
     }
 
     /* Media Lab */
@@ -657,7 +681,8 @@
         </article>
       </div>
 
-      <p id="helperStatus" class="helper-status" role="status" aria-live="polite">Use the controls above after the widget finishes loading.</p>
+      <p id="helperStatus" class="helper-status" role="status" aria-live="polite">Use the controls above after the
+        widget finishes loading.</p>
     </section>
 
     <section>
@@ -876,13 +901,13 @@
       // Set Profile
       document.getElementById('setProfileBlind')?.addEventListener('click', async () => {
         const plugin = await waitForPlugin();
-        plugin.setProfile('blind');
+        plugin.setProfile('blind-mode');
         updateStatus('Blind profile activated.');
       });
 
       document.getElementById('setProfileLowVision')?.addEventListener('click', async () => {
         const plugin = await waitForPlugin();
-        plugin.setProfile('low-vision');
+        plugin.setProfile('low-vision-mode');
         updateStatus('Low vision profile activated.');
       });
 
