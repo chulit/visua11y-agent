@@ -38,9 +38,9 @@ function hslToHex(h: number, s: number, l: number): string {
   const huePrime = (Math.max(0, Math.min(360, h)) % 360) / 60;
   const x = chroma * (1 - Math.abs((huePrime % 2) - 1));
 
-  let r = 0,
-    g = 0,
-    b = 0;
+  let r: number;
+  let g: number;
+  let b: number;
 
   if (huePrime >= 0 && huePrime < 1) {
     r = chroma;
@@ -62,10 +62,14 @@ function hslToHex(h: number, s: number, l: number): string {
     r = x;
     g = 0;
     b = chroma;
-  } else {
+  } else if (huePrime >= 5 && huePrime < 6) {
     r = chroma;
     g = 0;
     b = x;
+  } else {
+    r = 0;
+    g = 0;
+    b = 0;
   }
 
   const m = lightness - chroma / 2;
@@ -112,7 +116,7 @@ function hexToHue(hex: string, fallback: number): number {
     return fallback;
   }
 
-  let hue = 0;
+  let hue: number;
 
   if (max === rNorm) {
     hue = ((gNorm - bNorm) / delta) % 6;
