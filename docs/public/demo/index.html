@@ -5,200 +5,156 @@
   <meta charset="utf-8" />
   <title>Visua11y Agent Accessibility Widget Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/webp" href="./logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --primary: #3b52d9;
+      --primary-hover: #2d41b8;
+      --primary-subtle: #eef2ff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family:
-        'Segoe UI',
-        system-ui,
-        -apple-system,
-        sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       margin: 0;
       line-height: 1.6;
-      background: #f4f6fb;
-      color: #1f2937;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
-      padding: 36px 24px 32px;
-      background: linear-gradient(135deg, #305dff 0%, #4c38ff 100%);
+      padding: 48px 24px 44px;
+      background: linear-gradient(135deg, #2546e8 0%, #4338ca 100%);
       color: white;
       text-align: center;
     }
 
+    .header-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
     header h1 {
-      margin-bottom: 12px;
-      font-size: clamp(2rem, 6vw, 3rem);
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     header p {
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto;
       font-size: 1.05rem;
+      color: #e0e7ff;
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 32px 24px 80px;
-      background: white;
-      border-radius: 18px 18px 0 0;
-      box-shadow: 0 32px 64px rgb(15 23 42 / 12%);
-      margin-top: -20px;
+      max-width: 1040px;
+      margin: -24px auto 60px;
+      padding: 40px 32px 80px;
+      background: var(--card-bg);
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border);
+      border-bottom: none;
     }
 
     section+section {
-      margin-top: 48px;
+      margin-top: 56px;
     }
 
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-intro {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+
+    /* Feature Grid */
     .feature-grid {
       display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin-top: 24px;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 20px;
     }
 
     .feature-card {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 20px;
-      border: 1px solid #e2e8f0;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+      transition: transform 0.15s, border-color 0.15s;
+    }
+
+    .feature-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
     }
 
     .feature-card h3 {
-      margin-top: 0;
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .feature-card ul {
       margin: 12px 0 0;
-      padding-left: 18px;
+      padding-left: 20px;
+      color: var(--text-muted);
     }
 
     .feature-card li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
     }
 
-    .helper-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      margin-top: 24px;
-    }
-
-    .helper-card {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 20px;
-      border: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .helper-card h3 {
-      margin: 0;
-    }
-
-    .helper-card p {
-      margin: 0;
-    }
-
-    .helper-card .hint {
-      color: #475569;
-      font-size: 0.9rem;
-    }
-
-    .helper-card .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .helper-card button,
-    .helper-card select {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid #6366f1;
-      background: white;
-      color: #312e81;
-      cursor: pointer;
-    }
-
-    .helper-card select {
-      border-radius: 12px;
-      min-width: 180px;
-    }
-
-    .helper-card button:hover {
-      background: #eef2ff;
-    }
-
-    .helper-status {
-      margin-top: 24px;
-      color: #312e81;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .media-lab {
-      margin-top: 24px;
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .media-lab figure {
-      margin: 0;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: inset 0 0 0 1px rgb(99 102 241 / 10%);
-    }
-
-    .media-lab img,
-    .media-lab .swatch {
-      display: block;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 16px 32px rgb(15 23 42 / 12%);
-    }
-
-    .media-lab figcaption {
-      margin-top: 12px;
-      color: #475569;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      max-width: 960px;
-      margin: 32px auto;
-      padding: 24px;
-      text-align: center;
-      color: #4b5563;
-    }
-
+    /* Motion Lab */
     .motion-lab {
       margin-top: 24px;
       display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .motion-card {
       position: relative;
-      border-radius: 18px;
-      padding: 24px;
+      border-radius: var(--radius);
+      padding: 28px;
       min-height: 200px;
       overflow: hidden;
-      box-shadow: 0 24px 48px rgb(15 23 42 / 16%);
-      border: 1px solid rgba(79, 70, 229, 0.18);
-      background: linear-gradient(115deg,
-          rgba(79, 70, 229, 0.2) 0%,
-          rgba(59, 130, 246, 0.35) 45%,
-          rgba(129, 140, 248, 0.1) 100%);
-      backdrop-filter: blur(3px);
-      color: #111827;
+      border: 1px solid #e0e7ff;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(59, 130, 246, 0.12) 100%);
+      color: var(--text);
     }
 
     .motion-card--shimmer::before {
@@ -207,7 +163,7 @@
       inset: -120% -40%;
       background: linear-gradient(120deg,
           rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.65) 45%,
+          rgba(255, 255, 255, 0.6) 45%,
           rgba(255, 255, 255, 0) 100%);
       animation: shimmer 2.6s linear infinite;
     }
@@ -229,8 +185,8 @@
 
     .motion-orbit {
       position: relative;
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
     }
 
     .motion-orbit::before,
@@ -251,57 +207,185 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 22px;
-      height: 22px;
-      margin: -11px;
+      width: 20px;
+      height: 20px;
+      margin: -10px;
       border-radius: 999px;
       background: linear-gradient(135deg, #fbcfe8 0%, #a855f7 100%);
-      box-shadow: 0 12px 24px rgba(168, 85, 247, 0.35);
+      box-shadow: 0 8px 16px rgba(168, 85, 247, 0.35);
       animation: orbit 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
 
     .motion-note {
       margin-top: 12px;
-      color: #475569;
-      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
 
     @keyframes shimmer {
-      from {
-        transform: translateX(-20%);
-      }
-
-      to {
-        transform: translateX(120%);
-      }
+      from { transform: translateX(-20%); }
+      to { transform: translateX(120%); }
     }
 
     @keyframes orbit {
-      0% {
-        transform: rotate(0deg) translateX(52px) rotate(0deg);
-      }
-
-      50% {
-        transform: rotate(180deg) translateX(52px) rotate(-180deg);
-      }
-
-      100% {
-        transform: rotate(360deg) translateX(52px) rotate(-360deg);
-      }
+      0% { transform: rotate(0deg) translateX(48px) rotate(0deg); }
+      50% { transform: rotate(180deg) translateX(48px) rotate(-180deg); }
+      100% { transform: rotate(360deg) translateX(48px) rotate(-360deg); }
     }
 
     @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.35; }
+      50% { transform: scale(1.08); opacity: 0.7; }
+    }
 
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.35;
-      }
+    /* Media Lab */
+    .media-lab {
+      margin-top: 24px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
 
-      50% {
-        transform: scale(1.08);
-        opacity: 0.7;
-      }
+    .media-lab figure {
+      margin: 0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .media-lab img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .media-lab figcaption {
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Helper APIs Grid */
+    .helper-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 24px;
+    }
+
+    .helper-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .helper-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .helper-card p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .helper-card code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: #e2e8f0;
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0f172a;
+    }
+
+    .helper-card .hint {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    .helper-card .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .helper-card button,
+    .helper-card select {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: white;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .helper-card select {
+      width: 100%;
+    }
+
+    .helper-card button:hover {
+      background: var(--primary-subtle);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .helper-status {
+      margin-top: 24px;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: center;
+    }
+
+    /* Checklist */
+    .checklist-ol {
+      margin: 20px 0 0;
+      padding-left: 24px;
+      color: #334155;
+    }
+
+    .checklist-ol li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0f172a;
     }
 
     @media (max-width: 720px) {
@@ -319,7 +403,8 @@
 
 <body>
   <header>
-    <h1>Demo Visua11y Agent Accessibility Widget</h1>
+    <div class="header-badge">v1.8.0 Demo Playground</div>
+    <h1>Visua11y Agent Accessibility Widget Demo</h1>
     <p>
       Use this page to manually verify accessibility tools, widget placement, screen reader, and
       voice navigation behaviour. Build the project first with <code>npm run build</code> so the
@@ -330,7 +415,7 @@
   <main>
     <section>
       <h2>Feature Playground</h2>
-      <p>
+      <p class="section-intro">
         Use the widget controls to explore each accessibility feature. Each card below highlights
         behaviours you can validate directly on this page.
       </p>
@@ -388,7 +473,7 @@
 
     <section aria-labelledby="motionLabHeading">
       <h2 id="motionLabHeading">Motion Stress Test</h2>
-      <p>
+      <p class="section-intro">
         The cards below intentionally animate so you can confirm the widget's
         <strong>Stop Animations</strong> control halts motion on this page. Toggle the tool on and
         both experiences should immediately freeze.
@@ -396,7 +481,7 @@
 
       <div class="motion-lab">
         <article class="motion-card motion-card--shimmer" aria-describedby="shimmerNote">
-          <h3>Shimmering Spotlight</h3>
+          <h3 style="margin-top: 0;">Shimmering Spotlight</h3>
           <p>
             This card uses a sweeping highlight animation. When Stop Animations is active, the glow
             should pause instead of sliding endlessly.
@@ -419,7 +504,7 @@
 
     <section>
       <h2>Image Desaturation Testbed</h2>
-      <p>
+      <p class="section-intro">
         Scroll the widget to <strong>Motion &amp; Cursor</strong> and toggle
         <em>Image Desaturation</em>. The colourful assets below should switch to grayscale
         instantly; turn the setting off to restore the original hues.
@@ -427,18 +512,16 @@
 
       <div class="media-lab">
         <figure>
-          <img src="./logo.webp" alt="Visua11y Agent hero banner with gradient background and illustration"
-            style="width: 240px" />
+          <img src="/src/icons/logo.webp" alt="Visua11y Agent hero banner logo" style="width: 140px;" />
           <figcaption>
-            Expect the banner illustration to lose its purple/blue gradient and appear black and
-            white.
+            Expect the banner illustration to lose its purple/blue gradient and appear in grayscale.
           </figcaption>
         </figure>
 
         <figure>
           <img
             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b6b'/%3E%3Cstop offset='50%25' stop-color='%23feca57'/%3E%3Cstop offset='100%25' stop-color='%2348dbfb'/%3E%3C/linearGradient%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='40' height='40'%3E%3Crect width='40' height='40' fill='url(%23g)'/%3E%3Ccircle cx='20' cy='20' r='12' fill='%23341f97' opacity='0.75'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23p)'/%3E%3C/svg%3E"
-            alt="Vibrant gradient pattern sample" />
+            alt="Vibrant gradient pattern sample" style="width: 240px; border-radius: 8px;" />
           <figcaption>
             This synthetic gradient highlights how saturation drops across complex colour blends.
           </figcaption>
@@ -448,7 +531,7 @@
 
     <section>
       <h2>Developer Hooks &amp; APIs</h2>
-      <p>
+      <p class="section-intro">
         After the bundle loads it exposes <code>window.Visua11yAgentPlugin</code> so you can wire
         the widget to your app. Try the helpers below or trigger them manually from the browser
         console.
@@ -459,7 +542,7 @@
           <h3>Launcher Icon</h3>
           <p>Swap the floating button icon using <code>setIcon</code>.</p>
           <div class="controls">
-            <button type="button" id="setEmojiIcon">Use Emoji Icon</button>
+            <button type="button" id="setEmojiIcon">Use Emoji Icon 🌈</button>
             <button type="button" id="setDefaultIcon">Reset Icon</button>
           </div>
         </article>
@@ -472,7 +555,7 @@
             <option value="fr">Français (fr)</option>
             <option value="es">Español (es)</option>
             <option value="de">Deutsch (de)</option>
-            <option value="id">Bahasa Indonesia (custom)</option>
+            <option value="id">Bahasa Indonesia (id)</option>
           </select>
         </article>
 
@@ -481,8 +564,7 @@
           <p>Register a bespoke locale with <code>registerLanguage</code>.</p>
           <button type="button" id="registerLanguage">Register Bahasa Indonesia</button>
           <p class="hint">
-            The dictionary contains a small subset of labels—extend it from the console to
-            experiment.
+            The dictionary contains a localized subset of labels.
           </p>
         </article>
 
@@ -546,7 +628,6 @@
             <button type="button" id="setProfileBlind">Blind Profile</button>
             <button type="button" id="setProfileLowVision">Low Vision Profile</button>
           </div>
-          <p class="hint">Note: Profile application may require menu re-open.</p>
         </article>
 
         <article class="helper-card">
@@ -576,12 +657,12 @@
         </article>
       </div>
 
-      <p id="helperStatus" class="helper-status" role="status" aria-live="polite"></p>
+      <p id="helperStatus" class="helper-status" role="status" aria-live="polite">Use the controls above after the widget finishes loading.</p>
     </section>
 
     <section>
       <h2>Manual Checklist</h2>
-      <ol>
+      <ol class="checklist-ol">
         <li>Open the widget and move the launcher to each supported corner.</li>
         <li>Apply typography adjustments and verify the text wraps cleanly.</li>
         <li>Test high-contrast, monochrome, and custom color palette modes.</li>
@@ -635,11 +716,9 @@
 
       const updateStatus = (message) => {
         if ($helperStatus) {
-          $helperStatus.textContent = message;
+          $helperStatus.textContent = `[Status] ${message}`;
         }
       };
-
-      updateStatus('Use the controls above after the widget finishes loading.');
 
       const waitForPlugin = () =>
         new Promise((resolve) => {
