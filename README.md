@@ -155,6 +155,18 @@ See the [Documentation Guides](https://chulit.github.io/visua11y-agent/guide/uni
 
 Control the widget via `data-visua11y-agent-*` script attributes or programmatically via the `createVisua11yAgent()` options object.
 
+### JavaScript Options Reference (NPM / Frameworks)
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| **`lang`** | `string` | `'en'` | Default interface language code (e.g. `'id'`, `'en'`, `'es'`). |
+| **`languages`** | `string[]` \| `string` | `undefined` (All 53) | **Language Whitelist**: Array or comma-separated list of allowed languages (e.g. `['id', 'en']` or `'id,en'`). |
+| **`position`** | `string` | `'bottom-left'` | Launcher floating button position (`'bottom-right'`, `'bottom-left'`, `'top-right'`, `'top-left'`, `'center-right'`, `'center-left'`, `'bottom-center'`, `'top-center'`). |
+| **`offset`** | `number[]` \| `string` | `[20, 20]` | Margin distance `[X, Y]` in pixels from the edge of the viewport. |
+| **`size`** | `string` \| `number` | `'default'` | Widget/drawer size preset: `'small'`, `'medium'`, `'default'` / `'large'`. |
+| **`buttonSize`** | `number` | `58` | Explicit launcher button diameter in pixels (e.g. `48`, `56`, `64`). |
+| **`icon`** | `string` | SVG icon | Custom launcher button icon: SVG string, image URL, or template selector (e.g. `'#my-icon'`). |
+
 ### Script Attributes
 
 | Attribute | Description | Example |
