@@ -1,37 +1,16 @@
-# Konfigurasi
+# Panduan Konfigurasi Lengkap
 
-Kontrol widget melalui atribut `data-visua11y-agent-*` pada tag script atau dengan memanggil helper pada `window.Visua11yAgentPlugin` setelah dimuat.
+Visua11y Agent menyediakan opsi konfigurasi yang sangat fleksibel dan lengkap untuk framework JavaScript modern (Vue, React, Next.js, Nuxt, Svelte, Angular) maupun implementasi langsung melalui script-tag CDN.
 
-## Contoh Quick Start
+---
 
-```html
-<script
-  src="https://unpkg.com/visua11y-agent"
-  data-visua11y-agent-lang="id"
-  data-visua11y-agent-position="bottom-right"
-  data-visua11y-agent-offset="24,24"
-  defer
-></script>
-```
+## 🚀 Quick Start
 
-## Atribut Script
- 
-| Atribut                        | Deskripsi                                                                                                          | Contoh                                            |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| `data-visua11y-agent-lang`     | Atur bahasa UI default.                                                                                            | `data-visua11y-agent-lang="id"`                   |
-| `data-visua11y-agent-languages`| Batasi bahasa yang tersedia (dipisah koma). Jika hanya 1 bahasa, tombol bahasa di header otomatis disembunyikan.    | `data-visua11y-agent-languages="id,en,es"`        |
-| `data-visua11y-agent-position` | Pilih di mana launcher muncul (`bottom-right`, `bottom-left`, `top-right`, `top-left`, dll.).                       | `data-visua11y-agent-position="bottom-right"`     |
-| `data-visua11y-agent-offset`   | Sesuaikan offset launcher (`x,y`).                                                                                 | `data-visua11y-agent-offset="24,24"`              |
-| `data-visua11y-agent-size`     | Ubah preset ukuran tombol (`default`, `medium`, `small`).                                                          | `data-visua11y-agent-size="medium"`               |
-| `data-visua11y-agent-icon`     | Berikan HTML kustom, URL gambar, atau selector template untuk ikon launcher.                                       | `data-visua11y-agent-icon="<span>♿️</span>"`      |
+::: code-group
 
-## Opsi Konfigurasi JavaScript (NPM / Frameworks)
-
-Saat mengimpor `visua11y-agent` atau `visua11y-agent/slim` pada React, Vue, Next.js, atau Vite, Anda dapat mengonfigurasi widget menggunakan `createVisua11yAgent` atau `visua11yAgent`:
-
-```javascript
+```javascript [Vue 3 / React / Modern Bundlers]
 import { createVisua11yAgent } from 'visua11y-agent';
-// Atau jika menggunakan slim: import { createVisua11yAgent } from 'visua11y-agent/slim';
+// Atau versi lightweight: import { createVisua11yAgent } from 'visua11y-agent/slim';
 
 const agent = createVisua11yAgent({
   lang: 'id',
@@ -40,104 +19,273 @@ const agent = createVisua11yAgent({
   offset: [24, 24],
   size: 'medium',
   buttonSize: 56,
-  icon: '<svg viewBox="0 0 24 24">...</svg>',
 });
 ```
 
-### Tabel Referensi Opsi Lengkap
+```html [HTML / CDN Script Tag]
+<script
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent/dist/visua11y-agent.umd.js"
+  data-visua11y-agent-lang="id"
+  data-visua11y-agent-languages="id,en,es"
+  data-visua11y-agent-position="bottom-right"
+  data-visua11y-agent-offset="24,24"
+  defer
+></script>
+```
+
+:::
+
+---
+
+## 📋 Tabel Referensi Opsi Lengkap
+
+Saat menginisialisasi `visua11y-agent`, Anda dapat memberikan opsi konfigurasi baik melalui `createVisua11yAgent(options)` maupun `visua11yAgent(options)`:
 
 | Opsi | Tipe Data | Nilai Default | Deskripsi |
 | :--- | :--- | :--- | :--- |
-| **`lang`** | `string` | `'en'` | Bahasa antarmuka default (contoh: `'id'`, `'en'`, `'es'`). |
-| **`languages`** | `string[]` \| `string` | `undefined` (Semua 53) | **Whitelist Bahasa**: Array atau teks dipisah koma untuk membatasi pilihan bahasa (contoh: `['id', 'en']` atau `'id,en'`). |
-| **`position`** | `string` | `'bottom-left'` | Posisi floating trigger button: `'bottom-right'`, `'bottom-left'`, `'top-right'`, `'top-left'`, `'center-right'`, `'center-left'`, `'bottom-center'`, `'top-center'`. |
-| **`offset`** | `number[]` \| `string` | `[20, 20]` | Jarak margin `[X, Y]` dalam pixel dari tepi layar. |
-| **`size`** | `string` \| `number` | `'default'` | Preset ukuran widget / drawer panel: `'small'`, `'medium'`, `'default'` / `'large'`. |
-| **`buttonSize`** | `number` | `58` | Ukuran diameter trigger button dalam pixel (contoh: `48`, `56`, `64`). |
-| **`icon`** | `string` | SVG bawaan | Kustom ikon launcher button: string SVG, URL gambar, atau selector template (contoh: `'#my-icon'`). |
+| **`lang`** | `string` | `'en'` | Bahasa UI awal. Mendukung 53 bahasa dunia. Dinormalisasi secara otomatis (misal: `'id-ID'` &rarr; `'id'`). |
+| **`languages`** | `string[]` \| `string` | `undefined` *(Semua 53)* | **Whitelist Bahasa**: Array atau teks dipisah koma untuk membatasi bahasa yang ditampilkan (misal: `['id', 'en']` atau `'id,en'`). Jika hanya 1 bahasa, tombol pemilih bahasa di header otomatis disembunyikan. |
+| **`position`** | `string` | `'bottom-left'` | Posisi jangkar layar untuk floating trigger button. Mendukung 8 posisi: `'bottom-right'`, `'bottom-left'`, `'top-right'`, `'top-left'`, `'center-right'`, `'center-left'`, `'bottom-center'`, `'top-center'`. |
+| **`offset`** | `number[]` \| `string` | `[20, 20]` | Jarak margin `[X, Y]` (dalam pixel) dari tepi layar. Dapat berupa array `[24, 24]` atau teks `'24,24'`. |
+| **`size`** | `string` \| `number` | `'default'` | Preset ukuran widget: `'small'`, `'medium'`, `'default'` / `'large'`, atau nilai pixel numerik lebar panel drawer. |
+| **`buttonSize`** | `number` | `58` | Diameter khusus tombol trigger launcher dalam pixel (misal: `48`, `56`, `64`). |
+| **`icon`** | `string` | SVG default | Kustom markup SVG HTML, URL gambar, atau selector elemen template (misal: `'#custom-icon-template'`). |
 
-## Whitelist Bahasa & Sembunyikan Otomatis Bahasa Tunggal
+---
 
-Anda dapat membatasi daftar bahasa yang tersedia di dalam widget menggunakan whitelist:
+## 🎯 Penjelasan Detail Setiap Opsi
+
+### 1. `position` (Posisi Tombol Trigger)
+
+Tempatkan tombol aksesibilitas melayang pada salah satu dari 8 titik sudut/sisi layar:
+
+```text
+┌────────────────────────────────────────────────────────┐
+│ [top-left]            [top-center]         [top-right] │
+│                                                        │
+│ [center-left]                                  [center-right]
+│                                                        │
+│ [bottom-left]        [bottom-center]    [bottom-right] │
+└────────────────────────────────────────────────────────┘
+```
 
 ```javascript
-import { createVisua11yAgent } from 'visua11y-agent';
+createVisua11yAgent({
+  position: 'bottom-right', // Direkomendasikan untuk visibilitas terbaik
+});
+```
 
+### 2. `offset` (Jarak Margin dari Tepi Layar)
+
+Mengatur jarak horizontal (X) dan vertikal (Y) dari batas viewport dalam pixel:
+
+```javascript
+createVisua11yAgent({
+  position: 'bottom-right',
+  offset: [30, 30], // 30px dari kanan, 30px dari bawah
+});
+```
+
+### 3. `languages` (Whitelist Bahasa & Sembunyikan Otomatis)
+
+Batasi daftar bahasa yang tersedia agar sesuai dengan bahasa yang didukung oleh website Anda:
+
+```javascript
 // Whitelist beberapa bahasa pilihan
 createVisua11yAgent({
   languages: ['id', 'en', 'es'],
-  lang: 'id',
+  lang: 'id', // Bahasa default aktif
 });
 
-// Bahasa tunggal: Tombol ikon bahasa di header modal otomatis disembunyikan
+// Mode Bahasa Tunggal:
+// Jika hanya ditentukan tepat 1 bahasa, tombol pemilih bahasa
+// pada header modal akan otomatis disembunyikan agar tampilan tetap rapi!
 createVisua11yAgent({
   languages: ['id'],
 });
 ```
 
-## Bahasa Kustom & Modifikasi Kamus Terjemahan
+### 4. `size` & `buttonSize` (Ukuran Widget & Tombol)
 
-Daftarkan bahasa kustom, dialek daerah, atau ubah istilah bisnis pada kamus yang sudah ada:
+Menyesuaikan ukuran tombol pemicu dan panel menu drawer:
+
+```javascript
+createVisua11yAgent({
+  size: 'medium',    // Preset ukuran panel ('small', 'medium', 'default')
+  buttonSize: 52,    // Diameter tombol khusus dalam pixel
+});
+```
+
+### 5. `icon` (Kustom Ikon Launcher)
+
+Kustomisasi ikon tombol pemicu menggunakan inline SVG, URL file gambar, atau elemen template HTML:
+
+::: code-group
+
+```javascript [Inline SVG]
+createVisua11yAgent({
+  icon: `<svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z"/>
+  </svg>`
+});
+```
+
+```javascript [URL Gambar / WebP]
+createVisua11yAgent({
+  icon: 'https://example.com/assets/accessibility-icon.webp'
+});
+```
+
+```html [Template HTML]
+<!-- HTML -->
+<template id="my-a11y-icon">
+  <span class="custom-badge">♿</span>
+</template>
+
+<!-- JS -->
+<script>
+createVisua11yAgent({
+  icon: '#my-a11y-icon'
+});
+</script>
+```
+
+:::
+
+---
+
+## 🌐 Bahasa Kustom & Modifikasi Istilah Kamus
+
+Visua11y Agent dilengkapi dengan engine internasionalisasi runtime yang memungkinkan Anda menambahkan bahasa baru, dialek lokal, atau istilah branding korporat.
+
+### Mendaftarkan Bahasa Baru / Dialek Daerah
 
 ```javascript
 import { createVisua11yAgent } from 'visua11y-agent';
 
 const agent = createVisua11yAgent();
 
-// 1. Daftarkan bahasa kustom / dialek baru
+// Daftarkan Basa Jawa (jv)
 agent.registerLanguage({
   code: 'jv',
   label: 'Basa Jawa (Javanese)',
   dictionary: {
     'Accessibility Menu': 'Menu Aksesibilitas',
     'Reset settings': 'Wangsulaken Sedaya Setelan',
+    'Content Adjustments': 'Pangaturan Konten',
+    'Color Adjustments': 'Pangaturan Werna',
     'Screen Reader': 'Pamaos Layar',
+    'Voice Navigation': 'Navigasi Swara',
+    'Custom Color': 'Werna Kustom',
+    'Widget Position': 'Papan Widget',
+    'Language': 'Basa',
+    'Search languages': 'Padosi basa...',
+    'Open Accessibility Menu': 'Bukak Menu Aksesibilitas',
+    'Close Accessibility Menu': 'Tutup Menu Aksesibilitas',
   }
 });
 
-// 2. Override istilah tertentu (misal: istilah enterprise / brand)
+// Aktifkan bahasa yang baru didaftarkan
+agent.changeLanguage('jv');
+```
+
+### Meng-override Istilah Kamus Tertentu (`merge: true`)
+
+Gunakan `merge: true` untuk menimpa kata kunci tertentu tanpa perlu menulis ulang seluruh kamus:
+
+```javascript
 agent.registerLanguage({
   code: 'id',
   label: 'Bahasa Indonesia (Kustom)',
-  merge: true, // Menggabungkan dengan kamus bawaan yang ada
+  merge: true,
   dictionary: {
     'Accessibility Menu': 'Pusat Inklusi Perusahaan',
+    'Reset settings': 'Kembalikan Pengaturan Awal',
+    'Screen Reader': 'Asisten Audio Cerdas',
   }
 });
 ```
 
-## Profil Aksesibilitas
+---
 
-Visua11y Agent menyediakan 8 profil preset standar WCAG/ADA yang tersimpan otomatis di `localStorage`:
+## ♿ Profil Preset Aksesibilitas (WCAG 2.1 / ADA)
 
-| Profil | Deskripsi & Penyesuaian Alat |
-| :--- | :--- |
-| `Motor Impaired` | Kursor besar, navigasi suara, hentikan animasi, ukuran font +10%. |
-| `Blind` | Kontras tinggi, pembaca layar, navigasi suara, ukuran font +15%. |
-| `Color Blind` | Filter optik matriks Protanopia, font disleksia, penyorotan tautan. |
-| `Dyslexia` | Font OpenDyslexic, spasi huruf ekstra, tinggi baris bertambah, teks tebal. |
-| `Low Vision` | Penskalaan font 130%, kontras gelap, font mudah dibaca, kursor besar. |
-| `Cognitive & Learning` | Penyorotan judul & tautan, panduan membaca, navigasi suara. |
-| `Seizure & Epileptic` | Hentikan semua animasi CSS/GIF, saturasi rendah, desaturasi gambar. |
-| `ADHD` | Overlay fokus panduan membaca, penyorotan konten, kontras menenangkan. |
+Visua11y Agent menyediakan 8 profil kurasi yang langsung menerapkan kombinasi alat aksesibilitas secara bersamaan:
 
-## Helper JavaScript
+| ID Profil | Nama Profil | Penyesuaian yang Diterapkan |
+| :--- | :--- | :--- |
+| `motor-impaired` | **Motor Impaired** | Kursor penunjuk besar, navigasi suara, nonaktifkan animasi, ukuran font +10%. |
+| `blind` | **Blind** | Mode kontras tinggi, pembaca layar TTS, navigasi suara, ukuran font +15%. |
+| `color-blind` | **Color Blind** | Filter optik matriks SVG Protanopia, font OpenDyslexic, penyorotan tautan. |
+| `dyslexia` | **Dyslexia** | Tipografi OpenDyslexic, spasi huruf ekstra, tinggi baris bertambah, judul tebal. |
+| `low-vision` | **Low Vision** | Skala font 130%, tema kontras gelap, font keterbacaan tinggi, kursor besar. |
+| `cognitive-learning`| **Cognitive & Learning** | Sorot judul & tautan, panduan fokus membaca, navigasi suara. |
+| `seizure-epileptic` | **Seizure & Epileptic** | Bekukan seluruh animasi CSS/GIF, saturasi rendah, desaturasi media. |
+| `adhd` | **ADHD** | Garis fokus panduan membaca, sorot judul/tautan, kontras menenangkan. |
 
-| Helper                                                 | Deskripsi                                         | Contoh                                                                                                                                        |
-| ------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `window.Visua11yAgentPlugin.setIcon(html)`             | Ganti ikon launcher floating.                     | `Visua11yAgentPlugin.setIcon("<span>🌈</span>")`                                                                                              |
-| `window.Visua11yAgentPlugin.changeLanguage(code)`      | Ubah bahasa UI saat runtime.                      | `Visua11yAgentPlugin.changeLanguage("id")`                                                                                                    |
-| `window.Visua11yAgentPlugin.registerLanguage(options)` | Daftarkan terjemahan baru secara langsung.        | `Visua11yAgentPlugin.registerLanguage({ code: "id", label: "Bahasa Indonesia", dictionary: { "Accessibility Menu": "Menu Aksesibilitas" } })` |
-| `window.Visua11yAgentPlugin.setWidgetSize(size)`     | Ubah ukuran tombol widget.                        | `Visua11yAgentPlugin.setWidgetSize("small")`                                                                                                  |
-| `window.Visua11yAgentPlugin.setPosition(position)`     | Pindahkan widget ke posisi baru.                  | `Visua11yAgentPlugin.setPosition("top-left")`                                                                                                 |
-| `window.Visua11yAgentPlugin.setOffset(offset)`         | Sesuaikan offset widget.                          | `Visua11yAgentPlugin.setOffset("50,50")`                                                                                                      |
-| `window.Visua11yAgentPlugin.openMenu()`                | Buka menu aksesibilitas.                          | `Visua11yAgentPlugin.openMenu()`                                                                                                              |
-| `window.Visua11yAgentPlugin.closeMenu()`               | Tutup menu aksesibilitas.                         | `Visua11yAgentPlugin.closeMenu()`                                                                                                             |
-| `window.Visua11yAgentPlugin.toggleTool(key, enable)`   | Toggle alat tertentu on atau off.                 | `Visua11yAgentPlugin.toggleTool("high-contrast", true)`                                                                                       |
-| `window.Visua11yAgentPlugin.setProfile(profileId)`     | Atur profil aksesibilitas aktif.                  | `Visua11yAgentPlugin.setProfile("blind")`                                                                                                     |
-| `window.Visua11yAgentPlugin.getSettings()`             | Dapatkan objek pengaturan pengguna saat ini.      | `console.log(Visua11yAgentPlugin.getSettings())`                                                                                              |
-| `window.Visua11yAgentPlugin.hideFooter(hide)`          | Sembunyikan atau tampilkan footer menu.           | `Visua11yAgentPlugin.hideFooter(true)`                                                                                                        |
-| `window.Visua11yAgentPlugin.setFooterSize(size)`       | Atur ukuran footer menu.                          | `Visua11yAgentPlugin.setFooterSize("small")`                                                                                                  |
-| `window.Visua11yAgentPlugin.resetAll()`                | Kembalikan default widget dan hapus pengaturan.   | `Visua11yAgentPlugin.resetAll()`                                                                                                              |
+```javascript
+// Mengaktifkan profil secara programatis
+agent.setProfile('color-blind');
+```
 
-Lihat `demo/index.html` untuk contoh praktis.
+---
+
+## 🛠️ Metode API Programatis
+
+Instance yang dikembalikan oleh `createVisua11yAgent()` (atau `window.Visua11yAgentPlugin`) menyediakan kendali runtime penuh:
+
+```typescript
+interface Visua11yAgentPlugin {
+  // Kontrol Menu
+  openMenu: () => void;
+  closeMenu: () => void;
+  toggleMenu: () => void;
+
+  // Bahasa & i18n
+  changeLanguage: (code: string) => void;
+  registerLanguage: (options: IRegisterLanguageOptions) => string;
+
+  // Tampilan & Posisi
+  setPosition: (position: string) => void;
+  setOffset: (offset: number[] | string) => void;
+  setWidgetSize: (size: string) => void;
+  setIcon: (html?: string) => void;
+  hideFooter: (hide: boolean) => void;
+  setFooterSize: (size: 'small' | 'medium' | 'large') => void;
+
+  // Alat Bantu & Profil
+  toggleTool: (key: string, enable?: boolean) => void;
+  setProfile: (profileId: string) => void;
+  resetAll: () => void;
+  getSettings: () => ISettings;
+}
+```
+
+---
+
+## 📡 Custom DOM Events
+
+Anda dapat mendengarkan perubahan status widget di aplikasi Anda:
+
+```javascript
+// Dipicu saat bahasa aktif berubah
+document.addEventListener('visua11y-agent:language:changed', (event) => {
+  console.log('Bahasa diubah ke:', event.detail.code);
+});
+
+// Dipicu saat bahasa baru didaftarkan secara dinamis
+document.addEventListener('visua11y-agent:languages:updated', (event) => {
+  console.log('Daftar bahasa diperbarui dengan:', event.detail.code);
+});
+```
+
+---
+
+## 💾 Penyimpanan & State Persistence
+
+Preferensi pengguna dan status alat bantu yang sedang aktif tersimpan secara otomatis di `localStorage` dengan kunci `visua11y-agent-settings`. Saat pengguna berpindah halaman atau me-refresh browser, seluruh pengaturan akan dipulihkan secara otomatis.
+
+Untuk mengembalikan pengaturan pengguna kembali ke default pabrik secara programatis:
+```javascript
+agent.resetAll();
+```
