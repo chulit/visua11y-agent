@@ -34,6 +34,11 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+    server: {
+      port: 5173,
+      open: '/demo/',
+      hmr: true,
+    },
     plugins: [
       {
         name: 'vite-plugin-raw-assets',
@@ -48,8 +53,16 @@ export default defineConfig(({ mode }) => {
         load(id) {
           if (id.startsWith('\0virtual-raw:')) {
             const cleanPath = id.replace('\0virtual-raw:', '').replace(/\.js$/, '');
+            this.addWatchFile(cleanPath);
             const content = fs.readFileSync(cleanPath, 'utf-8');
-            return `export default ${JSON.stringify(content)};`;
+            return `export default ${JSON.stringify(content)};
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    if (newModule) {
+      window.location.reload();
+    }
+  });
+}`;
           }
           return null;
         },

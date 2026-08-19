@@ -712,25 +712,6 @@
     data-visua11y-agent-offset="24,24"></script>
 
   <script>
-    (function () {
-      if (!('EventSource' in window)) {
-        return;
-      }
-
-      const source = new EventSource('/__hmr');
-      source.addEventListener('reload', (event) => {
-        try {
-          const info = JSON.parse(event.data);
-          console.debug('[Visua11y Agent] Reloading after change:', info.file);
-        } catch (err) {
-          console.debug('[Visua11y Agent] Reloading after change.');
-        }
-        window.location.reload();
-      });
-      source.onerror = () => {
-        console.warn('[Visua11y Agent] Hot reload connection lost. Attempting to reconnect...');
-      };
-    })();
 
     window.addEventListener('DOMContentLoaded', () => {
       const $setEmojiIcon = document.getElementById('setEmojiIcon');
