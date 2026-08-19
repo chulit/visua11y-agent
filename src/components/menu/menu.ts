@@ -8,7 +8,7 @@ export let $menu: HTMLElement | undefined;
 let focusTrapInstance: { enable: () => void; disable: () => void } | null = null;
 
 export function openMenu() {
-  if ($menu) {
+  if ($menu && document.body.contains($menu)) {
     toggleMenu(true);
   } else {
     $menu = renderMenu();

@@ -11,7 +11,7 @@ import adjustFontSize from '@/tools/adjustFontSize';
 import renderTools from './renderTools';
 import reset from './reset';
 
-import { ILanguage, LANGUAGES, resolveLanguageCode } from '@/i18n/Languages';
+import { ILanguage, LANGUAGES, resolveLanguageCode, getAvailableLanguages } from '@/i18n/Languages';
 
 import css from './menu.css';
 import enableContrast from '@/tools/enableContrast';
@@ -822,6 +822,17 @@ export default function renderMenu() {
 
   let languagePanelOpen = false;
 
+  const availableLanguages = getAvailableLanguages(pluginConfig.languages);
+  if ($languageWrapper) {
+    if (availableLanguages.length <= 1) {
+      $languageWrapper.style.display = 'none';
+      $languageWrapper.setAttribute('aria-hidden', 'true');
+    } else {
+      $languageWrapper.style.display = '';
+      $languageWrapper.removeAttribute('aria-hidden');
+    }
+  }
+
   const escapeHTML = (value: string = ''): string =>
     value.replace(/[&<>"']/g, (match) => {
       const map: Record<string, string> = {
@@ -851,7 +862,8 @@ export default function renderMenu() {
       return;
     }
     const code = getActiveLanguageCode();
-    const lang = LANGUAGES.find((language) => language.code === code);
+    const currentAvailable = getAvailableLanguages(pluginConfig.languages);
+    const lang = currentAvailable.find((language) => language.code === code) || LANGUAGES.find((language) => language.code === code);
     const translatedLabel = t('Language');
     const label = `${translatedLabel}: ${lang?.label || code}`;
     $languageToggle.setAttribute('title', translatedLabel);
@@ -867,8 +879,9 @@ export default function renderMenu() {
 
     const normalized = query.trim().toLowerCase();
     const selectedCode = getActiveLanguageCode();
+    const currentAvailable = getAvailableLanguages(pluginConfig.languages);
 
-    const items = LANGUAGES.filter((language) => {
+    const items = currentAvailable.filter((language) => {
       if (!normalized) {
         return true;
       }
