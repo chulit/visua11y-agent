@@ -19,7 +19,17 @@
     "a11y-agent",
     "reading-guide",
     "zero-dependency",
-    "userway-alternative"
+    "userway-alternative",
+    "aksesibilitas",
+    "aksesibilitas-web",
+    "widget-aksesibilitas",
+    "disabilitas",
+    "ramah-disabilitas",
+    "pembaca-layar",
+    "kontras-tinggi",
+    "buta-warna",
+    "disleksia",
+    "bahasa-indonesia"
   ],
   "main": "dist/visua11y-agent.cjs.js",
   "module": "dist/visua11y-agent.esm.js",
