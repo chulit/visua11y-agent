@@ -86,5 +86,8 @@ export default visua11yAgent;
 // Re-export core function with different name for clarity
 export { visua11yAgent };
 
+// Export version
+export { VERSION, VERSION as version } from './version';
+
 // Export types
 export type { ISettings } from './types/ISettings';

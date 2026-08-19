@@ -33,7 +33,8 @@ html = html.replace(
 // Ensure the script points to a relative bundle inside the demo folder.
 html = html.replace(/<script type="module" src="\/src\/entry\.ts"/, '<script src="./visua11y-agent.umd.js"');
 html = html.replace("../dist/visua11y-agent.umd.js", "./visua11y-agent.umd.js");
-html = html.replace('/src/icons/logo.webp', './logo.webp');
+html = html.replaceAll('/src/icons/logo-title.webp', './logo-title.webp');
+html = html.replaceAll('/src/icons/logo.webp', './logo.webp');
 
 fs.mkdirSync(docsPublicDir, { recursive: true });
 fs.writeFileSync(docsPublicHtml, html);
@@ -41,10 +42,15 @@ fs.writeFileSync(docsPublicHtml, html);
 // Copy the built UMD bundle next to the demo HTML so it can be served statically.
 fs.copyFileSync(bundlePath, path.join(docsPublicDir, "visua11y-agent.umd.js"));
 
-// Copy logo.webp next to the demo HTML.
+// Copy logo assets next to the demo HTML.
 const logoSource = path.join(projectRoot, "src", "icons", "logo.webp");
 if (fs.existsSync(logoSource)) {
   fs.copyFileSync(logoSource, path.join(docsPublicDir, "logo.webp"));
+}
+
+const logoTitleSource = path.join(projectRoot, "src", "icons", "logo-title.webp");
+if (fs.existsSync(logoTitleSource)) {
+  fs.copyFileSync(logoTitleSource, path.join(docsPublicDir, "logo-title.webp"));
 }
 
 console.log(`✅ Demo copied to ${docsPublicHtml}`);

@@ -1020,6 +1020,27 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   color: #396afc !important;
 }
 
+.visua11y-agent-footer-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.visua11y-agent-footer-version,
+.visua11y-agent-footer .visua11y-agent-footer-version {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  color: #6b7280 !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  line-height: 1.2 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  letter-spacing: 0.2px !important;
+}
+
 .visua11y-agent-footer-hidden {
   display: none !important;
 }
@@ -1042,6 +1063,11 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   font-size: 11px !important;
 }
 
+.visua11y-agent-footer-small .visua11y-agent-footer-version {
+  font-size: 8.5px !important;
+  padding: 0 4px !important;
+}
+
 .visua11y-agent-footer-large {
   padding: 20px 25px !important;
 }
@@ -1058,6 +1084,11 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 
 .visua11y-agent-footer-large small {
   font-size: 14px !important;
+}
+
+.visua11y-agent-footer-large .visua11y-agent-footer-version {
+  font-size: 11.5px !important;
+  padding: 1px 6px !important;
 }
 
 .visua11y-agent-menu-content {

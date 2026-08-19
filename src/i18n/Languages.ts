@@ -1,4 +1,5 @@
 import enLocale from '../locales/en.json';
+import { VERSION } from '../version';
 
 export const LANGUAGES: ILanguage[] = [
   { code: 'am', label: 'አማርኛ (Amharic)' },
@@ -146,7 +147,7 @@ export async function loadLanguage(code: string): Promise<Record<string, string>
     // 2. Fallback fetch via CDN jika dijalankan dari script tag di browser
     if (typeof fetch !== 'undefined') {
       try {
-        const res = await fetch(`https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.1/dist/locales/${resolvedCode}.json`);
+        const res = await fetch(`https://cdn.jsdelivr.net/npm/visua11y-agent@${VERSION}/dist/locales/${resolvedCode}.json`);
         if (res.ok) {
           const data = await res.json();
           LANGUAGE_DICTIONARY[resolvedCode] = data;

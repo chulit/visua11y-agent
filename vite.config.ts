@@ -68,9 +68,13 @@ export default defineConfig(({ mode }) => {
         name: 'vite-plugin-raw-assets',
         enforce: 'pre',
         resolveId(source, importer) {
+          // Only intercept raw asset imports from source files (must have an importer)
+          if (!importer) return null;
           if (source.endsWith('.html') || source.endsWith('.css') || source.endsWith('.svg')) {
-            const absolutePath = importer ? resolve(dirname(importer), source) : resolve(source);
-            return `\0virtual-raw:${absolutePath}.js`;
+            if (source.startsWith('.') || source.includes('/src/')) {
+              const absolutePath = resolve(dirname(importer), source);
+              return `\0virtual-raw:${absolutePath}.js`;
+            }
           }
           return null;
         },
@@ -106,6 +110,20 @@ if (import.meta.hot) {
 }`;
           }
           return null;
+        },
+        handleHotUpdate({ file, server }) {
+          if (file.includes('/src/') && (file.endsWith('.html') || file.endsWith('.css') || file.endsWith('.svg'))) {
+            const virtualId = `\0virtual-raw:${file}.js`;
+            const mod = server.moduleGraph.getModuleById(virtualId);
+            if (mod) {
+              server.moduleGraph.invalidateModule(mod);
+            }
+            server.ws.send({
+              type: 'full-reload',
+              path: '*',
+            });
+            return [];
+          }
         },
       },
     ],

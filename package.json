@@ -1,7 +1,7 @@
 {
   "name": "visua11y-agent",
   "type": "module",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Zero-dependency universal accessibility (a11y) website widget and toolbar for WCAG 2.1 & ADA compliance, high contrast, dyslexia fonts, screen reader, and voice navigation.",
   "keywords": [
     "accessibility",

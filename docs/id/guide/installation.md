@@ -33,9 +33,9 @@ const plugin = createVisua11yAgent({
 Gunakan distribusi CDN resmi dengan pinning versi untuk stabilitas aplikasi produksi:
 
 ```html
-<!-- Full UMD Bundle -->
+<!-- Full UMD Bundle (Pin versi tertentu, misal 1.8.2) -->
 <script
-  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.2/dist/visua11y-agent.umd.js"
   data-visua11y-agent-lang="id"
   data-visua11y-agent-position="bottom-right"
   defer
@@ -45,7 +45,7 @@ Gunakan distribusi CDN resmi dengan pinning versi untuk stabilitas aplikasi prod
 Atau via unpkg:
 ```html
 <script
-  src="https://unpkg.com/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  src="https://unpkg.com/visua11y-agent@1.8.2/dist/visua11y-agent.umd.js"
   defer
 ></script>
 ```

@@ -3,26 +3,29 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Visua11y Agent Accessibility Widget Demo</title>
+  <title>Visua11y Agent — Accessibility Widget Playground</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/webp" href="./logo.webp" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" type="image/webp" href="./logo.webp" /  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
 
   <style>
     :root {
-      --primary: #3b52d9;
-      --primary-hover: #2d41b8;
-      --primary-subtle: #eef2ff;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --radius: 14px;
+      --primary: #000000;
+      --primary-hover: #1f2937;
+      --secondary: #e5e7eb;
+      --accent: #000000;
+      --background: #fafafa;
+      --surface: #ffffff;
+      --surface-subtle: #f3f4f6;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --border: #e5e7eb;
+      --radius-card: 16px;
+      --radius-control: 8px;
+      --radius-pill: 9999px;
     }
 
     * {
@@ -30,694 +33,912 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       margin: 0;
+      font-size: 13.5px;
       line-height: 1.6;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--background);
+      color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
     }
 
-    header {
-      padding: 48px 24px 44px;
-      background: linear-gradient(135deg, #2546e8 0%, #4338ca 100%);
-      color: white;
-      text-align: center;
+    /* Top Nav Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
     }
 
-    .header-badge {
-      display: inline-block;
-      padding: 4px 14px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 14px;
-    }
-
-    header h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    header p {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 0.9rem;
-      color: #e0e7ff;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    main {
+    .top-nav-inner {
       max-width: 1040px;
-      margin: -24px auto 60px;
-      padding: 40px 32px 80px;
-      background: var(--card-bg);
-      border-radius: 20px 20px 0 0;
-      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .nav-brand img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      background: var(--surface-subtle);
+      color: var(--text-secondary);
       border: 1px solid var(--border);
-      border-bottom: none;
+      border-radius: var(--radius-pill);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
     }
 
-    section+section {
-      margin-top: 56px;
+    .btn-nav-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      font-size: 0.77rem;
+      font-weight: 500;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-primary);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text);
-      margin: 0 0 8px;
+    .btn-nav-action:hover {
+      background: var(--surface-subtle);
+      border-color: #d1d5db;
+    }
+
+    .btn-nav-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .btn-nav-primary:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      color: #ffffff;
+    }
+
+    /* Container */
+    .playground-container {
+      max-width: 1040px;
+      margin: 20px auto 44px;
+      padding: 0 16px;
+    }
+
+    /* Bento Grid Layout */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .bento-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px 20px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .bento-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Card Header */
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--surface-subtle);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
       letter-spacing: -0.01em;
     }
 
-    .section-intro {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 24px;
+    .card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.67rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-subtle);
+      color: var(--text-secondary);
     }
 
-    /* Feature Grid */
-    .feature-grid {
-      display: grid;
+    .card-desc {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Grid Spans */
+    .col-span-12 { grid-column: span 12; }
+    .col-span-8 { grid-column: span 8; }
+    .col-span-7 { grid-column: span 7; }
+    .col-span-5 { grid-column: span 5; }
+    .col-span-4 { grid-column: span 4; }
+    .col-span-6 { grid-column: span 6; }
+
+    /* Bento 1: Hero Banner Card */
+    .card-hero {
+      background: var(--surface);
+      border-color: var(--border);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
       gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 20px;
+      padding: 20px 24px;
     }
 
-    .feature-card {
-      background: var(--bg);
-      border-radius: var(--radius);
-      padding: 24px;
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      margin: 0 0 4px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content p {
+      margin: 0 0 12px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hero-badge-preview img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.05));
+    }
+
+    /* Bento: Article Simulator */
+    .article-sample {
+      background: var(--surface-subtle);
       border: 1px solid var(--border);
-      transition: transform 0.15s, border-color 0.15s;
+      border-radius: var(--radius-control);
+      padding: 12px 14px;
+      font-size: 0.81rem;
+      color: var(--text-primary);
+      line-height: 1.6;
     }
 
-    .feature-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-2px);
+    .article-sample h4 {
+      margin: 0 0 4px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-primary);
     }
 
-    .feature-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text);
+    .article-sample a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      font-weight: 500;
     }
 
-    .feature-card ul {
-      margin: 12px 0 0;
-      padding-left: 20px;
-      color: var(--text-muted);
-    }
-
-    .feature-card li {
-      margin-bottom: 8px;
-      font-size: 0.92rem;
-    }
-
-    /* Motion Lab */
-    .motion-lab {
-      margin-top: 24px;
+    /* Motion Lab Card */
+    .motion-preview-box {
       display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: auto;
     }
 
-    .motion-card {
+    .motion-mini-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-control);
+      padding: 10px;
+      text-align: center;
       position: relative;
-      border-radius: var(--radius);
-      padding: 28px;
-      min-height: 200px;
       overflow: hidden;
-      border: 1px solid #e0e7ff;
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(59, 130, 246, 0.12) 100%);
-      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
     }
 
-    .motion-card--shimmer::before {
+    .motion-mini-card--shimmer::before {
       content: '';
       position: absolute;
       inset: -120% -40%;
       background: linear-gradient(120deg,
           rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.6) 45%,
+          rgba(255, 255, 255, 0.8) 45%,
           rgba(255, 255, 255, 0) 100%);
-      animation: shimmer 2.6s linear infinite;
-    }
-
-    .motion-card--shimmer h3,
-    .motion-card--shimmer p {
-      position: relative;
-      z-index: 1;
-    }
-
-    .motion-card--orbit {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      gap: 16px;
+      animation: shimmer 2.4s linear infinite;
     }
 
     .motion-orbit {
       position: relative;
-      width: 110px;
-      height: 110px;
+      width: 48px;
+      height: 48px;
     }
 
-    .motion-orbit::before,
-    .motion-orbit::after {
+    .motion-orbit::before {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 999px;
-      border: 2px dashed rgba(79, 70, 229, 0.4);
-      animation: pulse 3.6s ease-in-out infinite;
-    }
-
-    .motion-orbit::after {
-      animation-delay: 1.8s;
+      border-radius: var(--radius-pill);
+      border: 1.5px dashed var(--text-secondary);
+      animation: pulse 3.2s ease-in-out infinite;
     }
 
     .motion-orbit-dot {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 20px;
-      height: 20px;
-      margin: -10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #fbcfe8 0%, #a855f7 100%);
-      box-shadow: 0 8px 16px rgba(168, 85, 247, 0.35);
-      animation: orbit 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-    }
-
-    .motion-note {
-      margin-top: 12px;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      width: 10px;
+      height: 10px;
+      margin: -5px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      animation: orbit 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
 
     @keyframes shimmer {
-      from {
-        transform: translateX(-20%);
-      }
-
-      to {
-        transform: translateX(120%);
-      }
+      from { transform: translateX(-30%); }
+      to { transform: translateX(130%); }
     }
 
     @keyframes orbit {
-      0% {
-        transform: rotate(0deg) translateX(48px) rotate(0deg);
-      }
-
-      50% {
-        transform: rotate(180deg) translateX(48px) rotate(-180deg);
-      }
-
-      100% {
-        transform: rotate(360deg) translateX(48px) rotate(-360deg);
-      }
+      0% { transform: rotate(0deg) translateX(19px) rotate(0deg); }
+      50% { transform: rotate(180deg) translateX(19px) rotate(-180deg); }
+      100% { transform: rotate(360deg) translateX(19px) rotate(-360deg); }
     }
 
     @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.35;
-      }
-
-      50% {
-        transform: scale(1.08);
-        opacity: 0.7;
-      }
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.08); opacity: 0.7; }
     }
 
-    /* Media Lab */
-    .media-lab {
-      margin-top: 24px;
+    /* Media Lab Gallery */
+    .media-gallery {
       display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: auto;
     }
 
-    .media-lab figure {
-      margin: 0;
-      background: var(--bg);
+    .media-item {
+      background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
+      border-radius: var(--radius-control);
+      padding: 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 4px;
     }
 
-    .media-lab img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .media-lab figcaption {
-      margin-top: 14px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    /* Helper APIs Grid */
-    .helper-grid {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 24px;
-    }
-
-    .helper-card {
-      background: var(--bg);
-      border-radius: var(--radius);
-      padding: 20px;
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .helper-card h3 {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .helper-card p {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .helper-card code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      background: #e2e8f0;
-      padding: 2px 5px;
+    .media-item img {
+      max-height: 44px;
+      width: auto;
+      object-fit: contain;
       border-radius: 4px;
-      color: #0f172a;
     }
 
-    .helper-card .hint {
-      font-size: 0.8rem;
-      color: #94a3b8;
+    .media-item span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-secondary);
     }
 
-    .helper-card .controls {
+    /* Controls & Buttons inside Bento Cards */
+    .controls-cluster {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 5px;
     }
 
-    .helper-card button,
-    .helper-card select {
-      padding: 8px 14px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-      background: white;
-      color: var(--text);
+    .btn-action {
+      padding: 5px 10px;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-primary);
       font-family: inherit;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.76rem;
+      font-weight: 500;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
     }
 
-    .helper-card select {
+    .btn-action:hover {
+      background: var(--surface-subtle);
+      border-color: #d1d5db;
+    }
+
+    .btn-action:active {
+      background: #e5e7eb;
+      transform: translateY(1px);
+    }
+
+    .select-input {
+      padding: 5px 8px;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.77rem;
+      font-weight: 500;
       width: 100%;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
     }
 
-    .helper-card button:hover {
-      background: var(--primary-subtle);
+    .select-input:hover {
+      border-color: #d1d5db;
+    }
+
+    .select-input:focus {
+      outline: none;
       border-color: var(--primary);
-      color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
     }
 
-    .helper-status {
-      margin-top: 24px;
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 0.88rem;
+    /* Developer API Subgrid */
+    .api-subgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .api-group {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-control);
+      padding: 9px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .api-group-title {
       font-family: 'JetBrains Mono', monospace;
-      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
     }
 
-    /* Checklist */
-    .checklist-ol {
-      margin: 20px 0 0;
-      padding-left: 24px;
-      color: #334155;
+    /* Terminal Console Card */
+    .terminal-card {
+      background: #000000;
+      border-color: #1f2937;
+      color: #f3f4f6;
     }
 
-    .checklist-ol li {
-      margin-bottom: 10px;
-      font-size: 0.95rem;
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1f2937;
+      padding-bottom: 7px;
+      margin-bottom: 8px;
     }
 
+    .terminal-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .terminal-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: var(--radius-pill);
+    }
+
+    .terminal-dot.red { background: #ef4444; }
+    .terminal-dot.yellow { background: #eab308; }
+    .terminal-dot.green { background: #22c55e; }
+
+    .terminal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .terminal-body {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      background: #09090b;
+      border: 1px solid #27272a;
+      border-radius: 6px;
+      padding: 8px 10px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      line-height: 1.4;
+      word-break: break-all;
+    }
+
+    .pulse-indicator {
+      width: 5px;
+      height: 5px;
+      border-radius: var(--radius-pill);
+      background: #22c55e;
+      box-shadow: 0 0 6px #22c55e;
+      flex-shrink: 0;
+    }
+
+    /* QA Checklist */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 6px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      background: var(--surface-subtle);
+      padding: 7px 9px;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border);
+    }
+
+    .checklist-item span.num {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.72rem;
+    }
+
+    /* Footer */
     footer {
       max-width: 1040px;
-      margin: 0 auto;
-      padding: 24px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      margin: 0 auto 28px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
     }
 
-    footer code {
-      font-family: 'JetBrains Mono', monospace;
-      background: #e2e8f0;
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: #0f172a;
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
     }
 
-    @media (max-width: 720px) {
-      main {
-        margin: 0 12px;
-        padding: 24px 18px 52px;
+    footer a:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 960px) {
+      .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 {
+        grid-column: span 12;
       }
+      .card-hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
 
-      footer {
-        margin: 24px 12px;
+    @media (max-width: 640px) {
+      .playground-container {
+        padding: 0 10px;
+        margin-top: 12px;
+      }
+      .bento-grid {
+        gap: 10px;
+      }
+      .bento-card {
+        padding: 12px 14px;
+      }
+      .motion-preview-box, .media-gallery {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="header-badge">v1.8.1 Demo Playground</div>
-    <h1>Visua11y Agent Accessibility Widget Demo</h1>
-    <p>
-      Use this page to manually verify accessibility tools, widget placement, screen reader, and
-      voice navigation behaviour. Build the project first with <code>npm run build</code> so the
-      script in <code>dist/</code> is up-to-date.
-    </p>
-  </header>
+  <!-- Top Nav -->
+  <nav class="top-nav" aria-label="Playground Navigation">
+    <div class="top-nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="./logo.webp" alt="Visua11y Agent Logo" />
+        <span style="font-weight: 700; font-size: 0.92rem; letter-spacing: -0.01em;">Visua11y Agent</span>
+      </a>
 
-  <main>
-    <section>
-      <h2>Feature Playground</h2>
-      <p class="section-intro">
-        Use the widget controls to explore each accessibility feature. Each card below highlights
-        behaviours you can validate directly on this page.
-      </p>
-
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3>Multilingual UI</h3>
-          <ul>
-            <li>Open the language picker in the widget and switch between bundled locales.</li>
-            <li>Use the custom registration action below to add Bahasa Indonesia on the fly.</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Content Adjustments</h3>
-          <ul>
-            <li>Adjust font size, letter spacing, and line height to test copy reflow.</li>
-            <li>Toggle dyslexia-friendly text and highlight links for quick scanning.</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Color &amp; Contrast</h3>
-          <ul>
-            <li>Compare high-contrast presets, monochrome, and custom palette selections.</li>
-            <li>Verify headings, backgrounds, and body text remain legible after tweaks.</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Reading &amp; Focus Tools</h3>
-          <ul>
-            <li>Enable the reading guide overlay while navigating this content.</li>
-            <li>Trigger text-to-speech or screen reader helper on selected passages.</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Motion &amp; Cursor</h3>
-          <ul>
-            <li>Stop animations to freeze the shimmering cards and calm the layout.</li>
-            <li>Activate the oversized cursor to confirm pointer visibility.</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Widget Customization</h3>
-          <ul>
-            <li>Move the launcher to every supported corner using the widget settings.</li>
-            <li>Apply icon changes via the helper controls demonstrated below.</li>
-          </ul>
-        </article>
+      <div class="nav-actions">
+        <span class="badge-pill">v1.8.2 Playground</span>
+        <button type="button" class="btn-nav-action btn-nav-primary" onclick="window.Visua11yAgentPlugin && window.Visua11yAgentPlugin.openMenu()">
+          ✨ Open Widget
+        </button>
       </div>
-    </section>
+    </div>
+  </nav>
 
-    <section aria-labelledby="motionLabHeading">
-      <h2 id="motionLabHeading">Motion Stress Test</h2>
-      <p class="section-intro">
-        The cards below intentionally animate so you can confirm the widget's
-        <strong>Stop Animations</strong> control halts motion on this page. Toggle the tool on and
-        both experiences should immediately freeze.
-      </p>
+  <!-- Main Bento Playground -->
+  <main class="playground-container">
+    <div class="bento-grid">
 
-      <div class="motion-lab">
-        <article class="motion-card motion-card--shimmer" aria-describedby="shimmerNote">
-          <h3 style="margin-top: 0;">Shimmering Spotlight</h3>
+      <!-- Bento 1: Hero Banner (Full Width) -->
+      <article class="bento-card col-span-12 card-hero">
+        <div class="hero-content">
+          <h1>Universal Accessibility Playground</h1>
           <p>
-            This card uses a sweeping highlight animation. When Stop Animations is active, the glow
-            should pause instead of sliding endlessly.
+            Interactive developer sandbox to test typography scaling, color contrast, dyslexia modes, screen reader assist, and runtime API hooks.
           </p>
-          <p id="shimmerNote" class="motion-note">CSS animation: linear gradient shimmer.</p>
-        </article>
-
-        <article class="motion-card motion-card--orbit" aria-describedby="orbitNote">
-          <div class="motion-orbit" role="presentation" aria-hidden="true">
-            <span class="motion-orbit-dot"></span>
+          <div class="hero-buttons">
+            <button type="button" class="btn-action" id="openMenuBtn">🚀 Launch Menu</button>
+            <button type="button" class="btn-action" id="closeMenuBtn">✕ Close Menu</button>
+            <button type="button" class="btn-action" id="getSettingsBtn">⚙️ Log Settings</button>
           </div>
-          <p>
-            A decorative orb orbits the dashed track while pulsing. Enabling Stop Animations should
-            freeze the dot and calm the orbit effect.
+        </div>
+        <div class="hero-badge-preview">
+          <img src="./logo-title.webp" alt="Visua11y Agent Badge" />
+        </div>
+      </article>
+
+      <!-- Bento 2: Live Content & Typography Reflow (Span 7) -->
+      <article class="bento-card col-span-7">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">📝</span>
+            <h2 class="card-title">Live Typography &amp; Reflow Lab</h2>
+          </div>
+          <span class="card-tag">Content Test</span>
+        </div>
+        <p class="card-desc">
+          Test font scaling, line height, dyslexia-friendly fonts, and link highlighting directly on this passage.
+        </p>
+        <div class="article-sample">
+          <h4>Web Accessibility Standards (WCAG 2.1 AA)</h4>
+          <p style="margin: 0 0 8px;">
+            Digital accessibility ensures websites and digital platforms are usable by everyone, including people with visual, motor, auditory, or cognitive disabilities.
           </p>
-          <p id="orbitNote" class="motion-note">CSS animations: orbiting dot and dashed pulse.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2>Image Desaturation Testbed</h2>
-      <p class="section-intro">
-        Scroll the widget to <strong>Motion &amp; Cursor</strong> and toggle
-        <em>Image Desaturation</em>. The colourful assets below should switch to grayscale
-        instantly; turn the setting off to restore the original hues.
-      </p>
-
-      <div class="media-lab">
-        <figure>
-          <img src="/src/icons/logo.webp" alt="Visua11y Agent hero banner logo" style="width: 140px;" />
-          <figcaption>
-            Expect the banner illustration to lose its purple/blue gradient and appear in grayscale.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b6b'/%3E%3Cstop offset='50%25' stop-color='%23feca57'/%3E%3Cstop offset='100%25' stop-color='%2348dbfb'/%3E%3C/linearGradient%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='40' height='40'%3E%3Crect width='40' height='40' fill='url(%23g)'/%3E%3Ccircle cx='20' cy='20' r='12' fill='%23341f97' opacity='0.75'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23p)'/%3E%3C/svg%3E"
-            alt="Vibrant gradient pattern sample" style="width: 240px; border-radius: 8px;" />
-          <figcaption>
-            This synthetic gradient highlights how saturation drops across complex colour blends.
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section>
-      <h2>Developer Hooks &amp; APIs</h2>
-      <p class="section-intro">
-        After the bundle loads it exposes <code>window.Visua11yAgentPlugin</code> so you can wire
-        the widget to your app. Try the helpers below or trigger them manually from the browser
-        console.
-      </p>
-
-      <div class="helper-grid">
-        <article class="helper-card">
-          <h3>Launcher Icon</h3>
-          <p>Swap the floating button icon using <code>setIcon</code>.</p>
-          <div class="controls">
-            <button type="button" id="setEmojiIcon">Use Emoji Icon 🌈</button>
-            <button type="button" id="setDefaultIcon">Reset Icon</button>
-          </div>
-        </article>
-
-        <article class="helper-card">
-          <h3>Language Switcher</h3>
-          <p>Switch locales at runtime via <code>changeLanguage</code>.</p>
-          <select id="languagePicker" aria-label="Select language">
-            <option value="en" selected>English (en)</option>
-            <option value="fr">Français (fr)</option>
-            <option value="es">Español (es)</option>
-            <option value="de">Deutsch (de)</option>
-            <option value="id">Bahasa Indonesia (id)</option>
-          </select>
-        </article>
-
-        <article class="helper-card">
-          <h3>Custom Languages &amp; Dictionaries</h3>
-          <p>Register custom locales, dialects, or enterprise overrides with <code>registerLanguage</code>.</p>
-          <div class="controls" style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <button type="button" id="registerJavanese">Register Basa Jawa (jv)</button>
-            <button type="button" id="registerSundanese">Register Basa Sunda (su)</button>
-            <button type="button" id="registerPirate">Register Pirate English 🏴‍☠️</button>
-            <button type="button" id="overrideEnglish">Corporate Terms (en)</button>
-          </div>
-          <p class="hint">
-            Custom locales are added to the live language list and automatically translated in the widget.
+          <p style="margin: 0;">
+            Explore <a href="#playground">accessible navigation links</a>, observe <mark style="background:#fef08a; padding:1px 4px; border-radius:3px;">text reflow behavior</mark>, or activate the reading guide overlay while navigating.
           </p>
-        </article>
+        </div>
+      </article>
 
-        <article class="helper-card">
-          <h3>Widget Size</h3>
-          <p>Change widget button size with <code>setWidgetSize</code>.</p>
-          <div class="controls">
-            <button type="button" id="setSizeSmall">Small</button>
-            <button type="button" id="setSizeMedium">Medium</button>
-            <button type="button" id="setSizeDefault">Default</button>
+      <!-- Bento 3: Motion & Animation Stress Test (Span 5) -->
+      <article class="bento-card col-span-5" aria-labelledby="motionTestTitle">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">⚡</span>
+            <h2 id="motionTestTitle" class="card-title">Motion Stress Test</h2>
           </div>
-        </article>
-
-        <article class="helper-card">
-          <h3>Widget Position</h3>
-          <p>Move widget to different corners with <code>setPosition</code>.</p>
-          <select id="positionPicker" aria-label="Select position">
-            <option value="bottom-right" selected>Bottom Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="center-right">Center Right</option>
-            <option value="center-left">Center Left</option>
-          </select>
-        </article>
-
-        <article class="helper-card">
-          <h3>Widget Offset</h3>
-          <p>Adjust widget offset from edge with <code>setOffset</code>.</p>
-          <div class="controls">
-            <button type="button" id="setOffsetSmall">Small (10px)</button>
-            <button type="button" id="setOffsetDefault">Default (24px)</button>
-            <button type="button" id="setOffsetLarge">Large (50px)</button>
+          <span class="card-tag">Animation Halt</span>
+        </div>
+        <p class="card-desc">
+          Verify that the widget's <strong>Stop Animations</strong> tool instantly freezes CSS motion below.
+        </p>
+        <div class="motion-preview-box">
+          <div class="motion-mini-card motion-mini-card--shimmer">
+            <span style="font-size: 0.74rem; font-weight: 600; color: #334155; position: relative; z-index: 2;">Shimmer Effect</span>
+            <span style="font-size: 0.68rem; color: #64748b; position: relative; z-index: 2;">Linear Gradient</span>
           </div>
-        </article>
-
-        <article class="helper-card">
-          <h3>Menu Control</h3>
-          <p>Open or close the menu programmatically.</p>
-          <div class="controls">
-            <button type="button" id="openMenuBtn">Open Menu</button>
-            <button type="button" id="closeMenuBtn">Close Menu</button>
+          <div class="motion-mini-card">
+            <div class="motion-orbit" role="presentation">
+              <span class="motion-orbit-dot"></span>
+            </div>
+            <span style="font-size: 0.68rem; color: #64748b; margin-top: 4px;">Pulsing Orbit</span>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="helper-card">
-          <h3>Toggle Tools</h3>
-          <p>Enable or disable specific tools with <code>toggleTool</code>.</p>
-          <div class="controls">
-            <button type="button" id="toggleHighContrast">Toggle High Contrast</button>
-            <button type="button" id="toggleBigCursor">Toggle Big Cursor</button>
+      <!-- Bento 4: 1-Click Quick Profiles & Toggles (Span 4) -->
+      <article class="bento-card col-span-4">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">🎯</span>
+            <h2 class="card-title">Quick Action Profiles</h2>
           </div>
-        </article>
+          <span class="card-tag">Presets</span>
+        </div>
+        <p class="card-desc">Activate accessibility profiles with <code>setProfile</code> / <code>toggleTool</code>.</p>
+        <div class="controls-cluster">
+          <button type="button" class="btn-action" id="toggleHighContrast">⚡ High Contrast</button>
+          <button type="button" class="btn-action" id="toggleBigCursor">🖱️ Big Cursor</button>
+          <button type="button" class="btn-action" id="setProfileBlind">🦯 Blind Mode</button>
+          <button type="button" class="btn-action" id="setProfileLowVision">👓 Low Vision</button>
+        </div>
+      </article>
 
-        <article class="helper-card">
-          <h3>Set Profile</h3>
-          <p>Activate accessibility profiles with <code>setProfile</code>.</p>
-          <div class="controls">
-            <button type="button" id="setProfileBlind">Blind Profile</button>
-            <button type="button" id="setProfileLowVision">Low Vision Profile</button>
+      <!-- Bento 5: Media & Image Desaturation (Span 4) -->
+      <article class="bento-card col-span-4">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">🎨</span>
+            <h2 class="card-title">Image Desaturation</h2>
           </div>
-        </article>
-
-        <article class="helper-card">
-          <h3>Get Settings</h3>
-          <p>Retrieve current settings with <code>getSettings</code>.</p>
-          <button type="button" id="getSettingsBtn">Log Settings to Console</button>
-          <p class="hint">Check browser console for output.</p>
-        </article>
-
-        <article class="helper-card">
-          <h3>Footer Control</h3>
-          <p>Hide or show the menu footer.</p>
-          <div class="controls">
-            <button type="button" id="hideFooterBtn">Hide Footer</button>
-            <button type="button" id="showFooterBtn">Show Footer</button>
+          <span class="card-tag">Color Filter</span>
+        </div>
+        <p class="card-desc">Toggle <em>Image Desaturation</em> to test SVG &amp; raster image grayscale.</p>
+        <div class="media-gallery">
+          <div class="media-item">
+            <img src="./logo.webp" alt="Visua11y Mascot" />
+            <span>Logo WebP</span>
           </div>
-        </article>
-
-        <article class="helper-card">
-          <h3>Footer Size</h3>
-          <p>Adjust menu footer size with <code>setFooterSize</code>.</p>
-          <div class="controls">
-            <button type="button" id="setFooterSmall">Small</button>
-            <button type="button" id="setFooterMedium">Medium</button>
-            <button type="button" id="setFooterLarge">Large</button>
+          <div class="media-item">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b6b'/%3E%3Cstop offset='50%25' stop-color='%23feca57'/%3E%3Cstop offset='100%25' stop-color='%2348dbfb'/%3E%3C/linearGradient%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='40' height='40'%3E%3Crect width='40' height='40' fill='url(%23g)'/%3E%3Ccircle cx='20' cy='20' r='12' fill='%23341f97' opacity='0.75'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23p)'/%3E%3C/svg%3E" alt="Vibrant pattern sample" />
+            <span>SVG Gradient</span>
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
 
-      <p id="helperStatus" class="helper-status" role="status" aria-live="polite">Use the controls above after the
-        widget finishes loading.</p>
-    </section>
+      <!-- Bento 6: Dynamic Locales & Dictionaries (Span 4) -->
+      <article class="bento-card col-span-4">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">🌐</span>
+            <h2 class="card-title">Dynamic Locales</h2>
+          </div>
+          <span class="card-tag">i18n</span>
+        </div>
+        <p class="card-desc">Switch bundled locales or register custom dialects on the fly.</p>
+        <select id="languagePicker" class="select-input" aria-label="Select language" style="margin-bottom: 8px;">
+          <option value="en" selected>English (en)</option>
+          <option value="fr">Français (fr)</option>
+          <option value="es">Español (es)</option>
+          <option value="de">Deutsch (de)</option>
+          <option value="id">Bahasa Indonesia (id)</option>
+        </select>
+        <div class="controls-cluster">
+          <button type="button" class="btn-action" id="registerJavanese">Basa Jawa (jv)</button>
+          <button type="button" class="btn-action" id="registerSundanese">Basa Sunda (su)</button>
+          <button type="button" class="btn-action" id="registerPirate">Pirate 🏴‍☠️</button>
+          <button type="button" class="btn-action" id="overrideEnglish">Corporate EN</button>
+        </div>
+      </article>
 
-    <section>
-      <h2>Manual Checklist</h2>
-      <ol class="checklist-ol">
-        <li>Open the widget and move the launcher to each supported corner.</li>
-        <li>Apply typography adjustments and verify the text wraps cleanly.</li>
-        <li>Test high-contrast, monochrome, and custom color palette modes.</li>
-        <li>
-          Toggle Image Desaturation and confirm the banner and gradient art become grayscale.
-        </li>
-        <li>Enable the reading guide, screen reader helper, and text-to-speech.</li>
-        <li>Activate voice navigation and issue commands like “Open menu”.</li>
-        <li>Use the helper controls to change the icon and switch languages.</li>
-        <li>Register the Bahasa Indonesia locale and confirm new labels appear.</li>
-        <li>Refresh the page to ensure your settings persist in local storage.</li>
-      </ol>
-    </section>
+      <!-- Bento 7: Developer API Hub (Span 8) -->
+      <article class="bento-card col-span-8">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">🛠️</span>
+            <h2 class="card-title">Developer API &amp; Customization Hub</h2>
+          </div>
+          <span class="card-tag">window.Visua11yAgentPlugin</span>
+        </div>
+        <div class="api-subgrid">
+          <!-- Launcher Icon -->
+          <div class="api-group">
+            <span class="api-group-title">Launcher Icon</span>
+            <div class="controls-cluster">
+              <button type="button" class="btn-action" id="setEmojiIcon">🌈 Emoji</button>
+              <button type="button" class="btn-action" id="setDefaultIcon">Default</button>
+            </div>
+          </div>
+
+          <!-- Position -->
+          <div class="api-group">
+            <span class="api-group-title">Position</span>
+            <select id="positionPicker" class="select-input" aria-label="Select position">
+              <option value="bottom-right" selected>Bottom Right</option>
+              <option value="bottom-left">Bottom Left</option>
+              <option value="bottom-center">Bottom Center</option>
+              <option value="top-right">Top Right</option>
+              <option value="top-left">Top Left</option>
+              <option value="top-center">Top Center</option>
+              <option value="center-right">Center Right</option>
+              <option value="center-left">Center Left</option>
+            </select>
+          </div>
+
+          <!-- Edge Offset -->
+          <div class="api-group">
+            <span class="api-group-title">Edge Offset</span>
+            <div class="controls-cluster">
+              <button type="button" class="btn-action" id="setOffsetSmall">10px</button>
+              <button type="button" class="btn-action" id="setOffsetDefault">24px</button>
+              <button type="button" class="btn-action" id="setOffsetLarge">50px</button>
+            </div>
+          </div>
+
+          <!-- Widget Size -->
+          <div class="api-group">
+            <span class="api-group-title">Widget Size</span>
+            <div class="controls-cluster">
+              <button type="button" class="btn-action" id="setSizeSmall">Small</button>
+              <button type="button" class="btn-action" id="setSizeMedium">Medium</button>
+              <button type="button" class="btn-action" id="setSizeDefault">Default</button>
+            </div>
+          </div>
+
+          <!-- Footer Control -->
+          <div class="api-group">
+            <span class="api-group-title">Footer Visibility</span>
+            <div class="controls-cluster">
+              <button type="button" class="btn-action" id="hideFooterBtn">Hide</button>
+              <button type="button" class="btn-action" id="showFooterBtn">Show</button>
+            </div>
+          </div>
+
+          <!-- Footer Size -->
+          <div class="api-group">
+            <span class="api-group-title">Footer Size</span>
+            <div class="controls-cluster">
+              <button type="button" class="btn-action" id="setFooterSmall">Small</button>
+              <button type="button" class="btn-action" id="setFooterMedium">Medium</button>
+              <button type="button" class="btn-action" id="setFooterLarge">Large</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bento 8: Terminal Console (Span 4) -->
+      <article class="bento-card col-span-4 terminal-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <span class="terminal-title">live-console.log</span>
+        </div>
+        <p style="margin: 0 0 8px; font-size: 0.72rem; color: #94a3b8;">Real-time API response stream:</p>
+        <div class="terminal-body" id="helperStatus" role="status" aria-live="polite">
+          <span class="pulse-indicator"></span>
+          <span>Widget initialized. Ready for commands.</span>
+        </div>
+        <span style="margin-top: 10px; font-size: 0.7rem; color: #64748b;">
+          💡 Open browser DevTools to access <code>window.Visua11yAgentPlugin</code>.
+        </span>
+      </article>
+
+      <!-- Bento 9: QA Verification Checklist (Full Width) -->
+      <article class="bento-card col-span-12">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">✅</span>
+            <h2 class="card-title">Manual QA Verification Checklist</h2>
+          </div>
+          <span class="card-tag">Test Plan</span>
+        </div>
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <span class="num">01</span>
+            <span>Move launcher to all 8 corners via settings.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">02</span>
+            <span>Scale typography &amp; verify smooth text reflow.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">03</span>
+            <span>Test High Contrast &amp; Monochrome filters.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">04</span>
+            <span>Toggle Image Desaturation on SVG / logos.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">05</span>
+            <span>Enable Reading Guide overlay &amp; TTS voice.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">06</span>
+            <span>Test Voice Navigation ("Open menu").</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">07</span>
+            <span>Register &amp; switch to custom Javanese/Sunda.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="num">08</span>
+            <span>Verify settings persist across page reloads.</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <strong>Tip:</strong> open the browser console if you want to call
-    <code>window.Visua11yAgentPlugin</code> helpers directly.
+    <span>Visua11y Agent © 2026 — Universal Web Accessibility Widget</span>
+    <div style="display: flex; gap: 14px;">
+      <a href="../" target="_blank" rel="noopener">Documentation</a>
+      <a href="https://github.com/chulit/visua11y-agent" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.npmjs.com/package/visua11y-agent" target="_blank" rel="noopener">npm</a>
+    </div>
   </footer>
 
+  <!-- Script Entry -->
   <script src="./visua11y-agent.umd.js" data-visua11y-agent-lang="en" data-visua11y-agent-position="bottom-right"
     data-visua11y-agent-offset="24,24"></script>
 
   <script>
-
     window.addEventListener('DOMContentLoaded', () => {
       const $setEmojiIcon = document.getElementById('setEmojiIcon');
       const $setDefaultIcon = document.getElementById('setDefaultIcon');
@@ -727,7 +948,7 @@
 
       const updateStatus = (message) => {
         if ($helperStatus) {
-          $helperStatus.textContent = `[Status] ${message}`;
+          $helperStatus.innerHTML = `<span class="pulse-indicator"></span><span>[Status] ${message}</span>`;
         }
       };
 
@@ -748,13 +969,13 @@
       $setEmojiIcon?.addEventListener('click', async () => {
         const plugin = await waitForPlugin();
         plugin.setIcon("<span aria-hidden='true' style='font-size:1.5em;'>🌈</span>");
-        updateStatus('Launcher icon switched to the rainbow emoji.');
+        updateStatus('Launcher icon switched to rainbow emoji.');
       });
 
       $setDefaultIcon?.addEventListener('click', async () => {
         const plugin = await waitForPlugin();
         plugin.setIcon();
-        updateStatus('Launcher icon reset to the default asset.');
+        updateStatus('Launcher icon reset to default.');
       });
 
       $languagePicker?.addEventListener('change', async (event) => {
@@ -901,7 +1122,7 @@
         });
         plugin.changeLanguage('en');
         plugin.openMenu();
-        updateStatus('Updated English dictionary with custom enterprise terminology.');
+        updateStatus('Updated English dictionary with corporate terminology.');
       });
 
       // Widget Size
@@ -971,13 +1192,13 @@
       document.getElementById('toggleHighContrast')?.addEventListener('click', async () => {
         const plugin = await waitForPlugin();
         plugin.toggleTool('high-contrast');
-        updateStatus('Toggled high contrast tool.');
+        updateStatus('Toggled High Contrast.');
       });
 
       document.getElementById('toggleBigCursor')?.addEventListener('click', async () => {
         const plugin = await waitForPlugin();
         plugin.toggleTool('big-cursor');
-        updateStatus('Toggled big cursor tool.');
+        updateStatus('Toggled Big Cursor.');
       });
 
       // Set Profile
@@ -998,7 +1219,7 @@
         const plugin = await waitForPlugin();
         const settings = plugin.getSettings();
         console.log('Current Settings:', settings);
-        updateStatus('Settings logged to console. Check developer tools.');
+        updateStatus('Settings logged to console.');
       });
 
       // Footer Control

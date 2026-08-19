@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import packageJson from '../../package.json';
 
 const BASE = '/visua11y-agent/';
 const isDev = process.env.NODE_ENV === 'development';
@@ -28,6 +29,12 @@ export default defineConfig({
     ['meta', { name: 'twitter:image', content: `https://chulit.github.io${BASE}logo.webp` }]
   ],
 
+  themeConfig: {
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/chulit/visua11y-agent' }
+    ]
+  },
+
   locales: {
     root: {
       label: 'English',
@@ -37,7 +44,28 @@ export default defineConfig({
           { text: 'Home', link: '/' },
           { text: 'Guide', link: '/guide/' },
           { text: 'Features', link: '/guide/features' },
-          { text: 'Live Demo', link: demoLink, target: '_self', rel: '' }
+          { text: 'Live Demo', link: demoLink, target: '_self', rel: '' },
+          {
+            text: `v${packageJson.version}`,
+            items: [
+              {
+                text: 'Changelog / Releases',
+                link: 'https://github.com/chulit/visua11y-agent/releases'
+              },
+              {
+                text: 'npm Package',
+                link: 'https://www.npmjs.com/package/visua11y-agent'
+              },
+              {
+                text: 'jsDelivr CDN',
+                link: 'https://www.jsdelivr.com/package/npm/visua11y-agent'
+              },
+              {
+                text: 'unpkg CDN',
+                link: `https://unpkg.com/browse/visua11y-agent@${packageJson.version}/`
+              }
+            ]
+          }
         ],
         sidebar: [
           {
@@ -62,7 +90,28 @@ export default defineConfig({
           { text: 'Beranda', link: '/id/' },
           { text: 'Panduan', link: '/id/guide/' },
           { text: 'Fitur', link: '/id/guide/features' },
-          { text: 'Demo Langsung', link: demoLink, target: '_self', rel: '' }
+          { text: 'Demo Langsung', link: demoLink, target: '_self', rel: '' },
+          {
+            text: `v${packageJson.version}`,
+            items: [
+              {
+                text: 'Catatan Rilis / Changelog',
+                link: 'https://github.com/chulit/visua11y-agent/releases'
+              },
+              {
+                text: 'Paket npm',
+                link: 'https://www.npmjs.com/package/visua11y-agent'
+              },
+              {
+                text: 'CDN jsDelivr',
+                link: 'https://www.jsdelivr.com/package/npm/visua11y-agent'
+              },
+              {
+                text: 'CDN unpkg',
+                link: `https://unpkg.com/browse/visua11y-agent@${packageJson.version}/`
+              }
+            ]
+          }
         ],
         sidebar: [
           {

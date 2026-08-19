@@ -30,6 +30,7 @@ import customPaletteIcon from '@/icons/customPaletteIcon.svg';
 import { resolveWidgetSize, WidgetSizePreset } from '@/config/widgetSize';
 import { ACCESSIBILITY_PROFILES } from '@/config/accessibilityProfiles';
 import { ISettings, ISettingsStates } from '@/types/ISettings';
+import { VERSION } from '@/version';
 
 function hslToHex(h: number, s: number, l: number): string {
   const saturation = Math.max(0, Math.min(100, s)) / 100;
@@ -156,6 +157,11 @@ export default function renderMenu() {
   const $logo = $container.querySelector<HTMLImageElement>('[data-visua11y-agent-logo]');
   if ($logo) {
     $logo.src = logoAsset;
+  }
+
+  const $version = $container.querySelector<HTMLElement>('[data-visua11y-agent-version]');
+  if ($version) {
+    $version.textContent = `v${VERSION}`;
   }
 
   ($menu.querySelector('.content') as HTMLElement).innerHTML = renderButtons(ContentButtons);
