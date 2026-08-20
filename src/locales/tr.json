@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Nöbet ve epilepsi",
   "Stops animations and desaturates imagery.": "Animasyonları durdurur ve görselleri soluklaştırır.",
   "ADHD": "DEHB",
-  "Reading guide, highlighted links, calmer palette.": "Okuma rehberi, vurgulanan bağlantılar ve daha sakin palet."
+  "Reading guide, highlighted links, calmer palette.": "Okuma rehberi, vurgulanan bağlantılar ve daha sakin palet.",
+  "Widget Size": "Bileşen Boyutu",
+  "Default": "Varsayılan",
+  "Medium": "Orta",
+  "Small": "Küçük",
+  "Color Blindness": "Renk Körlüğü",
+  "Protanopia": "Protanopi",
+  "Deuteranopia": "Döteranopi",
+  "Tritanopia": "Tritanopi",
+  "Achromatopsia": "Akromatopsi",
+  "Simulates and assists users with color vision deficiencies.": "Renk görme bozukluğu olan kullanıcıları simüle eder ve yardımcı olur."
 }

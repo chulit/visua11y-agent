@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Convulsioni ed epilessia",
   "Stops animations and desaturates imagery.": "Blocca le animazioni e desatura le immagini.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Guida di lettura, link evidenziati e palette più calma."
+  "Reading guide, highlighted links, calmer palette.": "Guida di lettura, link evidenziati e palette più calma.",
+  "Widget Size": "Dimensioni widget",
+  "Default": "Predefinito",
+  "Medium": "Medio",
+  "Small": "Piccolo",
+  "Color Blindness": "Daltonismo",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Acromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simula e supporta gli utenti con deficit della visione dei colori."
 }

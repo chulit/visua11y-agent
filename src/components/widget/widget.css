@@ -40,10 +40,10 @@
   display: flex;
   cursor: pointer;
   border: 3px solid white !important;
-  outline: 5px solid #0048ff !important;
+  outline: 5px solid #006bff !important;
   text-decoration: none !important;
-  background: rgb(50, 108, 255) !important;
-  background: linear-gradient(96deg, rgba(50, 108, 255, 1) 0%, rgba(0, 72, 255, 1) 100%) !important;
+  background: #006bff !important;
+  background: linear-gradient(135deg, #004eba, #006bff) !important;
 }
 
 .visua11y-agent-menu-icon {

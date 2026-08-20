@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "התקפים ואפילפסיה",
   "Stops animations and desaturates imagery.": "עוצר אנימציות ומפחית רוויית צבע.",
   "ADHD": "הפרעת קשב (ADHD)",
-  "Reading guide, highlighted links, calmer palette.": "מדריך קריאה, קישורים מודגשים ופלטה רגועה יותר."
+  "Reading guide, highlighted links, calmer palette.": "מדריך קריאה, קישורים מודגשים ופלטה רגועה יותר.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

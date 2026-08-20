@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2a7 7 0 0 1 6.93 6.04 3.5 3.5 0 0 1-1.4 6.79h-2.53a.75.75 0 1 0 0 1.5H15a1.75 1.75 0 0 1 0 3.5H9a6 6 0 0 1 0-12 7 7 0 0 1 3-5.83Zm-1.5 9.75a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 1.5 0v-3.5Zm2.25-3a.75.75 0 0 0-1.5 0v6.5a.75.75 0 0 0 1.5 0v-6.5Zm2.25-2.5a.75.75 0 0 0-1.5 0v9a.75.75 0 0 0 1.5 0v-9Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Duotone palette body fill -->
+  <path d="M12 3a9 9 0 0 0-9 9c0 4.97 3.5 9 8 9a3 3 0 0 0 3-3c0-.8-.3-1.5-.8-2-.5-.5-.7-1.2-.7-2 0-1.66 1.34-3 3-3h1.5A5.5 5.5 0 0 0 22.5 7.5 4.5 4.5 0 0 0 12 3z" fill="currentColor" fill-opacity="0.2"/>
+  <!-- Outer palette contour -->
+  <path d="M12 3a9 9 0 0 0-9 9c0 4.97 3.5 9 8 9a3 3 0 0 0 3-3c0-.8-.3-1.5-.8-2-.5-.5-.7-1.2-.7-2 0-1.66 1.34-3 3-3h1.5A5.5 5.5 0 0 0 22.5 7.5 4.5 4.5 0 0 0 12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Color swatches -->
+  <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"/>
+  <circle cx="12" cy="7.5" r="1.5" fill="currentColor"/>
+  <circle cx="16.5" cy="10.5" r="1.5" fill="currentColor"/>
 </svg>

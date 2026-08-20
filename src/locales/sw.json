@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Kifafa na mshtuko",
   "Stops animations and desaturates imagery.": "Husimamisha uhuishaji na kupunguza rangi kwenye picha.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Mwongozo wa kusoma, viungo vilivyoangaziwa na rangi tulivu."
+  "Reading guide, highlighted links, calmer palette.": "Mwongozo wa kusoma, viungo vilivyoangaziwa na rangi tulivu.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

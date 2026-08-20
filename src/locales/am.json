@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "የእብጠት ችግር",
   "Stops animations and desaturates imagery.": "እንቅስቃሴዎችን ያቆማል እና ምስሎችን ያቀናል።",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "የንባብ መሪ፣ የተቀረጹ አገናኞች እና ተዛማጅ ቀለም ፓሌት።"
+  "Reading guide, highlighted links, calmer palette.": "የንባብ መሪ፣ የተቀረጹ አገናኞች እና ተዛማጅ ቀለም ፓሌት።",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

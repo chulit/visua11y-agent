@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Anfald og epilepsi",
   "Stops animations and desaturates imagery.": "Stopper animationer og dæmper billeder.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Læsevejledning, fremhævede links og roligere farver."
+  "Reading guide, highlighted links, calmer palette.": "Læsevejledning, fremhævede links og roligere farver.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

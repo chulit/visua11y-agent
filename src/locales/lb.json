@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Krampf & Epilepsie",
   "Stops animations and desaturates imagery.": "Stoppt Animatiounen a féiert manner Faarf bäi.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Liesguide, markéiert Linken a méi roueg Palette."
+  "Reading guide, highlighted links, calmer palette.": "Liesguide, markéiert Linken a méi roueg Palette.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

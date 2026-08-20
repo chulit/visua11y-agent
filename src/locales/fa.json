@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "تشنج و صرع",
   "Stops animations and desaturates imagery.": "انیمیشن‌ها را متوقف و تصاویر را کم‌رنگ می‌کند.",
   "ADHD": "بیش‌فعالی",
-  "Reading guide, highlighted links, calmer palette.": "راهنمای مطالعه، لینک‌های هایلایت‌شده و پالت آرام‌تر."
+  "Reading guide, highlighted links, calmer palette.": "راهنمای مطالعه، لینک‌های هایلایت‌شده و پالت آرام‌تر.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

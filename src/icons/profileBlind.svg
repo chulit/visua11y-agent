@@ -1,3 +1,9 @@
-<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Duotone path guide accent -->
+  <path d="M4 20h16l-3-6H7l-3 6z" fill="currentColor" fill-opacity="0.2"/>
+  <!-- Person walking with white cane -->
+  <circle cx="12" cy="5" r="2.5" stroke="currentColor" stroke-width="2"/>
+  <path d="M7 20l5-9 3 4 2-1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 11l7 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 </svg>

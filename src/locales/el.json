@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Κρίσεις & επιληψία",
   "Stops animations and desaturates imagery.": "Σταματά κινούμενα και αποχρωματίζει εικόνες.",
   "ADHD": "ΔΕΠΥ",
-  "Reading guide, highlighted links, calmer palette.": "Οδηγός ανάγνωσης, τονισμένοι σύνδεσμοι και πιο ήρεμη παλέτα."
+  "Reading guide, highlighted links, calmer palette.": "Οδηγός ανάγνωσης, τονισμένοι σύνδεσμοι και πιο ήρεμη παλέτα.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

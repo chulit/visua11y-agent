@@ -71,5 +71,9 @@
   "Deuteranopia": "Deuteranopia",
   "Tritanopia": "Tritanopia",
   "Achromatopsia": "Achromatopsia",
-  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small"
 }

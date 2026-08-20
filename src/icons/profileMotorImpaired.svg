@@ -1,3 +1,9 @@
-<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 5a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm0 5a5 5 0 0 1 5 5v4h-2v-4a3 3 0 1 0-6 0v4H7v-4a5 5 0 0 1 5-5Z" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Duotone target ring accent -->
+  <circle cx="12" cy="7" r="4" fill="currentColor" fill-opacity="0.2"/>
+  <!-- Target circles -->
+  <circle cx="12" cy="7" r="5" stroke="currentColor" stroke-width="1.75" stroke-dasharray="2 3"/>
+  <circle cx="12" cy="7" r="2" stroke="currentColor" stroke-width="2"/>
+  <!-- Pointer hand -->
+  <path d="M12 9v6.5a1.5 1.5 0 0 0 3 0V13a1.5 1.5 0 0 1 3 0v3a5 5 0 0 1-5 5h-2a5 5 0 0 1-4.33-2.5L5.5 16.5a1.5 1.5 0 0 1 2.6-1.5l1.9 1.5V9a1.5 1.5 0 0 1 3 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

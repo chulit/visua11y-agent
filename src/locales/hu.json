@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Rohamok és epilepszia",
   "Stops animations and desaturates imagery.": "Leállítja az animációkat és csökkenti a képek telítettségét.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Olvasási útmutató, kiemelt hivatkozások és nyugodtabb paletta."
+  "Reading guide, highlighted links, calmer palette.": "Olvasási útmutató, kiemelt hivatkozások és nyugodtabb paletta.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

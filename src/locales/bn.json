@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "খিঁচুনি ও মৃগী",
   "Stops animations and desaturates imagery.": "অ্যানিমেশন থামায় এবং চিত্রের স্যাচুরেশন কমায়।",
   "ADHD": "এডিএইচডি",
-  "Reading guide, highlighted links, calmer palette.": "পাঠ নির্দেশিকা, হাইলাইট করা লিংক এবং শান্ত রঙের প্যালেট।"
+  "Reading guide, highlighted links, calmer palette.": "পাঠ নির্দেশিকা, হাইলাইট করা লিংক এবং শান্ত রঙের প্যালেট।",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "防癫痫模式",
   "Stops animations and desaturates imagery.": "停止动画并降低图像饱和度。",
   "ADHD": "多动症",
-  "Reading guide, highlighted links, calmer palette.": "阅读引导、突出链接与柔和配色。"
+  "Reading guide, highlighted links, calmer palette.": "阅读引导、突出链接与柔和配色。",
+  "Widget Size": "组件大小",
+  "Default": "默认",
+  "Medium": "中",
+  "Small": "小",
+  "Color Blindness": "色盲模拟",
+  "Protanopia": "红色盲",
+  "Deuteranopia": "绿色盲",
+  "Tritanopia": "蓝色盲",
+  "Achromatopsia": "全色盲",
+  "Simulates and assists users with color vision deficiencies.": "模拟并协助色觉障碍用户。"
 }

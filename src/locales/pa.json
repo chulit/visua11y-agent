@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "ਦੌਰੇ ਅਤੇ ਮਿਰਗੀ",
   "Stops animations and desaturates imagery.": "ਐਨੀਮੇਸ਼ਨ ਰੋਕਦਾ ਹੈ ਅਤੇ ਚਿੱਤਰਾਂ ਦੀ ਰੰਗਤ ਘਟਾਉਂਦਾ ਹੈ।",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "ਪੜ੍ਹਨ ਦੀ ਗਾਈਡ, ਹਾਈਲਾਈਟ ਕੀਤੇ ਲਿੰਕ ਅਤੇ ਸ਼ਾਂਤ ਰੰਗ।"
+  "Reading guide, highlighted links, calmer palette.": "ਪੜ੍ਹਨ ਦੀ ਗਾਈਡ, ਹਾਈਲਾਈਟ ਕੀਤੇ ਲਿੰਕ ਅਤੇ ਸ਼ਾਂਤ ਰੰਗ।",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

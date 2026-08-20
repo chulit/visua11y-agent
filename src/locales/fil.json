@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Pangingisay at epilepsy",
   "Stops animations and desaturates imagery.": "Humihinto ng mga animasyon at binabawasan ang kulay ng imahe.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Gabay sa pagbabasa, naka-highlight na mga link at mas kalmadong palette."
+  "Reading guide, highlighted links, calmer palette.": "Gabay sa pagbabasa, naka-highlight na mga link at mas kalmadong palette.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

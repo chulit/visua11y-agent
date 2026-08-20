@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Co giật & động kinh",
   "Stops animations and desaturates imagery.": "Dừng hoạt ảnh và giảm bão hòa hình ảnh.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Hướng dẫn đọc, liên kết nổi bật và bảng màu dịu hơn."
+  "Reading guide, highlighted links, calmer palette.": "Hướng dẫn đọc, liên kết nổi bật và bảng màu dịu hơn.",
+  "Widget Size": "Kích thước tiện ích",
+  "Default": "Mặc định",
+  "Medium": "Vừa",
+  "Small": "Nhỏ",
+  "Color Blindness": "Mù màu",
+  "Protanopia": "Mù màu đỏ",
+  "Deuteranopia": "Mù màu xanh lá",
+  "Tritanopia": "Mù màu xanh dương",
+  "Achromatopsia": "Mù màu hoàn toàn",
+  "Simulates and assists users with color vision deficiencies.": "Mô phỏng và hỗ trợ người dùng bị suy giảm thị lực màu sắc."
 }

@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54A13.15 13.15 0 0 0 3 8v11c3.5 0 6.64 1.35 9 3.54A13.15 13.15 0 0 1 21 19V8c-3.5 0-6.64 1.35-9 3.54Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Duotone reading strip highlight -->
+  <rect x="2" y="9" width="20" height="6" rx="2" fill="currentColor" fill-opacity="0.25"/>
+  <!-- Dimmed surrounding content lines -->
+  <path d="M4 5h16M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <!-- Active reading guide ruler -->
+  <rect x="2" y="9" width="20" height="6" rx="2" stroke="currentColor" stroke-width="2"/>
+  <!-- Central focus text line inside reading guide -->
+  <path d="M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 </svg>

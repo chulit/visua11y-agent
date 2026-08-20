@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-  <circle cx="12" cy="12" r="3"/>
-  <line x1="2" y1="2" x2="22" y2="22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Duotone primary intersection -->
+  <circle cx="12" cy="8.5" r="4.5" fill="currentColor" fill-opacity="0.2"/>
+  <circle cx="8" cy="15" r="4.5" fill="currentColor" fill-opacity="0.2"/>
+  <circle cx="16" cy="15" r="4.5" fill="currentColor" fill-opacity="0.2"/>
+  <!-- Three Venn color circles -->
+  <circle cx="12" cy="8.5" r="4.5" stroke="currentColor" stroke-width="1.75"/>
+  <circle cx="8" cy="15" r="4.5" stroke="currentColor" stroke-width="1.75"/>
+  <circle cx="16" cy="15" r="4.5" stroke="currentColor" stroke-width="1.75"/>
 </svg>

@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "อาการชักและลมชัก",
   "Stops animations and desaturates imagery.": "หยุดแอนิเมชันและลดสีของภาพ",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "คู่มือการอ่าน ลิงก์ที่ไฮไลต์ และโทนสีที่สงบกว่า"
+  "Reading guide, highlighted links, calmer palette.": "คู่มือการอ่าน ลิงก์ที่ไฮไลต์ และโทนสีที่สงบกว่า",
+  "Widget Size": "ขนาดวิดเจ็ต",
+  "Default": "ค่าเริ่มต้น",
+  "Medium": "ปานกลาง",
+  "Small": "เล็ก",
+  "Color Blindness": "ตาบอดสี",
+  "Protanopia": "ตาบอดสีแดง",
+  "Deuteranopia": "ตาบอดสีเขียว",
+  "Tritanopia": "ตาบอดสีน้ำเงิน",
+  "Achromatopsia": "ตาบอดสีทั้งหมด",
+  "Simulates and assists users with color vision deficiencies.": "จำลองและช่วยเหลือผู้ใช้ที่มีความบกพร่องทางการมองเห็นสี"
 }
