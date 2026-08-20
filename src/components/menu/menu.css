@@ -75,33 +75,51 @@
 .visua11y-agent-menu-reset,
 .visua11y-agent-menu-close,
 .visua11y-agent-menu-language {
-  padding: 5px !important;
-  width: 30px !important;
-  height: 30px !important;
+  padding: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
   margin: 0 !important;
-  background: #396afc !important;
+  background: rgba(255, 255, 255, 0.18) !important;
   cursor: pointer !important;
   border-radius: 50% !important;
-  transition: opacity 0.3s ease !important;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
   border: 0 !important;
   box-shadow: none !important;
   outline: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
 }
+
+.visua11y-agent-menu-reset:hover,
+.visua11y-agent-menu-close:hover,
+.visua11y-agent-menu-language:hover {
+  background: rgba(255, 255, 255, 0.32) !important;
+  transform: scale(1.06);
+}
+
 .visua11y-agent-menu-reset svg,
 .visua11y-agent-menu-close svg,
 .visua11y-agent-menu-language svg {
-  width: 20px !important;
-  height: 20px !important;
-  min-width: 20px !important;
-  min-height: 20px !important;
-  max-width: 20px !important;
-  max-height: 20px !important;
-  fill: #fff !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+  fill: none !important;
+  display: block;
 }
-.visua11y-agent-menu-reset svg path,
-.visua11y-agent-menu-close svg path,
-.visua11y-agent-menu-language svg path {
-  fill: #fff !important;
+
+.visua11y-agent-menu-reset svg *,
+.visua11y-agent-menu-close svg *,
+.visua11y-agent-menu-language svg * {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+  fill: none !important;
 }
 
 .visua11y-agent-language-panel[hidden] {
@@ -350,6 +368,8 @@
   transform: translateY(-6px);
   pointer-events: none;
   max-height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 460px) {
@@ -438,17 +458,20 @@
  .visua11y-agent-card-icon {
   width: 32px;
   height: 32px;
-  border-radius: 10px;
-  background: #eef2ff;
+  border-radius: 9px;
+  background: #ebf1ff;
+  border: 1px solid #dbe6fe;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .visua11y-agent-card-icon svg {
   width: 18px !important;
   height: 18px !important;
-  fill: #31407d !important;
+  fill: #2563eb !important;
+  display: block;
 }
 
 .visua11y-agent-profile-pill {
@@ -521,29 +544,56 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   gap: 12px !important;
   border: 0 !important;
   background: transparent !important;
-  padding: 8px 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
   cursor: pointer !important;
   text-align: left !important;
 }
 
 .visua11y-agent-profile-toggle-arrow {
   flex-shrink: 0;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #555;
-  border-bottom: 2px solid #555;
-  transform: rotate(45deg);
-  transition: transform 0.25s ease;
-  opacity: 0.6;
-  margin-right: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #dbe6fe;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.visua11y-agent-profile-toggle-arrow::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #3b82f6;
+  border-bottom: 2px solid #3b82f6;
+  transform: rotate(-135deg);
+  margin-top: 2px;
+  transition: transform 0.25s ease, margin-top 0.25s ease;
+}
+
+.visua11y-agent-profile-toggle:hover .visua11y-agent-profile-toggle-arrow {
+  background: #f0f5ff;
+  border-color: #bfdbfe;
 }
 
 .visua11y-agent-profiles-card {
-  border-radius: 18px !important;
+  border-radius: 16px !important;
   background: #f6f8ff !important;
+  border: 1px solid #e0e7ff !important;
+  padding: 12px 14px !important;
+  transition: border-color 0.2s ease, padding 0.2s ease;
+}
+
+.visua11y-agent-profiles-card:hover {
+  border-color: #c7d2fe !important;
 }
 
 .visua11y-agent-profiles-card.is-collapsed {
+  padding: 8px 14px !important;
   margin-bottom: 0 !important;
 }
 
@@ -552,12 +602,17 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   flex: 1 !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  padding: 2px 0 !important;
+  padding: 0 !important;
   gap: 10px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  opacity: 1 !important;
 }
 
-.visua11y-agent-profiles-card.is-collapsed .visua11y-agent-profile-toggle-arrow {
-  transform: rotate(-135deg);
+.visua11y-agent-profiles-card.is-collapsed .visua11y-agent-profile-toggle-arrow::after {
+  transform: rotate(45deg);
+  margin-top: -2px;
 }
 
 .visua11y-agent-position-card.visua11y-agent-position-open .visua11y-agent-position-toggle {
@@ -923,14 +978,17 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 
 .visua11y-agent-plus,
 .visua11y-agent-minus {
-  background-color: #eff1f5 !important;
-  border: 2px solid transparent;
-  transition: border 0.2s ease;
+  background-color: #f1f5f9 !important;
+  border: 1.5px solid #e2e8f0;
+  transition: all 0.2s ease;
+  color: #475569;
 }
 
 .visua11y-agent-plus:hover,
 .visua11y-agent-minus:hover {
-  border-color: #396afc !important;
+  border-color: #3b82f6 !important;
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
 }
 
 .visua11y-agent-amount {
@@ -938,13 +996,24 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   font-weight: 600 !important;
 }
 
-.visua11y-agent-adjust-font svg {
-  width: 24px !important;
-  height: 24px !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
-  max-width: 24px !important;
-  max-height: 24px !important;
+.visua11y-agent-adjust-font .visua11y-agent-label svg {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  color: #2563eb;
+}
+
+.visua11y-agent-plus svg,
+.visua11y-agent-minus svg {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
 }
 
 .visua11y-agent-btn svg {
