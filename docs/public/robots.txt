@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chulit.github.io/visua11y-agent/sitemap.xml
