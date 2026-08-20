@@ -1,3 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M21 22H3v-2h18v2m0-18H3V2h18v2m-11 9.7h4l-2-5.4-2 5.4M11.2 6h1.7l4.7 12h-2l-.9-2.6H9.4L8.5 18h-2l4.7-12Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Duotone gap highlight -->
+  <rect x="11" y="9" width="10" height="6" rx="1" fill="currentColor" fill-opacity="0.2"/>
+  <!-- Text lines on right -->
+  <path d="M11 5h10M11 12h10M11 19h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <!-- Vertical dimension arrows on left -->
+  <path d="M6 4v16M3 7l3-3 3 3M3 17l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
