@@ -605,6 +605,7 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   border: 1px solid var(--visua11y-hairline) !important;
   box-shadow: none !important;
   padding: 14px 16px !important;
+  margin-top: 6px !important;
   transition: border-color 0.2s ease, padding 0.2s ease;
 }
 
@@ -745,83 +746,96 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 }
 
 .visua11y-agent-custom-palette-card {
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 16px;
+  padding: 16px;
   border-radius: 16px;
   background: var(--visua11y-paper);
   border: 1px solid var(--visua11y-hairline);
   box-shadow: none !important;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .visua11y-agent-custom-palette-header {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.visua11y-agent-custom-palette-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .visua11y-agent-custom-palette-icon svg {
-  width: 32px !important;
-  height: 32px !important;
+  width: 26px !important;
+  height: 26px !important;
 }
 
 .visua11y-agent-custom-palette-title {
-  font-size: 15px !important;
+  font-size: 14.5px !important;
   font-weight: 700 !important;
   color: var(--visua11y-ink-navy) !important;
 }
 
 .visua11y-agent-custom-palette-subtitle {
-  font-size: 13px !important;
+  font-size: 12.5px !important;
   color: var(--visua11y-slate-gray) !important;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .visua11y-agent-custom-palette-tabs {
-  display: inline-flex;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
   background: var(--visua11y-pebble);
   padding: 4px;
-  border-radius: 999px;
+  border-radius: 10px;
 }
 
 .visua11y-agent-custom-palette-tab {
   border: 0;
   background: transparent;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 13px;
+  border-radius: 8px;
+  padding: 7px 0;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--visua11y-slate-gray);
   cursor: pointer;
+  text-align: center;
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.visua11y-agent-custom-palette-tab:hover {
+  color: var(--visua11y-ink-navy);
 }
 
 .visua11y-agent-custom-palette-tab.is-active {
   background: var(--visua11y-signal-blue);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 107, 255, 0.25);
+  color: #ffffff !important;
+  box-shadow: none !important;
 }
 
 .visua11y-agent-custom-palette-tab.is-active span {
-  color: #fff !important;
+  color: #ffffff !important;
 }
 
 .visua11y-agent-custom-palette-slider {
   position: relative;
   width: 100%;
-  padding: 4px 0 6px;
+  padding: 2px 0 4px;
 }
 
 .visua11y-agent-custom-palette-range {
   width: 100%;
   -webkit-appearance: none;
   appearance: none;
-  height: 12px;
+  height: 8px;
   border-radius: 999px;
   background: var(
     --visua11y-agent-palette-gradient,
@@ -840,39 +854,39 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 .visua11y-agent-custom-palette-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--visua11y-agent-palette-thumb, #006bff);
   border: 2px solid #ffffff;
-  box-shadow: 0 0 0 2px rgba(0, 107, 255, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   transition: transform 0.1s ease;
 }
 
 .visua11y-agent-custom-palette-range::-webkit-slider-thumb:active {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .visua11y-agent-custom-palette-range::-moz-range-track {
-  height: 12px;
+  height: 8px;
   border-radius: 999px;
   background: transparent;
 }
 
 .visua11y-agent-custom-palette-range::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: 2px solid #ffffff;
   background: var(--visua11y-agent-palette-thumb, #006bff);
-  box-shadow: 0 0 0 2px rgba(0, 107, 255, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .visua11y-agent-custom-palette-bars {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .visua11y-agent-custom-palette-bar {
@@ -882,7 +896,6 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   background: var(--visua11y-hairline);
   opacity: 0.5;
   transition: opacity 0.2s ease;
-  border: 1px solid rgba(0, 107, 255, 0.1);
 }
 
 .visua11y-agent-custom-palette-bar.is-active {
@@ -899,13 +912,14 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 .visua11y-agent-custom-palette-reset {
   border: 0;
   background: transparent;
-  font-size: 13px !important;
+  font-size: 12.5px !important;
   font-weight: 600 !important;
   color: var(--visua11y-signal-blue) !important;
   cursor: pointer !important;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 0 !important;
 }
 
 .visua11y-agent-custom-palette-reset:hover,
@@ -1258,7 +1272,7 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   flex: 1;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 10px;
+  padding: 18px 10px 10px 10px;
   background: var(--visua11y-cloud);
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
