@@ -15,8 +15,8 @@ export default function readingGuide(enable = false) {
       const margin = 20;
 
       window.__visua11yAgent__onScrollReadableGuide = (event: MouseEvent) => {
-        rgTop.style.height = `${event.clientY - margin}px`;
-        rgBottom.style.height = `${window.innerHeight - event.clientY - margin * 2}px`;
+        rgTop.style.height = `${Math.max(0, event.clientY - margin)}px`;
+        rgBottom.style.height = `${Math.max(0, window.innerHeight - event.clientY - margin * 2)}px`;
       };
 
       document.addEventListener('mousemove', window.__visua11yAgent__onScrollReadableGuide, {

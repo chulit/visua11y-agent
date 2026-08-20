@@ -8,11 +8,20 @@ async function initialize() {
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
     document.removeEventListener('readystatechange', initialize);
 
+    const rawOffset = getScriptDataAttribute('offset');
+    let parsedOffset: [number, number] | undefined = undefined;
+    if (rawOffset) {
+      const parts = rawOffset.split(',').map((s) => Number(s.trim()));
+      if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+        parsedOffset = [parts[0], parts[1]];
+      }
+    }
+
     const options = {
       lang: getDefaultLanguage(),
       languages: getScriptDataAttribute('languages'),
       position: getScriptDataAttribute('position'),
-      offset: getScriptDataAttribute('offset')?.split(',').map(Number),
+      offset: parsedOffset,
       size: getScriptDataAttribute('size'),
       icon: getScriptDataAttribute('icon'),
     };
