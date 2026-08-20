@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Припадки и эпилепсия",
   "Stops animations and desaturates imagery.": "Останавливает анимации и снижает насыщенность изображений.",
   "ADHD": "СДВГ",
-  "Reading guide, highlighted links, calmer palette.": "Путеводитель для чтения, выделенные ссылки и спокойная палитра."
+  "Reading guide, highlighted links, calmer palette.": "Путеводитель для чтения, выделенные ссылки и спокойная палитра.",
+  "Widget Size": "Размер виджета",
+  "Default": "По умолчанию",
+  "Medium": "Средний",
+  "Small": "Маленький",
+  "Color Blindness": "Дальтонизм",
+  "Protanopia": "Протанопия",
+  "Deuteranopia": "Дейтеранопия",
+  "Tritanopia": "Тританопия",
+  "Achromatopsia": "Ахроматопсия",
+  "Simulates and assists users with color vision deficiencies.": "Имитирует и помогает пользователям с нарушениями цветового зрения."
 }

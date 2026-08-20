@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Napadaji i epilepsija",
   "Stops animations and desaturates imagery.": "Zaustavlja animacije i smanjuje zasićenost slika.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Vodič za čitanje, istaknute poveznice i smirenija paleta."
+  "Reading guide, highlighted links, calmer palette.": "Vodič za čitanje, istaknute poveznice i smirenija paleta.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

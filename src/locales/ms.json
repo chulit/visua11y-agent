@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Sawan & epilepsi",
   "Stops animations and desaturates imagery.": "Menghentikan animasi dan mengurangkan warna imej.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Panduan membaca, pautan diserlahkan dan palet lebih tenang."
+  "Reading guide, highlighted links, calmer palette.": "Panduan membaca, pautan diserlahkan dan palet lebih tenang.",
+  "Widget Size": "Saiz Widget",
+  "Default": "Lalai",
+  "Medium": "Sederhana",
+  "Small": "Kecil",
+  "Color Blindness": "Buta Warna",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Akromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Mensimulasikan dan membantu pengguna dengan kekurangan penglihatan warna."
 }

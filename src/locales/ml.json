@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "ഫിറ്റ്സ് & എപ്പിലപ്സി",
   "Stops animations and desaturates imagery.": "അനിമേഷൻ നിര്‍ത്തുകയും ചിത്രങ്ങളുടെ നിറം കുറയ്ക്കുകയും ചെയ്യുന്നു.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "വായനാ ഗൈഡ്, ഹൈലൈറ്റ് ചെയ്‌ത ലിങ്കുകൾ, ശാന്തമായ നിറങ്ങൾ."
+  "Reading guide, highlighted links, calmer palette.": "വായനാ ഗൈഡ്, ഹൈലൈറ്റ് ചെയ്‌ത ലിങ്കുകൾ, ശാന്തമായ നിറങ്ങൾ.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

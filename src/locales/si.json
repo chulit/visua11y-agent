@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "අච්චු සහ මිනරන්",
   "Stops animations and desaturates imagery.": "ජීවීකරු නවත්වමින් පින්තූරයේ පෙලසුම් අඩු කරයි.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "කියවීමේ මාර්ගෝපදේශය, ඉස්මතු කරන ලද සබැඳි සහ සමනයිත පාලට්."
+  "Reading guide, highlighted links, calmer palette.": "කියවීමේ මාර්ගෝපදේශය, ඉස්මතු කරන ලද සබැඳි සහ සමනයිත පාලට්.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

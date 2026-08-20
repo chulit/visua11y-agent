@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "발작 및 간질",
   "Stops animations and desaturates imagery.": "애니메이션을 중지하고 이미지를 탈채도합니다.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "읽기 가이드, 강조된 링크, 차분한 팔레트."
+  "Reading guide, highlighted links, calmer palette.": "읽기 가이드, 강조된 링크, 차분한 팔레트.",
+  "Widget Size": "위젯 크기",
+  "Default": "기본",
+  "Medium": "보통",
+  "Small": "작게",
+  "Color Blindness": "색맹 지원",
+  "Protanopia": "제1색각이상 (적색)",
+  "Deuteranopia": "제2색각이상 (녹색)",
+  "Tritanopia": "제3색각이상 (청색)",
+  "Achromatopsia": "전색맹",
+  "Simulates and assists users with color vision deficiencies.": "색각 이상이 있는 사용자를 시뮬레이션하고 지원합니다."
 }

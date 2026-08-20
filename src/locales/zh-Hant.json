@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "防癲癇模式",
   "Stops animations and desaturates imagery.": "停止動畫並降低影像飽和度。",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "閱讀指引、醒目連結與柔和色板."
+  "Reading guide, highlighted links, calmer palette.": "閱讀指引、醒目連結與柔和色板.",
+  "Widget Size": "小工具大小",
+  "Default": "預設",
+  "Medium": "中",
+  "Small": "小",
+  "Color Blindness": "色盲模擬",
+  "Protanopia": "紅色盲",
+  "Deuteranopia": "綠色盲",
+  "Tritanopia": "藍色盲",
+  "Achromatopsia": "全色盲",
+  "Simulates and assists users with color vision deficiencies.": "模擬並協助色覺障礙使用者。"
 }

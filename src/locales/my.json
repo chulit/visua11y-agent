@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Fits & မျိုးရိုးစားရောဂါ",
   "Stops animations and desaturates imagery.": "အန်နီမေးရှင်းကို ရပ်တန့်ပြီး ပုံရိပ်အရောင်ညှိသည်။",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "ဖတ်ရှုမှုလမ်းညွှန်၊ အရောင်ထိမ်းလင်းထားသော လင့်များနှင့် သက်သာသော အရောင်။"
+  "Reading guide, highlighted links, calmer palette.": "ဖတ်ရှုမှုလမ်းညွှန်၊ အရောင်ထိမ်းလင်းထားသော လင့်များနှင့် သက်သာသော အရောင်။",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

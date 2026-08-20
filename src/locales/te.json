@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "నవ్వు మరియు ఎపిలెప్సి",
   "Stops animations and desaturates imagery.": "అనిమేషన్‌లను ఆపి చిత్రాలలో రంగును తగ్గిస్తుంది.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "చదవడానికి మార్గదర్శి, హైలైట్ చేసిన లింకులు మరియు శాంతమైన రంగుల సెట్."
+  "Reading guide, highlighted links, calmer palette.": "చదవడానికి మార్గదర్శి, హైలైట్ చేసిన లింకులు మరియు శాంతమైన రంగుల సెట్.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

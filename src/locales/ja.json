@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "発作・てんかん",
   "Stops animations and desaturates imagery.": "アニメーションを停止し、画像の彩度を下げます。",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "読み上げガイド、強調リンク、穏やかな配色。"
+  "Reading guide, highlighted links, calmer palette.": "読み上げガイド、強調リンク、穏やかな配色。",
+  "Widget Size": "ウィジェットのサイズ",
+  "Default": "デフォルト",
+  "Medium": "中",
+  "Small": "小",
+  "Color Blindness": "色覚サポート",
+  "Protanopia": "1型2色覚 (赤)",
+  "Deuteranopia": "2型2色覚 (緑)",
+  "Tritanopia": "3型2色覚 (青)",
+  "Achromatopsia": "全色盲",
+  "Simulates and assists users with color vision deficiencies.": "色覚異常を持つユーザーの閲覧を支援・シミュレートします。"
 }

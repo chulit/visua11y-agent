@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Fits & மயக்கம்",
   "Stops animations and desaturates imagery.": "அனிமேஷன்களை நிறுத்தி படங்களுக்கு நிறத்தை குறைக்கிறது.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "வாசிப்பு வழிகாட்டி, சிறப்பிக்கப்பட்ட இணைப்புகள் மற்றும் அமைதியான வண்ணத் தொகுப்பு."
+  "Reading guide, highlighted links, calmer palette.": "வாசிப்பு வழிகாட்டி, சிறப்பிக்கப்பட்ட இணைப்புகள் மற்றும் அமைதியான வண்ணத் தொகுப்பு.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

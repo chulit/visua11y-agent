@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "Convulsii și epilepsie",
   "Stops animations and desaturates imagery.": "Oprește animațiile și estompează imaginile.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "Ghid de citire, link-uri evidențiate și paletă mai calmă."
+  "Reading guide, highlighted links, calmer palette.": "Ghid de citire, link-uri evidențiate și paletă mai calmă.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "نوبات صرع",
   "Stops animations and desaturates imagery.": "يوقف الحركات ويقلل تشبع الصور.",
   "ADHD": "اضطراب فرط الحركة ونقص الانتباه",
-  "Reading guide, highlighted links, calmer palette.": "دليل قراءة، روابط مميزة ولوحة ألوان أكثر هدوءًا."
+  "Reading guide, highlighted links, calmer palette.": "دليل قراءة، روابط مميزة ولوحة ألوان أكثر هدوءًا.",
+  "Widget Size": "حجم الأداة",
+  "Default": "افتراضي",
+  "Medium": "متوسط",
+  "Small": "صغير",
+  "Color Blindness": "عمى الألوان",
+  "Protanopia": "عمى الأحمر",
+  "Deuteranopia": "عمى الأخضر",
+  "Tritanopia": "عمى الأزرق",
+  "Achromatopsia": "عمى الألوان الكلي",
+  "Simulates and assists users with color vision deficiencies.": "يحاكي ويساعد المستخدمين الذين يعانون من قصور في رؤية الألوان."
 }

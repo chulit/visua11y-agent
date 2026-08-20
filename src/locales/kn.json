@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "ಅಪಸ್ಮಾರ ಮತ್ತು ಎಪಿಲೆಪ್ಸಿ",
   "Stops animations and desaturates imagery.": "ಅನಿಮೇಶನ್‌ಗಳನ್ನು ನಿಲ್ಲಿಸಿ ಚಿತ್ರಗಳ ಸ್ಯಾಚುರೇಶನ್ ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.",
   "ADHD": "ಎಡಿಎಚ್ಡಿ",
-  "Reading guide, highlighted links, calmer palette.": "ಓದುವ ಮಾರ್ಗದರ್ಶಿ, ಹೈಲೈಟ್ ಮಾಡಿದ ಲಿಂಕುಗಳು ಮತ್ತು ಶಾಂತ ಪ್ಯಾಲೆಟ್."
+  "Reading guide, highlighted links, calmer palette.": "ಓದುವ ಮಾರ್ಗದರ್ಶಿ, ಹೈಲೈಟ್ ಮಾಡಿದ ಲಿಂಕುಗಳು ಮತ್ತು ಶಾಂತ ಪ್ಯಾಲೆಟ್.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

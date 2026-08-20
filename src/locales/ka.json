@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "კრუნჩხვები და ეპილეფსია",
   "Stops animations and desaturates imagery.": "წყვეტს ანიმაციებს და აკლებს ფერს გამოსახულებებს.",
   "ADHD": "ADHD",
-  "Reading guide, highlighted links, calmer palette.": "კითვის გზამკვლევი, გამოკვეთილი ბმულები და მშვიდი ფერები."
+  "Reading guide, highlighted links, calmer palette.": "კითვის გზამკვლევი, გამოკვეთილი ბმულები და მშვიდი ფერები.",
+  "Widget Size": "Widget Size",
+  "Default": "Default",
+  "Medium": "Medium",
+  "Small": "Small",
+  "Color Blindness": "Color Blindness",
+  "Protanopia": "Protanopia",
+  "Deuteranopia": "Deuteranopia",
+  "Tritanopia": "Tritanopia",
+  "Achromatopsia": "Achromatopsia",
+  "Simulates and assists users with color vision deficiencies.": "Simulates and assists users with color vision deficiencies."
 }

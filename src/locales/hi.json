@@ -65,5 +65,15 @@
   "Seizure & Epileptic": "दौरे और मिर्गी",
   "Stops animations and desaturates imagery.": "एनीमेशन रोकता है और चित्रों को मद्धिम करता है।",
   "ADHD": "एडीएचडी",
-  "Reading guide, highlighted links, calmer palette.": "पठन मार्गदर्शिका, हाइलाइट किए हुए लिंक और शांत पैलेट।"
+  "Reading guide, highlighted links, calmer palette.": "पठन मार्गदर्शिका, हाइलाइट किए हुए लिंक और शांत पैलेट।",
+  "Widget Size": "विजेट का आकार",
+  "Default": "डिफ़ॉल्ट",
+  "Medium": "मध्यम",
+  "Small": "छोटा",
+  "Color Blindness": "वर्णांधता",
+  "Protanopia": "प्रोटानोपिया",
+  "Deuteranopia": "ड्यूटेरानोपिया",
+  "Tritanopia": "ट्रिटानोपिया",
+  "Achromatopsia": "एक्रोमैटोप्सिया",
+  "Simulates and assists users with color vision deficiencies.": "दृष्टि दोष वाले उपयोगकर्ताओं के लिए अनुकरण और सहायता करता है।"
 }
