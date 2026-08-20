@@ -30,6 +30,9 @@ html = html.replace(
   ""
 );
 
+const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"));
+html = html.replace(/v\d+\.\d+\.\d+\s+Playground/g, `v${packageJson.version} Playground`);
+
 // Ensure the script points to a relative bundle inside the demo folder.
 html = html.replace(/<script type="module" src="\/src\/entry\.ts"/, '<script src="./visua11y-agent.umd.js"');
 html = html.replace("../dist/visua11y-agent.umd.js", "./visua11y-agent.umd.js");

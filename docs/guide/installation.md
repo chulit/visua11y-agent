@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 Use official CDN distributions with version pinning for production stability:
 
 ```html
-<!-- Full UMD Bundle (Pin specific version, e.g. 1.8.2) -->
+<!-- Full UMD Bundle (Use @latest or pin a specific version like @1.10.1) -->
 <script
-  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.2/dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@latest/dist/visua11y-agent.umd.js"
   data-visua11y-agent-lang="en"
   data-visua11y-agent-position="bottom-right"
   defer
@@ -104,7 +104,7 @@ Use official CDN distributions with version pinning for production stability:
 Or via unpkg:
 ```html
 <script
-  src="https://unpkg.com/visua11y-agent@1.8.2/dist/visua11y-agent.umd.js"
+  src="https://unpkg.com/visua11y-agent@latest/dist/visua11y-agent.umd.js"
   defer
 ></script>
 ```

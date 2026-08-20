@@ -22,7 +22,7 @@ export function getStorageData<T = Record<string, unknown>>(key: string): T {
   }
 
   // If no data found, return empty object
-  if (data === null) {
+  if (!data) {
     return {} as T;
   }
 

@@ -83,13 +83,13 @@ import 'visua11y-agent/slim';
 
 Every release is published to npm, accessible via major global CDNs:
 
-- **jsDelivr (UMD)** — `https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js`
-- **unpkg (UMD)** — `https://unpkg.com/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js`
+- **jsDelivr (UMD)** — `https://cdn.jsdelivr.net/npm/visua11y-agent@latest/dist/visua11y-agent.umd.js`
+- **unpkg (UMD)** — `https://unpkg.com/visua11y-agent@latest/dist/visua11y-agent.umd.js`
 - **esm.sh (ESM)** — `https://esm.sh/visua11y-agent`
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@latest/dist/visua11y-agent.umd.js"
   data-visua11y-agent-lang="en"
   data-visua11y-agent-position="bottom-right"
   data-visua11y-agent-offset="24,24"
@@ -101,7 +101,7 @@ Every release is published to npm, accessible via major global CDNs:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/visua11y-agent@1.8.0/dist/visua11y-agent.umd.js"
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@latest/dist/visua11y-agent.umd.js"
   data-visua11y-agent-lang="en"
   data-visua11y-agent-position="bottom-right"
   data-visua11y-agent-offset="24,24"

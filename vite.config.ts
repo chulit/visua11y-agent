@@ -51,7 +51,7 @@ export default defineConfig(({ mode }) => {
       },
       rollupOptions: {
         output: {
-          exports: 'named',
+          exports: isUmd ? 'none' : 'named',
           inlineDynamicImports: true,
         },
       },
