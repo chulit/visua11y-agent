@@ -575,6 +575,118 @@
       font-size: 0.72rem;
     }
 
+    /* 1-Click Embed Generator Card */
+    .generator-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 340px) 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .generator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .generator-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .generator-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .generator-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .generator-code-wrapper {
+      display: flex;
+      flex-direction: column;
+      background: #09090b;
+      border: 1px solid #27272a;
+      border-radius: var(--radius-control);
+      overflow: hidden;
+      justify-content: space-between;
+    }
+
+    .generator-code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #18181b;
+      border-bottom: 1px solid #27272a;
+    }
+
+    .generator-code-header span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #a1a1aa;
+    }
+
+    .generator-code-box {
+      margin: 0;
+      padding: 14px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+      overflow-x: auto;
+      white-space: pre;
+      background: transparent;
+    }
+
+    .generator-code-footer {
+      padding: 8px 12px;
+      background: #121215;
+      border-top: 1px solid #27272a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .generator-code-tip {
+      font-size: 0.7rem;
+      color: #71717a;
+      font-family: inherit;
+    }
+
+    .btn-copy-embed {
+      padding: 6px 14px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      border-radius: var(--radius-control);
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-copy-embed:hover {
+      background: #f4f4f5;
+      transform: translateY(-1px);
+    }
+
+    .btn-copy-embed:active {
+      transform: translateY(0);
+    }
+
     /* Footer */
     footer {
       max-width: 1040px;
@@ -664,6 +776,86 @@
         </div>
         <div class="hero-badge-preview">
           <img src="/src/icons/logo-title.webp" alt="Visua11y Agent Badge" />
+        </div>
+      </article>
+
+      <!-- Bento 1.5: 1-Click Embed Code Generator (Full Width) -->
+      <article class="bento-card col-span-12" id="embedGeneratorCard" style="background: #ffffff; border: 1px solid #e2e8f0;">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">⚡</span>
+            <h2 class="card-title">1-Click Embed Code Generator</h2>
+          </div>
+          <span class="card-tag" style="background: #ecfdf5; color: #059669; border-color: #a7f3d0;">Instant Integration</span>
+        </div>
+        <p class="card-desc">
+          Customize your accessibility widget options and copy the ready-to-use HTML snippet for WordPress, Shopify, Webflow, React, Vue, or static HTML.
+        </p>
+
+        <div class="generator-grid">
+          <!-- Left: Controls -->
+          <div class="generator-controls">
+            <div class="generator-field">
+              <label class="generator-label" for="embedPosition">Launcher Position</label>
+              <select id="embedPosition" class="select-input">
+                <option value="bottom-right" selected>Bottom Right (Default)</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="bottom-center">Bottom Center</option>
+                <option value="top-right">Top Right</option>
+                <option value="top-left">Top Left</option>
+                <option value="top-center">Top Center</option>
+              </select>
+            </div>
+
+            <div class="generator-field">
+              <label class="generator-label" for="embedLang">Default Language</label>
+              <select id="embedLang" class="select-input">
+                <option value="en" selected>English (en)</option>
+                <option value="id">Bahasa Indonesia (id)</option>
+                <option value="es">Español (es)</option>
+                <option value="fr">Français (fr)</option>
+                <option value="de">Deutsch (de)</option>
+                <option value="ar">العربية (ar) [RTL]</option>
+                <option value="ja">日本語 (ja)</option>
+                <option value="zh">中文 (zh)</option>
+                <option value="pt">Português (pt)</option>
+                <option value="ru">Русский (ru)</option>
+              </select>
+            </div>
+
+            <div class="generator-field">
+              <label class="generator-label" for="embedSize">Widget Size</label>
+              <select id="embedSize" class="select-input">
+                <option value="default" selected>Default (58px button, 500px panel)</option>
+                <option value="medium">Medium (50px button, 440px panel)</option>
+                <option value="small">Small (42px button, 380px panel)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Right: Generated Code Box -->
+          <div class="generator-code-wrapper">
+            <div class="generator-code-header">
+              <span>HTML / Script Snippet</span>
+              <button type="button" class="btn-copy-embed" id="copyEmbedBtn">
+                📋 Copy Code
+              </button>
+            </div>
+            <pre class="generator-code-box" id="embedCodeDisplay"><code>&lt;!-- Visua11y Agent Universal Accessibility Widget --&gt;
+&lt;script
+  src="https://cdn.jsdelivr.net/npm/visua11y-agent@latest/dist/visua11y-agent.umd.js"
+  data-visua11y-agent-lang="en"
+  data-visua11y-agent-position="bottom-right"
+  data-visua11y-agent-offset="24,24"
+  defer
+&gt;&lt;/script&gt;</code></pre>
+            <div class="generator-code-footer">
+              <span class="generator-code-tip">💡 Paste right before <code>&lt;/body&gt;</code> in your website template.</span>
+              <button type="button" class="btn-action" id="testInLiveWidgetBtn" style="font-size: 0.72rem;">
+                🚀 Test in Widget
+              </button>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -1252,6 +1444,71 @@
         const plugin = await waitForPlugin();
         plugin.setFooterSize('large');
         updateStatus('Footer size set to large.');
+      });
+      // 1-Click Embed Code Generator Logic
+      const embedPos = document.getElementById('embedPosition');
+      const embedLang = document.getElementById('embedLang');
+      const embedSize = document.getElementById('embedSize');
+      const embedDisplay = document.getElementById('embedCodeDisplay');
+      const copyEmbedBtn = document.getElementById('copyEmbedBtn');
+      const testWidgetBtn = document.getElementById('testInLiveWidgetBtn');
+
+      function generateEmbedCode() {
+        const pos = embedPos ? embedPos.value : 'bottom-right';
+        const lang = embedLang ? embedLang.value : 'en';
+        const size = embedSize ? embedSize.value : 'default';
+
+        let sizeAttr = '';
+        if (size !== 'default') {
+          sizeAttr = `\n  data-visua11y-agent-size="${size}"`;
+        }
+
+        const code = `<!-- Visua11y Agent Universal Accessibility Widget -->\n<script\n  src="https://cdn.jsdelivr.net/npm/visua11y-agent@latest/dist/visua11y-agent.umd.js"\n  data-visua11y-agent-lang="${lang}"\n  data-visua11y-agent-position="${pos}"${sizeAttr}\n  defer\n><\/script>`;
+
+        if (embedDisplay) {
+          const codeEl = embedDisplay.querySelector('code');
+          if (codeEl) {
+            codeEl.textContent = code;
+          } else {
+            embedDisplay.textContent = code;
+          }
+        }
+        return code;
+      }
+
+      embedPos?.addEventListener('change', generateEmbedCode);
+      embedLang?.addEventListener('change', generateEmbedCode);
+      embedSize?.addEventListener('change', generateEmbedCode);
+
+      copyEmbedBtn?.addEventListener('click', async () => {
+        const code = generateEmbedCode();
+        try {
+          await navigator.clipboard.writeText(code);
+          copyEmbedBtn.textContent = '✅ Copied!';
+          copyEmbedBtn.style.background = '#22c55e';
+          copyEmbedBtn.style.color = '#ffffff';
+          updateStatus('Embed code copied to clipboard!');
+          setTimeout(() => {
+            copyEmbedBtn.textContent = '📋 Copy Code';
+            copyEmbedBtn.style.background = '#ffffff';
+            copyEmbedBtn.style.color = '#000000';
+          }, 2000);
+        } catch (err) {
+          updateStatus('Failed to copy code to clipboard.');
+        }
+      });
+
+      testWidgetBtn?.addEventListener('click', async () => {
+        const plugin = await waitForPlugin();
+        const pos = embedPos ? embedPos.value : 'bottom-right';
+        const lang = embedLang ? embedLang.value : 'en';
+        const size = embedSize ? embedSize.value : 'default';
+
+        plugin.setPosition(pos);
+        plugin.changeLanguage(lang);
+        plugin.setWidgetSize(size);
+        plugin.openMenu();
+        updateStatus(`Applied embed settings to live widget: [${pos}, ${lang}, ${size}].`);
       });
     });
   </script>
