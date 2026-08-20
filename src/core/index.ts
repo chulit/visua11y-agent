@@ -24,7 +24,7 @@ import enableContrast from '@/tools/enableContrast';
 import adjustFontSize from '@/tools/adjustFontSize';
 import { FILTERS } from '@/enum/Filters';
 
-export default function visua11yAgent(config: any = {}) {
+export default function visua11yAgent(config: Record<string, unknown> = {}) {
   const savedSettings = getSavedUserSettings() || {};
 
   const providedOptions = config?.options ?? config ?? {};

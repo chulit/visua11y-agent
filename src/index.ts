@@ -89,5 +89,10 @@ export { visua11yAgent };
 // Export version
 export { VERSION, VERSION as version } from './version';
 
+// Export i18n utilities and locales
+export { ALL_LOCALES, enLocale, idLocale } from './i18n/locales';
+export { registerLanguage, loadLanguage, LANGUAGES } from './i18n/Languages';
+
 // Export types
 export type { ISettings } from './types/ISettings';
+export type { IRegisterLanguageOptions, ILanguage } from './i18n/Languages';

@@ -50,9 +50,28 @@ export interface Visua11yAgentPlugin {
   getSettings: () => ISettings;
   hideFooter: (hide: boolean) => void;
   setFooterSize: (size: 'small' | 'medium' | 'large') => void;
-  registerLanguage: (options: any) => string;
+  registerLanguage: (options: IRegisterLanguageOptions) => string | undefined;
   resetAll: () => void;
 }
+
+export interface ILanguage {
+  code: string;
+  label: string;
+}
+
+export interface IRegisterLanguageOptions {
+  code: string;
+  label?: string;
+  dictionary: Record<string, string>;
+  merge?: boolean;
+}
+
+export declare function registerLanguage(options: IRegisterLanguageOptions): string | undefined;
+export declare function loadLanguage(code: string): Promise<Record<string, string>>;
+export declare const LANGUAGES: ILanguage[];
+export declare const ALL_LOCALES: Record<string, Record<string, string>>;
+export declare const enLocale: Record<string, string>;
+export declare const idLocale: Record<string, string>;
 
 export declare function createVisua11yAgent(options?: Visua11yAgentOptions): Visua11yAgentPlugin;
 export declare function initVisua11yAgent(options: { options: Visua11yAgentOptions }): Visua11yAgentPlugin;

@@ -1,4 +1,4 @@
-import enLocale from '../locales/en.json';
+import ALL_LOCALES, { en as enLocale } from './locales';
 import { VERSION } from '../version';
 
 export const LANGUAGES: ILanguage[] = [
@@ -70,6 +70,7 @@ export interface IRegisterLanguageOptions {
 }
 
 export const LANGUAGE_DICTIONARY: Record<string, Record<string, string>> = {
+  ...ALL_LOCALES,
   en: enLocale,
 };
 
@@ -138,32 +139,31 @@ export async function loadLanguage(code: string): Promise<Record<string, string>
     return LANGUAGE_DICTIONARY[resolvedCode];
   }
 
-  // 1. Dynamic import untuk bundler
-  try {
-    const dictionary = (await import(`../locales/${resolvedCode}.json`)).default;
-    LANGUAGE_DICTIONARY[resolvedCode] = dictionary;
-    return dictionary;
-  } catch {
-    // 2. Fallback fetch via CDN jika dijalankan dari script tag di browser
-    if (typeof fetch !== 'undefined') {
-      try {
-        const res = await fetch(`https://cdn.jsdelivr.net/npm/visua11y-agent@${VERSION}/dist/locales/${resolvedCode}.json`);
-        if (res.ok) {
-          const data = await res.json();
-          LANGUAGE_DICTIONARY[resolvedCode] = data;
-          return data;
-        } else {
-          console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN (Status: ${res.status})`);
-        }
-      } catch (fetchError) {
-        console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN`, fetchError);
-      }
-    } else {
-      console.warn(`[Visua11y Agent] Missing locale file for "${resolvedCode}" and fetch is not available.`);
-    }
-    LANGUAGE_DICTIONARY[resolvedCode] = LANGUAGE_DICTIONARY[resolvedCode] || {};
+  if (ALL_LOCALES[resolvedCode]) {
+    LANGUAGE_DICTIONARY[resolvedCode] = ALL_LOCALES[resolvedCode];
     return LANGUAGE_DICTIONARY[resolvedCode];
   }
+
+  // Fallback fetch via CDN jika custom/remote locale
+  if (typeof fetch !== 'undefined') {
+    try {
+      const res = await fetch(`https://cdn.jsdelivr.net/npm/visua11y-agent@${VERSION}/dist/locales/${resolvedCode}.json`);
+      if (res.ok) {
+        const data = await res.json();
+        LANGUAGE_DICTIONARY[resolvedCode] = data;
+        return data;
+      } else {
+        console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN (Status: ${res.status})`);
+      }
+    } catch (fetchError) {
+      console.warn(`[Visua11y Agent] Failed to fetch locale "${resolvedCode}" from CDN`, fetchError);
+    }
+  } else {
+    console.warn(`[Visua11y Agent] Missing locale file for "${resolvedCode}" and fetch is not available.`);
+  }
+
+  LANGUAGE_DICTIONARY[resolvedCode] = LANGUAGE_DICTIONARY[resolvedCode] || {};
+  return LANGUAGE_DICTIONARY[resolvedCode];
 }
 
 export async function loadLanguages(targetLang?: string): Promise<void> {

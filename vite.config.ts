@@ -51,7 +51,8 @@ export default defineConfig(({ mode }) => {
       },
       rollupOptions: {
         output: {
-          exports: 'auto',
+          exports: 'named',
+          inlineDynamicImports: true,
         },
       },
     },
