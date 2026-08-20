@@ -11,8 +11,12 @@ export default defineConfig({
   titleTemplate: ':title | Visua11y Agent - Universal Accessibility Widget',
   description: 'Zero-dependency universal accessibility widget and toolbar for WCAG 2.1 & ADA compliance with 53 languages, screen reader, and contrast presets.',
 
+  srcExclude: ['**/superpowers/**', 'superpowers/**'],
   sitemap: {
-    hostname: 'https://chulit.github.io/visua11y-agent/'
+    hostname: 'https://chulit.github.io/visua11y-agent/',
+    transformItems(items) {
+      return items.filter(item => !item.url.includes('superpowers') && !item.url.includes('plans'));
+    }
   },
 
   head: [
