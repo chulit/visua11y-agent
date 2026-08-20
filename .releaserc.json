@@ -5,7 +5,7 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/npm",
     ["@semantic-release/exec", {
-      "prepareCmd": "npm run build"
+      "prepareCmd": "npm run docs:publish"
     }],
     ["@semantic-release/git", {
       "assets": ["package.json", "CHANGELOG.md"],
