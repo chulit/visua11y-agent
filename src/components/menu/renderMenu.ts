@@ -4,7 +4,7 @@ import FilterButtons from './FilterButtons';
 import ContentButtons from './ContentButtons';
 import ToolButtons from '@/enum/ToolPresets';
 import widgetSettingsIcon from '@/icons/widgetSettingsIcon.svg';
-import logoAsset from '@/icons/logo.webp';
+import logoAsset from '@/icons/logo-256x256.avif';
 
 import renderButtons from './renderButtons';
 import adjustFontSize from '@/tools/adjustFontSize';
@@ -131,6 +131,26 @@ function hexToHue(hex: string, fallback: number): number {
   return degrees;
 }
 
+export function applyPanelWidth(width?: number) {
+  const targetWidth =
+    typeof width === 'number'
+      ? width
+      : pluginConfig.panelWidth ?? pluginDefaults.panelWidth ?? 500;
+  const isSmall = pluginConfig.sizePreset === 'small' || targetWidth <= 400;
+  const $menuRoot = document.querySelector<HTMLElement>('.visua11y-agent-menu');
+  if ($menuRoot) {
+    $menuRoot.style.setProperty('--visua11y-agent-panel-width', `${Math.round(targetWidth)}px`);
+    $menuRoot.classList.toggle('visua11y-agent-menu-small', isSmall);
+  }
+  const sizePreset = pluginConfig.sizePreset;
+  const sizeButtons = document.querySelectorAll<HTMLButtonElement>('.visua11y-agent-size-btn');
+  sizeButtons.forEach((btn) => {
+    const isSelected = Boolean(sizePreset) && btn.dataset.size === sizePreset;
+    btn.classList.toggle('visua11y-agent-selected', isSelected);
+    btn.setAttribute('aria-pressed', String(isSelected));
+  });
+}
+
 export default function renderMenu() {
   const $container: HTMLElement = document.createElement('div');
   $container.innerHTML = `<style>${css}</style>` + template;
@@ -152,6 +172,9 @@ export default function renderMenu() {
 
   if ($menu) {
     setMenuAnchor(pluginConfig?.position || 'bottom-left');
+    const isSmall =
+      pluginConfig.sizePreset === 'small' || (pluginConfig.panelWidth || 500) <= 400;
+    $menu.classList.toggle('visua11y-agent-menu-small', isSmall);
   }
 
   const $logo = $container.querySelector<HTMLImageElement>('[data-visua11y-agent-logo]');
@@ -426,12 +449,7 @@ export default function renderMenu() {
   }
 
   const setPanelWidth = () => {
-    if (!$menu) {
-      return;
-    }
-    const width = pluginDefaults.panelWidth || 500;
-    pluginConfig.panelWidth = width;
-    $menu.style.setProperty('--visua11y-agent-panel-width', `${Math.round(width)}px`);
+    applyPanelWidth();
   };
 
   let previousProfileSnapshot: {
@@ -490,7 +508,7 @@ export default function renderMenu() {
         const resolved = resolveWidgetSize(snapshot.widgetSize);
         pluginConfig.size = resolved.size;
         pluginConfig.sizePreset = resolved.preset;
-        pluginConfig.panelWidth = pluginDefaults.panelWidth;
+        pluginConfig.panelWidth = resolved.panelWidth;
         userSettings.widgetSize = snapshot.widgetSize;
         setSizePresetSelection(resolved.preset);
         setPanelWidth();
@@ -569,7 +587,7 @@ export default function renderMenu() {
       const resolved = resolveWidgetSize(profile.widgetSize);
       pluginConfig.size = resolved.size;
       pluginConfig.sizePreset = resolved.preset;
-      pluginConfig.panelWidth = pluginDefaults.panelWidth;
+      pluginConfig.panelWidth = resolved.panelWidth;
       userSettings.widgetSize = resolved.preset ?? resolved.size;
       setSizePresetSelection(resolved.preset);
       setPanelWidth();
@@ -608,7 +626,7 @@ export default function renderMenu() {
       : pluginConfig.sizePreset || pluginConfig.size;
   const initialSize = resolveWidgetSize(initialSizeSource);
   setSizePresetSelection(initialSize.preset);
-  pluginConfig.panelWidth = pluginDefaults.panelWidth;
+  pluginConfig.panelWidth = initialSize.panelWidth;
   setPanelWidth();
   setActiveProfileButton(userSettings.activeProfile);
 
@@ -618,7 +636,7 @@ export default function renderMenu() {
       const resolved = resolveWidgetSize(presetValue);
       pluginConfig.size = resolved.size;
       pluginConfig.sizePreset = resolved.preset;
-      pluginConfig.panelWidth = pluginDefaults.panelWidth;
+      pluginConfig.panelWidth = resolved.panelWidth;
       userSettings.widgetSize = resolved.preset ?? resolved.size;
       setSizePresetSelection(resolved.preset);
       setPanelWidth();

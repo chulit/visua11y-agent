@@ -20,20 +20,20 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', type: 'image/webp', href: `${BASE}logo.webp` }],
+    ['link', { rel: 'icon', type: 'image/avif', href: `${BASE}logo-256x256.avif` }],
     ['link', { rel: 'canonical', href: 'https://chulit.github.io/visua11y-agent/' }],
     ['meta', { name: 'keywords', content: 'accessibility, a11y, web accessibility widget, WCAG 2.1, ADA compliance, screen reader, dyslexia font, high contrast, accessibility toolbar, open source, userway alternative, aksesibilitas website, plugin disabilitas web, widget ramah disabilitas' }],
     ['meta', { name: 'robots', content: 'index, follow' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'Visua11y Agent — Universal Web Accessibility Widget' }],
     ['meta', { property: 'og:description', content: 'Zero-dependency universal accessibility widget & toolbar supporting 53 languages, screen reader, dyslexia fonts, and WCAG compliance.' }],
-    ['meta', { property: 'og:image', content: `https://chulit.github.io${BASE}logo.webp` }],
+    ['meta', { property: 'og:image', content: `https://chulit.github.io${BASE}logo.avif` }],
     ['meta', { property: 'og:url', content: 'https://chulit.github.io/visua11y-agent/' }],
     ['meta', { property: 'og:site_name', content: 'Visua11y Agent' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'Visua11y Agent — Universal Accessibility Widget' }],
     ['meta', { name: 'twitter:description', content: 'Zero-dependency universal accessibility widget & toolbar supporting 53 languages, screen reader, and WCAG compliance.' }],
-    ['meta', { name: 'twitter:image', content: `https://chulit.github.io${BASE}logo.webp` }],
+    ['meta', { name: 'twitter:image', content: `https://chulit.github.io${BASE}logo.avif` }],
     [
       'script',
       { type: 'application/ld+json' },

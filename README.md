@@ -1,7 +1,7 @@
 # Visua11y Agent: Universal Accessibility Website Widget
 
 <p align="center">
-  <img src="./src/icons/logo.webp" alt="Visua11y Agent - Web Accessibility Widget Logo" width="180">
+  <img src="./src/icons/logo.avif" alt="Visua11y Agent - Web Accessibility Widget Logo" width="180">
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
 
 [![npm version](https://img.shields.io/npm/v/visua11y-agent.svg)](https://www.npmjs.com/package/visua11y-agent)
 [![npm downloads](https://img.shields.io/npm/dm/visua11y-agent.svg)](https://www.npmjs.com/package/visua11y-agent)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/visua11y-agent)](https://bundlephobia.com/package/visua11y-agent)
+[![bundle size](https://img.shields.io/bundlejs/size/visua11y-agent)](https://bundlejs.com/?q=visua11y-agent)
 [![GitHub release](https://img.shields.io/github/v/release/chulit/visua11y-agent)](https://github.com/chulit/visua11y-agent/releases)
 [![GitHub issues](https://img.shields.io/github/issues/chulit/visua11y-agent)](https://github.com/chulit/visua11y-agent/issues)
 [![GitHub license](https://img.shields.io/github/license/chulit/visua11y-agent)](https://github.com/chulit/visua11y-agent/blob/master/LICENSE)

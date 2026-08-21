@@ -31,6 +31,7 @@ vi.mock('@/components/menu/menu', () => ({
 
 vi.mock('@/components/menu/renderMenu', () => ({
   default: vi.fn(() => document.createElement('div')),
+  applyPanelWidth: vi.fn(),
 }));
 
 vi.mock('@/config/userSettings', () => {
@@ -103,6 +104,7 @@ describe('New Helper Functions', () => {
       api.setWidgetSize('small');
 
       expect(userSettings.widgetSize).toBe('small');
+      expect(pluginConfig.panelWidth).toBe(380);
       expect(saveUserSettings).toHaveBeenCalled();
       expect(applyButtonPosition).toHaveBeenCalled();
     });
@@ -111,6 +113,7 @@ describe('New Helper Functions', () => {
       api.setWidgetSize('medium');
 
       expect(userSettings.widgetSize).toBe('medium');
+      expect(pluginConfig.panelWidth).toBe(440);
       expect(saveUserSettings).toHaveBeenCalled();
     });
 
@@ -118,6 +121,7 @@ describe('New Helper Functions', () => {
       api.setWidgetSize('default');
 
       expect(userSettings.widgetSize).toBe('default');
+      expect(pluginConfig.panelWidth).toBe(500);
       expect(saveUserSettings).toHaveBeenCalled();
     });
   });

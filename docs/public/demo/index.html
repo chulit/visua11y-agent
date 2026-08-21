@@ -5,37 +5,49 @@
   <meta charset="utf-8" />
   <title>Visua11y Agent — Accessibility Widget Playground</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/webp" href="./logo.webp" />
+  <link rel="icon" type="image/avif" href="./logo-256x256.avif" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
 
   <style>
     :root {
-      --vp-c-brand: #6366f1;
-      --vp-c-brand-hover: #4f46e5;
-      --vp-c-brand-light: #818cf8;
-      --vp-c-bg: #ffffff;
-      --vp-c-bg-alt: #f6f6f7;
-      --vp-c-bg-elv: #ffffff;
-      --vp-c-text-1: #213547;
-      --vp-c-text-2: #475569;
-      --vp-c-text-3: #94a3b8;
-      --vp-c-border: #e2e8f0;
-      --vp-c-divider: rgba(60, 60, 67, 0.12);
-      
-      --primary: var(--vp-c-brand);
-      --primary-hover: var(--vp-c-brand-hover);
-      --background: var(--vp-c-bg-alt);
-      --surface: var(--vp-c-bg);
-      --surface-subtle: #f8fafc;
-      --text-primary: var(--vp-c-text-1);
-      --text-secondary: var(--vp-c-text-2);
-      --border: var(--vp-c-border);
-      --radius-card: 12px;
+      /* Colors per DESIGN.md */
+      --color-ink-navy: #0b3558;
+      --color-signal-blue: #006bff;
+      --color-slate-gray: #476788;
+      --color-mist-gray: #a6bbd1;
+      --color-cloud: #f8f9fb;
+      --color-paper: #ffffff;
+      --color-pebble: #f0f3f8;
+      --color-hairline: #d4e0ed;
+      --color-carbon: #0a0a0a;
+      --color-coral-magenta: #e55cff;
+      --color-sky-cyan: #0099ff;
+      --color-deep-cobalt: #004eba;
+
+      /* Base Aliases */
+      --primary: var(--color-signal-blue);
+      --primary-hover: var(--color-deep-cobalt);
+      --background: var(--color-cloud);
+      --surface: var(--color-paper);
+      --surface-subtle: var(--color-pebble);
+      --text-primary: var(--color-ink-navy);
+      --text-secondary: var(--color-slate-gray);
+      --border: var(--color-hairline);
+
+      /* Shapes & Radii per DESIGN.md */
+      --radius-card: 24px;
+      --radius-product: 16px;
       --radius-control: 8px;
       --radius-pill: 9999px;
+
+      /* Shadows per DESIGN.md (Blue-tinted elevation) */
+      --shadow-sm: rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 4px 10px 0px, rgba(71, 103, 136, 0.05) 0px 10px 20px 0px;
+      --shadow-card: rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.08) 0px 30px 50px 0px;
+      --shadow-btn: rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.06) 0px 15px 30px 0px;
     }
 
     * {
@@ -43,7 +55,7 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       font-size: 14px;
       line-height: 1.6;
@@ -52,12 +64,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Nav Bar (VitePress Guide Style) */
+    /* Top Nav Bar per DESIGN.md (64px sticky bar, Ink Navy text, Hairline border) */
     .top-nav {
       position: sticky;
       top: 0;
       z-index: 40;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(248, 249, 251, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -68,7 +80,7 @@
     }
 
     .top-nav-inner {
-      max-width: 1152px;
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -82,28 +94,28 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: var(--text-primary);
+      color: var(--color-ink-navy);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       letter-spacing: -0.01em;
     }
 
     .nav-brand img {
-      height: 26px;
-      width: auto;
+      height: 38px;
+      width: 38px;
       object-fit: contain;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .nav-link-item {
-      color: var(--text-secondary);
+      color: var(--color-slate-gray);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 500;
       transition: color 0.15s ease;
       display: flex;
@@ -112,31 +124,31 @@
     }
 
     .nav-link-item:hover {
-      color: var(--primary);
+      color: var(--color-signal-blue);
     }
 
     .nav-link-item.active {
-      color: var(--primary);
+      color: var(--color-signal-blue);
       font-weight: 600;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 3px 10px;
-      background: rgba(99, 102, 241, 0.08);
-      color: var(--primary);
-      border: 1px solid rgba(99, 102, 241, 0.2);
+      padding: 4px 10px;
+      background: #e6f0ff;
+      color: var(--color-deep-cobalt);
+      border: 1px solid var(--border);
       border-radius: var(--radius-pill);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 600;
     }
 
@@ -144,28 +156,28 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
-      font-size: 0.82rem;
+      padding: 8px 16px;
+      font-size: 0.85rem;
       font-weight: 600;
       border-radius: var(--radius-control);
-      border: 1px solid transparent;
-      background: var(--primary);
+      border: none;
+      background: var(--color-signal-blue);
       color: #ffffff;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.15s ease;
-      box-shadow: 0 1px 3px rgba(99, 102, 241, 0.25);
+      box-shadow: var(--shadow-btn);
     }
 
     .btn-nav-action:hover {
-      background: var(--primary-hover);
+      background: var(--color-deep-cobalt);
       transform: translateY(-1px);
     }
 
     /* Container */
     .playground-container {
-      max-width: 1152px;
-      margin: 24px auto 48px;
+      max-width: 1200px;
+      margin: 28px auto 56px;
       padding: 0 24px;
     }
 
@@ -173,25 +185,24 @@
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
 
     .bento-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
-      padding: 18px 20px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .bento-card:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
     }
 
     /* Card Header */
@@ -199,50 +210,62 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       gap: 8px;
     }
 
     .card-title-group {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 10px;
     }
 
     .card-icon {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
-      background: var(--surface-subtle);
-      color: var(--text-secondary);
-      font-size: 0.78rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(0, 107, 255, 0.08);
+      color: var(--color-signal-blue);
+      border: 1px solid rgba(0, 107, 255, 0.14);
+      flex-shrink: 0;
+    }
+
+    .card-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .card-title {
       margin: 0;
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      color: var(--text-primary);
+      color: var(--color-ink-navy);
       letter-spacing: -0.01em;
     }
 
     .card-tag {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.67rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 2px 6px;
+      padding: 3px 8px;
       border-radius: var(--radius-pill);
-      background: var(--surface-subtle);
-      color: var(--text-secondary);
+      background: #e6f0ff;
+      color: var(--color-deep-cobalt);
+      border: 1px solid var(--border);
     }
 
     .card-desc {
-      margin: 0 0 12px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+      margin: 0 0 14px;
+      font-size: 0.84rem;
+      color: var(--color-slate-gray);
       line-height: 1.5;
     }
 
@@ -254,100 +277,163 @@
     .col-span-4 { grid-column: span 4; }
     .col-span-6 { grid-column: span 6; }
 
-    /* Bento 1: Hero Banner Card */
+    /* Bento 1: Hero Banner Card with Decorative Ambient Glowing Blobs */
     .card-hero {
       background: var(--surface);
-      border-color: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 20px 24px;
+      gap: 24px;
+      padding: 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-hero::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: 40px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(229, 92, 255, 0.16) 0%, rgba(0, 153, 255, 0.16) 50%, rgba(248, 249, 251, 0) 70%);
+      filter: blur(32px);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-content {
-      max-width: 600px;
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-content h1 {
-      margin: 0 0 4px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-ink-navy);
       letter-spacing: -0.02em;
+      line-height: 1.25;
     }
 
     .hero-content p {
-      margin: 0 0 12px;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
+      margin: 0 0 16px;
+      font-size: 0.88rem;
+      color: var(--color-slate-gray);
+      line-height: 1.55;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
       gap: 6px;
+      padding: 8px 16px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border-radius: var(--radius-control);
+      border: none;
+      background: var(--color-signal-blue);
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-btn);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--color-deep-cobalt);
+      transform: translateY(-1px);
+    }
+
+    .btn-hero-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border-radius: var(--radius-control);
+      border: none;
+      background: var(--color-ink-navy);
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-btn);
+    }
+
+    .btn-hero-dark:hover {
+      background: #07253f;
+      transform: translateY(-1px);
     }
 
     .hero-badge-preview {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4px;
+      padding: 8px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-badge-preview img {
-      height: 90px;
+      height: 96px;
       width: auto;
-      max-width: 150px;
+      max-width: 160px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 14px rgba(99, 102, 241, 0.15));
-      transition: transform 0.2s ease;
+      filter: drop-shadow(0 6px 18px rgba(11, 53, 88, 0.12));
+      transition: transform 0.25s ease;
     }
 
     .hero-badge-preview img:hover {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
     /* Bento: Article Simulator */
     .article-sample {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius-control);
-      padding: 12px 14px;
-      font-size: 0.81rem;
-      color: var(--text-primary);
+      border-radius: var(--radius-product);
+      padding: 14px 16px;
+      font-size: 0.84rem;
+      color: var(--color-ink-navy);
       line-height: 1.6;
     }
 
     .article-sample h4 {
-      margin: 0 0 4px;
-      font-size: 0.86rem;
+      margin: 0 0 6px;
+      font-size: 0.92rem;
       font-weight: 600;
-      color: var(--text-primary);
+      color: var(--color-ink-navy);
     }
 
     .article-sample a {
-      color: var(--text-primary);
+      color: var(--color-signal-blue);
       text-decoration: underline;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     /* Motion Lab Card */
     .motion-preview-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 10px;
       margin-top: auto;
     }
 
     .motion-mini-card {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius-control);
-      padding: 10px;
+      border-radius: var(--radius-product);
+      padding: 12px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -355,7 +441,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 90px;
+      min-height: 95px;
     }
 
     .motion-mini-card--shimmer::before {
@@ -364,7 +450,7 @@
       inset: -120% -40%;
       background: linear-gradient(120deg,
           rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.8) 45%,
+          rgba(255, 255, 255, 0.85) 45%,
           rgba(255, 255, 255, 0) 100%);
       animation: shimmer 2.4s linear infinite;
     }
@@ -380,7 +466,7 @@
       position: absolute;
       inset: 0;
       border-radius: var(--radius-pill);
-      border: 1.5px dashed var(--text-secondary);
+      border: 1.5px dashed var(--color-slate-gray);
       animation: pulse 3.2s ease-in-out infinite;
     }
 
@@ -392,8 +478,8 @@
       height: 10px;
       margin: -5px;
       border-radius: var(--radius-pill);
-      background: var(--primary);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      background: var(--color-signal-blue);
+      box-shadow: 0 2px 6px rgba(0, 107, 255, 0.4);
       animation: orbit 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
 
@@ -417,145 +503,148 @@
     .media-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 10px;
       margin-top: auto;
     }
 
     .media-item {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius-control);
-      padding: 8px;
+      border-radius: var(--radius-product);
+      padding: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 4px;
+      gap: 6px;
     }
 
     .media-item img {
-      max-height: 44px;
+      max-height: 48px;
       width: auto;
       object-fit: contain;
-      border-radius: 4px;
+      border-radius: 6px;
     }
 
     .media-item span {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--text-secondary);
+      font-size: 0.72rem;
+      color: var(--color-slate-gray);
+      font-weight: 500;
     }
 
     /* Controls & Buttons inside Bento Cards */
     .controls-cluster {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 6px;
     }
 
     .btn-action {
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: var(--radius-control);
       border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-primary);
+      background: var(--surface-subtle);
+      color: var(--color-ink-navy);
       font-family: inherit;
-      font-size: 0.76rem;
-      font-weight: 500;
+      font-size: 0.78rem;
+      font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       transition: all 0.15s ease;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 1px 2px rgba(71, 103, 136, 0.05);
     }
 
     .btn-action:hover {
-      background: var(--surface-subtle);
-      border-color: #d1d5db;
+      background: #e6f0ff;
+      border-color: var(--color-signal-blue);
+      color: var(--color-signal-blue);
     }
 
     .btn-action:active {
-      background: #e5e7eb;
+      background: #d4e5ff;
       transform: translateY(1px);
     }
 
     .select-input {
-      padding: 5px 8px;
+      padding: 6px 10px;
       border-radius: var(--radius-control);
       border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-primary);
+      background: var(--surface-subtle);
+      color: var(--color-ink-navy);
       font-family: inherit;
-      font-size: 0.77rem;
+      font-size: 0.8rem;
       font-weight: 500;
       width: 100%;
       cursor: pointer;
-      transition: border-color 0.15s ease;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: border-color 0.15s ease, background 0.15s ease;
+      box-shadow: 0 1px 2px rgba(71, 103, 136, 0.05);
     }
 
     .select-input:hover {
-      border-color: #d1d5db;
+      border-color: #a6bbd1;
     }
 
     .select-input:focus {
       outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+      border-color: var(--color-signal-blue);
+      background: #ffffff;
+      box-shadow: 0 0 0 2px rgba(0, 107, 255, 0.15);
     }
 
     /* Developer API Subgrid */
     .api-subgrid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
+      gap: 12px;
     }
 
     .api-group {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius-control);
-      padding: 9px 11px;
+      border-radius: var(--radius-product);
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
 
     .api-group-title {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.3px;
-      color: var(--text-secondary);
+      color: var(--color-slate-gray);
       margin-bottom: 2px;
     }
 
     /* Terminal Console Card */
     .terminal-card {
-      background: #000000;
-      border-color: #1f2937;
-      color: #f3f4f6;
+      background: #071a2b;
+      border-color: #163b5c;
+      color: #f8f9fb;
     }
 
     .terminal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #1f2937;
-      padding-bottom: 7px;
-      margin-bottom: 8px;
+      border-bottom: 1px solid #163b5c;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .terminal-dots {
       display: flex;
-      gap: 4px;
+      gap: 5px;
     }
 
     .terminal-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: var(--radius-pill);
     }
 
@@ -565,32 +654,32 @@
 
     .terminal-title {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: #9ca3af;
+      font-size: 0.72rem;
+      color: #a6bbd1;
     }
 
     .terminal-body {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      color: #e5e7eb;
-      background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: 6px;
-      padding: 8px 10px;
-      min-height: 44px;
+      font-size: 0.78rem;
+      color: #f0f3f8;
+      background: #030e18;
+      border: 1px solid #163b5c;
+      border-radius: var(--radius-control);
+      padding: 10px 12px;
+      min-height: 48px;
       display: flex;
       align-items: center;
-      gap: 7px;
-      line-height: 1.4;
+      gap: 8px;
+      line-height: 1.45;
       word-break: break-all;
     }
 
     .pulse-indicator {
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
       border-radius: var(--radius-pill);
       background: #22c55e;
-      box-shadow: 0 0 6px #22c55e;
+      box-shadow: 0 0 8px #22c55e;
       flex-shrink: 0;
     }
 
@@ -598,34 +687,34 @@
     .checklist-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 6px;
+      gap: 8px;
     }
 
     .checklist-item {
       display: flex;
       align-items: flex-start;
-      gap: 7px;
-      font-size: 0.76rem;
-      color: var(--text-secondary);
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--color-slate-gray);
       background: var(--surface-subtle);
-      padding: 7px 9px;
+      padding: 8px 10px;
       border-radius: var(--radius-control);
       border: 1px solid var(--border);
     }
 
     .checklist-item span.num {
       font-family: 'JetBrains Mono', monospace;
-      font-weight: 600;
-      color: var(--text-primary);
-      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--color-ink-navy);
+      font-size: 0.75rem;
     }
 
     /* 1-Click Embed Generator Card */
     .generator-grid {
       display: grid;
       grid-template-columns: minmax(280px, 340px) 1fr;
-      gap: 16px;
-      margin-top: 12px;
+      gap: 18px;
+      margin-top: 14px;
     }
 
     @media (max-width: 860px) {
@@ -637,7 +726,7 @@
     .generator-controls {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .generator-field {
@@ -647,9 +736,9 @@
     }
 
     .generator-label {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: var(--color-slate-gray);
       font-family: 'JetBrains Mono', monospace;
       text-transform: uppercase;
       letter-spacing: 0.3px;
@@ -658,9 +747,9 @@
     .generator-code-wrapper {
       display: flex;
       flex-direction: column;
-      background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: var(--radius-control);
+      background: #071a2b;
+      border: 1px solid #163b5c;
+      border-radius: var(--radius-product);
       overflow: hidden;
       justify-content: space-between;
     }
@@ -669,33 +758,33 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
-      background: #18181b;
-      border-bottom: 1px solid #27272a;
+      padding: 10px 14px;
+      background: #0b253d;
+      border-bottom: 1px solid #163b5c;
     }
 
     .generator-code-header span {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: #a1a1aa;
+      font-size: 0.74rem;
+      color: #a6bbd1;
     }
 
     .generator-code-box {
       margin: 0;
-      padding: 14px 16px;
+      padding: 16px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       line-height: 1.55;
-      color: #e2e8f0;
+      color: #f0f3f8;
       overflow-x: auto;
       white-space: pre;
       background: transparent;
     }
 
     .generator-code-footer {
-      padding: 8px 12px;
-      background: #121215;
-      border-top: 1px solid #27272a;
+      padding: 10px 14px;
+      background: #051320;
+      border-top: 1px solid #163b5c;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -703,28 +792,29 @@
     }
 
     .generator-code-tip {
-      font-size: 0.7rem;
-      color: #71717a;
+      font-size: 0.74rem;
+      color: #8da6c0;
       font-family: inherit;
     }
 
     .btn-copy-embed {
       padding: 6px 14px;
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
       border-radius: var(--radius-control);
-      background: #ffffff;
-      color: #000000;
+      background: var(--color-signal-blue);
+      color: #ffffff;
       border: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       transition: all 0.15s ease;
+      box-shadow: 0 2px 8px rgba(0, 107, 255, 0.3);
     }
 
     .btn-copy-embed:hover {
-      background: #f4f4f5;
+      background: var(--color-deep-cobalt);
       transform: translateY(-1px);
     }
 
@@ -734,24 +824,24 @@
 
     /* Footer */
     footer {
-      max-width: 1040px;
-      margin: 0 auto 28px;
-      padding: 0 16px;
+      max-width: 1200px;
+      margin: 0 auto 32px;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--text-secondary);
-      font-size: 0.75rem;
+      color: var(--color-slate-gray);
+      font-size: 0.8rem;
     }
 
     footer a {
-      color: var(--text-secondary);
+      color: var(--color-ink-navy);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     footer a:hover {
-      color: var(--text-primary);
+      color: var(--color-signal-blue);
       text-decoration: underline;
     }
 
@@ -768,14 +858,15 @@
 
     @media (max-width: 640px) {
       .playground-container {
-        padding: 0 10px;
-        margin-top: 12px;
+        padding: 0 12px;
+        margin-top: 16px;
       }
       .bento-grid {
-        gap: 10px;
+        gap: 14px;
       }
       .bento-card {
-        padding: 12px 14px;
+        padding: 16px 16px;
+        border-radius: 18px;
       }
       .motion-preview-box, .media-gallery {
         grid-template-columns: 1fr;
@@ -789,7 +880,7 @@
   <nav class="top-nav" aria-label="Playground Navigation">
     <div class="top-nav-inner">
       <a href="../guide/" class="nav-brand">
-        <img src="./logo.webp" alt="Visua11y Agent Logo" />
+        <img src="./logo-256x256.avif" alt="Visua11y Agent Logo" />
         <span>Visua11y Agent</span>
       </a>
 
@@ -802,14 +893,15 @@
       </div>
 
       <div class="nav-actions">
-        <span class="badge-pill" id="demoVersionBadge">v1.12.0</span>
+        <span class="badge-pill" id="demoVersionBadge">v1.12.2</span>
         <a href="https://github.com/chulit/visua11y-agent" target="_blank" rel="noreferrer" class="nav-link-item" title="GitHub Repository">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
           </svg>
         </a>
         <button type="button" class="btn-nav-action" onclick="window.Visua11yAgentPlugin && window.Visua11yAgentPlugin.openMenu()">
-          ✨ Open Widget
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+          Open Widget
         </button>
       </div>
     </div>
@@ -822,29 +914,40 @@
       <!-- Bento 1: Hero Banner (Full Width) -->
       <article class="bento-card col-span-12 card-hero">
         <div class="hero-content">
-          <h1 style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Universal Accessibility Playground</h1>
+          <h1>Universal Accessibility Playground</h1>
           <p>
             Interactive developer sandbox to test typography scaling, color contrast, dyslexia modes, screen reader assist, and runtime API hooks.
           </p>
           <div class="hero-buttons">
-            <button type="button" class="btn-action" id="openMenuBtn">🚀 Launch Menu</button>
-            <button type="button" class="btn-action" id="closeMenuBtn">✕ Close Menu</button>
-            <button type="button" class="btn-action" id="getSettingsBtn">⚙️ Log Settings</button>
+            <button type="button" class="btn-hero-primary" id="openMenuBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Launch Menu
+            </button>
+            <button type="button" class="btn-hero-dark" id="closeMenuBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Close Menu
+            </button>
+            <button type="button" class="btn-action" id="getSettingsBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Log Settings
+            </button>
           </div>
         </div>
         <div class="hero-badge-preview">
-          <img src="./logo-title.webp" alt="Visua11y Agent Badge" />
+          <img src="./logo-title.avif" alt="Visua11y Agent Badge" />
         </div>
       </article>
 
       <!-- Bento 1.5: 1-Click Embed Code Generator (Full Width) -->
-      <article class="bento-card col-span-12" id="embedGeneratorCard" style="background: #ffffff; border: 1px solid #e2e8f0;">
+      <article class="bento-card col-span-12" id="embedGeneratorCard">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">⚡</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
             <h2 class="card-title">1-Click Embed Code Generator</h2>
           </div>
-          <span class="card-tag" style="background: #ecfdf5; color: #059669; border-color: #a7f3d0;">Instant Integration</span>
+          <span class="card-tag">Instant Integration</span>
         </div>
         <p class="card-desc">
           Customize your accessibility widget options and copy the ready-to-use HTML snippet for WordPress, Shopify, Webflow, React, Vue, or static HTML.
@@ -896,7 +999,8 @@
             <div class="generator-code-header">
               <span>HTML / Script Snippet</span>
               <button type="button" class="btn-copy-embed" id="copyEmbedBtn">
-                📋 Copy Code
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Code
               </button>
             </div>
             <pre class="generator-code-box" id="embedCodeDisplay"><code>&lt;!-- Visua11y Agent Universal Accessibility Widget --&gt;
@@ -908,9 +1012,13 @@
   defer
 &gt;&lt;/script&gt;</code></pre>
             <div class="generator-code-footer">
-              <span class="generator-code-tip">💡 Paste right before <code>&lt;/body&gt;</code> in your website template.</span>
+              <span class="generator-code-tip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                Paste right before <code>&lt;/body&gt;</code> in your website template.
+              </span>
               <button type="button" class="btn-action" id="testInLiveWidgetBtn" style="font-size: 0.72rem;">
-                🚀 Test in Widget
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Test in Widget
               </button>
             </div>
           </div>
@@ -921,7 +1029,9 @@
       <article class="bento-card col-span-7">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">📝</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+            </span>
             <h2 class="card-title">Live Typography &amp; Reflow Lab</h2>
           </div>
           <span class="card-tag">Content Test</span>
@@ -944,7 +1054,9 @@
       <article class="bento-card col-span-5" aria-labelledby="motionTestTitle">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">⚡</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </span>
             <h2 id="motionTestTitle" class="card-title">Motion Stress Test</h2>
           </div>
           <span class="card-tag">Animation Halt</span>
@@ -970,17 +1082,31 @@
       <article class="bento-card col-span-4">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">🎯</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2z"/><circle cx="12" cy="4" r="2"/></svg>
+            </span>
             <h2 class="card-title">Quick Action Profiles</h2>
           </div>
           <span class="card-tag">Presets</span>
         </div>
         <p class="card-desc">Activate accessibility profiles with <code>setProfile</code> / <code>toggleTool</code>.</p>
         <div class="controls-cluster">
-          <button type="button" class="btn-action" id="toggleHighContrast">⚡ High Contrast</button>
-          <button type="button" class="btn-action" id="toggleBigCursor">🖱️ Big Cursor</button>
-          <button type="button" class="btn-action" id="setProfileBlind">🦯 Blind Mode</button>
-          <button type="button" class="btn-action" id="setProfileLowVision">👓 Low Vision</button>
+          <button type="button" class="btn-action" id="toggleHighContrast">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/></svg>
+            High Contrast
+          </button>
+          <button type="button" class="btn-action" id="toggleBigCursor">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>
+            Big Cursor
+          </button>
+          <button type="button" class="btn-action" id="setProfileBlind">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            Blind Mode
+          </button>
+          <button type="button" class="btn-action" id="setProfileLowVision">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+            Low Vision
+          </button>
         </div>
       </article>
 
@@ -988,7 +1114,9 @@
       <article class="bento-card col-span-4">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">🎨</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </span>
             <h2 class="card-title">Image Desaturation</h2>
           </div>
           <span class="card-tag">Color Filter</span>
@@ -996,8 +1124,8 @@
         <p class="card-desc">Toggle <em>Image Desaturation</em> to test SVG &amp; raster image grayscale.</p>
         <div class="media-gallery">
           <div class="media-item">
-            <img src="./logo.webp" alt="Visua11y Mascot" />
-            <span>Logo WebP</span>
+            <img src="./logo-256x256.avif" alt="Visua11y Mascot" />
+            <span>Logo AVIF</span>
           </div>
           <div class="media-item">
             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b6b'/%3E%3Cstop offset='50%25' stop-color='%23feca57'/%3E%3Cstop offset='100%25' stop-color='%2348dbfb'/%3E%3C/linearGradient%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='40' height='40'%3E%3Crect width='40' height='40' fill='url(%23g)'/%3E%3Ccircle cx='20' cy='20' r='12' fill='%23341f97' opacity='0.75'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='240' fill='url(%23p)'/%3E%3C/svg%3E" alt="Vibrant pattern sample" />
@@ -1010,7 +1138,9 @@
       <article class="bento-card col-span-4">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">🌐</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </span>
             <h2 class="card-title">Dynamic Locales</h2>
           </div>
           <span class="card-tag">i18n</span>
@@ -1026,7 +1156,7 @@
         <div class="controls-cluster">
           <button type="button" class="btn-action" id="registerJavanese">Basa Jawa (jv)</button>
           <button type="button" class="btn-action" id="registerSundanese">Basa Sunda (su)</button>
-          <button type="button" class="btn-action" id="registerPirate">Pirate 🏴‍☠️</button>
+          <button type="button" class="btn-action" id="registerPirate">Pirate Custom</button>
           <button type="button" class="btn-action" id="overrideEnglish">Corporate EN</button>
         </div>
       </article>
@@ -1035,7 +1165,9 @@
       <article class="bento-card col-span-8">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">🛠️</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
             <h2 class="card-title">Developer API &amp; Customization Hub</h2>
           </div>
           <span class="card-tag">window.Visua11yAgentPlugin</span>
@@ -1045,8 +1177,14 @@
           <div class="api-group">
             <span class="api-group-title">Launcher Icon</span>
             <div class="controls-cluster">
-              <button type="button" class="btn-action" id="setEmojiIcon">🌈 Emoji</button>
-              <button type="button" class="btn-action" id="setDefaultIcon">Default</button>
+              <button type="button" class="btn-action" id="setEmojiIcon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Custom SVG
+              </button>
+              <button type="button" class="btn-action" id="setDefaultIcon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                Default
+              </button>
             </div>
           </div>
 
@@ -1122,7 +1260,7 @@
           <span>Widget initialized. Ready for commands.</span>
         </div>
         <span style="margin-top: 10px; font-size: 0.7rem; color: #64748b;">
-          💡 Open browser DevTools to access <code>window.Visua11yAgentPlugin</code>.
+          Access API directly via <code>window.Visua11yAgentPlugin</code> in browser console.
         </span>
       </article>
 
@@ -1130,7 +1268,9 @@
       <article class="bento-card col-span-12">
         <div class="card-header">
           <div class="card-title-group">
-            <span class="card-icon">✅</span>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
             <h2 class="card-title">Manual QA Verification Checklist</h2>
           </div>
           <span class="card-tag">Test Plan</span>

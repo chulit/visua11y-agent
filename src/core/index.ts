@@ -4,6 +4,7 @@ import { renderWidget, applyButtonIcon, applyButtonPosition } from '@/components
 import reset from '@/components/menu/reset';
 import { openMenu, closeMenu } from '@/components/menu/menu';
 import renderTools from '@/components/menu/renderTools';
+import { applyPanelWidth } from '@/components/menu/renderMenu';
 
 import { userSettings, getSavedUserSettings, saveUserSettings } from '@/config/userSettings';
 
@@ -111,9 +112,11 @@ export default function visua11yAgent(config: Record<string, unknown> = {}) {
     const resolved = resolveWidgetSize(size);
     pluginConfig.size = resolved.size;
     pluginConfig.sizePreset = resolved.preset;
+    pluginConfig.panelWidth = resolved.panelWidth;
     userSettings.widgetSize = resolved.preset ?? resolved.size;
     saveUserSettings();
     applyButtonPosition();
+    applyPanelWidth(resolved.panelWidth);
   }
 
   function setButtonSize(size: number) {

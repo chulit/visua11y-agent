@@ -377,7 +377,10 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 12px;
+  padding: 12px 20px 20px 20px;
+  border-top: 1px solid var(--visua11y-hairline);
+  margin-top: 0;
+  background: var(--visua11y-paper);
   transition:
     opacity 0.2s ease,
     max-height 0.25s ease,
@@ -386,12 +389,14 @@
 }
 
 .visua11y-agent-profile-grid.is-collapsed {
+  display: none !important;
   opacity: 0;
   transform: translateY(-6px);
   pointer-events: none;
   max-height: 0;
   margin: 0 !important;
   padding: 0 !important;
+  border: none !important;
 }
 
 @media (max-width: 460px) {
@@ -560,43 +565,45 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 12px !important;
+  background: var(--visua11y-paper) !important;
   border: 0 !important;
-  background: transparent !important;
-  padding: 0 !important;
+  border-radius: 0 !important;
+  padding: 16px 20px !important;
   margin: 0 !important;
   cursor: pointer !important;
   text-align: left !important;
+  transition: background 0.2s ease !important;
+}
+
+.visua11y-agent-profile-toggle:hover {
+  background: var(--visua11y-cloud) !important;
 }
 
 .visua11y-agent-profile-toggle-arrow {
   flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: var(--visua11y-paper);
-  border: 1px solid var(--visua11y-hairline);
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background: transparent;
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--visua11y-slate-gray);
 }
 
 .visua11y-agent-profile-toggle-arrow::after {
   content: '';
-  width: 6px;
-  height: 6px;
-  border-right: 2px solid var(--visua11y-signal-blue);
-  border-bottom: 2px solid var(--visua11y-signal-blue);
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--visua11y-slate-gray);
+  border-bottom: 2px solid var(--visua11y-slate-gray);
   transform: rotate(-135deg);
-  margin-top: 2px;
-  transition: transform 0.25s ease, margin-top 0.25s ease;
-}
-
-.visua11y-agent-profile-toggle:hover .visua11y-agent-profile-toggle-arrow {
-  background: var(--visua11y-soft-blue);
-  border-color: #bfdbfe;
+  margin-top: 3px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.25s ease;
 }
 
 .visua11y-agent-profiles-card {
@@ -604,9 +611,11 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
   background: var(--visua11y-paper) !important;
   border: 1px solid var(--visua11y-hairline) !important;
   box-shadow: none !important;
-  padding: 14px 16px !important;
+  padding: 0 !important;
   margin-top: 6px !important;
-  transition: border-color 0.2s ease, padding 0.2s ease;
+  margin-bottom: 16px !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s ease !important;
 }
 
 .visua11y-agent-profiles-card:hover {
@@ -614,26 +623,47 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
 }
 
 .visua11y-agent-profiles-card.is-collapsed {
-  padding: 10px 16px !important;
-  margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 16px !important;
 }
 
 .visua11y-agent-profiles-card .visua11y-agent-card-title {
-  display: inline-flex !important;
-  flex: 1 !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: flex-start !important;
   padding: 0 !important;
-  gap: 10px !important;
-  font-size: 14px !important;
+  gap: 12px !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
   color: var(--visua11y-ink-navy) !important;
   opacity: 1 !important;
 }
 
+.visua11y-agent-profiles-card .visua11y-agent-card-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.visua11y-agent-profiles-card .visua11y-agent-card-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+  fill: var(--visua11y-ink-navy) !important;
+  display: block !important;
+}
+
 .visua11y-agent-profiles-card.is-collapsed .visua11y-agent-profile-toggle-arrow::after {
   transform: rotate(45deg);
-  margin-top: -2px;
+  margin-top: -3px;
 }
 
 .visua11y-agent-position-card.visua11y-agent-position-open .visua11y-agent-position-toggle {
@@ -1352,3 +1382,324 @@ html.aws-filter .visua11y-agent-container .visua11y-agent-profile-btn.visua11y-a
     gap: 0.5rem;
   }
 }
+
+/* ==========================================================================
+   Small Widget Menu Refinements (Only active when size is small / <= 380px)
+   ========================================================================== */
+.visua11y-agent-menu.visua11y-agent-menu-small {
+  font-size: 13px;
+}
+
+/* Container & Cards spacing */
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-card {
+  margin: 0 10px 10px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-card-title {
+  font-size: 13px !important;
+  padding: 6px 0 !important;
+}
+
+/* Accessibility Profiles Card (Same exact design & height as Widget Settings) */
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profiles-card {
+  padding: 0 !important;
+  margin: 0 10px 10px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-toggle {
+  padding: 8px 12px !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: var(--visua11y-paper) !important;
+  transition: background 0.2s ease !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-toggle:hover {
+  background: var(--visua11y-cloud) !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profiles-card .visua11y-agent-card-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--visua11y-ink-navy) !important;
+  padding: 0 !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profiles-card .visua11y-agent-card-icon {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profiles-card .visua11y-agent-card-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: var(--visua11y-ink-navy) !important;
+  display: block !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-toggle-arrow {
+  width: 15px !important;
+  height: 15px !important;
+  min-width: 15px !important;
+  min-height: 15px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-toggle-arrow::after {
+  width: 6px !important;
+  height: 6px !important;
+  border-right: 2px solid var(--visua11y-slate-gray) !important;
+  border-bottom: 2px solid var(--visua11y-slate-gray) !important;
+  transform: rotate(-135deg) !important;
+  margin-top: 2px !important;
+  transition: transform 0.25s ease, margin-top 0.25s ease !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profiles-card.is-collapsed .visua11y-agent-profile-toggle-arrow::after {
+  transform: rotate(45deg) !important;
+  margin-top: -2px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-grid {
+  padding: 8px 10px 12px !important;
+  border-top: 1px solid var(--visua11y-hairline) !important;
+  margin: 0 !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-grid.is-collapsed {
+  display: none !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-btn {
+  padding: 10px 8px !important;
+  border-radius: 10px !important;
+  gap: 4px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-head {
+  gap: 6px !important;
+  align-items: flex-start !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-label {
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  border-radius: 6px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-icon svg {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-profile-desc {
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+}
+
+/* Action Buttons (Typography, Color, Tools) */
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-items {
+  gap: 8px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-btn {
+  padding: 8px 4px !important;
+  gap: 6px !important;
+  border-radius: 12px !important;
+  min-height: 76px !important;
+  aspect-ratio: auto !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  hyphens: none !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-btn svg {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-btn .visua11y-agent-translate {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  letter-spacing: -0.01em !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-contrast-bars {
+  margin-top: 4px !important;
+  gap: 3px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-contrast-bar {
+  width: 18px !important;
+  height: 3px !important;
+}
+
+/* Adjust Font Card */
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-adjust-font {
+  padding: 10px 12px !important;
+  border-radius: 12px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-adjust-font > div {
+  margin-top: 10px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-adjust-font .visua11y-agent-label div {
+  font-size: 13px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-amount {
+  font-size: 16px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-plus,
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-minus {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 15px !important;
+}
+
+/* Widget Settings Card & Toggle (Height & Padding Fix) */
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-settings-card {
+  padding: 0 !important;
+  margin: 0 10px 10px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-settings-toggle {
+  padding: 8px 12px !important;
+  min-height: 40px !important;
+  font-size: 13px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-settings-info {
+  gap: 8px !important;
+  font-size: 13px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-settings-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-settings-toggle-arrow svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-settings-panel {
+  padding: 8px 10px 12px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-position-card .visua11y-agent-position-grid {
+  gap: 6px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-position-btn {
+  padding: 6px 3px !important;
+  border-radius: 10px !important;
+  min-height: 52px !important;
+  gap: 4px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-position-btn svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-position-btn span {
+  font-size: 10px !important;
+  line-height: 1.15 !important;
+  white-space: normal !important;
+  letter-spacing: -0.02em !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-size-grid {
+  gap: 6px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-size-btn {
+  padding: 6px 4px !important;
+  border-radius: 10px !important;
+  min-height: 52px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-size-icon {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-size-btn span {
+  font-size: 11px !important;
+}
+
+/* Footer in Small Mode */
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-footer {
+  padding: 8px 12px !important;
+  gap: 6px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-footer img {
+  height: 30px !important;
+  max-width: 34px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-footer a {
+  font-size: 13px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-footer small {
+  font-size: 10px !important;
+}
+
+.visua11y-agent-menu.visua11y-agent-menu-small .visua11y-agent-menu-reset-footer-btn {
+  font-size: 13px !important;
+  padding: 8px !important;
+}
+
